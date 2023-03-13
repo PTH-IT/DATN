@@ -1,0 +1,81 @@
+﻿@model List<DOANTOTNGHIEP.Models.CauHoi>
+@{
+    Layout = "~/Views/Shared/Layoutclass.cshtml";
+    string malop = ViewBag.malop;
+   
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+    
+
+    <script type="text/javascript">
+        $(function () {
+            var baitap = $.connection.chat;
+
+            $(".luu").click(function () {
+                baitap.server.baitaps("@malop");
+            });
+
+
+
+        })
+    </script>
+</head>
+<body >
+    <div class="row" style="border:0px solid #000000;border-radius:5px; padding:20px;">
+        <div class="col-md-10">
+            @if (Model != null)
+            {
+                int slcau = 0;
+
+                string[] slda = { "A", "B", "C", "D" };
+                foreach (var i in Model)
+                {
+                    <div style="padding:10px;margin-left:20px;border:0.5px solid black;border-radius:5px" class="@i.MaCauHoi">
+
+                        @{
+
+
+                            slcau++;
+
+                            int z = 0;
+                            <label style="font-size:20px">câu @slcau :</label>@Html.Raw(@i.NoiDung)<br />
+
+                            foreach (var j in i.DapAns.ToList())
+                            {
+                                if (j.LoaiDapAn.Value)
+                                {
+                                    <label style="color:red;margin-left:40px;">@slda[z] :</label>@Html.Raw(@j.NoiDung)<br />
+                                }
+                                else if (!j.LoaiDapAn.Value)
+                                {
+                                    <label style="margin-left: 40px;">@slda[z] :</label>@Html.Raw(@j.NoiDung)<br />
+                                }
+
+                                z++;
+
+
+
+                            }
+
+                        }
+                        <br />
+                    </div>
+                }
+            }
+
+        </div>
+        <div class="col-md-2" style="padding:10px;position:fixed;right:0px" >
+            <a href="~/Exercise/luucauhoitracnghiem?malop=@malop" class="luu" style=" background-image: linear-gradient(to right,#0404B4,#A901DB); padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 20px; margin: 2%">Save</a>
+            <a href="~/Exercise/Index/@malop" style=" background-image: linear-gradient(to right,#0404B4,#A901DB); padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 20px; margin: 2%">Cancel</a>
+        </div>
+        </div>
+</body>
+</html>

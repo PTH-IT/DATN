@@ -1,0 +1,118 @@
+﻿@model List<DOANTOTNGHIEP.Models.ThanhVienLop>
+@{
+    Layout = "~/Views/Shared/Layoutclass.cshtml";
+    var user = ViewBag.user as DOANTOTNGHIEP.Models.TaiKhoan;
+    string nguoitao = user.TenDangNhap;
+    var malop = ViewBag.malop;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <style type="text/css">
+        .divthanhvien::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+        #thanhvien:hover {
+            font-size: 20px;
+        }
+
+        .divthanhvien {
+            float: left;
+            border: 0px solid #000000;
+            width: 16%;
+            min-height: 100%;
+            overflow-y: scroll;
+            padding: 5px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 10px 5px 5px rgb(0 0 0 / 10%);
+            
+        }
+
+        #thanhvien {
+            width: 100%;
+            border: 0px;
+            text-align: left;
+            height:fit-content
+        }
+
+        .divmess {
+            float: right;
+            border: 0px solid #000000;
+            width: 80%;
+            min-height: 100%;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 10px 5px 5px rgb(0 0 0 / 10%);
+          
+        }
+    </style>
+
+
+  
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.0').trigger("click");
+            
+        });
+        reset();
+        $('.headmess').css("color", "black");
+        $('.headmess').css("background-color", "white");
+       
+    </script>
+</head>
+<body>
+    <div  style="height:100%;padding:10px">
+
+
+
+        @*thanh vien lop*@
+
+        <div class="divthanhvien">
+            <div class="nguoimoi"> </div>
+                @{
+                    int z = 0;
+                    foreach (var i in Model)
+                    {
+                        if (!i.Mathanhvien.Equals(nguoitao))
+                        {
+                            using (Ajax.BeginForm("InforMess", "Message", new {  id = i.Mathanhvien , malop = malop } ,new AjaxOptions {  HttpMethod = "POST", UpdateTargetId = "mess"  } , new { @class = "thanhvien_"+i.TaiKhoan.TenDangNhap } ))
+                            {
+
+                            <div style="width:100%;border:0px;margin-bottom:0px;" id="thanhvien" >
+                                <div id="trangthaionline" class="Trangthai_@i.TaiKhoan.TenDangNhap" style="border:2px solid white;width: 10px; height: 10px; border-radius: 10px; background-color: grey; position: absolute; z-index: 20; margin-top: 1px; margin-left: 5px"> </div>
+                                <button class=@z style="width: 100%; border: 0px; background-color: transparent; text-align: left">
+                                    <img class="navbar-link" src=@i.TaiKhoan.HinhAnh width="30" height="30" style="border-radius:45px;" />
+                                    @i.TaiKhoan.Ho @i.TaiKhoan.Ten
+
+                                </button>
+
+                            </div>
+                                z++;
+                            }
+                        }
+
+                    }
+                }
+            </div>
+
+            @*tin nhan*@
+            <div class="divmess" id="mess" style="background-color:white">
+
+            </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿@model DOANTOTNGHIEP.Models.TaiKhoan
+@{
+    Layout = null;
+
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Report Login Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
+    <!-- //Meta tag Keywords -->
+    <link href="~/Content/css/register.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="registera">
+        <div class="register">
+
+            <h2>Register</h2>
+            @using (Html.BeginForm("checkaccountRegister", "Account", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="group">
+                    @Html.TextBoxFor(model => model.Ho, new { @class = "text", placeholder = "Surname", required= "required" })
+                </div>
+                <div class="group">
+                    @Html.TextBoxFor(model => model.Ten, new { @class = "text", placeholder = "Name" , required = "required" })
+                </div>
+                <div class="group">
+                    @Html.TextBoxFor(model => model.TenDangNhap, new { @class = "text",  placeholder = "Username" , required = "required" })
+                </div>
+                <div class="group">
+                    @Html.TextBoxFor(model => model.Email, new { @class = "text",  placeholder = "Email", @pattern = "[^@\\s]+@[^@\\s]+\\.[^@\\s]+", @title = "Invalid email address" })
+                </div>
+                <div class="group">
+                    @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "password", type = "password", placeholder = "Password" , required = "required", @pattern = ".{5,20}", @title = "Minimum length  is 5 maximum length is 20" } })
+                </div>
+                <div class="group">
+                    <input type="password"  name="confirmpass" placeholder="Confirm Password" required  pattern=".{5,20}" title="Minimum length  is 5 maximum length is 20" />
+                </div>
+                
+                <br />
+                <button id="login" type="submit" >Đăng ký</button><br />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger", @color = "White" })
+                <br />
+
+            }
+            <p class="ss">Do have an account? <a href="~/Login/Login">Login</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

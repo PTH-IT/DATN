@@ -1,0 +1,126 @@
+﻿@model DOANTOTNGHIEP.Models.BaiTapTN
+@{
+    ViewData["Title"] = "Bài tập SV";
+    Layout = "~/Views/Shared/Layoutclass.cshtml";
+    var user = ViewBag.user as DOANTOTNGHIEP.Models.TaiKhoan;
+    string nguoitao = user.TenDangNhap;
+    var malop = ViewBag.malop;
+    var mabainop = ViewBag.mabainop;
+    var nguoinop = ViewBag.nguoinop;
+    var mabaitaptn = ViewBag.mabaitaptn;
+}
+@*cho hc sinh*@
+<style type="text/css">
+    
+</style>
+<body  style="margin-top:30px;">
+    <div class="d-flex justify-content-between" style="padding: 30px">
+
+        <div class="row">
+            <div class="col-sm-8 col-sm-oset-1" style=" border: 0px solid #000000; border-radius: 10px; margin-top: 10px; padding: 10px; background-color: #FAFAFA; box-shadow: 10px 5px 5px rgb(0 0 0 / 20%);">
+
+                <table style="margin-bottom:20px;">
+                    <tr>
+                        <th><img src=@Model.BaiTap.LopHoc.TaiKhoan.HinhAnh width="30" height="30" style="border-radius:45px;" /></th>
+                        <th style="padding-left:10px;width:100%">
+                            <label>@Model.BaiTap.LopHoc.TaiKhoan.Ho  @Model.BaiTap.LopHoc.TaiKhoan.Ten</label><br />
+
+                            <label style="font-size:10px;">@Model.BaiTap.ThoiGianDang.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label>
+                            <label class="ngayhethanbaitap navbar-right" style="margin-right:5%">thoi gian kết thúc: @Model.BaiTap.ThoiGianKetThuc.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label><br />
+                        </th>
+                    </tr>
+                </table>
+                <hr style="border:0.5px solid black" />
+                <div>
+                    <label style="font-size:20px;">Chủ đề:@Model.BaiTap.ChuDe</label><br />
+                </div>
+                <div style=" padding:20px">@Html.Raw(Model.BaiTap.Thongtin)</div><br />
+                <button class="fa fa-group" style="background-color:transparent;border:0;font-size:18px">Thêm nhận xét bài tập</button>
+
+
+            </div>
+            <div class="col-sm-3" style=" margin-left:10px; border: 0px solid black; border-radius: 10px; margin-top: 10px; padding: 10px; background-color: #FAFAFA; box-shadow: 10px 5px 5px rgb(0 0 0 / 20%);">
+                <img src=@Model.TaiKhoan.HinhAnh width="30" height="30" style="border-radius:45px;" />
+                <label>@Model.TaiKhoan.Ho  @Model.TaiKhoan.Ten</label> <label class="navbar-right" style="margin-right:10px">@Model.Diem/100</label><br />
+
+                <br />
+                <table style="clear:none;padding:20px">
+                    <tr>
+                        <th style="margin-left:30px;text-align:right" colspan="2">
+                            @if (Model.NgayNop != null)
+                            {
+
+                            }
+
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><label style="font-size:20px">Bài tập của bạn </label></th>
+                        <th>
+                            @{
+                                if (Model.NgayNop == null)
+                                {
+                                    <label style="color:red;margin-left:10px">Chưa Nộp</label>
+                                }
+                                else if (Model.NgayNop <= Model.BaiTap.ThoiGianKetThuc)
+                                {
+                                    <label style="margin-left:10px">Đã nộp</label>
+                                }
+                                else if (Model.NgayNop > Model.BaiTap.ThoiGianKetThuc)
+                                {
+                                    <label style="color:red;margin-left:10px">Nộp muộn</label>
+                                }
+
+
+                            }
+
+                        </th>
+                    </tr>
+                    <tr style="margin-top:20px">
+                        <th>
+
+                            @if (Model.NgayNop != null)
+                            {<br />
+                                <label>Ngày nộp  :@Model.NgayNop.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label>
+                            }
+                            <br /><br />
+                        </th>
+                    </tr>
+
+                    <tr style="padding:10px">
+
+
+
+                        <th>
+                            @{
+
+                                if (Model.NgayNop == null && Model.NguoiNop.Equals(nguoitao))
+                                {
+                                    <div><a href="~/Exercise/LamBaiTN?id=@Model.MaBaiTap&&malop=@malop">làm bài</a></div>
+                                }
+                                else if (Model.NgayNop != null)
+                                {
+                                    <a href="~/Exercise/ShowBaiThiTN?id=@Model.MaBaiNop&&malop=@malop">xem bai thi</a>
+                                }
+
+                            }
+
+
+
+                        </th>
+
+                    </tr>
+                </table>
+
+
+
+
+
+
+
+            </div>
+        </div>
+     
+
+    </div>
+</body>

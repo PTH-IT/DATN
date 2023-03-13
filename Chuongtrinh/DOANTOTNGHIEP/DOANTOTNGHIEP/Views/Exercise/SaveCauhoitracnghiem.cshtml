@@ -1,0 +1,442 @@
+﻿@model List<DOANTOTNGHIEP.Models.CauHoi>
+@{
+
+    Layout = "~/Views/Shared/Layoutclass.cshtml";
+
+    var user = ViewBag.user ;
+    var malop = ViewBag.malop as string;
+    var baitap = ViewBag.baitap as DOANTOTNGHIEP.Models.BaiTap;
+   
+
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+    <style type="text/css">
+
+        .headbaitap {
+            background-color: white !important;
+        }
+
+        input {
+            outline: none;
+            margin-bottom: 10px;
+            border-radius: 5px
+        }
+
+        textarea {
+            max-width: 100%;
+            height: 200px;
+            width: 100%;
+            outline: none;
+            margin-bottom: 10px;
+            border-radius: 20px
+        }
+
+
+
+        .dangTN {
+            margin: 20px;
+            margin-right: 30px !important;
+        }
+
+        .save {
+            margin: 20px;
+        }
+
+        .huySuaBaitap {
+            text-align: center;
+            margin: auto;
+            display: block;
+            background-color: transparent;
+            border: 0px
+        }
+
+        .huyeditcauhoi {
+            text-align: center;
+            margin: auto;
+            display: block;
+            background-color: transparent;
+            border: 0px
+        }
+
+        .hidedangbaitap {
+            text-align: center;
+            margin: auto;
+            display: none;
+            background-color: transparent;
+            border: 0px
+        }
+
+        .divfilebaitap {
+            padding: 10px;
+            border: 0.5px solid black;
+            border-radius: 5px;
+            margin-left: 20px;
+            width: fit-content;
+            margin-bottom: 5px
+        }
+
+        .imgfilebaitap {
+            background-color: transparent;
+            border: 0px;
+            background-size: cover
+        }
+
+        hr {
+            border: 0.5px solid black;
+            margin-bottom: 10px;
+            margin-top: 0px;
+        }
+
+        #hideSuaBaiTap {
+            width: 100%;
+            box-shadow: 10px 5px 5px rgb(0 0 0 / 20%);
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 10px;
+            display: none;
+            margin-top: 10px;
+        }
+
+        #addcauhoi {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 10px;
+            display: none;
+            box-shadow: 10px 5px 5px rgb(0 0 0 / 20%);
+            background: white;
+        }
+
+        #baitap {
+            width: 100%;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 30px;
+        }
+
+        .themfiletb {
+            border-radius: 20px;
+            background-image: linear-gradient(to right,#FF00BF,#D8D8D8);
+            padding: 10px
+        }
+
+        .noidung {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+            padding: 30px;
+            box-shadow: 10px 5px 5px rgb(0 0 0 / 20%);
+            background: white;
+        }
+
+        #cauhoi {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 10px 5px 5px rgb(0 0 0 / 10%);
+            background: white;
+        }
+
+        .danhsachcauhoi {
+            padding: 30px;
+            margin: auto;
+            box-shadow: 10px 5px 5px rgb(0 0 0 / 20%);
+            background: white;
+            display: none;
+            background-color: white;
+            position: relative;
+            top: 20%;
+            border-radius: 20px
+        }
+    </style>
+
+
+
+
+@*
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            load(".noidungTL");
+            load(".addch");
+            $('.editcauhoi').click(function () {
+                $('.noidung').css("display", "none");
+                $('#infor-' + this.id).css("display", "block");
+                load("textarea#sua-" + this.id);
+            });
+
+            $('.editbaitap').click(function () {
+                $('.noidung').css("display", "none");
+
+                $('.hideSuaBaitap').css("display", "block");
+            });
+
+            $('.add').click(function () {
+                $('.noidung').css("display", "none");
+
+                $('.addcauhoi').css("display", "block");
+            });
+
+            $('.huyeditcauhoi').click(function () {
+                $('.noidung').css("display", "block");
+
+                $('#infor-' + this.id).css("display", "none");
+            });
+
+            $(".huySuaBaitap").click(function () {
+                $('.noidung').css("display", "block");
+                $(".hideSuaBaitap").css("display", "none");
+                $(".addcauhoi").css("display", "none");
+
+            });
+            $(".deletecauhoi").click(function () {
+                var answer = window.confirm("delete data");
+                if (answer) {
+                    $.ajax({
+                        url: '/Exercise/deletecauhoitracnghiem', type: 'post',
+                        data: {
+                            macauhoi: "2",
+                            malop: "1",
+
+                        },
+
+
+
+                    });
+                    $("div." + this.id).remove();
+                }
+                else {
+
+                }
+
+
+            });
+
+
+
+
+        });
+
+
+
+        function load(x) {
+            var myElement = $(x);
+            myElement.summernote({
+                // set editor height
+                placeholder: 'Nhập thông tin bạn muốn đăng',
+                toolbar: [
+                    ['insert', ['emoji']],
+                ['style', ['style']],
+                ['fontname', ['fontname']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', ]],
+                ['view', ['fullscreen', 'undo', 'redo' ,'codeview']],
+                    ],
+                disableResizeEditor: true,
+                height: 200,
+                minHeight: null, // set minimum height of editor
+                maxHeight: null // set maximum height of editor
+                // set focus to editable area after initializing summernote
+            });
+        }
+
+
+    </script>*@
+</head>
+<body class="container preloading" style="margin-top:20px">
+
+    @*<div class="loader" style="width: 100%; height: 100%; background: #00b8ff; position: fixed; top: 0; left: 0; z-index: 100000000000; display: block; overflow: hidden;">
+            <span class="fas fa-spinner xoay icon"></span>
+        </div>*@
+
+    <div class="noidung">
+        <table style="margin-bottom:20px;">
+            <tr>
+                <th><img src=@baitap.LopHoc.TaiKhoan.HinhAnh width="30" height="30" style="border-radius:45px;" /></th>
+                <th style="padding-left:10px;width:100%">
+                    <label>@user.Ho  @user.Ten</label><br />
+
+                    <label style="font-size:10px;">@baitap.ThoiGianDang.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label>
+                    <label class="ngayhethanbaitap navbar-right" style="margin-right:5%">Ngày kết thúc: @baitap.ThoiGianKetThuc.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label><br />
+                </th>
+            </tr>
+        </table>
+        <hr style="border:0.5px solid black" />
+        <div>
+            <label style="font-size:20px;">Chủ đề:@baitap.ChuDe</label><br />
+        </div>
+        <div style=" padding:20px">@Html.Raw(@baitap.Thongtin)</div><br />
+
+        <button class="fa fa-plus-circle navbar-right add" style="margin-right:2%;margin-bottom:20px;border:0px;background-color:transparent"></button>
+
+        <button class="glyphicon glyphicon-edit navbar-right editbaitap" style="margin-right:2%;margin-bottom:20px;border:0px;background-color:transparent"></button><br />
+        <br />
+        @if (Model != null)
+        {
+            int slcau = 0;
+
+            string[] slda = { "A", "B", "C", "D" };
+            foreach (var i in Model)
+            {
+                <div id="cauhoi" class="@i.MaCauHoi">
+
+                    @{
+                        slcau++;
+
+                        int z = 0;
+                        <label style="font-size:20px">câu @slcau :@Html.Raw(@i.NoiDung)</label><br />
+
+                        foreach (var j in i.DapAns.ToList())
+                        {
+                            if (j.LoaiDapAn.Value)
+                            {
+                                <label style="color:red;margin-left:40px;">@slda[z] :@Html.Raw(@j.NoiDung)</label><br />
+                            }
+                            else if (!j.LoaiDapAn.Value)
+                            {
+                                <label style="margin-left: 40px;">@slda[z] :@Html.Raw(@j.NoiDung)</label><br />
+                            }
+
+                            z++;
+
+
+
+                        }
+                    }
+                    <button class="fa fa-trash-o navbar-right deletecauhoi" id="@i.MaCauHoi" style="margin-right:2%;margin-bottom:20px;border:0px;background-color:transparent"></button>
+
+                    <button class="glyphicon glyphicon-edit navbar-right editcauhoi" id="@i.MaCauHoi" style="margin-right:2%;margin-bottom:20px;border:0px;background-color:transparent"></button>
+                    <br />
+                </div>
+
+
+            }
+        }
+
+        <div >
+            <a href="~/Exercise/luucauhoitracnghiem?malop=@malop" class="luu" style=" background-image: linear-gradient(to right,#0404B4,#A901DB); padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 20px; margin: 2%">Save</a>
+            <a href="~/Exercise/Index/@malop" style=" background-image: linear-gradient(to right,#0404B4,#A901DB); padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 20px; margin: 2%">Cancel</a>
+        </div>
+    </div>
+    @*<div class="addcauhoi" id="addcauhoi">
+        @{
+            using (Html.BeginForm("addcauhoitracnghiem", "Exercise", new { id = Model[0].MaBaiTap, malop = malop }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <h1>Thêm câu hỏi</h1>
+                <textarea placeholder="Nhập câu hỏi" required name="addcauhoi" class="addch"></textarea>
+
+                <input type="radio" name="da" value="A" checked />
+                <label style="color:red;margin-left:10px;">A</label>
+                <textarea placeholder="Nhập đáp án" required name="A" class="addch"></textarea><br />
+
+                <input type="radio" name="da" value="B" />
+                <label style="color:red;margin-left:10px;">B</label>
+                <textarea placeholder="Nhập đáp án" required name="B" class="addch"></textarea><br />
+
+                <input type="radio" name="da" value="C" />
+                <label style="color:red;margin-left:10px;">C</label>
+                <textarea placeholder="Nhập đáp án" required name="C" class="addch"></textarea><br />
+
+                <input type="radio" name="da" value="D" />
+                <label style="color:red;margin-left:10px;">D</label>
+                <textarea placeholder="Nhập đáp án" required name="D" class="addch"></textarea><br />
+                <button class="btn btn-primary navbar-right  dangTN">ADD</button>
+                <br />
+                <br />
+            }
+            <button class="huySuaBaitap glyphicon glyphicon-menu-up" id=ansuabaitap></button>
+        }
+    </div>
+
+    <div class="hideSuaBaitap" id="hideSuaBaiTap" style="display:none">
+        @using (Html.BeginForm("Editbaitaptn", "Exercise", new { id = Model[0].MaBaiTap, malop = malop }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="text" name="Chude" placeholder="Chủ đề" class="form-control" style="margin-bottom: 10px;" required value='@baitap.ChuDe' />
+            <textarea name="noidungbt" placeholder="Nội dung bài tập" class="form-control noidungTL" required>@baitap.Thongtin</textarea>
+
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <label>Hạn làm :</label>
+                </li>
+                <li class="nav-item">
+                    <input type="datetime-local" name="thoigiankethuc" class="thoigianTL form-control" required style="margin-left:10px" value="@baitap.ThoiGianKetThuc.Value.ToString(string.Format("yyyy-MM-ddThh:mm"))" />
+                </li>
+            </ul>
+            <button class="btn btn-primary navbar-right dangTN">Edit</button>
+            <br />
+            <br />
+        }
+
+        <button class="huySuaBaitap glyphicon glyphicon-menu-up" id="ansuabaitap"></button>
+    </div>*@
+    @if (Model != null)
+    {
+        int slcau = 0;
+
+        string[] slda = { "A", "B", "C", "D" };
+        foreach (var i in Model)
+        {
+
+
+            <div class="danhsachcauhoi" id="infor-@i.MaCauHoi">
+
+                @using (Html.BeginForm("editcauhoitracnghiem", "Exercise", new { malop = malop, macauhoi = i.MaCauHoi }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    {
+                        slcau++;
+
+                        int z = 0;
+                        <h1>câu hỏi</h1>
+                        <textarea placeholder="Nhập câu hỏi" name="cauhoi-@i.MaCauHoi" class="cauhoi" id="sua-@i.MaCauHoi">@Html.Raw(@i.NoiDung)</textarea>
+                        <br />
+
+                        foreach (var j in i.DapAns.ToList())
+                        {
+
+
+
+
+                            if (j.LoaiDapAn.Value)
+                            {
+                                <input type="radio" name="dapan-@i.MaCauHoi" value="@j.MaDapAn" id="@i.MaCauHoi" class="@j.MaDapAn" checked />
+                                <label style="color:red;margin-left:10px;">@slda[z] </label>
+                                <textarea placeholder="Nhập đáp án" class="@j.MaDapAn" name="dapan-@j.MaDapAn" required id="sua-@i.MaCauHoi">@Html.Raw(@j.NoiDung)</textarea><br />
+
+                            }
+                            else if (!j.LoaiDapAn.Value)
+                            {
+                                <input type="radio" name="dapan-@i.MaCauHoi" value="@j.MaDapAn" id="@i.MaCauHoi" class="@j.MaDapAn" />
+                                <label style="margin-left: 10px;">@slda[z] </label>
+                                <textarea placeholder="Nhập đáp án" class="@j.MaDapAn" name="dapan-@j.MaDapAn" required id="sua-@i.MaCauHoi">@Html.Raw(@j.NoiDung)</textarea><br />
+                            }
+
+                            z++;
+                        }
+
+                    }
+
+                    <br />
+                    <button class="btn btn-primary save">Save</button>
+
+                }
+                <button class="huyeditcauhoi glyphicon glyphicon-menu-up" id="@i.MaCauHoi"></button>
+            </div>
+
+        }
+    }
+    <div class="suacauhoi"></div>
+
+</body>
+</html>
+

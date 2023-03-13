@@ -1,0 +1,179 @@
+﻿@model DOANTOTNGHIEP.Models.TaiKhoan
+@using CaptchaMvc.HtmlHelpers;
+@{
+    Layout = null;
+
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Report Login Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
+    <!-- //Meta tag Keywords -->
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="//fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: white;
+            font-family: calibri;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            background-size: cover;
+            background-image: url('../../Content/image/imagelogin/photo-1-16034517575521192609863.jpg');
+        }
+
+        .login {
+            text-align: center;
+            position: relative;
+            width: 280px;
+            background-color: transparent;
+            border-radius: 20px;
+        }
+
+        .logina {
+            padding: 50px;
+            width: 380px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 20px;
+            height: 580px;
+        }
+
+        li, ul {
+            list-style-type: none;
+        }
+
+        input, button {
+            width: 100%;
+            border: 0;
+            border-radius: 20px;
+        }
+
+        input {
+            background: rgba(0,0,0,0.5);
+            border-bottom: 2px solid #444;
+            padding: 12px 40px 12px 20px;
+        }
+
+
+        input, button, .group i, p, a {
+            font-size: 13.3333px;
+            font-weight: 600;
+            color: aliceblue
+        }
+
+        .group {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+            .group i {
+                position: absolute;
+                top: 15px;
+                right: 20px;
+            }
+
+        button {
+            padding: 12px;
+            background-image: linear-gradient(to right, #1A6EFF, purple);
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+            button, button i {
+                color: #ffffff;
+            }
+
+                button i {
+                    margin-right: 5px;
+                }
+
+        li {
+            color: aliceblue;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        i.fa.fa-empire, a {
+            color: #ff1464;
+        }
+
+        i.fa.fa-empire {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        input:focus, input:focus::placeholder, input:focus + i {
+            color: #ff1464;
+        }
+
+        input:focus, button:focus {
+            outline: 0;
+        }
+
+
+
+
+        #fafa-send {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logina">
+        <div class="login">
+
+            <h2>Login</h2>
+            @using (Html.BeginForm("checkaccount", "Login", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="group">
+                    @Html.TextBoxFor(model => model.TenDangNhap, new { @class = "text", @autofocus = "autofocus", placeholder = "Username", autocomplete = "off", @required = "required" })
+                </div>
+                <div class="group">
+                    @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "password", type = "password", placeholder = "Password", autocomplete = "off" , @required = "required" } })
+                </div>
+                <div class="group">
+                    @Html.Captcha(5)
+                </div>
+                <br />
+                <button id="login" type="submit">Login</button><br />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger", @color = "White" })
+                <br />
+
+            }
+
+            <p class="fs">Forgot  <a href="~/Account/Forgotpass">Password</a> ? </p>
+            <p class="ss">Don't have an account? <a href="~/Account/Register">Signup</a></p>
+
+        </div>
+    </div>
+</body>
+
+</html>

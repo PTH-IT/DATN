@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Report Login Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
+    <!-- //Meta tag Keywords -->
+    <link href="~/Content/css/confirmemail.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="confirmemaila">
+        <div class="confirmemail">
+
+            <h2>Xác nhận email</h2>
+            @using (Html.BeginForm("checkmaxacnhan", "Account", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="group">
+                    <input type="text"  placeholder="Mã xác nhận" name="ma"/>
+                </div>
+
+                <br />
+                <button id="login" type="submit">Xác nhận email</button><br />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger", @color = "White" })
+                <br />
+
+            }
+            <p class="ss">Do have an account? <a href="~/Login/Login">Login</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

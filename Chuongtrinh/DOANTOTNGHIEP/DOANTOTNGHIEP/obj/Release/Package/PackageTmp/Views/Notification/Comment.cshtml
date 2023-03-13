@@ -1,0 +1,26 @@
+﻿@model List<DOANTOTNGHIEP.Models.commentnotification> 
+    @{
+        Layout = null;
+    }
+<div>
+    @{
+        foreach (var comment in Model)
+        {
+            <img src="@comment.TaiKhoan.HinhAnh" style="width:20px;height:20px;border-radius:20px" />
+            <label>@comment.TaiKhoan.Ho @comment.TaiKhoan.Ten  </label>
+            <label>@comment.Noidung</label>
+            <label class="cumment-answer" onclick="  checkanswer()">Trả lời</label>
+            <div class="form-group bmd-form-group" style="margin-top:-20px">
+                <label class="bmd-label-floating" style="color:white">Comment</label><br />
+                <input class="form-control" type="text" name="maclassid" placeholder="Mã Lớp" required style="width:100%" /><br />
+            </div>
+        }
+        <div class="form-group bmd-form-group" style="margin-top:-20px">
+            <label class="bmd-label-floating" style="color:white"></label><br />
+            <input class="form-control" type="text" name="maclassid" placeholder="Mã Lớp" required style="width:100%" /><br />
+        </div>
+    }
+
+</div>
+
+

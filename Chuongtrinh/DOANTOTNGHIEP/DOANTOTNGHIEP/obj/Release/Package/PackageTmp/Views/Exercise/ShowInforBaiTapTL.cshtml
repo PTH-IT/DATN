@@ -1,0 +1,276 @@
+﻿@model DOANTOTNGHIEP.Models.BaiTapTL
+@{
+    ViewData["Title"] = "Thông tin bài tập tự luận cho sinh vien";
+    Layout = "~/Views/Shared/Layoutclass.cshtml";
+    var user = ViewBag.user as DOANTOTNGHIEP.Models.TaiKhoan;
+    string nguoitao = user.TenDangNhap;
+    var malop = ViewBag.malop;
+    var mabainop = ViewBag.mabainop;
+    var nguoinop = ViewBag.nguoinop;
+    var mabaitaptl = ViewBag.mabaitaptl;
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".huynop").click(function () {
+            $(".hien").css("display", "none");
+            $(".an").css("display", "block");
+        });
+        $(".huy").click(function () {
+            $(".hien").css("display", "block");
+            $(".an").css("display", "none");
+        });
+        $('.suafile').change(function () {
+            $('a.suafile-' + this.id).remove();
+            $('br.suafile-' + this.id).remove();
+            $('img.imgfilebaitap-' + this.id).remove();
+            
+            for (var i = 0; i < $('.suafile')[0].files.length; i++) {
+
+                var file = $('.suafile')[0].files[i].name;
+
+                $(".fi").after("<a class=suafile-" + this.id + " >" + file + "</a><br class='suafile-" + this.id + "' />");
+            }
+        });
+
+        $(".fileupload").change(function () {
+
+            $("br.file" + this.id).remove();
+            $("label.file" + this.id).remove();
+            $("br.file" + this.id).remove();
+            for (var i = 0; i < $('.fileupload')[0].files.length; i++) {
+
+                var file = $('.fileupload')[0].files[i].name;
+
+                $("label." + this.id).after("<label class=file" + this.id + " >" + file + "</label><br class='file" + this.id + "' />");
+            }
+        });
+    });
+   
+
+    @* cho hc sinh *@
+</script>
+<body   style="margin-top:30px">
+    <div class="d-flex justify-content-between" style="padding: 30px">
+
+
+
+        <div style="max-width: 75%; border: 0px solid #000000; border-radius: 10px; margin-top: 10px; padding: 10px; background-color: #FAFAFA; box-shadow: 10px 5px 5px rgb(0 0 0 / 20%);" class="navbar-left">
+            <table style="margin-bottom:20px;">
+                <tr>
+                    <th><img src=@Model.BaiTap.LopHoc.TaiKhoan.HinhAnh width="30" height="30" style="border-radius:45px;" /></th>
+                    <th style="padding-left:10px;width:100%">
+                        <label>@Model.BaiTap.LopHoc.TaiKhoan.Ho  @Model.BaiTap.LopHoc.TaiKhoan.Ten</label><br />
+
+                        <label style="font-size:10px;">@Model.BaiTap.ThoiGianDang.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label>
+                        <label class="ngayhethanbaitap navbar-right" style="margin-right:5%">thoi gian kết thúc: @Model.BaiTap.ThoiGianKetThuc.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label><br />
+                    </th>
+                </tr>
+            </table>
+            <hr style="border:0.5px solid black" />
+            <div>
+                <label style="font-size:20px;">Chủ đề:@Model.BaiTap.ChuDe</label><br />
+            </div>
+            <div style=" padding:20px">@Html.Raw(Model.BaiTap.Thongtin)</div><br />
+            <button class="fa fa-group" style="background-color:transparent;border:0;font-size:18px">Thêm nhận xét bài tập</button>
+
+            @{
+                foreach (var filetb in Model.BaiTap.FileBTTLs)
+                {
+                    if (@filetb.TenFile.IndexOf(".png") == @filetb.TenFile.Length - 4 || @filetb.TenFile.IndexOf(".jpg") == @filetb.TenFile.Length - 4)
+                    {
+                        <div class="divfilebaitap">
+                            <img class="imgfilebaitap" src="@filetb.NoiLuu" width="50" height="30">
+                            <a href=@filetb.NoiLuu download>@filetb.TenFile</a>
+                        </div>
+
+                    }
+                    else
+                    {
+
+
+                        <div class="divfilebaitap">
+                            <img class="imgfilebaitap" src="~/Content/image/Icon/unnamed.png" width="40" height="30">
+                            <a href=@filetb.NoiLuu download style="margin-left:20px">@filetb.TenFile</a>
+                        </div> }
+                }
+            }
+
+
+        </div>
+
+
+
+        <div style="min-width: 25%; border: 0px solid black; border-radius: 10px; margin-top: 10px; padding: 10px; background-color: #FAFAFA; box-shadow: 10px 5px 5px rgb(0 0 0 / 20%);" class="navbar-right">
+            <img src=@Model.TaiKhoan.HinhAnh width="30" height="30" style="border-radius:45px;" />
+            <label>@Model.TaiKhoan.Ho  @Model.TaiKhoan.Ten</label> <label class="navbar-right" style="margin-right:10px">@Model.Diem/100</label><br /> <br />
+            <br />
+
+            <table style="clear:none;">
+                <tr>
+                    <th><label style="font-size:20px">Bài tập của bạn </label></th>
+                    <th>
+                        @{
+                            if (Model.NgayNop == null)
+                            {
+                                <label style="color:red;margin-left:10px">Chưa Nộp</label>
+                            }
+                            else if (Model.NgayNop <= Model.BaiTap.ThoiGianKetThuc)
+                            {
+                                <label style="margin-left:10px">Đã nộp</label>
+                            }
+                            else if (Model.NgayNop > Model.BaiTap.ThoiGianKetThuc)
+                            {
+                                <label style="color:red;margin-left:10px">Nộp muộn</label>
+                            }
+
+
+                        }
+
+                    </th>
+                </tr>
+
+            </table>
+
+
+
+
+
+            @{
+                if (Model.NgayNop == null && Model.NguoiNop.Equals(user.TenDangNhap))
+                {
+                    using (Html.BeginForm("nopbaitapTL", "Exercise", new { malop = malop , mabaitaptl = mabaitaptl }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div><label class="101-1"></label></div>
+                        <br />
+                        <label class="glyphicon glyphicon-paperclip " for="101-1" style=" border-radius: 20px; background-image: linear-gradient(to right,#FF00BF,#D8D8D8); padding: 10px">  Thêm</label>
+                        <input type="file" name="file" class="fileupload glyphicon glyphicon-file" id="101-1" style="display:none" required />
+                        <button class="navbar-right" style=" background-image: linear-gradient(to right,#0404B4,#A901DB); padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 20px; margin-right: 2%">Nộp bài </button>
+                    }
+                }
+
+                else if (Model.NgayNop != null && Model.NguoiNop.Equals(user.TenDangNhap))
+                {
+
+                    <div class="an" style="display:none">
+                        @using (Html.BeginForm("editnopbaitap", "Exercise", new { malop = malop , mabaitaptl =mabaitaptl } ,FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            foreach (var filebt in Model.TTBaiTapTLs.Where(x => x.MaBaiNop.Equals(Model.MaBaiNop)))
+                            {
+                                if (filebt.Tenfile.IndexOf(".png") == filebt.Tenfile.Length - 4 || filebt.Tenfile.IndexOf(".jpg") == filebt.Tenfile.Length - 4)
+                                {
+                                    <div class="divfilebaitap" style="margin-top:10px">
+                                        <img class="imgfilebaitap-@filebt.MaBaiNop" src="@filebt.NoiLuu" width="50" height="30">
+                                        <a class="suafile-@filebt.MaBaiNop"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@filebt.Tenfile</label></a> <br class="suafile-@filebt.MaBaiNop" />
+
+                                    </div>
+
+                                }
+                                else
+                                {
+
+
+                                    <div class="divfilebaitap" style="margin-top:10px">
+                                        <img class="imgfilebaitap-@filebt.MaBaiNop" src="~/Content/image/Icon/unnamed.png" width="40" height="30">
+                                        <a class="suafile-@filebt.MaBaiNop"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@filebt.Tenfile</label></a> <br class="suafile-@filebt.MaBaiNop" />
+
+                                    </div> }
+                            }
+                            <label style="display:none" class="fi"></label>
+                            <label class="glyphicon glyphicon-paperclip " for=@Model.MaBaiNop style=" border-radius: 20px; background-image: linear-gradient(to right,#FF00BF,#D8D8D8); padding: 10px">  Thêm</label>
+                            <input type="file" id=@Model.MaBaiNop class="suafile" name="file" style="display:none" required />
+                            <br />
+                            <br /><label class="huy" style=" border-radius: 20px; background-image: linear-gradient(to right,#848484,#E6E6E6); padding: 10px;padding-left: 15px; padding-right: 15px;">Hủy</label>
+                            <button class="nop navbar-right" style=" background-image: linear-gradient(to right,#0404B4,#A901DB); padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 20px; margin-right: 2%">Nộp bài</button>
+
+                        }
+                    </div>
+
+
+                    <div class="hien">
+                        <label>Ngày nộp  :@Model.NgayNop.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label>
+                        @foreach (var filebt in Model.TTBaiTapTLs.Where(x => x.MaBaiNop.Equals(Model.MaBaiNop)))
+                        {
+
+
+                            if (filebt.Tenfile.IndexOf(".png") == filebt.Tenfile.Length - 4 || filebt.Tenfile.IndexOf(".jpg") == filebt.Tenfile.Length - 4)
+                            {
+                                <div class="divfilebaitap" style="margin-top:10px">
+                                    <img class="imgfilebaitap" src="@filebt.NoiLuu" width="50" height="30">
+                                    <a href=@filebt.NoiLuu target="_blank"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@filebt.Tenfile</label></a><br />
+
+
+                                </div>
+
+                            }
+                            else
+                            {
+
+
+                                <div class="divfilebaitap" style="margin-top:10px">
+                                    <img class="imgfilebaitap" src="~/Content/image/Icon/unnamed.png" width="40" height="30">
+                                    <a href=@filebt.NoiLuu target="_blank"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@filebt.Tenfile</label></a><br />
+                                </div>}
+                        }
+                        <br /><button class="huynop navbar-right" style=" background-image: linear-gradient(to right,#0404B4,#A901DB); padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 20px; margin-right: 2%">Hủy nộp</button>
+                    </div>
+
+
+                }
+
+                else if (Model.NgayNop != null && Model.BaiTap.NguoiTao.Equals(user.TenDangNhap))
+                {
+
+                    if (Model.NgayNop != null)
+                    {
+                        <label>Ngày nộp  :@Model.NgayNop.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label>
+                    }
+                    <br /><br />
+
+                    foreach (var i in Model.TTBaiTapTLs.ToList())
+                    {
+
+                        if (i.Tenfile.IndexOf(".png") == i.Tenfile.Length - 4 || i.Tenfile.IndexOf(".jpg") == i.Tenfile.Length - 4)
+                        {
+                            <div class="divfilebaitap" style="margin-top:10px">
+                                <img class="imgfilebaitap" src="@i.NoiLuu" width="50" height="30">
+                                <a href=@i.NoiLuu target="_blank"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@i.Tenfile</label></a><br />
+                            </div>
+
+                        }
+                        else
+                        {
+
+
+                            <div class="divfilebaitap" style="margin-top:10px">
+                                <img class="imgfilebaitap" src="~/Content/image/Icon/unnamed.png" width="40" height="30">
+                                <a href=@i.NoiLuu target="_blank"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@i.Tenfile</label> </a><br />
+                            </div>}
+
+                    }
+                    <br />
+                    using (Html.BeginForm("chambaitl", "Exercise", new { malop = malop , mabainop = mabaitaptl , nguoinop = nguoinop }, FormMethod.Post))
+                    {
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                @Html.TextBoxFor(model => model.Diem, new { @class = "form-control", @size = "2" })
+                            </li>
+                            <li class="nav-item">
+                                <label style="font-size:20px">/100</label>
+                            </li>
+                        </ul>
+
+                       <br />
+
+
+                        <button class="btn btn-primary" style="  padding: 5px; padding-left: 15px; padding-right: 15px; color: white;  margin-left: 2%">Lưu</button>
+                    }
+
+                }
+
+            }
+
+
+        </div>
+
+    </div>
+</body>

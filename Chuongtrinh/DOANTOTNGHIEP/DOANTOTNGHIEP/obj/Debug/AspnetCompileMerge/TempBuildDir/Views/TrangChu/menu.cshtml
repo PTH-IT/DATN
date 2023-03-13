@@ -1,0 +1,160 @@
+﻿@model List<DOANTOTNGHIEP.Models.LopHoc>
+
+<link href="~/Content/animate.css" rel="stylesheet" />
+<style type="text/css">
+    .lop:hover {
+        background-color: lightblue;
+    }
+
+    .ttlop::-webkit-scrollbar {
+        width: 5px;
+        display:none;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #1C1C1C;
+    }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    .lop {
+        color: black;
+        background-color: white
+    }
+
+        
+    .menuleft {
+        position: fixed;
+        left: 0px;
+        top: 0;
+        background-color: white;
+        width: 250px;
+        height: 100%;
+        margin-left: -250px;
+        animation-name: example1;
+        animation-duration: 0.5s;
+    }
+    .ttlop{
+        overflow-y:scroll;
+    }
+    
+    @@-webkit-keyframes example1 {
+        0%   { left:-250px; top:0px;}
+  100%  {background-color:blue; left:0px; top:0px;}
+
+}
+       @@-webkit-keyframes example2 {
+  0%   { left:0px; top:0px;}
+  100%  {background-color:blue; left:-250px; top:0px;}
+
+}
+
+ 
+
+
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+      
+        
+        $('.btnanmenu').click(function () {
+            $('.menu').css("display", "none");
+            $('.menuleft').css("margin-left", "-250px");
+        });
+        
+
+    });
+   @* $(".menu").click
+        (
+            function (e) {
+                if (e.target.className !== "menuleft" && e.target.className !== "ttlop"  ) {
+                    
+                    $('.menu').css("display", "none");
+                    $('.menuleft').css("margin-left", "-250px");
+                }
+            }
+        );*@
+    function showsubmenu(ma) {
+        
+        if ($("#" + ma).css("display") == "block") {
+            $("#" + ma).css("display", "none");
+        } else {
+            $("#" + ma).css("display", "block");
+        }
+       
+    }
+</script>
+<div class="menu" style="width:100%;height:100%;background-color:rgb(0,0,0,0.5);position: fixed;left:0px;top:0;">
+    <div class="menuleft ">
+
+        <div style="color: white; width: 290px; max-height: 50px ;  " class="bg-primary">
+            <a href="~/TrangChu/Index" style="max-height: 50px;  ">
+                <img src="~/Content/image/Icon/class.png" width="60" />
+                <label class="d-inline-block align-top" height="25" width="80" style="margin: 10px; margin-right: 25px; font-size: 20px; color: white">LMS LEARNING</label>
+            </a>
+            <button style="background-color: transparent; border: 0px; font-size: 25px; max-height: 50px" class="fa fa-bars btnanmenu">
+            </button>
+        </div>
+
+        
+        
+        <div style="background-color: white; height: 100%; width: 290px;" class="ttlop">
+
+
+
+            @{
+
+                foreach (var i in Model)
+                {
+                        <div>
+
+
+                            <button class="menuleft_@i.MaLop" style="font-size:20px;color:black;text-decoration:none;width:100%;text-align:left;border:0px;padding:5px;height:40px" onclick="showsubmenu(`submenu_@i.MaLop`)">
+                                @i.TenLop
+                                <i class="fa fa-caret-down" style="float:right"></i>
+                            </button>
+                            <div id="submenu_@i.MaLop" style="display:none" >
+
+
+                                <a class="nav-link" href="~/Notification/Index/@i.MaLop" style="font-size:15px;color:black;text-decoration:none;">
+                                    <div style="padding:10px;padding-left:30px;overflow:hidden;text-overflow: ellipsis; white-space: nowrap;padding-right:20px" class="lop">
+                                        Thông báo
+                                    </div>
+                                </a>
+                                <a class="nav-link" href="~/Exercise/Index/@i.MaLop" style="font-size:15px;color:black;text-decoration:none;">
+                                    <div style="padding:10px;padding-left:30px;overflow:hidden;text-overflow: ellipsis; white-space: nowrap;padding-right:20px" class="lop">
+                                        bài tập
+                                    </div>
+                                </a>
+                                <a class="nav-link" href="~/Member/Index/@i.MaLop" style="font-size:15px;color:black;text-decoration:none;">
+                                    <div style="padding:10px;padding-left:30px;overflow:hidden;text-overflow: ellipsis; white-space: nowrap;padding-right:20px" class="lop">
+                                        Thành viên
+                                    </div>
+                                </a>
+                                <a class="nav-link" href="~/Message/Index/@i.MaLop" style="font-size:15px;color:black;text-decoration:none;">
+                                    <div style="padding:10px;padding-left:30px;overflow:hidden;text-overflow: ellipsis; white-space: nowrap;padding-right:20px" class="lop">
+                                        Tin nhắn
+                                    </div>
+                                </a>
+                                <a class="nav-link" href="~/Score/Index/@i.MaLop" style="font-size:15px;color:black;text-decoration:none;">
+                                    <div style="padding:10px;padding-left:30px;overflow:hidden;text-overflow: ellipsis; white-space: nowrap;padding-right:20px" class="lop">
+                                        Thống kê
+                                    </div>
+                                </a>
+                                <a class="nav-link" href="~/Library/Index/@i.MaLop" style="font-size:15px;color:black;text-decoration:none;">
+                                    <div style="padding:10px;padding-left:30px;overflow:hidden;text-overflow: ellipsis; white-space: nowrap;padding-right:20px" class="lop">
+                                        Tài liệu
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                   
+                }
+            }
+
+        </div>
+    </div>
+    
+</div>

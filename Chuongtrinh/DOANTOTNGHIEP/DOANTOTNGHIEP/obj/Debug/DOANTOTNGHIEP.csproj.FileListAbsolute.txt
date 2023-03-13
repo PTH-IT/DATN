@@ -1,0 +1,634 @@
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\DOANTOTNGHIEP.dll.config
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\DOANTOTNGHIEP.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\DOANTOTNGHIEP.pdb
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csc.exe
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csc.exe.config
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csc.rsp
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csi.exe
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csi.exe.config
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csi.rsp
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.AppContext.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Console.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.IO.Compression.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Net.Http.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Net.Sockets.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.ValueTuple.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Xml.XPath.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\vbc.exe
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\vbc.exe.config
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\vbc.rsp
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\VBCSCompiler.exe
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\AdvancedStringBuilder.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Antlr3.Runtime.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\BundleTransformer.Core.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\CaptchaMvc.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EntityFramework.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EntityFramework.SqlServer.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\HtmlAgilityPack.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.Security.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Newtonsoft.Json.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\NotFoundMvc.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Owin.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Barcode.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.DataExport.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.DataExport.ResourceMgr.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Doc.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.DocViewer.Forms.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Email.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.License.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.OfficeViewer.Forms.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Pdf.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.PdfViewer.Asp.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.PdfViewer.Forms.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Presentation.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Spreadsheet.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.XLS.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Helpers.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Mvc.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Optimization.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Razor.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.Deployment.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.Razor.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\WebGrease.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.mshtml.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\AdvancedStringBuilder.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\BundleTransformer.Core.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\CaptchaMvc.pdb
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\CaptchaMvc.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EntityFramework.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EntityFramework.SqlServer.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\HtmlAgilityPack.pdb
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\HtmlAgilityPack.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.Security.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Barcode.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.DataExport.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Doc.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.DocViewer.Forms.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Email.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.License.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.OfficeViewer.Forms.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Pdf.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.PdfViewer.Asp.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.PdfViewer.Forms.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Presentation.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Spreadsheet.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.XLS.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Helpers.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Mvc.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Optimization.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Razor.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.Deployment.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.Razor.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Newtonsoft.Json.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Antlr3.Runtime.pdb
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\ru-ru\BundleTransformer.Core.resources.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.csproj.AssemblyReference.cache
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.csproj.CoreCompileInputs.cache
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.csproj.CopyComplete
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\New folder\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.pdb
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\DOANTOTNGHIEP.dll.config
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\DOANTOTNGHIEP.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\DOANTOTNGHIEP.pdb
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csc.exe
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csc.exe.config
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csc.rsp
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csi.exe
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csi.exe.config
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csi.rsp
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.AppContext.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Console.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.IO.Compression.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Net.Http.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Net.Sockets.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.ValueTuple.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Xml.XPath.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\vbc.exe
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\vbc.exe.config
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\vbc.rsp
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\VBCSCompiler.exe
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\AdvancedStringBuilder.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Antlr3.Runtime.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\BundleTransformer.Core.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\CaptchaMvc.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EntityFramework.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EntityFramework.SqlServer.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\HtmlAgilityPack.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.Security.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Newtonsoft.Json.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\NotFoundMvc.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Owin.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Barcode.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.DataExport.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.DataExport.ResourceMgr.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Doc.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.DocViewer.Forms.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Email.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.OfficeViewer.Forms.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Pdf.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.PdfViewer.Asp.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.PdfViewer.Forms.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Presentation.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Spreadsheet.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.XLS.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Helpers.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Mvc.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Optimization.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Razor.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.Deployment.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.Razor.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\WebGrease.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.mshtml.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\AdvancedStringBuilder.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\BundleTransformer.Core.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\CaptchaMvc.pdb
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\CaptchaMvc.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EntityFramework.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EntityFramework.SqlServer.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\HtmlAgilityPack.pdb
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\HtmlAgilityPack.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.Security.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Barcode.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.DataExport.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Doc.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.DocViewer.Forms.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Email.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.OfficeViewer.Forms.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Pdf.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.PdfViewer.Asp.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.PdfViewer.Forms.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Presentation.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Spreadsheet.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.XLS.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Helpers.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Mvc.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Optimization.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Razor.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.Deployment.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.Razor.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Newtonsoft.Json.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Antlr3.Runtime.pdb
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\ru-ru\BundleTransformer.Core.resources.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.csproj.AssemblyReference.cache
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.csproj.CoreCompileInputs.cache
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.csproj.CopyComplete
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.pdb
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\DOANTOTNGHIEP.dll.config
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\DOANTOTNGHIEP.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\DOANTOTNGHIEP.pdb
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csc.exe
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csc.exe.config
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csc.rsp
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csi.exe
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csi.exe.config
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csi.rsp
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.AppContext.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Console.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.IO.Compression.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Net.Http.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Net.Sockets.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.ValueTuple.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Xml.XPath.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\vbc.exe
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\vbc.exe.config
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\vbc.rsp
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\VBCSCompiler.exe
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\AdvancedStringBuilder.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Antlr3.Runtime.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\BundleTransformer.Core.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\CaptchaMvc.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EntityFramework.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EntityFramework.SqlServer.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\HtmlAgilityPack.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.Security.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Newtonsoft.Json.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\NotFoundMvc.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Owin.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Barcode.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.DataExport.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.DataExport.ResourceMgr.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Doc.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.DocViewer.Forms.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Email.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.OfficeViewer.Forms.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Pdf.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.PdfViewer.Asp.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.PdfViewer.Forms.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Presentation.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Spreadsheet.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.XLS.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Helpers.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Mvc.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Optimization.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Razor.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.Deployment.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.Razor.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\WebGrease.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.mshtml.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\AdvancedStringBuilder.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\BundleTransformer.Core.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\CaptchaMvc.pdb
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\CaptchaMvc.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EntityFramework.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EntityFramework.SqlServer.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\HtmlAgilityPack.pdb
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\HtmlAgilityPack.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.Security.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Barcode.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.DataExport.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Doc.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.DocViewer.Forms.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Email.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.OfficeViewer.Forms.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Pdf.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.PdfViewer.Asp.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.PdfViewer.Forms.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Presentation.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Spreadsheet.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.XLS.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Helpers.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Mvc.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Optimization.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Razor.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.Deployment.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.Razor.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Newtonsoft.Json.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Antlr3.Runtime.pdb
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\ru-ru\BundleTransformer.Core.resources.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.csproj.AssemblyReference.cache
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.csproj.CoreCompileInputs.cache
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.csproj.CopyComplete
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.pdb
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Twilio.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Twilio.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.Abstractions.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.WebUtilities.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.ObjectPool.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.Options.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Net.Http.Headers.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Buffers.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.ComponentModel.Annotations.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Memory.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Numerics.Vectors.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Text.Encodings.Web.dll
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.Abstractions.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.Features.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.WebUtilities.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.ObjectPool.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.Options.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Net.Http.Headers.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Buffers.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Memory.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Numerics.Vectors.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\TUF FX 506 I710870H\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Text.Encodings.Web.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.Abstractions.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.WebUtilities.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.ObjectPool.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.Options.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Net.Http.Headers.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Buffers.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.ComponentModel.Annotations.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Memory.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Numerics.Vectors.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Text.Encodings.Web.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Twilio.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.Abstractions.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.Features.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.WebUtilities.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.ObjectPool.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.Options.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Net.Http.Headers.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Buffers.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Memory.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Numerics.Vectors.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Text.Encodings.Web.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Twilio.xml
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\WebDriver.dll
+C:\Users\HAU\Desktop\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\WebDriver.Support.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\DOANTOTNGHIEP.dll.config
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\DOANTOTNGHIEP.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\DOANTOTNGHIEP.pdb
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csc.exe
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csc.exe.config
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csc.rsp
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csi.exe
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csi.exe.config
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\csi.rsp
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.Managed.Core.targets
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.AppContext.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Collections.Immutable.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Console.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Globalization.Calendars.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.IO.Compression.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.IO.FileSystem.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Net.Http.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Net.Sockets.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Reflection.Metadata.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.ValueTuple.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Xml.XmlDocument.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Xml.XPath.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\vbc.exe
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\vbc.exe.config
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\vbc.rsp
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\VBCSCompiler.exe
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\roslyn\VBCSCompiler.exe.config
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\AdvancedStringBuilder.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Antlr3.Runtime.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\BouncyCastle.Crypto.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\BundleTransformer.Core.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\CaptchaMvc.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EntityFramework.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EntityFramework.SqlServer.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EPPlus.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EPPlus.Interfaces.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EPPlus.System.Drawing.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\GrapeCity.Documents.Imaging.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\HtmlAgilityPack.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.Abstractions.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.Features.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.WebUtilities.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.ObjectPool.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.Options.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.Primitives.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.IdentityModel.Logging.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.IdentityModel.Tokens.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.IO.RecyclableMemoryStream.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Net.Http.Headers.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.Security.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Web.Infrastructure.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Newtonsoft.Json.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\NotFoundMvc.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Owin.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Doc.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Pdf.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Buffers.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.ComponentModel.Annotations.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.IdentityModel.Tokens.Jwt.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Memory.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Numerics.Vectors.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Text.Encodings.Web.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.ValueTuple.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Helpers.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Mvc.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Optimization.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Razor.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.Deployment.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.Razor.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Twilio.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\WebDriver.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\WebDriver.Support.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\WebGrease.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.mshtml.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\AdvancedStringBuilder.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\BouncyCastle.Crypto.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\BundleTransformer.Core.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\CaptchaMvc.pdb
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\CaptchaMvc.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EntityFramework.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EntityFramework.SqlServer.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\EPPlus.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\GrapeCity.Documents.Imaging.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\HtmlAgilityPack.pdb
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\HtmlAgilityPack.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.Abstractions.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.Http.Features.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.AspNetCore.WebUtilities.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.ObjectPool.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.Options.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Extensions.Primitives.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.IdentityModel.Tokens.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.IO.RecyclableMemoryStream.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Net.Http.Headers.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.Owin.Security.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Doc.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Spire.Pdf.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Buffers.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.IdentityModel.Tokens.Jwt.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Memory.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Numerics.Vectors.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Text.Encodings.Web.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.ValueTuple.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Helpers.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Mvc.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Optimization.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.Razor.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.Deployment.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\System.Web.WebPages.Razor.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Newtonsoft.Json.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Twilio.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Antlr3.Runtime.pdb
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\ru-ru\BundleTransformer.Core.resources.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\bin\ja\GrapeCity.Documents.Imaging.resources.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.csproj.AssemblyReference.cache
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.csproj.CoreCompileInputs.cache
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.csproj.CopyComplete
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.dll
+E:\DoAnTotNghiep\Chuongtrinh\DOANTOTNGHIEP\DOANTOTNGHIEP\obj\Debug\DOANTOTNGHIEP.pdb

@@ -1,0 +1,140 @@
+﻿@model List<DOANTOTNGHIEP.Models.ThanhVienLop>
+@{
+    Layout = "~/Views/Shared/Layoutclass.cshtml";
+    var user = ViewBag.user as DOANTOTNGHIEP.Models.TaiKhoan;
+    string nguoitao = user.TenDangNhap;
+    var malop = ViewBag.malop;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <style type="text/css">
+        .headthanhvien {
+            background-color: white !important;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.join').click(function () {
+                var email = $('.emailthamgia').val();
+                if (email.length == 0) {
+                    alert("vui lòng nhập email");
+                }
+                else {
+
+
+                    $.ajax({
+                        url: '/Member/inviteclass', type: 'post',
+                        data: {
+                            email: email,
+                            malop: "@malop",
+
+                        },
+                        success: function (result) {
+                            $('label.result').remove();
+                            $('.emailthamgia').val("");
+                            $('br.result').after(result);
+                        },
+
+
+                    });
+                }
+
+
+            });
+
+        });
+
+
+
+
+    </script>
+
+</head>
+<body class="container">
+     @if (Model[0].LopHoc.NguoiTao.Equals(nguoitao))
+     {
+     }
+    @if ( Model.SingleOrDefault(x => x.Mathanhvien.Equals(nguoitao) && x.ChucVu.ToLower().Contains("GiaoVien".ToLower())) != null )
+    {
+
+        <button class="moithamgia btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style=" padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 5px; margin: 2%">Mời tham gia</button>
+        <div class="container">
+            
+            
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content" style="margin-top:100px">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Mời tham gia lớp học</h4>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" placeholder="Nhập email"  style="border-radius: 5px; outline: none; min-width: 100%;" class="form-control emailthamgia" />
+                            <br class="result" />
+                        </div>
+                        <div class="modal-footer">
+                            <button class="join btn btn-info btn-lg" style=" padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 5px; margin: 2%">Mời tham gia</button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+          }
+    <div style="margin-top:20px">
+
+        <div><label>Giáo viên</label></div>
+        <div>
+            <ul style="list-style-type: none;">
+                @{
+                    foreach (var i in Model)
+                    {
+
+                        if ( i.ChucVu.ToLower().Contains("GiaoVien".ToLower()))
+                        {
+                            <li class="nav-item " style="padding:10px;border-bottom:0.5px solid blue;">
+
+                                <img class="navbar-link" src=@i.TaiKhoan.HinhAnh width="30" height="30" style="border-radius:45px;" />
+                                <label>@i.TaiKhoan.Ho @i.TaiKhoan.Ten</label>
+                                <label class="navbar-right">@i.TaiKhoan.Email</label>
+
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+        </div>
+        <div><label>Sinh viên</label> <label class="navbar-right" style="margin-right:5%">@Convert.ToInt32(@Model.Count() - 1)</label></div>
+        <div>
+            <ul style="list-style-type: none;">
+                @{
+                    foreach (var i in Model)
+                    {
+                        if (i.ChucVu.ToLower().Contains("SinhVien".ToLower()))
+                        {
+                            <li class="nav-item " style="padding:10px;border-bottom:0.5px solid blue;">
+
+                                <img class="navbar-link" src=@i.TaiKhoan.HinhAnh width="30" height="30" style="border-radius:45px;" />
+                                <label>@i.TaiKhoan.Ho @i.TaiKhoan.Ten</label>
+                                <label class="navbar-right">@i.TaiKhoan.Email</label>
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>

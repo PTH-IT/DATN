@@ -1,0 +1,484 @@
+﻿@model List<DOANTOTNGHIEP.Models.ThongBao>
+@{
+    ViewData["Title"] = "Thông báo";
+    Layout = "~/Views/Shared/Layoutclass.cshtml";
+    var lop = ViewBag.lophoc as DOANTOTNGHIEP.Models.LopHoc;
+    var user = ViewBag.user as DOANTOTNGHIEP.Models.TaiKhoan;
+    string nguoitao = user.TenDangNhap;
+    DOANTOTNGHIEP.Models.ThongBao tb = new DOANTOTNGHIEP.Models.ThongBao();
+    var malop = ViewBag.malop;
+
+}
+<style>
+    .thongbaomoi {
+        display: none;
+        border-radius: 10px;
+        background-image: linear-gradient(to left, #1A6EFF, pink);
+        text-align: center;
+        width: 10%;
+        margin: 5px auto;
+        position: fixed;
+        right: 10px;
+        left: 10px;
+        z-index: 9999;
+    }
+
+    .anhnguoidung {
+        height: 200px;
+        background-size: cover;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .ngaytao {
+        font-size: 20px
+    }
+
+    .malop {
+        font-size: 15px
+    }
+
+    .editclass {
+        background-color: transparent;
+        border: 0px;
+        margin: 20px;
+        font-size: 20px;
+        color: black
+    }
+
+    .dangtb {
+        width: 100%;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 40px;
+        background-color: white;
+        display: block !important;
+        box-shadow: 10px 5px 5px rgb(0 0 0 / 10%);
+    }
+
+    .showthongbao {
+        text-align: center;
+        margin: auto;
+        display: block !important;
+        background-color: transparent;
+        border: 0px
+    }
+
+    .thongbaobaitap {
+        width: 100%;
+        border: 0px solid black;
+        border-radius: 5px;
+        padding: 10px;
+        background-color: white
+    }
+
+
+
+    .hidethongbao {
+        text-align: center;
+        margin: auto;
+        display: block !important;
+        background-color: transparent;
+        border: 0px
+    }
+
+   
+
+    textarea {
+        max-width: 100%;
+        height: 200px;
+        width: 100%
+    }
+
+    .thongbao {
+        width: 100%;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: white;
+        @*border: 0.1px solid #848484;*@
+        box-shadow: 10px 5px 5px rgb(0 0 0 / 20%);
+    }
+
+    hr {
+        margin: 5px;
+    }
+
+    .filethongbao {
+        padding: 10px;
+        border-radius: 5px;
+        margin-left: 20px;
+        width: fit-content;
+        margin-bottom: 5px
+    }
+
+    .anhfilethongbao {
+        background-color: transparent;
+        border: 0px;
+        background-size: cover
+    }
+
+    .huysuaThongBao {
+        text-align: center;
+        margin: auto;
+        display: block;
+        background-color: transparent;
+        border: 0px
+    }
+
+</style>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        load("#noidung");
+        reset();
+        $('.headthongbao').css("color", "black");
+        $('.headthongbao').css("background-color", "white");
+
+            $(".showthongbao").click(function () {
+                $(".hideDangThongBao").css("display", "block");
+                $(".showthongbao").css("display", "none");
+            });
+        $(".hidethongbao").click(function () {
+            $(".showthongbao").css("display", "block");
+            $(".hideDangThongBao").css("display", "none");
+        });
+
+        $(".dropdown-itemsua").click(function () {
+            load("div.suaThongBao-" + this.id + " textarea");
+                $("#" + this.id).css("display", "none");
+                $(".suaThongBao-" + this.id).css("display", "block");
+            });
+            $(".huysuaThongBao").click(function () {
+
+                $("#" + this.id).css("display", "block");
+                $(".suaThongBao-" + this.id).css("display", "none");
+            });
+
+            $(".suafileupload").change(function () {
+                $("a.suafile_" + this.id).remove();
+                $("br.suafile"+this.id).remove();
+                $("label.suafile" + this.id).remove();
+                for (var i = 0; i < $('#' + this.id+'.suafileupload')[0].files.length; i++) {
+
+                    var file = $('#' + this.id +'.suafileupload')[0].files[i].name;
+
+                    $("label." + this.id).after("<label class=suafile" + this.id + " >" + file + "</label><br class='suafile" + this.id +"' />");
+                }
+            });
+        $(".fileupload").change(function () {
+
+            $("br.file" + this.id).remove();
+            $("label.file" + this.id).remove();
+            $("br.file" + this.id).remove();
+            for (var i = 0; i < $('.fileupload')[0].files.length; i++) {
+
+                var file = $('.fileupload')[0].files[i].name;
+
+                $("label." + this.id).after("<label class=file" + this.id + " >" + file + "</label><br class='file" + this.id + "' />");
+            }
+        });
+
+            $("#anthongbaomoi").click(function () {
+                $(".thongbaomoi").css("display", "none");
+            });
+
+
+    });
+    function destroyload(a){
+        var myElement = $(a);
+        myElement.summernote('destroy');
+    }
+    function load(a) {
+        var myElement = $(a);
+        myElement.summernote('destroy');
+        myElement.summernote({
+            // set editor height
+            placeholder: 'Nhập thông tin bạn muốn đăng',
+            toolbar: [
+                ['insert', ['emoji']],
+                ['style', ['style']],
+                ['fontname', ['fontname']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture']],
+                ['view', ['fullscreen', 'undo', 'redo']],
+            ],
+            disableResizeEditor: true,
+            height: 300,
+            minHeight: null, // set minimum height of editor
+            maxHeight: null // set maximum height of editor
+             // set focus to editable area after initializing summernote
+        });
+
+        
+    }
+    function conformdelete() {
+        var answer = window.confirm("Bạn có muốn xóa thông báo này không !");
+        if (answer) {
+            return true;
+        }
+        else return false;
+    }
+
+    $(function () {
+        var thongbao = $.connection.chat;
+        loadClient();
+
+
+        $("#dang").click(function () {
+            if ($("#noidung").val().length > 0) {
+            thongbao.server.thongbaos("@lop.MaLop","@nguoitao");
+            }
+
+            });
+
+
+
+    });
+
+        function loadClient() {
+            var thongbao = $.connection.chat;
+            thongbao.client.thongbao = function (malop, nguoitao) {
+                if ("@lop.MaLop" == malop && nguoitao != "@nguoitao") {
+                    $(".AlertSuccess").text("Có thông báo mới")
+                    $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+                        $("#success-alert").slideUp(500);
+                        location.reload()
+                    });
+                }
+
+            }
+
+        }
+
+
+</script>
+
+
+
+<body class="container" style="background-color: white; margin-top: 20px">
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalshowupload" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="max-width: 600px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Thông tin bình luận</h4>
+                </div>
+                 <div class="modal-body " id="modalthongtinbinhluan">
+                     
+
+
+                    </div>
+
+                    @*<div class="modal-footer">
+                        <button class="join btn btn-info btn-lg" onclick=" return checkuploadfile() " style=" padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 20px; margin: 2%">Tải lên</button>
+
+                    </div>*@
+               
+            </div>
+
+        </div>
+    </div>
+
+    <div class="anhnguoidung" style=" background-image: url(@lop.Hinhanh);">
+        <label style="font-size:20px"> @lop.TenLop </label><br />
+        <label style="font-size:20px">   @lop.ThongTinLopHoc</label>
+        @if (lop.ThanhVienLops.SingleOrDefault(x=>x.ChucVu.ToLower().Equals("GiaoVien".ToLower()) && x.Mathanhvien.Equals(nguoitao)) != null)  
+        {<br />
+            <label style="font-size:20px" class="ngaytao">Ngày Tạo:@lop.NgayTao.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label><br />
+            <label style="font-size:20px" class="malop">Mã Lớp :@DOANTOTNGHIEP.Models.crypt.Encrypt.encryptclass(@lop.MaLop.ToString())</label>
+            <a class="glyphicon glyphicon-edit navbar-right  editclass" href="~/Class/Editclass?malop=@malop"></a>
+        }
+
+
+    </div>
+    <div style="width:100%;margin:auto;display:block">
+
+
+
+
+
+        <div class="dangtb">
+
+
+            <div class="row">
+                <div class="col-md-1">
+                    <div class="form-group bmd-form-group">
+                        <img src=@user.HinhAnh width="30" height="30" style="border-radius:45px;" />
+                    </div>
+                </div>
+                <div class="navbar-left" style="margin-top:10px">
+                    <div class="form-group bmd-form-group">
+                        <div style="color:blueviolet;padding:10px">Thông báo nội dung nào đó cho lớp học của bạn</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group bmd-form-group">
+
+                <button class="glyphicon glyphicon-menu-down showthongbao" style="display:block !important"></button>
+            </div>
+
+            <div class="hideDangThongBao" style="display:none; padding:20px">
+                @using (Html.BeginForm("DangTB", "Notification", new { malop = malop }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <textarea name="noidung" id="noidung"></textarea>
+                    <div><label class="101-1"></label></div> <br />
+                    <label class="btn btn-info glyphicon glyphicon-paperclip themfiletb" for="101-1">  Thêm</label>
+
+                    <input type="file" multiple name="file" style="display:none" id="101-1" class="fileupload glyphicon glyphicon-file" />
+                    <button id="dang" class="btn btn-primary navbar-right">Đăng</button>
+                }
+                <button class="glyphicon glyphicon-menu-up hidethongbao " style="display:block !important"></button>
+            </div>
+        </div>
+
+
+        @{ if (Model.Count > 0)
+            {
+                foreach (var i in Model)
+                {
+                    if (i.MaBaiTap != null)
+                    {
+                        <div class="thongbao">
+                            <a href="~/Exercise/ShowInforBaiTap?mabaitap=@i.MaBaiTap&&malop=@malop">
+                                <div class="thongbaobaitap">
+                                    <table style="margin-bottom:20px;">
+                                        <tr>
+                                            <th><img class="navbar-link" src=@i.TaiKhoan.HinhAnh width="50" height="50" style="border-radius:45px;" /></th>
+                                            <th style="padding-left:10px">
+                                                <label>@i.TaiKhoan.Ho @i.TaiKhoan.Ten</label><br />
+                                                <label style="font-size:10px">@i.NgayDang.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label><br />
+                                            </th>
+                                        </tr>
+                                    </table>
+                                    <hr />
+                                    <div>@Html.Raw(@i.Thongtin)</div>
+
+                                </div>
+                            </a>
+                        </div>
+                    }
+                    if (i.MaBaiTap == null)
+                    {
+                        <div class="thongbao">
+
+                            <div id="@i.MaBaiDang">
+
+                                @if (i.NguoiDang.Equals(user.TenDangNhap))
+                                {
+
+                                    <div class="navbar-right dropdown ">
+                                        <i class="glyphicon glyphicon-option-vertical" id="menu " data-toggle="dropdown" style="margin-right:10px" aria-haspopup="true" aria-expanded="false"></i>
+                                        <div class="dropdown-menu " aria-labelledby="menu ">
+                                            <ul class="nav">
+                                                <li><a class="dropdown-itemxoa" href="~/Notification/DeleteThongBao?id=@i.MaBaiDang&&malop=@malop" onclick="return conformdelete()">xoa</a></li>
+                                                <li><a class="dropdown-itemsua" id="@i.MaBaiDang">sua</a></li>
+
+
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+                                }
+
+                                <table style="margin-bottom:20px;">
+                                    <tr>
+                                        <th><img class="navbar-link" src=@i.TaiKhoan.HinhAnh width="50" height="50" style="border-radius:45px;" /></th>
+                                        <th style="padding-left:10px">
+                                            <label>@i.TaiKhoan.Ho @i.TaiKhoan.Ten</label><br />
+                                            <label style="font-size:10px">@i.NgayDang.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label>
+                                        </th>
+
+                                    </tr>
+                                </table>
+                                <hr />
+                                <div>@Html.Raw(@i.Thongtin)</div>
+                                @{
+                                    if (i.FileTBs.Count > 0)
+                                    {
+                                        <hr />
+                                    }
+
+                                    foreach (var filetb in i.FileTBs)
+                                    {
+                                        if (@filetb.TenFile.IndexOf(".png") == @filetb.TenFile.Length - 4 || @filetb.TenFile.IndexOf(".jpg") == @filetb.TenFile.Length - 4)
+                                        {
+                                            <div class="filethongbao">
+                                                <img class="anhfilethongbao" src="@filetb.NoiLuu" width="50" height="30">
+                                                <a href=@filetb.NoiLuu download>@filetb.TenFile</a>
+                                            </div>
+
+                                        }
+                                        else
+                                        {
+
+
+                                            <div class="filethongbao">
+                                                <img class="anhfilethongbao" src="~/Content/image/Icon/unnamed.png" width="40" height="30">
+                                                <a href=@filetb.NoiLuu download style="margin-left:20px">@filetb.TenFile</a>
+                                            </div>
+                                        }
+
+
+                                    }
+                                }
+                                <hr />
+                                @using (Ajax.BeginForm("Comment", "Notification", new { malop = malop , mabaitongbao=i.MaBaiDang }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "modalthongtinbinhluan" }, new { @class = "thanhvien_" + i.TaiKhoan.TenDangNhap }))
+                                {
+
+                                <button class="fa fa-group" style="background-color:transparent;border:0;font-size:18px" data-toggle="modal" data-target="#modalshowupload">Thêm nhận xét thông báo</button>
+                                }
+                            </div>
+
+
+
+
+                            <div class="suaThongBao-@i.MaBaiDang" style="display:none;padding:20px">
+                                @using (Html.BeginForm("EditThongBao", "Notification", new { id = i.MaBaiDang, malop = malop }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <textarea name="suanoidungthongbao">@i.Thongtin</textarea>
+                                    foreach (var filetb in i.FileTBs)
+                                    {
+                                        <br /><a class="suafile_@i.MaBaiDang" href=@filetb.NoiLuu>@filetb.TenFile</a>
+                                    }
+                                    <div><label class=file-@i.MaBaiDang></label></div> <br />
+                                    <label class=" btn btn-info glyphicon glyphicon-paperclip themfiletb" for=file-@i.MaBaiDang>  Thêm</label>
+
+                                    <input type="file" multiple name="file" id=file-@i.MaBaiDang class="suafileupload glyphicon glyphicon-file" style="display:none" />
+
+
+
+                                    <button class="btn btn-primary navbar-right" id="dang">Sửa</button>
+
+
+                                }
+                                <div class="col-md-12 text-center">
+                                    <button class=" glyphicon glyphicon-menu-up huysuaThongBao " id="@i.MaBaiDang"></button>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+
+                }
+            }
+        }
+
+
+
+
+
+
+
+    </div>
+</body>

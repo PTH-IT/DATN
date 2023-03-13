@@ -1,0 +1,49 @@
+﻿@{
+
+    var user = ViewContext.ViewBag.user as DOANTOTNGHIEP.Models.TaiKhoan;
+    if (user == null)
+    {
+        Layout = null;
+    }
+    else if (user.ChucVu.ToLower().Contains("Admin".ToLower()))
+    {
+        Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/LayoutHome.cshtml";
+    }
+    if (user != null)
+    {
+        <script>
+
+        $(document).ready(function () {
+
+            loadClientonline();
+        });
+                    function  loadClientonline() {
+
+        $.connection.hub.start();
+        var mess = $.connection.chat;
+
+                        mess.client.clientonline = function (data) {
+                            
+            if (data.find(element => element == "@user.TenDangNhap") == undefined) {
+
+                $.connection.hub.stop();
+                $.connection.hub.start();
+            }
+           
+            $("[id^=trangthaionline]").css("background-color", "gray")
+            for (var i = 0; i < data.length; i++) {
+                $(`.Trangthai_`+data[i]).css("background-color", "#00FF00")
+            }
+        }
+
+    }
+        </script>
+    }
+
+
+}
+

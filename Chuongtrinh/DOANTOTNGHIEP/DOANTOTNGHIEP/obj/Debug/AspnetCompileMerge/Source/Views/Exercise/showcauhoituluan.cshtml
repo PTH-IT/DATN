@@ -1,0 +1,290 @@
+﻿@model DOANTOTNGHIEP.Models.BaiTap
+@{
+    Layout = "~/Views/Shared/Layoutclass.cshtml";
+    var user = ViewBag.user as DOANTOTNGHIEP.Models.TaiKhoan;
+    string nguoitao = user.TenDangNhap;
+    var malop = ViewBag.malop;
+    var mabaitaptl = ViewBag.mabaitaptl;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+
+
+    <style type="text/css">
+        input {
+            outline: none;
+            margin-bottom: 10px;
+            border-radius: 5px
+        }
+
+        textarea {
+            max-width: 100%;
+            height: 200px;
+            width: 100%;
+            outline: none;
+            margin-bottom: 10px;
+            border-radius: 20px
+        }
+
+        .filebaitap {
+            border-radius: 20px;
+            background-image: linear-gradient(to right,#FF00BF,#D8D8D8);
+            padding: 10px
+        }
+
+         .dangTL {
+            background-image: linear-gradient(to right,#0404B4,#A901DB);
+            padding: 5px;
+            padding-left: 15px;
+            padding-right: 15px;
+            color: white;
+            border-radius: 20px;
+            margin-right: 2%
+        }
+
+        .huySuaBaitap {
+            text-align: center;
+            margin: auto;
+            display: block;
+            background-color: transparent;
+            border: 0px
+        }
+
+        .hidedangbaitap {
+            text-align: center;
+            margin: auto;
+            display: none;
+            background-color: transparent;
+            border: 0px
+        }
+
+        .divfilebaitap {
+            padding: 10px;
+            border: 0.5px solid black;
+            border-radius: 5px;
+            margin-left: 20px;
+            width: fit-content;
+            margin-bottom: 5px
+        }
+
+        .imgfilebaitap {
+            background-color: transparent;
+            border: 0px;
+            background-size: cover
+        }
+
+        hr {
+            border: 0.5px solid black;
+            margin-bottom: 10px;
+            margin-top: 0px;
+        }
+
+        #hideSuaBaiTap {
+            width: 100%;
+            box-shadow: 10px 5px 5px rgb(0 0 0 / 20%);
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        #baitap {
+            width: 100%;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 30px;
+        }
+        .themfiletb {
+            border-radius: 20px;
+            background-image: linear-gradient(to right,#FF00BF,#D8D8D8);
+            padding: 10px
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            load();
+            $(".editcauhoi").click(function () {
+                $(".baitap").css("display", "none");
+                $(".hideSuaBaitap").css("display", "block");
+              
+
+            });
+            $(".huySuaBaitap").click(function () {
+                $(".baitap").css("display", "block");
+                $(".hideSuaBaitap").css("display", "none");
+
+
+            });
+
+
+            $(".fileupload").change(function () {
+
+                $("br.file" + this.id).remove();
+                $("label.file" + this.id).remove();
+                $("br.file" + this.id).remove();
+                for (var i = 0; i < $('.fileupload')[0].files.length; i++) {
+
+                    var file = $('.fileupload')[0].files[i].name;
+
+                    $("label." + this.id).after("<label class=file" + this.id + " >" + file + "</label><br class='file" + this.id + "' />");
+                }
+            });
+
+
+
+        });
+      
+
+        function load() {
+            var myElement = $('textarea');
+            myElement.summernote({
+                // set editor height
+                placeholder: 'Nhập thông tin bạn muốn đăng',
+                toolbar: [
+                    ['insert', ['emoji']],
+                    ['style', ['style']],
+                    ['fontname', ['fontname']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture']],
+                    ['view', ['fullscreen', 'undo', 'redo']],
+                ],
+                disableResizeEditor: true,
+                height: 200,
+                minHeight: null, // set minimum height of editor
+                maxHeight: null // set maximum height of editor
+                // set focus to editable area after initializing summernote
+            });
+        }
+    </script>
+</head>
+
+<body class="container" style="margin-top:20px">
+    <div style="width: 100%; box-shadow: 10px 5px 5px rgb(0 0 0 / 20%); background: white; border-radius: 10px; margin-top: 10px; padding: 10px;" class="baitap">
+        <table style="margin-bottom:20px;">
+            <tr>
+                <th><img src=@Model.LopHoc.TaiKhoan.HinhAnh width="30" height="30" style="border-radius:45px;" /></th>
+                <th style="padding-left:10px;width:100%">
+                    <label>@Model.LopHoc.TaiKhoan.Ho  @Model.LopHoc.TaiKhoan.Ten</label><br />
+
+                    <label style="font-size:10px;">@Model.ThoiGianDang.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label>
+                    <label class="ngayhethanbaitap navbar-right" style="margin-right:5%">Ngày kết thúc: @Model.ThoiGianKetThuc.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label><br />
+                </th>
+            </tr>
+        </table>
+        <hr style="border:0.5px solid black" />
+        <div>
+            <label style="font-size:20px;">Chủ đề:@Model.ChuDe</label><br />
+        </div>
+        <div style=" padding:20px">@Html.Raw(@Model.Thongtin)</div><br />
+        @using (Ajax.BeginForm("Commentbaitap", "Exercise", new { malop = malop, mabaitap = mabaitaptl }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "modalthongtinbinhluan" }))
+        {
+
+            <button class="fa fa-group" style="background-color:transparent;border:0;font-size:18px" data-toggle="modal" data-target="#modalshowupload">Thêm nhận xét bài tập</button>
+        }
+        <div class="modal fade" id="modalshowupload" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content" style="max-width: 600px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Thông tin bình luận</h4>
+                    </div>
+                    <div class="modal-body " id="modalthongtinbinhluan">
+
+
+
+                    </div>
+
+                    @*<div class="modal-footer">
+                        <button class="join btn btn-info btn-lg" onclick=" return checkuploadfile() " style=" padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 20px; margin: 2%">Tải lên</button>
+
+                    </div>*@
+
+                </div>
+
+            </div>
+        </div>
+        @{
+            foreach (var filetb in Model.FileBTTLs)
+            {
+                if (@filetb.TenFile.IndexOf(".png") == @filetb.TenFile.Length - 4 || @filetb.TenFile.IndexOf(".jpg") == @filetb.TenFile.Length - 4)
+                {
+                    <div class="divfilebaitap">
+                        <img class="imgfilebaitap" src="@filetb.NoiLuu" width="50" height="30">
+                        <a href=@filetb.NoiLuu download>@filetb.TenFile</a>
+                    </div>
+
+                }
+                else
+                {
+
+
+                    <div class="divfilebaitap">
+                        <img class="imgfilebaitap" src="~/Content/image/Icon/unnamed.png" width="40" height="30">
+                        <a href=@filetb.NoiLuu download style="margin-left:20px">@filetb.TenFile</a>
+                    </div> }
+            }
+        }
+        <button class="glyphicon glyphicon-edit navbar-right editcauhoi" style="margin-right:2%;margin-bottom:20px;border:0px;background-color:transparent"></button>
+        <br />
+    </div>
+    <div class="hideSuaBaitap" id="hideSuaBaiTap" >
+        @using (Html.BeginForm("Editbaitaptl", "Exercise", new { id = Model.MaBaiTap , malop = malop }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="text" name="Chude" placeholder="Chủ đề" class="form-control" style="margin-bottom: 10px;" required value='@Model.ChuDe' />
+            <textarea name="noidungbt" placeholder="Nội dung bài tập" class="form-control" required>@Model.Thongtin</textarea>
+            
+
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <label>Hạn nộp :</label>
+                </li>
+                <li class="nav-item">
+                    <input type="datetime-local" name="thoigiankethuc" class="form-control" required style="margin-left:10px" value="@Model.ThoiGianKetThuc.Value.ToString(string.Format("yyyy-MM-ddThh:mm"))" />
+                </li>
+            </ul>
+            {
+                foreach (var filetb in Model.FileBTTLs)
+                {
+                    if (@filetb.TenFile.IndexOf(".png") == @filetb.TenFile.Length - 4 || @filetb.TenFile.IndexOf(".jpg") == @filetb.TenFile.Length - 4)
+                    {
+                        <div class="divfilebaitap">
+                            <img class="imgfilebaitap" src="@filetb.NoiLuu" width="20" height="10">
+                            <a href=@filetb.NoiLuu download>@filetb.TenFile</a>
+                        </div>
+
+                    }
+                    else
+                    {
+
+
+                        <div class="divfilebaitap">
+                            <img class="imgfilebaitap" src="~/Content/image/Icon/unnamed.png" width="20" height="10">
+                            <a href=@filetb.NoiLuu download style="margin-left:20px">@filetb.TenFile</a>
+                        </div> }
+                }
+            }
+            <div><label class="101-1"></label></div> <br />
+            <label class="glyphicon glyphicon-paperclip themfiletb" for="101-1">  Thêm</label>
+
+            <input type="file" multiple name="file" style="display:none" id="101-1" class="fileupload glyphicon glyphicon-file" />
+            <button class="navbar-right dangTL">Edit</button>
+            <br />
+            <br />
+        }
+
+        <button class="huySuaBaitap glyphicon glyphicon-menu-up" id=ansuabaitap></button>
+    </div>
+</body>
+</html>

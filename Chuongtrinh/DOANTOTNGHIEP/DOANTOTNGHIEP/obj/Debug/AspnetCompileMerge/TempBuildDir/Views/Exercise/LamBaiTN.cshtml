@@ -1,0 +1,104 @@
+﻿@model List<DOANTOTNGHIEP.Models.CauHoi>
+@{
+    Layout = "~/Views/Shared/Layoutclass.cshtml";
+    var malop = ViewBag.malop;
+    var mabai = ViewBag.mabai;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('input:radio').click(function () {
+                var mach = this.id;
+                var mada = this.className;
+                $.ajax({
+                    url: '/Exercise/Luucauhoikhilam', type: 'post',
+                    data: {
+                        macauhoi: mach,
+                        madapan: mada,
+                        malop: @malop,
+                        mabai: @mabai,
+                    }
+
+                });
+                $('div.' + this.id).css("background-color", "#0174DF");
+
+                
+            });
+        });
+       
+    </script>
+
+</head>
+<body >
+    <div class="row" style="margin:20px">
+        <div class="col-md-10">
+            
+                @if (Model != null)
+                {
+                    int slcau = 0;
+
+                    string[] slda = { "A", "B", "C", "D" };
+                    foreach (var i in Model)
+                    {
+                        slcau++;
+
+                        int z = 0;
+                        <h2>câu @slcau :@Html.Raw(@i.NoiDung)</h2><br />
+
+                        foreach (var j in i.DapAns.ToList())
+                        {
+                          
+                                <input type="radio" name="@i.MaCauHoi" value="@j.NoiDung" id="@i.MaCauHoi" class="@j.MaDapAn" />
+                                <label style="margin-left: 10px;">@slda[z] :@Html.Raw(@j.NoiDung)</label><br />
+                            
+
+                            z++;
+                            
+
+
+
+                        }
+        <hr />
+                    }
+                }
+                
+
+
+           
+        </div>
+        <div class="col-md-2" style="padding:10px;position:fixed;right:0px">
+            <div style="padding:5px;background-color:#BDBDBD;border-radius:10px">
+                <br />
+                @if (Model != null)
+                {
+                    int slcau1 = 0;
+
+                    foreach (var i in Model)
+                    {
+                        slcau1++;
+
+                        <div class=@i.MaCauHoi style="width:40px;height:20px;background-color:#E6E6E6;margin:10px;border-radius:10px;text-align:center;float:left">@slcau1</div>
+
+                    }
+                }
+                <br />
+                <div style="clear:left;display:block;position:center;border:10px">
+                    <br />
+                    <a href="~/Exercise/LuuBaiTN?malop=@malop&&mabai=@mabai" id="nop" style="padding: 5px;padding-left:15px;padding-right:15px;  margin: 10px; margin-top:40px;background-color: #0040FF; border-radius: 10px;">Nộp</a>
+                </div>
+                <br />
+                <br />
+            </div>
+            
+
+        </div>
+    </div>
+  
+</body>
+</html>

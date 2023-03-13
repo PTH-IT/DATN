@@ -1,0 +1,79 @@
+﻿@model List<DOANTOTNGHIEP.Models.BaiTap>
+@{
+    ViewData["Title"] = "Phân loại bài tập";
+    Layout = "~/Views/Shared/Layoutclass.cshtml";
+    var malop = ViewBag.malop;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link href="~/Content/css/showbaitap.css" rel="stylesheet" />
+</head>
+<body class="container" style="background-color: #E6E6E6; margin-top: 20px">
+
+
+
+    @{
+
+        foreach (var i in Model)
+        {
+            if (Model.Count == 0)
+            {
+                break;
+            }
+
+            <a href="~/Exercise/ShowInforBaiTap?mabaitap=@i.MaBaiTap&&malop=@malop">
+                <div class="divbaitap">
+                    <table style="margin-bottom:20px;">
+                        <tr>
+                            <th><img class="navbar-link" src=@i.LopHoc.TaiKhoan.HinhAnh width="50" height="50" style="border-radius:45px;" /></th>
+                            <th style="padding-left:10px;width:100%">
+                                <label style="font-size:20px;">Chủ đề:@i.ChuDe</label><br />
+                                <label style="font-size:10px;">@i.ThoiGianDang</label>
+                                <label class="ngayhethanbaitap">thoi gian kết thúc: @i.ThoiGianKetThuc</label><br />
+                            </th>
+                        </tr>
+                    </table>
+                    <div>@Html.Raw(@i.Thongtin)</div><br />
+                    @{
+                        foreach (var filetb in i.FileBTTLs)
+                        {
+                            if (@filetb.TenFile.IndexOf(".png") == @filetb.TenFile.Length - 4 || @filetb.TenFile.IndexOf(".jpg") == @filetb.TenFile.Length - 4)
+                            {
+                                <div class="divfilebaitap">
+                                    <img class="imgfilebaitap" src="@filetb.NoiLuu" width="50" height="30">
+                                    <a href=@filetb.NoiLuu download>@filetb.TenFile</a>
+                                </div>
+
+                            }
+                            else
+                            {
+
+
+                                <div class="divfilebaitap">
+                                    <img class="imgfilebaitap" src="~/Content/image/Icon/unnamed.png" width="40" height="30">
+                                    <a href=@filetb.NoiLuu download style="margin-left:20px">@filetb.TenFile</a>
+                                </div> }
+                        }
+                    }
+
+
+
+
+                </div>
+</a>
+
+        }
+    }
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+﻿@model List<DOANTOTNGHIEP.Models.KeywordTailieu>
+@{
+
+    var machude = ViewBag.machude as string;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.table_id').DataTable({
+                dom: '<"row"<"col-sm-6"l B> <"col-sm-6"f>>  <tr> <"row"<"col-sm-6"i><"col-sm-6 d-flex justify-content-end"p>>',
+
+                buttons: [
+                    {
+                        text: '<i class="fa fa-user-plus"></i>  add',
+                        attr: {
+                            class: "addAccount btn btn-primary",
+                            'data-toggle': "modal",
+                            'data-target': "#modalshowupload",
+                        },
+                        action: function (e, dt, node, config) {
+
+                        }
+                    }
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.11.3/i18n/vi.json"
+                }
+            });
+        });
+        function onSubmit() {
+
+            var keyword = $('.Keyword').val();
+            if (keyword.replace(" ", "").length <= 0) {
+                $(".errorKeyword").css("display", "block");
+                $(".errorKeyword").text("vui lòng nhập chủ đề");
+
+            } else {
+                $.ajax({
+                    url: '/Admin/AddKeywordTailieu', type: 'post',
+                    data: {
+                        keyword: keyword,
+                        machude: "@machude",
+
+                    },
+                    success: function (result) {
+
+                        console.log(result)
+                        if (!result["result"]) {
+                            $(".errorKeyword").css("display", "block");
+                            $(".errorKeyword").text(result["value"]);
+
+                        } else {
+                            $(".AlertSuccess").text(result["value"])
+                            $("#success-alert").fadeTo(200, 50).slideUp(50, function () {
+                                $("#success-alert").slideUp(50);
+                                location.reload()
+                            });
+                        }
+                    },
+                    error: function (data) {
+                        location.reload()
+                    }
+                });
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+
+
+
+    <div class="modal fade" id="modalshowupload" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="width: fit-content;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Thêm người dùng vào lớp học</h4>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Từ khóa:</label>
+                            <input type="email" class="form-control Keyword" style="min-width: 500px">
+                        </div>
+                        <p class="text-danger errorKeyword" style="display:none"></p>
+
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="join btn btn-info btn-lg" onclick="onSubmit()">Thêm</button>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div style="margin:5px;margin-top:20px;">
+        <table style="margin-top:10px;width:100%" class="table table-hover table_id">
+
+            <thead class="table-primary">
+                <tr role="row" class="bg-primary">
+
+
+
+
+
+                    <th style="border:1px solid white">
+                        <label>từ khóa</label>
+                    </th>
+
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach (var i in Model)
+                    {
+                        <tr>
+                            <th style="padding:5px;background-color:#E6E6E6;border:3px solid white ">
+                                @i.Keyword
+                            </th>
+                        </tr>
+
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

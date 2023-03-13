@@ -1,0 +1,250 @@
+﻿@model List<DOANTOTNGHIEP.Models.ThanhVienLop>
+@{
+    string malop = ViewData["malop"] as string;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script type="text/javascript">
+        function checkIsEmaill(email) {
+            var expr = /^(([^<>()[\]\\.,;:\s@@\"]+(\.[^<>()[\]\\.,;:\s@@\"]+)*)|(\".+\"))@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return !expr.test(email)
+        }
+        function isEmail(email) {
+            console.log(email)
+            if (checkIsEmaill(email)) {
+                $(".errorAdduser").css("display", "block");
+                $(".errorAdduser").text("email isvalid");
+            } else {
+                $(".errorAdduser").text("");
+                $(".errorAdduser").css("display", "none");
+
+            }
+        }
+        function onSubmit() {
+            var change = $("#selectAdduser" + " option:selected").val();
+            var email = $('.emailAdduser').val();
+            if (checkIsEmaill(email)) {
+                $(".errorAdduser").css("display", "block");
+                $(".errorAdduser").text("email isvalid");
+
+            } else {
+                $.ajax({
+                  url: '/Admin/AddAccountClass/', type: 'post',
+                    data: {
+                        email: email,
+                        malop: @malop,
+                        chucvu: change,
+
+                    },
+                  success: function (result) {
+
+                      console.log(result)
+                      if (!result["result"]) {
+
+                          $(".AlertWarning").text(result["value"])
+                          $("#warning-alert").fadeTo(2000, 500).slideUp(500, function () {
+                              $("#warning-alert").slideUp(500);
+                          });
+                      } else {
+                          $(".AlertSuccess").text(result["value"])
+                          $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+                              $("#success-alert").slideUp(500);
+                              location.reload()
+                          });
+                              }
+                    },
+                    error: function (data) {
+                        location.reload()
+                    }
+                });
+            }
+        }
+
+        $(document).ready(function () {
+
+
+
+
+            $('.table_id').DataTable({
+                dom: '<"row"<"col-sm-6"l B> <"col-sm-6"f>>  <tr> <"row"<"col-sm-6"i><"col-sm-6 d-flex justify-content-end"p>>',
+
+                buttons: [
+                    {
+                        text: '<i class="fa fa-user-plus"></i>  add',
+                        attr: {
+                            class: "addAccount btn btn-primary",
+                            'data-toggle': "modal",
+                            'data-target': "#modalshowupload",
+                        },
+                        action: function (e, dt, node, config) {
+
+                        }
+                    }
+                ],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.11.3/i18n/vi.json"
+                },
+            });
+            $('.selectpermision').on('change', function () {
+                var change = $("#" +this.id +" option:selected").val();
+
+                $.ajax({
+                    url: '/Admin/editpermisionClass/', type: 'post',
+                    data: {
+                        id: this.id,
+                        malop: @malop,
+                        chucvu: change,
+
+                    },
+                    success: function (data) {
+                        
+                        if (data["result"]) {
+                            $(".AlertSuccess").text(data["value"])
+                            $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+                                $("#success-alert").slideUp(500);
+                                });
+                        }
+
+
+
+                    },
+                    error: function (data) {
+                        location.reload()
+                    }
+                });
+            });
+        });
+    </script>
+    <style type="text/css">
+        .addAccount {
+            margin-left: 20px
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="modal fade" id="modalshowupload" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="width: fit-content;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Thêm người dùng vào lớp học</h4>
+
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="usr">Email:</label>
+                            <input type="email" class="form-control emailAdduser"  style="min-width: 500px" onkeyup="isEmail(value)">
+                        </div>
+                        <div class="form-group">
+                            <label for="usr">Chức vụ</label>
+                            <select class="form-control" id="selectAdduser">
+                                <option value="GiaoVien" selected>Giáo Viên</option>
+                                <option value="SinhVien">Sinh Viên</option>
+                            </select>
+                        </div>
+                        <p class="text-danger errorAdduser" style="display:none"></p>
+
+
+</div>
+
+                        <div class="modal-footer">
+                            <button class="join btn btn-info btn-lg" onclick="onSubmit()" >Thêm</button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+        </div>
+    </div>
+
+    <div style="margin:5px;margin-top:20px;">
+
+        <table style="margin-top:10px;width:100%" class="table table-hover table_id">
+
+            <thead class="table-primary">
+                <tr role="row" class="bg-primary">
+
+
+
+
+
+                    <th style="border:1px solid white">
+                        <label>Họ Tên</label>
+                    <th style="border:1px solid white">
+                        <label>Email</label>
+                    </th>
+                    <th style="border:1px solid white">
+                        <label>Chức vụ</label>
+                    </th>
+                    <th style="border:1px solid white">
+                        <label>Ngày tham gia</label>
+                    </th>
+
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach (var i in Model)
+                    {
+
+
+                        <tr>
+
+
+
+
+
+
+                            <th style="padding: 5px; background-color: #E6E6E6; border: 1px solid white">
+                                @i.TaiKhoan.Ho  @i.TaiKhoan.Ten
+                            </th>
+                            <th style="padding: 5px; background-color: #E6E6E6; border: 1px solid white">
+                                @i.TaiKhoan.Email
+                            </th>
+                            <th style="padding: 5px; background-color: #E6E6E6; border: 1px solid white ">
+
+                                <select class="form-control selectpermision" id="@i.Mathanhvien">
+                                    @{
+                                        if (i.ChucVu.ToLower().Contains("GiaoVien".ToLower()))
+                                        {
+                                            <option value="GiaoVien" selected>Giáo Viên</option>
+                                            <option value="SinhVien">Sinh Viên</option>
+                                        }
+
+                                        else
+                                        {
+                                            <option value="GiaoVien">Giáo Viên</option>
+                                            <option value="SinhVien" selected>Sinh Viên</option>
+                                        }
+                                    }
+                                </select>
+
+                            </th>
+                            <th style="padding:5px;background-color:#E6E6E6;border:1px solid white ">
+                                @i.NgayThamGia.Value.ToString("HH:mm:ss dd/MM/yyyy")
+                            </th>
+
+
+
+
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

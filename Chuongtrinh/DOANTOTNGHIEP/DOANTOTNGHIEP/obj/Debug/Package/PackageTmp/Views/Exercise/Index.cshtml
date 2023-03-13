@@ -1,0 +1,785 @@
+﻿@model List<DOANTOTNGHIEP.Models.BaiTap>
+@{
+
+    Layout = "~/Views/Shared/Layoutclass.cshtml";
+    var lophoc = ViewBag.lophoc as DOANTOTNGHIEP.Models.LopHoc;
+    var user = ViewBag.user as DOANTOTNGHIEP.Models.TaiKhoan;
+    string nguoitao = user.TenDangNhap;
+    DOANTOTNGHIEP.Models.ThongBao tb = new DOANTOTNGHIEP.Models.ThongBao();
+    var malop = ViewBag.malop;
+    string chucvu = ViewBag.chucvu;
+}
+<!DOCTYPE html>
+@if (chucvu.ToLower().Equals("giaovien".ToLower()))
+{
+    
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Thông tin bài tập cho giảng viên</title>
+
+        <style type="text/css">
+            .headbaitap {
+                background-color: white !important;
+            }
+
+            .showdangbaitap {
+                width: 100%;
+                border: 0px solid black;
+                border-radius: 5px;
+                padding: 10px;
+                margin-bottom: 30px;
+                background-color: white;
+                box-shadow: 10px 5px 5px rgb(0 0 0 / 10%);
+            }
+
+
+
+            .hideDangBaitapTL {
+                display: none;
+                width: 100%;
+                padding: 20px
+            }
+
+            .hideDangBaitapTN {
+                display: none;
+                width: 100%;
+                padding: 20px
+            }
+
+            input.chudeTN {
+                outline: none;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                width: 400px;
+                max-width: 400px;
+            }
+
+            textarea {
+                max-width: 100%;
+                height: 200px;
+                width: 100%;
+                outline: none;
+                margin-bottom: 10px;
+                border-radius: 20px
+            }
+
+            .filebaitap {
+                border-radius: 20px;
+                padding: 10px
+            }
+
+            .filebieumau {
+                border-radius: 20px;
+                background-color: cornflowerblue;
+                padding: 10px
+            }
+
+            .dangTN, .dangTL {
+                margin: 20px;
+                margin-right: 30px !important;
+            }
+
+            .huySuaBaitap {
+                text-align: center;
+                margin: auto;
+                display: block;
+                background-color: transparent;
+                border: 0px
+            }
+
+            .hidedangbaitap {
+                text-align: center;
+                margin: auto;
+                display: none;
+                background-color: transparent;
+                border: 0px
+            }
+
+            .divfilebaitap {
+                padding: 10px;
+                border: 0px solid black;
+                border-radius: 5px;
+                margin-left: 20px;
+                width: fit-content;
+                margin-bottom: 5px
+            }
+
+            .imgfilebaitap {
+                background-color: transparent;
+                border: 0px;
+                background-size: cover
+            }
+
+            hr {
+                border: 0.5px solid black;
+                margin-bottom: 10px;
+                margin-top: 0px;
+            }
+
+            #hideSuaBaiTap {
+                width: 100%;
+                border: 0px solid black;
+                border-radius: 10px;
+                padding: 20px;
+                margin-bottom: 10px;
+                display: none;
+                background-color: white
+            }
+
+            #baitap {
+                width: 100%;
+                border: 0px solid black;
+                border-radius: 10px;
+                padding: 10px;
+                margin-bottom: 30px;
+                background-color: white;
+                box-shadow: 10px 5px 5px rgb(0 0 0 / 20%);
+            }
+        </style>
+        <script type="text/javascript">
+        $(document).ready(function () {
+
+            load("textarea.noidungTL");
+            load("textarea.noidungTN");
+
+            $(".dropdown-itemsua").click(function () {
+
+                $("div." + this.id).css("display", "none");
+                $("a." + this.id).removeAttr("href");
+                load("div.hideSuaBaitap-" + this.id + "textarea");
+
+                $(".hideSuaBaitap-" + this.id).css("display", "block");
+            });
+
+            $(".huySuaBaitap").click(function () {
+                $(".hideSuaBaitap-" + this.id).css("display", "none");
+                $("div." + this.id).css("display", "block");
+                $("a." + this.id).attr("href", "/Exercise/ShowInforBaiTap?mabaitap=" + this.id + "&&malop=" +@malop);
+
+            });
+
+
+            $(".tracnghiem").click(function () {
+                $(".tracnghiem").css("border", "2px solid #C0C0C0")
+                $(".tuluan").css("border", "0px solid #C0C0C0")
+                $(".hideDangBaitapTN").css("display", "block");
+                $(".hideDangBaitapTL").css("display", "None");
+                $(".hidedangbaitap").css("display", "block");
+            });
+            $(".tuluan").click(function () {
+                $(".tracnghiem").css("border", "0px solid #C0C0C0")
+                $(".tuluan").css("border", "2px solid #C0C0C0")
+                $(".hideDangBaitapTN").css("display", "None");
+                $(".hideDangBaitapTL").css("display", "block");
+                $(".hidedangbaitap").css("display", "block");
+            });
+
+
+
+            $(".dropdown-itemxoa").click(function () {
+                var answer = window.confirm("Bạn muốn xóa bài tập này ! ");
+                if (answer) {
+                    $.ajax({
+                        url: '/Exercise/deletebaitap/', type: 'post',
+                        data: {
+                            mabaitap: this.id,
+                            malop: @malop
+                        },
+
+                    });
+                    $("div#baitap." + this.id).remove();
+                }
+                else {
+
+                }
+
+
+            });
+
+
+            $(".fileupload").change(function () {
+
+                $("br.file" + this.id).remove();
+                $("label.file" + this.id).remove();
+                $("br.file" + this.id).remove();
+                for (var i = 0; i < $('.fileupload')[0].files.length; i++) {
+
+                    var file = $('.fileupload')[0].files[i].name;
+
+                    $("label." + this.id).after("<label class=file" + this.id + " >" + file + "</label><br class='file" + this.id + "' />");
+                }
+            });
+            $(".fileuploadtn").change(function () {
+
+                $("br.file" + this.id).remove();
+                $("label.file" + this.id).remove();
+                $("br.file" + this.id).remove();
+
+                    var file = $('.fileuploadtn')[0].files[0].name;
+
+                    $("label." + this.id).after("<label class=file" + this.id + " >" + file + "</label><br class='file" + this.id + "' />");
+
+            });
+            $(".hidedangbaitap").click(function () {
+                $(".hideDangBaitapTN").css("display", "None");
+                $(".hideDangBaitapTL").css("display", "None");
+                $(".hidedangbaitap").css("display", "none");
+
+            });
+
+
+        });
+
+
+
+
+        $(function () {
+            var baitap = $.connection.chat;
+            $(".dangTL").click(function () {
+                if ($('.chudeTL').text().length > 0 && $('.noidungTL').text().length > 0 && $('.thoigianTL').text().length > 0) {
+                    baitap.server.baitaps("@lophoc.MaLop");
+                };
+
+                });
+
+        });
+
+        function load(a) {
+            var myElement = $(a);
+            myElement.summernote({
+                // set editor height
+                placeholder: 'Nhập thông tin bạn muốn đăng',
+                toolbar: [
+                    ['insert', ['emoji']],
+                    ['style', ['style']],
+                    ['fontname', ['fontname']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture']],
+                    ['view', ['fullscreen', 'undo', 'redo']],
+                ],
+                disableResizeEditor: true,
+                height: 300,
+                minHeight: null, // set minimum height of editor
+                maxHeight: null // set maximum height of editor
+                // set focus to editable area after initializing summernote
+            });
+        }
+
+
+        </script>
+    </head>
+    <body class="container" style="background-color: white; margin-top: 20px">
+
+        <div style="width:100%;margin-top:10px">
+
+
+
+
+            @{
+
+
+
+                <div class="showdangbaitap">
+                    <h1>Bài Tập</h1>
+
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active tracnghiem" aria-current="page" style="cursor:pointer">Trắc nghiệm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tuluan" style="cursor:pointer">Tự luận</a>
+                        </li>
+                    </ul>
+
+                    <div class="hideDangBaitapTL">
+                        @using (Html.BeginForm("DangBaiTapTL", "Exercise", new { malop = malop }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <input type="text" name="Chude" placeholder="Chủ đề" class="form-control chudeTN" required />
+                            <textarea name="noidungbt" class="noidungTL"></textarea>
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <label>Hạn nộp :</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="datetime-local" name="thoigiankethuc" class="form-control thoigianTL" required style="margin-left:10px" min=@DateTime.UtcNow.ToString(string.Format("yyyy-MM-ddThh:mm")) />
+                                </li>
+                            </ul>
+                            <div><label class="101-1"></label></div>
+                            <label class="btn btn-primary glyphicon glyphicon-paperclip filebaitap" for="101-1">  Thêm</label>
+                            <input type="file" id="101-1" class="fileupload" multiple name="file" style="display:none" />
+                            <button id="dang" class="btn btn-primary navbar-right dangTL">Đăng</button>
+                        }
+                    </div>
+
+
+                    <div class="hideDangBaitapTN">
+                        @using (Html.BeginForm("DangBaiTapTN", "Exercise", new { malop = malop }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <input type="text" name="Chude" placeholder="Chủ đề" class="form-control  chudeTN" required />
+                            <textarea style="max-width:100%;height:200px;width:100%" name="noidungbt" class="noidungTN"></textarea>
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <label>Hạn làm :</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="datetime-local" name="thoigiankethuc" class="form-control thoigianTN" required style="margin-left:10px" min=@DateTime.UtcNow.ToString(string.Format("yyyy-MM-ddThh:mm")) />
+                                </li>
+                            </ul>
+
+                            <div><label class="101-2"></label></div>
+                            <label class="btn btn-primary glyphicon glyphicon-paperclip filebaitap" for="101-2">  Thêm</label>
+                            <a href="~/Content/Bieumaucauhoi.docx" class="btn btn-info fa fa-download filebieumau">  Biểu mẫu</a>
+                            <input type="file" name="file" class="fileuploadtn" required id="101-2" style="display:none" accept=".docx" />
+                            <button class="btn btn-primary navbar-right dangTN">Xem đề</button>
+
+                        }
+                    </div>
+
+
+                    <button class="glyphicon glyphicon-menu-up hidedangbaitap" style="display:none !important"></button>
+                </div>
+
+
+                if (Model != null)
+                {
+                    foreach (var i in Model)
+                    {
+
+                        <a href="~/Exercise/ShowInforBaiTap?mabaitap=@i.MaBaiTap&&malop=@malop" class=@i.MaBaiTap>
+
+                            <div id="baitap" class=@i.MaBaiTap>
+
+                                <table style="margin-bottom:20px;">
+
+
+
+                                    <tr>
+
+
+                                        <th><img class="navbar-link" src=@i.LopHoc.TaiKhoan.HinhAnh width="50" height="50" style="border-radius:45px;" /></th>
+                                        <th style="padding-left:10px;width:100%">
+                                            <label style="font-size:20px;">Chủ đề:@i.ChuDe</label><br />
+                                            <label style="font-size:10px;">@i.ThoiGianDang.Value.ToString(string.Format("HH:mm dd/MM/yyyy")) ~ @i.ThoiGianKetThuc.Value.ToString(string.Format("HH:mm dd/MM/yyyy"))</label>
+                                            <br />
+                                        </th>
+                                        <th style="z-index:5">
+                                            <div class="navbar-right dropdown " style="margin-bottom:40px">
+                                                <i class="glyphicon glyphicon-option-vertical" id="menu " data-toggle="dropdown" style="margin-right:10px" aria-haspopup="true" aria-expanded="false"></i>
+                                                <div class="dropdown-menu " aria-labelledby="menu ">
+                                                    <ul class="nav">
+                                                        <li><a class="dropdown-itemxoa" href="#" id="@i.MaBaiTap">xoa</a></li>
+                                                        <li><a class="dropdown-itemsua" id=@i.MaBaiTap>sua</a></li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                        </th>
+                                    </tr>
+
+
+
+                                </table>
+                                <hr />
+                                <div>@Html.Raw(@i.Thongtin)</div><br />  @{
+                                    if (i.FileBTTLs.Count > 0)
+                                    {
+                                        <hr />}
+                                    foreach (var filetb in i.FileBTTLs)
+                                    {
+
+                                        if (@filetb.TenFile.IndexOf(".png") == @filetb.TenFile.Length - 4 || @filetb.TenFile.IndexOf(".jpg") == @filetb.TenFile.Length - 4)
+                                        {
+                                            <div class="divfilebaitap">
+                                                <img class="imgfilebaitap" src="@filetb.NoiLuu" width="50" height="30">
+                                                <a href=@filetb.NoiLuu download>@filetb.TenFile</a>
+                                            </div>
+
+                                        }
+                                        else
+                                        {
+
+
+                                            <div class="divfilebaitap">
+                                                <img class="imgfilebaitap" src="~/Content/image/Icon/unnamed.png" width="40" height="30">
+                                                <a href=@filetb.NoiLuu download style="margin-left:20px">@filetb.TenFile</a>
+                                            </div> }
+
+
+                                    }
+                                }
+
+
+
+
+
+                            </div>
+                            <hr />
+                        </a>
+                        <div class="hideSuaBaitap-@i.MaBaiTap" id="hideSuaBaiTap">
+                            @using (Html.BeginForm("Editbaitap", "Exercise", new { mabaitap = i.MaBaiTap, malop = malop }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <input type="text" name="Chude" placeholder="Chủ đề" class="form-control chudeTN" required value=@i.ChuDe />
+                                <textarea name="noidungbt" placeholder="Nội dung bài tập" class="noidungTN">@i.Thongtin</textarea>
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item">
+                                        <label>Thoi gian ket thuc :</label>
+                                    </li>
+                                    <li class="nav-item">
+                                        <input type="datetime-local" name="thoigiankethuc" class="form-control thoigianTN" required style="margin-left:10px" value="@i.ThoiGianKetThuc.Value.ToString(string.Format("yyyy-MM-ddThh:mm"))" />
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary navbar-right dangTN">Edit</button>
+                                <br />
+                                <br />
+                            }
+                            <div class="col-md-12 text-center">
+                                <button class="huySuaBaitap glyphicon glyphicon-menu-up justify-content-center" id=@i.MaBaiTap></button>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+
+                if (Model.Count == 0)
+                {
+                    <div style="width:100%;height:100%;text-align:center">
+                        <img src="~/Content/image/Icon/empty_states_students.png" />
+                        <br />
+
+
+
+                        <label style="font-size:20px">
+                            Lớp học của bạn không có bất kỳ bài tập nào.<br />
+                            Vui lòng thêm bài tập mới.
+                        </label>
+
+
+
+
+
+
+
+                    </div>
+                }
+
+            }
+
+
+
+
+
+
+
+
+
+        </div>
+    </body>
+</html>
+
+}
+@if (!chucvu.ToLower().Equals("giaovien".ToLower()))
+{
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Thông tin bài tập cho sinh viên</title>
+        <style type="text/css">
+            .headbaitap {
+                background-color: white !important;
+            }
+
+            .thongbaomoi {
+                display: none;
+                border-radius: 10px;
+                background-image: linear-gradient(to left, #1A6EFF, pink);
+                text-align: center;
+                width: 10%;
+                margin: 5px auto;
+                position: fixed;
+                right: 10px;
+                left: 10px;
+                z-index: 9999;
+            }
+
+
+
+            .divbaitap {
+                width: 100%;
+                border: 0px solid black;
+                border-radius: 5px;
+                padding: 10px;
+                margin-bottom: 10px;
+                background-color: white;
+                box-shadow: 10px 5px 5px rgb(0 0 0 / 20%);
+            }
+
+            .divfilebaitap {
+                padding: 10px;
+                border: 0px solid black;
+                border-radius: 5px;
+                margin-left: 20px;
+                width: fit-content;
+                margin-bottom: 5px
+            }
+
+            .imgfilebaitap {
+                background-color: transparent;
+                border: 0px;
+                background-size: cover
+            }
+
+            .ngayhethanbaitap {
+                font-size: 10px;
+                float: right;
+                margin-left: 80%;
+            }
+        </style>
+        <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#anthongbaomoi").click(function () {
+
+                $(".thongbaomoi").css("display", "none");
+            });
+        });
+
+        $(function () {
+            var baitap = $.connection.chat;
+
+            baitap.client.baitap = function (malop) {
+
+                if (  malop == "@lophoc.MaLop") {
+                    $(".thongbaomoi").css("display", "block");
+
+                }
+
+            };
+
+        });
+
+
+
+
+
+
+        </script>
+    </head>
+    <body class="container" style="background-color: white; margin-top: 20px">
+        <div class="thongbaomoi">
+            <label>Bai tap moi</label><br />
+            <a href="~/Exercise/Index/@malop">Làm mới</a>
+            <a id="anthongbaomoi" href="#">Huy</a>
+        </div>
+
+        @if (Model != null)
+        {
+
+            {
+
+                int baichuanop = 0;
+                int baidanop = 0;
+                int bainopmuon = 0;
+                foreach (var i in Model)
+                {
+
+                    if (i.LoaiBaiTap.Equals("TuLuan"))
+                    {
+
+                        var y = i.BaiTapTLs.SingleOrDefault(x => x.MaBaiTap.ToString().Equals(i.MaBaiTap.ToString()) && x.NguoiNop.Equals(user.TenDangNhap));
+                        if (y != null)
+                        {
+
+                            if (y.Trangthai == null)
+                            {
+
+                                if (y.NgayNop == null)
+                                {
+                                    baichuanop++;
+                                }
+
+                            }
+                            else if (y.Trangthai != null)
+                            {
+
+                                if (y.NgayNop != null)
+                                {
+                                    baidanop++;
+                                }
+
+
+                            }
+
+                            if (y.NgayNop != null)
+                            {
+                                if (y.NgayNop > i.ThoiGianKetThuc)
+                                {
+                                    bainopmuon++;
+                                }
+
+                            }
+
+
+
+                        }
+
+                    }
+                    else if (i.LoaiBaiTap.Equals("TracNghiem"))
+                    {
+                        var y = i.BaiTapTNs.SingleOrDefault(x => x.MaBaiTap.Equals(i.MaBaiTap) && x.NguoiNop.Equals(user.TenDangNhap));
+                        if (y != null)
+                        {
+
+
+                            if (y.NgayNop == null)
+                            {
+                                baichuanop++;
+                            }
+
+
+
+
+
+                            if (y.NgayNop != null)
+                            {
+                                baidanop++;
+                                if (y.NgayNop > i.ThoiGianKetThuc)
+                                {
+                                    bainopmuon++;
+                                }
+
+                            }
+
+                        }
+
+                    }
+                }
+
+                <div class="row container-fluid">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-3" style="margin:0px auto;display:block">
+
+                        <div>
+                            <a href="~/Exercise/Bainop?malop=@malop">
+                                <div style="padding:20px;background-color:aquamarine;border-radius:20px;width:200px;color:black">
+
+                                    <div><label>Bài đã nộp</label></div>
+                                    <div>@baidanop</div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3 " style="margin:0px auto;display:block">
+
+                        <div>
+                            <a href="~/Exercise/Baichuanop?malop=@malop">
+                                <div style="padding:20px;background-color:cornflowerblue;border-radius:20px;width:200px;color:black">
+
+                                    <div><label>Bài chưa nộp</label></div>
+                                    <div>@baichuanop</div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3 ">
+                        <div>
+                            <a href="~/Exercise/Bainopmuon?malop=@malop">
+                                <div style="padding:20px;background-color:orangered;border-radius:20px;width:200px;color:black">
+
+                                    <div><label>Bài Nộp muộn </label></div>
+                                    <div>@bainopmuon</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+            }
+
+
+        }
+        <div style="clear:left;margin-top:30px">
+
+
+
+
+            @{
+
+
+                if (Model != null)
+                {
+                    foreach (var i in Model)
+                    {
+
+                        <a href="~/Exercise/ShowInforBaiTap?mabaitap=@i.MaBaiTap&&malop=@malop">
+                            <div class="divbaitap">
+                                <table style="margin-bottom:20px;">
+                                    <tr>
+                                        <th><img class="navbar-link" src=@i.LopHoc.TaiKhoan.HinhAnh width="40" height="40" style="border-radius:45px;" /></th>
+                                        <th style="padding-left:10px;width:100%">
+                                            <label style="font-size:20px;">Chủ đề:@i.ChuDe</label><br />
+                                            <label style="font-size:10px;">@i.ThoiGianDang.Value.ToString(string.Format("HH:mm dd/MM/yyyy")) ~ @i.ThoiGianKetThuc.Value.ToString(string.Format("HH:mm dd/MM/yyyy"))</label>
+
+                                        </th>
+                                    </tr>
+                                </table>
+                                <hr />
+                                <div>@Html.Raw(@i.Thongtin)</div><br />
+                                @{
+                                    foreach (var filetb in i.FileBTTLs)
+                                    {
+                                        if (@filetb.TenFile.IndexOf(".png") == @filetb.TenFile.Length - 4 || @filetb.TenFile.IndexOf(".jpg") == @filetb.TenFile.Length - 4)
+                                        {
+                                            <div class="divfilebaitap">
+                                                <img class="imgfilebaitap" src="@filetb.NoiLuu" width="50" height="30">
+                                                <a href="@filetb.NoiLuu" download>@filetb.TenFile</a>
+                                            </div>
+
+                                        }
+                                        else
+                                        {
+
+
+                                            <div class="divfilebaitap">
+                                                <img class="imgfilebaitap" src="~/Content/image/Icon/unnamed.png" width="40" height="30">
+                                                <a href="@filetb.NoiLuu" download style="margin-left:20px">@filetb.TenFile</a>
+                                            </div> }
+                                    }
+                                }
+
+
+
+
+                            </div>
+                        </a>
+                    }
+                }
+            }
+
+
+
+
+
+
+
+
+        </div>
+    </body>
+</html>
+}
+

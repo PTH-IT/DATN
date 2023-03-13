@@ -1,0 +1,102 @@
+﻿@{
+
+   
+    var tailieu = ViewData["s"] as List<DOANTOTNGHIEP.Modelcreate.Tailieu>;
+
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <style type="text/css">
+        
+        .tl{
+            display:none;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#modalloading").css("display", "none")
+            $('#tailieu').css("display", "block");
+            $('.tl').fadeIn(1000);
+            
+        });
+        function actionshowviewpdf(link) {
+            $(".viewshowpdfdownload").attr('href', link );
+            $(".viewshowpdf").attr('src',  link + "#toolbar=0&navpanes=0&scrollbar=0");
+        }
+    </script>
+</head>
+
+<div id="tailieu">
+    @if (tailieu.Count == 0)
+    {
+
+        <div style="width:100%;height:80%;text-align:center">
+
+            <img src="~/Content/image/Icon/library-owl.jpg" style="width:30%" />
+            <br />
+            <label style="font-size:20px">
+                Tài liệu liên bạn cần tìm không có trong hệ thống
+            </label>
+
+        </div>
+
+    }
+
+
+
+
+    <div style="margin:5px auto" class="tl">
+        @{
+
+            if (tailieu != null)
+            {
+                foreach (var tl in tailieu)
+                {
+                    <div style="width: 250px; float: left; height: 400px; margin-top: 25px; margin-left: 15px; box-shadow: 10px 5px 5px rgb(0 0 0 / 10%); ">
+                        <div style="border-top-left-radius: 10px; background-color:white;height:85%;text-align:center;padding:10px">
+                            <div style="height:90%"><img src="@tl.anh" style="max-height:auto;width:200px" /></div>
+                            <div style="height:10%"><label style="overflow:hidden; text-overflow:ellipsis;white-space:nowrap">@Html.Raw(@tl.ten)</label></div>
+                        </div>
+                        <div style="height:15%;margin:2px auto"> <button class="btn btn-primary btn-block" onclick="actionshowviewpdf('@tl.duongdan')" data-toggle="modal" data-target="#modalshowviewpdf">View</button></div>
+                    </div>
+
+                }
+
+
+
+
+            }
+
+        }
+
+    </div>
+    <div class="container">
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalshowviewpdf" role="dialog"   style="margin:40px">
+            <div class="modal-dialog" style=" width: 100%; height: 95%; margin: 0; padding: 0;">
+
+                <!-- Modal content-->
+                <div class="modal-content" style="height: auto; min-height: 95%; border: 0 none; border-radius: 0; box-shadow: none;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" style="font-size:50px">&times;</button>
+                        <a type="button" class="fa fa-download close viewshowpdfdownload" href="~/Content/BTTL/RLSV_CNTT59_2021-2022_HKy1.pdf" download style="font-size: 50px ;margin-right:100px"></a>
+                        <h2 class="modal-title">Show tài liệu</h2>
+                    </div>
+                        <iframe 
+            frameBorder="0"
+            scrolling="auto"
+            height="100%"
+            width="100%" class="viewshowpdf"  ></iframe>
+                   
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+

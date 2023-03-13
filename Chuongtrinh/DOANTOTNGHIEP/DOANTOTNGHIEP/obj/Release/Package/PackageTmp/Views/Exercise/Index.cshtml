@@ -1,0 +1,311 @@
+﻿@model List<DOANTOTNGHIEP.Models.BaiTap>
+@{
+
+    ViewData["Title"] = "Bài tập HS";
+    Layout = "~/Views/Shared/Layoutclass.cshtml";
+    var lophoc = ViewBag.lophoc as DOANTOTNGHIEP.Models.LopHoc;
+    var user = ViewBag.user as DOANTOTNGHIEP.Models.TaiKhoan;
+    string nguoitao = user.TenDangNhap;
+    DOANTOTNGHIEP.Models.ThongBao tb = new DOANTOTNGHIEP.Models.ThongBao();
+    var malop = ViewBag.malop;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <style>
+        .thongbaomoi {
+            display: none;
+            border-radius: 10px;
+            background-image: linear-gradient(to left, #1A6EFF, pink);
+            text-align: center;
+            width: 10%;
+            margin: 5px auto;
+            position: fixed;
+            right: 10px;
+            left: 10px;
+            z-index: 9999;
+        }
+
+
+
+        .divbaitap {
+            width: 100%;
+            border: 0px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: white;
+            box-shadow: 10px 5px 5px rgb(0 0 0 / 20%);
+        }
+
+        .divfilebaitap {
+            padding: 10px;
+            border: 0px solid black;
+            border-radius: 5px;
+            margin-left: 20px;
+            width: fit-content;
+            margin-bottom: 5px
+        }
+
+        .imgfilebaitap {
+            background-color: transparent;
+            border: 0px;
+            background-size: cover
+        }
+
+        .ngayhethanbaitap {
+            font-size: 10px;
+            float: right;
+            margin-left: 80%;
+        }
+
+    </style>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            reset();
+            $('.headbaitap').css("color", "black");
+            $('.headbaitap').css("background-color", "white");
+
+            $("#anthongbaomoi").click(function () {
+                
+                $(".thongbaomoi").css("display", "none");
+            });
+        });
+
+        $(function () {
+            var baitap = $.connection.chat;
+
+            baitap.client.baitap = function (malop) {
+               
+                if (  malop == "@lophoc.MaLop") {
+                    $(".thongbaomoi").css("display", "block");
+
+                }
+
+            };
+
+        });
+
+
+
+
+
+
+    </script>
+</head>
+<body class="container" style="background-color: white; margin-top: 20px">
+    <div class="thongbaomoi">
+        <label>Bai tap moi</label><br />
+        <a href="~/Exercise/Index/@malop">Làm mới</a>
+        <a id="anthongbaomoi" href="#">Huy</a>
+    </div>
+
+    @if (Model != null)
+    {
+
+        {
+
+            int baichuanop = 0;
+            int baidanop = 0;
+            int bainopmuon = 0;
+            foreach (var i in Model)
+            {
+
+                if (i.LoaiBaiTap.Equals("TuLuan"))
+                {
+
+                    var y = i.BaiTapTLs.SingleOrDefault(x => x.MaBaiTap.Equals(i.MaBaiTap) && x.NguoiNop.Equals(user.TenDangNhap));
+                    if (y != null)
+                    {
+
+                        if (y.Trangthai == null)
+                        {
+
+                            if (y.NgayNop == null)
+                            {
+                                baichuanop++;
+                            }
+
+                        }
+                        else if (y.Trangthai != null)
+                        {
+
+                            if (y.NgayNop != null)
+                            {
+                                baidanop++;
+                            }
+
+
+                        }
+
+                        if (y.NgayNop != null)
+                        {
+                            if (y.NgayNop > i.ThoiGianKetThuc)
+                            {
+                                bainopmuon++;
+                            }
+
+                        }
+
+
+
+                    }
+
+                }
+                else if (i.LoaiBaiTap.Equals("TracNghiem"))
+                {
+                    var y = i.BaiTapTNs.SingleOrDefault(x => x.MaBaiTap.Equals(i.MaBaiTap) && x.NguoiNop.Equals(user.TenDangNhap));
+                    if (y != null)
+                    {
+
+
+                        if (y.NgayNop == null)
+                        {
+                            baichuanop++;
+                        }
+
+
+
+
+
+                        if (y.NgayNop != null)
+                        {
+                            baidanop++;
+                            if (y.NgayNop > i.ThoiGianKetThuc)
+                            {
+                                bainopmuon++;
+                            }
+
+                        }
+
+                    }
+
+                }
+            }
+
+            <div class="row container-fluid">
+                <div class="col-md-2"></div>
+                <div class="col-md-3" style="margin:0px auto;display:block">
+
+                    <div>
+                        <a href="~/Exercise/Bainop?malop=@malop">
+                            <div style="padding:20px;background-color:aquamarine;border-radius:20px;width:200px;color:black">
+
+                                <div><label>Bài đã nộp</label></div>
+                                <div>@baidanop</div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-md-3 " style="margin:0px auto;display:block">
+
+                    <div>
+                        <a href="~/Exercise/Baichuanop?malop=@malop">
+                            <div style="padding:20px;background-color:cornflowerblue;border-radius:20px;width:200px;color:black">
+
+                                <div><label>Bài chưa nộp</label></div>
+                                <div>@baichuanop</div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="col-md-3 ">
+                    <div>
+                        <a href="~/Exercise/Bainopmuon?malop=@malop">
+                            <div style="padding:20px;background-color:orangered;border-radius:20px;width:200px;color:black">
+
+                                <div><label>Bài Nộp muộn </label></div>
+                                <div>@bainopmuon</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+        }
+
+
+    }
+    <div style="clear:left;margin-top:30px">
+
+
+
+
+        @{
+
+
+            if (Model != null)
+            {
+                foreach (var i in Model)
+                {
+
+                <a href="~/Exercise/ShowInforBaiTap?mabaitap=@i.MaBaiTap&&malop=@malop">
+                    <div class="divbaitap">
+                        <table style="margin-bottom:20px;">
+                            <tr>
+                                <th><img class="navbar-link" src=@i.LopHoc.TaiKhoan.HinhAnh width="40" height="40" style="border-radius:45px;" /></th>
+                                <th style="padding-left:10px;width:100%">
+                                    <label style="font-size:20px;">Chủ đề:@i.ChuDe</label><br />
+                                    <label style="font-size:10px;">@i.ThoiGianDang.Value.ToString(string.Format("HH:mm dd/MM/yyyy")) ~ @i.ThoiGianKetThuc.Value.ToString(string.Format("HH:mm dd/MM/yyyy"))</label>
+
+                                </th>
+                            </tr>
+                        </table>
+                        <hr />
+                        <div>@Html.Raw(@i.Thongtin)</div><br />
+                        @{
+                            foreach (var filetb in i.FileBTTLs)
+                            {
+                                if (@filetb.TenFile.IndexOf(".png") == @filetb.TenFile.Length - 4 || @filetb.TenFile.IndexOf(".jpg") == @filetb.TenFile.Length - 4)
+                                {
+                                    <div class="divfilebaitap">
+                                        <img class="imgfilebaitap" src="@filetb.NoiLuu" width="50" height="30">
+                                        <a href="@filetb.NoiLuu" download>@filetb.TenFile</a>
+                                    </div>
+
+                                }
+                                else
+                                {
+
+
+                                    <div class="divfilebaitap">
+                                        <img class="imgfilebaitap" src="~/Content/image/Icon/unnamed.png" width="40" height="30">
+                                        <a href="@filetb.NoiLuu" download style="margin-left:20px">@filetb.TenFile</a>
+                                    </div> }
+                            }
+                        }
+
+
+
+
+                    </div>
+                </a>
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+    </div>
+</body>
+</html>

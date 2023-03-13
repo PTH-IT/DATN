@@ -1,0 +1,154 @@
+﻿@model DOANTOTNGHIEP.Models.Modelcreate.BaiTap
+@{
+    ViewData["Title"] = "Bài tập SV";
+    Layout = "~/Views/Shared/Layoutclass.cshtml";
+    var user = ViewBag.user as DOANTOTNGHIEP.Models.TaiKhoan;
+    string nguoitao = user.TenDangNhap;
+    var malop = ViewBag.malop;
+    var mabainop = ViewBag.mabainop;
+    var nguoinop = ViewBag.nguoinop;
+}
+@*cho hc sinh*@
+<style type="text/css">
+    
+</style>
+<body  style="margin-top:30px;">
+    <div class="d-flex justify-content-between" style="padding: 30px">
+
+        <div class="row">
+            <div class="col-sm-8 col-sm-oset-1" style=" border: 0px solid #000000; border-radius: 10px; margin-top: 10px; padding: 10px; background-color: #FAFAFA; box-shadow: 10px 5px 5px rgb(0 0 0 / 20%);">
+
+                <table style="margin-bottom:20px;">
+                    <tr>
+                        <th><img src=@Model.BaiTaps.LopHoc.TaiKhoan.HinhAnh width="30" height="30" style="border-radius:45px;" /></th>
+                        <th style="padding-left:10px;width:100%">
+                            <label>@Model.BaiTaps.LopHoc.TaiKhoan.Ho  @Model.BaiTaps.LopHoc.TaiKhoan.Ten</label><br />
+
+                            <label style="font-size:10px;">@Model.BaiTaps.ThoiGianDang.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label>
+                            <label class="ngayhethanbaitap navbar-right" style="margin-right:5%">thoi gian kết thúc: @Model.BaiTaps.ThoiGianKetThuc.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label><br />
+                        </th>
+                    </tr>
+                </table>
+                <hr style="border:0.5px solid black" />
+                <div>
+                    <label style="font-size:20px;">Chủ đề:@Model.BaiTaps.ChuDe</label><br />
+                </div>
+                <div style=" padding:20px">@Html.Raw(Model.BaiTaps.Thongtin)</div><br />
+                @using (Ajax.BeginForm("Commentbaitap", "Exercise", new { malop = malop, mabaitap = Model.BaiTaps.MaBaiTap }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "modalthongtinbinhluan" }))
+                {
+
+                    <button class="fa fa-group" style="background-color:transparent;border:0;font-size:18px" data-toggle="modal" data-target="#modalshowupload">Thêm nhận xét bài tập</button>
+                }
+               
+
+                <div class="modal fade" id="modalshowupload" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content" style="max-width: 600px;">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Thông tin bình luận</h4>
+                            </div>
+                            <div class="modal-body " id="modalthongtinbinhluan">
+
+
+
+                            </div>
+
+                            @*<div class="modal-footer">
+                        <button class="join btn btn-info btn-lg" onclick=" return checkuploadfile() " style=" padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 20px; margin: 2%">Tải lên</button>
+
+                    </div>*@
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-3" style=" margin-left:10px; border: 0px solid black; border-radius: 10px; margin-top: 10px; padding: 10px; background-color: #FAFAFA; box-shadow: 10px 5px 5px rgb(0 0 0 / 20%);">
+                <img src=@Model.TaiKhoan.HinhAnh width="30" height="30" style="border-radius:45px;" />
+                <label>@Model.TaiKhoan.Ho @Model.TaiKhoan.Ten</label> <label class="navbar-right" style="margin-right:10px">@Model.Diem/100</label><br />
+
+                <br />
+                <table style="clear:none;padding:20px">
+                    <tr>
+                        <th style="margin-left:30px;text-align:right" colspan="2">
+                            @if (Model.NgayNop != null)
+                            {
+
+                            }
+
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><label style="font-size:20px">Bài tập của bạn </label></th>
+                        <th>
+                            @{
+                                if (Model.NgayNop == null)
+                                {
+                                    <label style="color:red;margin-left:10px">Chưa Nộp</label>
+                                }
+                                else if (Model.NgayNop <= Model.BaiTaps.ThoiGianKetThuc)
+                                {
+                                    <label style="margin-left:10px">Đã nộp</label>
+                                }
+                                else if (Model.NgayNop > Model.BaiTaps.ThoiGianKetThuc)
+                                {
+                                    <label style="color:red;margin-left:10px">Nộp muộn</label>
+                                }
+
+
+                            }
+
+                        </th>
+                    </tr>
+                    <tr style="margin-top:20px">
+                        <th>
+
+                            @if (Model.NgayNop != null)
+                            {<br />
+                                <label>Ngày nộp  :@Model.NgayNop.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label>
+                            }
+                            <br /><br />
+                        </th>
+                    </tr>
+
+                    <tr style="padding:10px">
+
+
+
+                        <th>
+                            @{
+
+                                if (Model.NgayNop == null && Model.TaiKhoan.TenDangNhap.Equals(nguoitao))
+                                {
+                                    <div><a href="~/Exercise/LamBaiTN?id=@Model.TaiKhoan.TenDangNhap&&malop=@malop">làm bài</a></div>
+                                }
+                                else if (Model.NgayNop != null)
+                                {
+                                    <a href="~/Exercise/ShowBaiThiTN?mabaitap=@Model.BaiTaps.MaBaiTap&&malop=@malop&&tendangnhap=@Model.TaiKhoan.TenDangNhap">xem bai thi</a>
+                                }
+
+                            }
+
+
+
+                        </th>
+
+                    </tr>
+                </table>
+
+
+
+
+
+
+
+            </div>
+        </div>
+     
+
+    </div>
+</body>

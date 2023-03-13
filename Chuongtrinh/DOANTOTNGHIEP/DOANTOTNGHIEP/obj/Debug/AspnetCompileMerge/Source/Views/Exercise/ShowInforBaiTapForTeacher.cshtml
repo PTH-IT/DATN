@@ -1,0 +1,300 @@
+﻿@{
+    Layout = "~/Views/Shared/Layoutclass.cshtml";
+    var baitracnhgiem = ViewData["baitracnghiem"] as List<DOANTOTNGHIEP.Models.Modelcreate.BaiTap>;
+    var baituluan = ViewData["baituluan"] as List<DOANTOTNGHIEP.Models.Modelcreate.BaiTap>;
+    DOANTOTNGHIEP.Models.DB db = new DOANTOTNGHIEP.Models.DB();
+    var malop = ViewBag.malop;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <style type="text/css">
+        
+        tbody.tr.th {
+        }
+    </style>
+
+    <script type="text/javascript">
+        function checkdaovan(i) {
+            $("#modalloading").css("display", "block");
+            $.ajax({
+                url: '/Exercise/checkdaovan', type: 'post',
+                data: {
+                    mabaitap: i,
+                    malop: @malop,
+
+                }
+
+            }).done(function (result) {
+                if (result == "true") {
+                    location.reload();
+                }
+
+                $("#modalloading").css("display", "none");
+
+
+            });
+        }
+        function buttontoview(link) {
+            location.replace(link)
+        }
+        $(document).ready(function () {
+            $('.table_id').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.11.3/i18n/vi.json"
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div style="margin: 20px">
+        @if (baitracnhgiem.Count != 0)
+        {<div style="margin-bottom:30px">
+                <button onclick="buttontoview(`ShowcauhoiTracnghiem?id=@baitracnhgiem[0].BaiTaps.MaBaiTap&&malop=@malop`)" type="button" class="btn btn-primary">Xem chi tiết bài tập </button>
+                <a href="@ViewBag.excel" class="link-info" style="margin-left:10px;font-size:20px" download>Xuất excel </a>
+                <a href="@ViewBag.pdf" class="link-info" style="margin-left:10px;font-size:20px" download>Xuất PDF </a>
+            </div>
+
+            <table style="margin-top:30px;width:100%" class="table_id">
+                <thead>
+                    <tr class="bg-primary" role="row" >
+
+
+
+
+
+                        <th style="border:1px solid white">
+                            <label></label>
+
+                        <th style="border:1px solid white">
+                            <label>Tên</label>
+                        </th>
+                        <th style="border:1px solid white">
+                            <label>Ngày Nộp</label>
+                        </th>
+                        <th style="border:1px solid white">
+                            <label>Ngày kết thúc</label>
+                        </th>
+                        <th style="border:1px solid white">
+                            <label>Điểm</label>
+                        </th>
+                        <th style="border:1px solid white">
+                            <label>Trạng Thái</label>
+                        </th>
+                        <th style="border:1px solid white">
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var i in baitracnhgiem)
+                    {
+
+
+                        <tr>
+
+
+
+
+
+                            <th>
+                                <img src=@i.TaiKhoan.HinhAnh width="40" height="40" style="border-radius:5px;" />
+
+                            </th>
+                            <th>
+                                <label>@i.TaiKhoan.Ho @i.TaiKhoan.Ten</label>
+
+                            </th>
+                            <th>
+                                @if (i.NgayNop != null)
+                                {
+                                    <label>@i.NgayNop.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label>
+                                }
+
+
+
+                            </th>
+                            <th>
+                                <label>@i.BaiTaps.ThoiGianKetThuc.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label>
+
+                            </th>
+                            <th>
+                                <label>@i.Diem</label>
+                            </th>
+                            <th>
+
+                                @{
+                                    if (i.NgayNop == null)
+                                    {
+                                        <label style="color:red">Chưa Nộp</label>
+                                    }
+                                    else if (i.NgayNop != null)
+                                    {
+                                        if (i.BaiTaps.ThoiGianKetThuc >= i.NgayNop)
+                                        {
+                                            <label>Đã nộp</label>
+                                        }
+                                        else if (i.BaiTaps.ThoiGianKetThuc < i.NgayNop)
+                                        {
+                                            <label style="color:red">Nộp muộn</label>
+                                        }
+                                    }
+                                }
+
+                            </th>
+                            <th>
+                                <a href="~/Exercise/ShowInforTN?ten=@i.TaiKhoan.TenDangNhap&&mabaitap=@i.BaiTaps.MaBaiTap&&malop=@malop" class="glyphicon glyphicon-edit"></a>
+                            </th>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        @if (baituluan.Count != 0)
+        {
+            <div style="margin-bottom:30px">
+
+
+                <button onclick="buttontoview(`showcauhoituluan?id=@baituluan[0].BaiTaps.MaBaiTap&&malop=@malop`)" type="button" class="btn btn-primary">Xem chi tiết bài tập </button>
+                <button onclick="checkdaovan(@baituluan[0].BaiTaps.MaBaiTap)" type="button" class="btn btn-primary">Kiểm Tra Đạo Văn </button>
+                <a href="@ViewBag.excel" class="link-info" style="margin-left:10px;font-size:20px" download>Xuất excel </a>
+                <a href="@ViewBag.pdf" class="link-info" style="margin-left:10px;font-size:20px" download>Xuất PDF </a>
+            </div>
+
+            <table style="margin-top:10px;width:100%" class="table table-hover table_id">
+
+                <thead class="table-primary">
+                    <tr  role="row" class="bg-primary" >
+
+
+
+
+
+                        <th style="border:1px solid white">
+                            <label></label>
+
+                        <th style="border:1px solid white">
+                            <label>Tên</label>
+                        </th>
+                        <th style="border:1px solid white">
+                            <label>Ngày Nộp</label>
+                        </th>
+                        <th style="border:1px solid white">
+                            <label>Ngày kết thúc</label>
+                        </th>
+                        <th style="border:1px solid white">
+                            <label>Điểm</label>
+                        </th>
+                        <th style="border:1px solid white">
+                            <label>Trạng Thái</label>
+                        </th>
+                        <th style="border:1px solid white">
+                            <label>Đạo Văn</label>
+                        </th>
+                        <th style="border:1px solid white"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    @foreach (var i in baituluan)
+                    {
+
+
+                        <tr>
+
+
+
+
+
+                            <th>
+                                <img src=@i.TaiKhoan.HinhAnh width="40" height="40" style="border-radius:5px;" />
+
+                            </th>
+                            <th>
+                                <label> @i.TaiKhoan.Ho @i.TaiKhoan.Ten</label>
+
+                            </th>
+                            <th>
+                                @if (i.NgayNop != null)
+                                {
+                                    <label>@i.NgayNop.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label>
+                                }
+
+                            </th>
+                            <th>
+                                <label>@i.BaiTaps.ThoiGianKetThuc.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label>
+
+                            </th>
+                            <th>
+                                <label>@i.Diem</label>
+
+                            </th>
+                            <th>
+
+                                @{
+                                    if (i.NgayNop == null)
+                                    {
+                                        <label style="color:red">Chưa Nộp</label>
+                                    }
+                                    else if (i.NgayNop != null)
+                                    {
+                                        if (i.BaiTaps.ThoiGianKetThuc >= i.NgayNop)
+                                        {
+                                            <label>Đã nộp</label>
+                                        }
+                                        else if (i.BaiTaps.ThoiGianKetThuc < i.NgayNop)
+                                        {
+                                            <label style="color:red">Nộp muộn</label>
+                                        }
+                                    }
+                                }
+
+                            </th>
+                            <th>
+                                @if(i.TTBaiTapTls!= null)
+                    {
+                                <a href="~/Exercise/kiemtradaovan/?ma=@i.TTBaiTapTls.ToArray()[0].MaBaiNop">
+
+                                    @{
+                                        
+                                            var dbfile = i.TTBaiTapTls.Where(x => x.MaBaiNop.Equals(i.TTBaiTapTls.ToArray()[0].MaBaiNop)).ToList();
+                                            foreach (var ifile in dbfile)
+                                            {
+                                                var dv = ifile.Plagiarism1.Where(x => x.Mafile.Equals(ifile.Ma)).OrderBy(y => y.Percents).ToList();
+                                                foreach (var daovan in dv)
+                                                {
+                                                    <label>@String.Format("{0:0.00}", @daovan.Percents)</label>
+                                                    break;
+                                                }
+                                            }
+                                        
+
+
+                                    }
+                                </a>
+                                        }
+                            </th>
+                            <th>
+                                <a href="~/Exercise/ShowInforTL/?ten=@i.TaiKhoan.TenDangNhap&&mabaitap=@i.BaiTaps.MaBaiTap&&malop=@malop" class="glyphicon glyphicon-edit"></a>
+                            </th>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        }
+
+    </div>
+
+
+
+</body>
+
+</html>
