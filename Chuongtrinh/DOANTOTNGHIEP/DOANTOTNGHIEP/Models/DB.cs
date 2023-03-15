@@ -8,7 +8,7 @@ namespace DOANTOTNGHIEP.Models
     public partial class DB : DbContext
     {
         public DB()
-            : base("name=DB5")
+            : base("name=DB")
         {
         }
 
@@ -22,10 +22,10 @@ namespace DOANTOTNGHIEP.Models
         public virtual DbSet<commentnotification> commentnotifications { get; set; }
         public virtual DbSet<DapAn> DapAns { get; set; }
         public virtual DbSet<document> documents { get; set; }
-        public virtual DbSet<FileBTTL> FileBTTLs { get; set; }
         public virtual DbSet<FileTB> FileTBs { get; set; }
         public virtual DbSet<KeywordLibrary> KeywordLibraries { get; set; }
         public virtual DbSet<KeywordTailieu> KeywordTailieux { get; set; }
+        public virtual DbSet<Library> Libraries { get; set; }
         public virtual DbSet<Loimoi> Loimois { get; set; }
         public virtual DbSet<LopHoc> LopHocs { get; set; }
         public virtual DbSet<Mess> Messes { get; set; }
@@ -51,10 +51,10 @@ namespace DOANTOTNGHIEP.Models
                 .WithRequired(e => e.BaiTap)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<BaiTap>()
-                .HasMany(e => e.FileBTTLs)
-                .WithOptional(e => e.BaiTap)
-                .HasForeignKey(e => e.MaBt);
+            modelBuilder.Entity<Chudetailieu>()
+                .HasMany(e => e.Libraries)
+                .WithOptional(e => e.Chudetailieu)
+                .HasForeignKey(e => e.MaNhom);
 
             modelBuilder.Entity<commentbaitap>()
                 .HasMany(e => e.replycommentBTs)
@@ -70,6 +70,26 @@ namespace DOANTOTNGHIEP.Models
                 .HasMany(e => e.TTBaiTapTNs)
                 .WithOptional(e => e.DapAn)
                 .HasForeignKey(e => e.MaDapAnluaChon);
+
+            modelBuilder.Entity<Library>()
+                .HasMany(e => e.BaiTaps)
+                .WithOptional(e => e.Library)
+                .HasForeignKey(e => e.IDLibrary);
+
+            modelBuilder.Entity<Library>()
+                .HasMany(e => e.documents)
+                .WithOptional(e => e.Library)
+                .HasForeignKey(e => e.IDLibrary);
+
+            modelBuilder.Entity<Library>()
+                .HasMany(e => e.FileTBs)
+                .WithOptional(e => e.Library)
+                .HasForeignKey(e => e.IDLibrary);
+
+            modelBuilder.Entity<Library>()
+                .HasMany(e => e.TTBaiTapTLs)
+                .WithOptional(e => e.Library)
+                .HasForeignKey(e => e.IDLibrary);
 
             modelBuilder.Entity<LopHoc>()
                 .HasMany(e => e.Loimois)
@@ -105,6 +125,11 @@ namespace DOANTOTNGHIEP.Models
                 .HasMany(e => e.documents)
                 .WithOptional(e => e.TaiKhoan)
                 .HasForeignKey(e => e.Nguoisohuu);
+
+            modelBuilder.Entity<TaiKhoan>()
+                .HasMany(e => e.Libraries)
+                .WithOptional(e => e.TaiKhoan)
+                .HasForeignKey(e => e.NguoiAdd);
 
             modelBuilder.Entity<TaiKhoan>()
                 .HasMany(e => e.Loimois)
@@ -165,7 +190,7 @@ namespace DOANTOTNGHIEP.Models
             modelBuilder.Entity<ThongBao>()
                 .HasMany(e => e.FileTBs)
                 .WithOptional(e => e.ThongBao)
-                .HasForeignKey(e => e.maTB);
+                .HasForeignKey(e => e.Mathongbao);
 
             modelBuilder.Entity<TTBaiTapTL>()
                 .HasMany(e => e.Plagiarism)

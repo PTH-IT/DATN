@@ -18,28 +18,18 @@ namespace DOANTOTNGHIEP.Models
         [Key]
         public long Ma { get; set; }
 
-        [StringLength(100)]
-        public string NoiLuu { get; set; }
-
-        public DateTime? NgayNop { get; set; }
-
         public long? MaBaiNop { get; set; }
 
         [StringLength(20)]
         public string NguoiNop { get; set; }
 
-        [StringLength(200)]
-        public string Tenfile { get; set; }
+        public long? IDLibrary { get; set; }
 
         public bool? Isplagiarism { get; set; }
 
-        public string Datafile { get; set; }
-
-        public long? Machude { get; set; }
-
         public virtual BaiTapTL BaiTapTL { get; set; }
 
-        public virtual Chudetailieu Chudetailieu { get; set; }
+        public virtual Library Library { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Plagiarism> Plagiarism { get; set; }

@@ -1,6 +1,7 @@
 ﻿using DOANTOTNGHIEP.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -102,25 +103,28 @@ namespace DOANTOTNGHIEP.Controllers
                 {
                     break;
                 }
+                var fileName = Path.GetFileNameWithoutExtension(fil.FileName);
+                var Extension = Path.GetExtension(fil.FileName);
+                var imageName = fileName + DateTime.Now.ToString("yyyyMMddHHmmss");
+                var imageSavePath = Server.MapPath("~/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/") + imageName + Extension;
+                fil.SaveAs(imageSavePath);
+                Library library = new Library();
+
+                library.Name = fil.FileName;
+                library.Location = "/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension;
+                library.NgayThem = DateTime.Now;
+                library.NguoiAdd = user.TenDangNhap;
+                library.NgayUpdate = library.NgayThem;
+                library.Noidung = DOANTOTNGHIEP.Models.exportfile.exportfile.getdatapdf(library.Location);
+                db.Libraries.Add(library);
+
                 FileTB ftb = new FileTB();
-                ftb.maTB = tb.MaBaiDang;
-                ftb.TenFile = fil.FileName;
+                ftb.Mathongbao = tb.MaBaiDang;
+                ftb.IDLibrary = library.ID;
                 db.FileTBs.Add(ftb);
                 db.SaveChanges();
                
-                    string path = Server.MapPath("~/Content/FileTB/" + ftb.Mafile.ToString() + fil.FileName);
-                    var ftb1 = db.FileTBs.SingleOrDefault(x => x.Mafile.ToString().Equals(ftb.Mafile.ToString()));
-                    ftb1.NoiLuu = "/Content/FileTB/" + ftb.Mafile.ToString() + fil.FileName;
-                    db.SaveChanges();
-
-                    if (System.IO.File.Exists(path))
-                    {
-                        System.IO.File.Delete(path);
-                    }
-
-                    fil.SaveAs(path);
-
-               
+                   
 
             }
             var lophoc = db.LopHocs.SingleOrDefault(x => x.MaLop.ToString().Equals(malop));
@@ -168,7 +172,7 @@ namespace DOANTOTNGHIEP.Controllers
             {
                 if (fil != null)
                 {
-                    var xoafiletb = db.FileTBs.Where(x => x.maTB.ToString().Equals(id)).ToList();
+                    var xoafiletb = db.FileTBs.Where(x => x.Mathongbao.ToString().Equals(id)).ToList();
                     if (xoafiletb != null)
                     {
                         db.FileTBs.RemoveRange(xoafiletb);
@@ -188,24 +192,26 @@ namespace DOANTOTNGHIEP.Controllers
                     break;
                 }
 
+                var fileName = Path.GetFileNameWithoutExtension(fil.FileName);
+                var Extension = Path.GetExtension(fil.FileName);
+                var imageName = fileName + DateTime.Now.ToString("yyyyMMddHHmmss");
+                var imageSavePath = Server.MapPath("~/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/") + imageName + Extension;
+                fil.SaveAs(imageSavePath);
+                Library library = new Library();
+
+                library.Name = fil.FileName;
+                library.Location = "/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension;
+                library.NgayThem = DateTime.Now;
+                library.NguoiAdd = user.TenDangNhap;
+                library.NgayUpdate = library.NgayThem;
+                library.Noidung = DOANTOTNGHIEP.Models.exportfile.exportfile.getdatapdf(library.Location);
+                db.Libraries.Add(library);
+
                 FileTB ftb = new FileTB();
-                ftb.maTB = tb.MaBaiDang;
-                ftb.TenFile = fil.FileName;
+                ftb.Mathongbao = tb.MaBaiDang;
+                ftb.IDLibrary = library.ID;
                 db.FileTBs.Add(ftb);
                 db.SaveChanges();
-                
-                    string path = Server.MapPath("~/Content/FileTB/" + ftb.Mafile.ToString() + fil.FileName);
-                    var ftb1 = db.FileTBs.SingleOrDefault(x => x.Mafile.ToString().Equals(ftb.Mafile.ToString()));
-                    ftb1.NoiLuu = "/Content/FileTB/" + ftb.Mafile.ToString() + fil.FileName;
-                    db.SaveChanges();
-
-                    if (System.IO.File.Exists(path))
-                    {
-                        System.IO.File.Delete(path);
-                    }
-
-                    fil.SaveAs(path);
-
                 
 
             }
@@ -231,7 +237,7 @@ namespace DOANTOTNGHIEP.Controllers
             {
                 return RedirectToAction("Index", "Notification", new { id = malop });
             }
-            var ftb = db.FileTBs.Where(x => x.maTB.ToString().Equals(id)).ToList();
+            var ftb = db.FileTBs.Where(x => x.Mathongbao.ToString().Equals(id)).ToList();
             foreach (var f in ftb)
             {
                 db.FileTBs.Remove(f);

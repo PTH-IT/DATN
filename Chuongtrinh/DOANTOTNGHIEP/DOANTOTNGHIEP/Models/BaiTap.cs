@@ -12,11 +12,10 @@ namespace DOANTOTNGHIEP.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public BaiTap()
         {
-            commentbaitaps = new HashSet<commentbaitap>();
             BaiTapTLs = new HashSet<BaiTapTL>();
             BaiTapTNs = new HashSet<BaiTapTN>();
             CauHois = new HashSet<CauHoi>();
-            FileBTTLs = new HashSet<FileBTTL>();
+            commentbaitaps = new HashSet<commentbaitap>();
             ThongBaos = new HashSet<ThongBao>();
         }
 
@@ -40,8 +39,9 @@ namespace DOANTOTNGHIEP.Models
 
         public string Thongtin { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<commentbaitap> commentbaitaps { get; set; }
+        public long? IDLibrary { get; set; }
+
+        public virtual Library Library { get; set; }
 
         public virtual LopHoc LopHoc { get; set; }
 
@@ -55,7 +55,7 @@ namespace DOANTOTNGHIEP.Models
         public virtual ICollection<CauHoi> CauHois { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FileBTTL> FileBTTLs { get; set; }
+        public virtual ICollection<commentbaitap> commentbaitaps { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ThongBao> ThongBaos { get; set; }

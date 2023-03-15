@@ -10,7 +10,7 @@ namespace DOANTOTNGHIEP.Models.database
         public static bool kiemtradaovanbaitap(string mabaitap, string malop)
         {
             DB db = new DB();
-            var thongtinbaitap = db.TTBaiTapTLs.Where(x => x.BaiTapTL.MaBaiTap.ToString().Equals(mabaitap) ).ToList().OrderBy(y => y.NgayNop).ToList();
+            var thongtinbaitap = db.TTBaiTapTLs.Where(x => x.BaiTapTL.MaBaiTap.ToString().Equals(mabaitap) ).ToList().OrderBy(y => y.Library.NgayUpdate).ToList();
             if (thongtinbaitap.Count > 0)
             {
                 
@@ -21,10 +21,10 @@ namespace DOANTOTNGHIEP.Models.database
                     List<DOANTOTNGHIEP.Models.Modelcreate.daovan> checkdaovan = new List<DOANTOTNGHIEP.Models.Modelcreate.daovan>();
                     foreach (var bailam in thongtinbaitap)
                     {
-                        if (thongtincankiemtra.NgayNop > bailam.NgayNop && thongtincankiemtra.NguoiNop != bailam.NguoiNop)
+                        if (thongtincankiemtra.Library.NgayUpdate > bailam.Library.NgayUpdate && thongtincankiemtra.NguoiNop != bailam.NguoiNop)
                         {
 
-                            var kiemtradaovan = DOANTOTNGHIEP.Models.database.daovan.comparetwofilepdf(thongtincankiemtra, bailam.Datafile,bailam.NoiLuu);
+                            var kiemtradaovan = DOANTOTNGHIEP.Models.database.daovan.comparetwofilepdf(thongtincankiemtra, bailam.Library.Noidung,bailam.Library.Location);
                             checkdaovan.Add(kiemtradaovan);
 
                         }
@@ -51,7 +51,7 @@ namespace DOANTOTNGHIEP.Models.database
                         Plagiarism plagiarism1 = new Plagiarism();
                         plagiarism1.Mafile = thongtincankiemtra.Ma;
                         plagiarism1.Percents = resultcaudaovan.Select(x => x.per).ToArray().Sum() / resultcaudaovan.Count;
-                        plagiarism1.Location = DOANTOTNGHIEP.Models.exportfile.exportfile.updatepdfdaovan(thongtincankiemtra.NoiLuu, "/Content/daovan/" + thongtincankiemtra.Tenfile.Replace(".pdf", "-baitap.pdf"), resultcaudaovan, "bài Tập");
+                        plagiarism1.Location = DOANTOTNGHIEP.Models.exportfile.exportfile.updatepdfdaovan(thongtincankiemtra.Library.Location, "/Content/daovan/" + thongtincankiemtra.Library.Name.Replace(".pdf", "-baitap.pdf"), resultcaudaovan, "bài Tập");
                         plagiarism1.Loaikiemtra = "Baitap";
                         db.Plagiarism.Add(plagiarism1);
                         db.SaveChanges();
@@ -64,7 +64,7 @@ namespace DOANTOTNGHIEP.Models.database
                         Plagiarism plagiarism1 = new Plagiarism();
                         plagiarism1.Mafile = thongtincankiemtra.Ma;
                         plagiarism1.Percents = 0;
-                        plagiarism1.Location = DOANTOTNGHIEP.Models.exportfile.exportfile.updatepdfdaovan(thongtincankiemtra.NoiLuu, "/Content/daovan/" + thongtincankiemtra.Tenfile.Replace(".pdf", "-baitap.pdf"), resultcaudaovan, "bài Tập");
+                        plagiarism1.Location = DOANTOTNGHIEP.Models.exportfile.exportfile.updatepdfdaovan(thongtincankiemtra.Library.Location, "/Content/daovan/" + thongtincankiemtra.Library.Name.Replace(".pdf", "-baitap.pdf"), resultcaudaovan, "bài Tập");
                         plagiarism1.Loaikiemtra = "Baitap";
                         db.Plagiarism.Add(plagiarism1);
                         db.SaveChanges();
@@ -85,9 +85,9 @@ namespace DOANTOTNGHIEP.Models.database
         public static bool kiemtradaovanlophoc(string mabaitap, string malop)
         {
             DB db = new DB();
-            var thongtinbaitap = db.TTBaiTapTLs.Where(x => x.BaiTapTL.MaBaiTap.ToString().Equals(mabaitap)).ToList().OrderBy(y => y.NgayNop).ToList();
-            var thongtinbaitaptuluanlophoc = db.TTBaiTapTLs.Where(x => x.BaiTapTL.BaiTap.LopHoc.MaLop.ToString().Equals(malop)).ToList().OrderBy(y => y.NgayNop).ToList();
-            var thongtintailieulophoc = db.documents.Where(x => x.MaLop.ToString().Equals(malop)).ToList().OrderBy(y => y.Ngaydang).ToList();
+            var thongtinbaitap = db.TTBaiTapTLs.Where(x => x.BaiTapTL.MaBaiTap.ToString().Equals(mabaitap)).ToList().OrderBy(y => y.Library.NgayUpdate).ToList();
+            var thongtinbaitaptuluanlophoc = db.TTBaiTapTLs.Where(x => x.BaiTapTL.BaiTap.LopHoc.MaLop.ToString().Equals(malop)).ToList().OrderBy(y => y.Library.NgayUpdate).ToList();
+            var thongtintailieulophoc = db.documents.Where(x => x.MaLop.ToString().Equals(malop)).ToList().OrderBy(y => y.Library.NgayUpdate).ToList();
             if (thongtinbaitap.Count > 0)
             {
 
@@ -96,21 +96,21 @@ namespace DOANTOTNGHIEP.Models.database
                 foreach (var tailieu in thongtinbaitaptuluanlophoc)
                 {
                     DOANTOTNGHIEP.Models.Modelcreate.TaiLieuCheckDaoVan tl = new Modelcreate.TaiLieuCheckDaoVan();
-                    tl.Tenfile = tailieu.Tenfile;
-                    tl.Thoigian = tailieu.NgayNop;
+                    tl.Tenfile = tailieu.Library.Name;
+                    tl.Thoigian = tailieu.Library.NgayUpdate;
                     tl.NguoiSoHuu = tailieu.NguoiNop;
-                    tl.NoiLuu = tailieu.NoiLuu;
-                    tl.Datafile = tailieu.Datafile;
+                    tl.NoiLuu = tailieu.Library.Location;
+                    tl.Datafile = tailieu.Library.Noidung;
                     tailieucheck.Add(tl);
                 }
                 foreach (var tailieu in thongtintailieulophoc)
                 {
                     DOANTOTNGHIEP.Models.Modelcreate.TaiLieuCheckDaoVan tl = new Modelcreate.TaiLieuCheckDaoVan();
-                    tl.Tenfile = tailieu.Ten;
-                    tl.Thoigian = tailieu.Ngaydang;
-                    tl.NguoiSoHuu = tailieu.Nguoisohuu;
-                    tl.NoiLuu = tailieu.Vitriluu;
-                    tl.Datafile = tailieu.Noidung;
+                    tl.Tenfile = tailieu.Library.Name;
+                    tl.Thoigian = tailieu.Library.NgayUpdate;
+                    tl.NguoiSoHuu = tailieu.Library.NguoiAdd;
+                    tl.NoiLuu = tailieu.Library.Location;
+                    tl.Datafile = tailieu.Library.Noidung;
                     tailieucheck.Add(tl);
                 }
                 foreach (var thongtincankiemtra in thongtinbaitap)
@@ -118,7 +118,7 @@ namespace DOANTOTNGHIEP.Models.database
                     List<DOANTOTNGHIEP.Models.Modelcreate.daovan> checkdaovan = new List<DOANTOTNGHIEP.Models.Modelcreate.daovan>();
                     foreach (var bailam in tailieucheck.OrderBy(x => x.Thoigian))
                     {
-                        if (thongtincankiemtra.NgayNop > bailam.Thoigian && thongtincankiemtra.NguoiNop != bailam.NguoiSoHuu)
+                        if (thongtincankiemtra.Library.NgayUpdate > bailam.Thoigian && thongtincankiemtra.NguoiNop != bailam.NguoiSoHuu)
                         {
 
                             var kiemtradaovan = DOANTOTNGHIEP.Models.database.daovan.comparetwofilepdf(thongtincankiemtra, bailam.Datafile, bailam.NoiLuu);
@@ -152,7 +152,7 @@ namespace DOANTOTNGHIEP.Models.database
                         Plagiarism plagiarism1 = new Plagiarism();
                         plagiarism1.Mafile = thongtincankiemtra.Ma;
                         plagiarism1.Percents = resultcaudaovan.Select(x => x.per).ToArray().Sum() / resultcaudaovan.Count;
-                        plagiarism1.Location = DOANTOTNGHIEP.Models.exportfile.exportfile.updatepdfdaovan(thongtincankiemtra.NoiLuu, "/Content/daovan/" + thongtincankiemtra.Tenfile.Replace(".pdf", "-lophoc.pdf"), resultcaudaovan , "lớp học");
+                        plagiarism1.Location = DOANTOTNGHIEP.Models.exportfile.exportfile.updatepdfdaovan(thongtincankiemtra.Library.Location, "/Content/daovan/" + thongtincankiemtra.Library.Name.Replace(".pdf", "-lophoc.pdf"), resultcaudaovan , "lớp học");
                         plagiarism1.Loaikiemtra = "Lophoc";
                         db.Plagiarism.Add(plagiarism1);
                         db.SaveChanges();
@@ -165,7 +165,7 @@ namespace DOANTOTNGHIEP.Models.database
                         Plagiarism plagiarism1 = new Plagiarism();
                         plagiarism1.Mafile = thongtincankiemtra.Ma;
                         plagiarism1.Percents = 0;
-                        plagiarism1.Location = DOANTOTNGHIEP.Models.exportfile.exportfile.updatepdfdaovan(thongtincankiemtra.NoiLuu, "/Content/daovan/" + thongtincankiemtra.Tenfile.Replace(".pdf", "-lophoc.pdf"), resultcaudaovan, "lớp học");
+                        plagiarism1.Location = DOANTOTNGHIEP.Models.exportfile.exportfile.updatepdfdaovan(thongtincankiemtra.Library.Location, "/Content/daovan/" + thongtincankiemtra.Library.Name.Replace(".pdf", "-lophoc.pdf"), resultcaudaovan, "lớp học");
                         plagiarism1.Loaikiemtra = "Lophoc";
                         db.Plagiarism.Add(plagiarism1);
                         db.SaveChanges();
@@ -185,9 +185,9 @@ namespace DOANTOTNGHIEP.Models.database
         public static bool kiemtradaovanall(string mabaitap)
         {
             DB db = new DB();
-            var thongtinbaitap = db.TTBaiTapTLs.Where(x => x.BaiTapTL.MaBaiTap.ToString().Equals(mabaitap)).ToList().OrderBy(y => y.NgayNop).ToList();
-            var thongtinbaitaptuluanlophoc = db.TTBaiTapTLs.Select(x => x).ToList().OrderBy(y => y.NgayNop).ToList();
-            var thongtintailieulophoc = db.documents.Select(x => x).ToList().OrderBy(y => y.Ngaydang).ToList();
+            var thongtinbaitap = db.TTBaiTapTLs.Where(x => x.BaiTapTL.MaBaiTap.ToString().Equals(mabaitap)).ToList().OrderBy(y => y.Library.NgayUpdate).ToList();
+            var thongtinbaitaptuluanlophoc = db.TTBaiTapTLs.Select(x => x).ToList().OrderBy(y => y.Library.NgayUpdate).ToList();
+            var thongtintailieulophoc = db.documents.Select(x => x).ToList().OrderBy(y => y.Library.NgayUpdate).ToList();
             if (thongtinbaitap.Count > 0)
             {
 
@@ -196,21 +196,21 @@ namespace DOANTOTNGHIEP.Models.database
                 foreach (var tailieu in thongtinbaitaptuluanlophoc)
                 {
                     DOANTOTNGHIEP.Models.Modelcreate.TaiLieuCheckDaoVan tl = new Modelcreate.TaiLieuCheckDaoVan();
-                    tl.Tenfile = tailieu.Tenfile;
-                    tl.Thoigian = tailieu.NgayNop;
-                    tl.NguoiSoHuu = tailieu.NguoiNop;
-                    tl.NoiLuu = tailieu.NoiLuu;
-                    tl.Datafile = tailieu.Datafile;
+                    tl.Tenfile = tailieu.Library.Name;
+                    tl.Thoigian = tailieu.Library.NgayUpdate;
+                    tl.NguoiSoHuu = tailieu.Library.NguoiAdd;
+                    tl.NoiLuu = tailieu.Library.Location;
+                    tl.Datafile = tailieu.Library.Noidung;
                     tailieucheck.Add(tl);
                 }
                 foreach (var tailieu in thongtintailieulophoc)
                 {
                     DOANTOTNGHIEP.Models.Modelcreate.TaiLieuCheckDaoVan tl = new Modelcreate.TaiLieuCheckDaoVan();
-                    tl.Tenfile = tailieu.Ten;
-                    tl.Thoigian = tailieu.Ngaydang;
-                    tl.NguoiSoHuu = tailieu.Nguoisohuu;
-                    tl.NoiLuu = tailieu.Vitriluu;
-                    tl.Datafile = tailieu.Noidung;
+                    tl.Tenfile = tailieu.Library.Name;
+                    tl.Thoigian = tailieu.Library.NgayUpdate;
+                    tl.NguoiSoHuu = tailieu.Library.NguoiAdd;
+                    tl.NoiLuu = tailieu.Library.Location;
+                    tl.Datafile = tailieu.Library.Noidung;
                     tailieucheck.Add(tl);
                 }
 
@@ -219,7 +219,7 @@ namespace DOANTOTNGHIEP.Models.database
                     List<DOANTOTNGHIEP.Models.Modelcreate.daovan> checkdaovan = new List<DOANTOTNGHIEP.Models.Modelcreate.daovan>();
                     foreach (var bailam in tailieucheck.OrderBy(x => x.Thoigian))
                     {
-                        if (thongtincankiemtra.NgayNop > bailam.Thoigian && thongtincankiemtra.NguoiNop != bailam.NguoiSoHuu)
+                        if (thongtincankiemtra.Library.NgayUpdate > bailam.Thoigian && thongtincankiemtra.NguoiNop != bailam.NguoiSoHuu)
                         {
 
                             var kiemtradaovan = DOANTOTNGHIEP.Models.database.daovan.comparetwofilepdf(thongtincankiemtra, bailam.Datafile, bailam.NoiLuu);
@@ -252,7 +252,7 @@ namespace DOANTOTNGHIEP.Models.database
                         Plagiarism plagiarism1 = new Plagiarism();
                         plagiarism1.Mafile = thongtincankiemtra.Ma;
                         plagiarism1.Percents = resultcaudaovan.Select(x => x.per).ToArray().Sum() / resultcaudaovan.Count;
-                        plagiarism1.Location = DOANTOTNGHIEP.Models.exportfile.exportfile.updatepdfdaovan(thongtincankiemtra.NoiLuu, "/Content/daovan/" + thongtincankiemtra.Tenfile.Replace(".pdf", "-all.pdf"), resultcaudaovan, "toàn bộ chương trình");
+                        plagiarism1.Location = DOANTOTNGHIEP.Models.exportfile.exportfile.updatepdfdaovan(thongtincankiemtra.Library.Location, "/Content/daovan/" + thongtincankiemtra.Library.Name.Replace(".pdf", "-all.pdf"), resultcaudaovan, "toàn bộ chương trình");
                         plagiarism1.Loaikiemtra = "all";
                         db.Plagiarism.Add(plagiarism1);
                         db.SaveChanges();
@@ -265,7 +265,7 @@ namespace DOANTOTNGHIEP.Models.database
                         Plagiarism plagiarism1 = new Plagiarism();
                         plagiarism1.Mafile = thongtincankiemtra.Ma;
                         plagiarism1.Percents = 0;
-                        plagiarism1.Location = DOANTOTNGHIEP.Models.exportfile.exportfile.updatepdfdaovan(thongtincankiemtra.NoiLuu, "/Content/daovan/" + thongtincankiemtra.Tenfile.Replace(".pdf", "-all.pdf"), resultcaudaovan , "toàn bộ chương trình");
+                        plagiarism1.Location = DOANTOTNGHIEP.Models.exportfile.exportfile.updatepdfdaovan(thongtincankiemtra.Library.Location, "/Content/daovan/" + thongtincankiemtra.Library.Name.Replace(".pdf", "-all.pdf"), resultcaudaovan , "toàn bộ chương trình");
                         plagiarism1.Loaikiemtra = "all";
                         db.Plagiarism.Add(plagiarism1);
                         db.SaveChanges();
@@ -337,7 +337,7 @@ namespace DOANTOTNGHIEP.Models.database
             DOANTOTNGHIEP.Models.Modelcreate.daovan listdv =new DOANTOTNGHIEP.Models.Modelcreate.daovan();
             listdv.sentence = new List<Modelcreate.detaildaovan>();
 
-            var datafile1 = getcau(file1.Datafile);
+            var datafile1 = getcau(file1.Library.Noidung);
             var datafile2 = getcau(data2);
             List<float> per = new List<float>();
             foreach (var compare1 in datafile1)

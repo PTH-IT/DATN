@@ -12,9 +12,8 @@ namespace DOANTOTNGHIEP.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Chudetailieu()
         {
-            documents = new HashSet<document>();
             KeywordTailieux = new HashSet<KeywordTailieu>();
-            TTBaiTapTLs = new HashSet<TTBaiTapTL>();
+            Libraries = new HashSet<Library>();
         }
 
         [Key]
@@ -23,12 +22,9 @@ namespace DOANTOTNGHIEP.Models
         public string Chude { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<document> documents { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KeywordTailieu> KeywordTailieux { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TTBaiTapTL> TTBaiTapTLs { get; set; }
+        public virtual ICollection<Library> Libraries { get; set; }
     }
 }

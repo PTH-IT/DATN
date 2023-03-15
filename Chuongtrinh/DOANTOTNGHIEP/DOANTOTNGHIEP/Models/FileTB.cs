@@ -9,16 +9,14 @@ namespace DOANTOTNGHIEP.Models
     [Table("FileTB")]
     public partial class FileTB
     {
-        [Key]
-        public long Mafile { get; set; }
+        public long ID { get; set; }
 
-        [StringLength(200)]
-        public string NoiLuu { get; set; }
+        public long? Mathongbao { get; set; }
 
-        public long? maTB { get; set; }
-
-        public string TenFile { get; set; }
+        public long? IDLibrary { get; set; }
 
         public virtual ThongBao ThongBao { get; set; }
+
+        public virtual Library Library { get; set; }
     }
 }

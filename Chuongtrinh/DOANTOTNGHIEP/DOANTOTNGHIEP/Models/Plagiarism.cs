@@ -15,9 +15,9 @@ namespace DOANTOTNGHIEP.Models
 
         public long? Mafile { get; set; }
 
-        public string Location { get; set; }
-
         public string Loaikiemtra { get; set; }
+
+        public string Location { get; set; }
 
         public virtual TTBaiTapTL TTBaiTapTL { get; set; }
     }

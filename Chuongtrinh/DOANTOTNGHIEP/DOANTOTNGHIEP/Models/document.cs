@@ -14,10 +14,6 @@ namespace DOANTOTNGHIEP.Models
 
         public string Ten { get; set; }
 
-        public string Vitriluu { get; set; }
-
-        public string Noidung { get; set; }
-
         [StringLength(20)]
         public string Nguoisohuu { get; set; }
 
@@ -27,16 +23,14 @@ namespace DOANTOTNGHIEP.Models
 
         public int? LuotTaiXuong { get; set; }
 
-        public DateTime? Ngaydang { get; set; }
-
         public int? Luotxem { get; set; }
 
-        public long? Machude { get; set; }
-
-        public virtual Chudetailieu Chudetailieu { get; set; }
+        public long? IDLibrary { get; set; }
 
         public virtual LopHoc LopHoc { get; set; }
 
         public virtual TaiKhoan TaiKhoan { get; set; }
+
+        public virtual Library Library { get; set; }
     }
 }

@@ -220,7 +220,7 @@ namespace DOANTOTNGHIEP.Controllers
                 Tailieu tl = new  Tailieu();
                 tl.ten = filedoccument.Ten;
                 tl.anh = filedoccument.Image;
-                tl.duongdan = filedoccument.Vitriluu;
+                tl.duongdan = filedoccument.Library.Location;
                 tailieu.Add(tl);
 
             }
@@ -247,17 +247,17 @@ namespace DOANTOTNGHIEP.Controllers
             }
             foreach(var v in keyseach.OrderByDescending(x=>x.TrimEnd(' ').TrimStart(' ').Split(' ').Length))
             {
-                documents = db.documents.Where(x => x.MaLop.ToString().Equals(malop) && x.Noidung.Replace("  ", " ").Contains(v)).ToList();
+                documents = db.documents.Where(x => x.MaLop.ToString().Equals(malop) && x.Library.Noidung.Replace("  ", " ").Contains(v)).ToList();
                 docs.AddRange(documents);
             }
             foreach(var filedoccument in docs)
             {
-                if(tailieu.Where(x=>x.duongdan.Equals(filedoccument.Vitriluu)  ).ToList().Count == 0)
+                if(tailieu.Where(x=>x.duongdan.Equals(filedoccument.Library.Location)  ).ToList().Count == 0)
                 {
                     Tailieu tl = new Tailieu();
                     tl.ten = filedoccument.Ten;
                     tl.anh = filedoccument.Image;
-                    tl.duongdan = filedoccument.Vitriluu;
+                    tl.duongdan = filedoccument.Library.Location;
                     tailieu.Add(tl);
 
                 }
@@ -291,16 +291,22 @@ namespace DOANTOTNGHIEP.Controllers
                 imageName = fileName + DateTime.Now.ToString("yyyyMMddHHmmss");
                 imageSavePath = Server.MapPath("~/Content/document/"+ Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/") + imageName +Extension;
                 filedocumentupload.SaveAs(imageSavePath);
+
                 document documentpdf = new document();
-                documentpdf.Vitriluu = "/Content/document/" + Models.crypt.Encrypt.encryptfoder( malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension;
+                Library library = new Library();
+                library.Name = filedocumentupload.FileName;
+                library.Location = "/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension;
+                library.NgayThem = DateTime.Now;
+                library.NgayUpdate = library.NgayThem;
+                library.Noidung = DOANTOTNGHIEP.Models.exportfile.exportfile.getdatapdf(library.Location);
                 documentpdf.Ten = tieude;
                 documentpdf.Nguoisohuu = user.TenDangNhap;
-                documentpdf.Ngaydang = DateTime.Now;
                 documentpdf.LuotTaiXuong = 0;
                 documentpdf.Luotxem = 0;
-                documentpdf.Noidung = DOANTOTNGHIEP.Models.exportfile.exportfile.getdatapdf(documentpdf.Vitriluu);
-                documentpdf.Image = getimagepdf(documentpdf.Vitriluu, malop, user.TenDangNhap);
+                documentpdf.Image = getimagepdf(library.Location, malop, user.TenDangNhap);
                 documentpdf.MaLop = Convert.ToInt64( malop);
+                db.Libraries.Add(library);
+                db.SaveChanges();
                 db.documents.Add(documentpdf);
                 db.SaveChanges();
               
