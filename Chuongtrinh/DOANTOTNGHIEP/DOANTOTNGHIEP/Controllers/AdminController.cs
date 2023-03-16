@@ -138,7 +138,7 @@ namespace DOANTOTNGHIEP.Controllers
             var result = new DOANTOTNGHIEP.Modelcreate.JsonResult();
 
             DB db = new DB();
-            var taikhoan = db.TaiKhoans.SingleOrDefault(x => x.Email.Contains(email));
+            var taikhoan = db.TaiKhoans.SingleOrDefault(x => x.Email.Equals(email));
 
             if (taikhoan == null)
             {

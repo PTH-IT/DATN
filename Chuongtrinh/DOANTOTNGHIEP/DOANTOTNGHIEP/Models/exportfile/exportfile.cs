@@ -117,18 +117,18 @@ namespace DOANTOTNGHIEP.Models.exportfile
                     row++;
 
                 }
-
+                string path = HostingEnvironment.MapPath("~/Content/file/" + dsdiem[0].BaiTaps.MaLop.ToString() + "_" + dsdiem[0].BaiTaps.MaBaiTap.ToString() + ".xlsx");
+                string path1 = "/Content/file/" + dsdiem[0].BaiTaps.MaLop.ToString() + "_" + dsdiem[0].BaiTaps.MaBaiTap.ToString() + ".xlsx";
+                if (System.IO.File.Exists(path))
+                {
+                    System.IO.File.Delete(path);
+                }
+                Sheet.Cells["A:AZ"].AutoFitColumns();
+                Ep.SaveAs(path);
+                return path1;
             }
-
-            string path = HostingEnvironment.MapPath("~/Content/file/" + dsdiem[0].BaiTaps.MaLop.ToString() + "_" + dsdiem[0].BaiTaps.MaBaiTap.ToString() + ".xlsx");
-            string path1 = "/Content/file/" + dsdiem[0].BaiTaps.MaLop.ToString() + "_" + dsdiem[0].BaiTaps.MaBaiTap.ToString() + ".xlsx";
-            if (System.IO.File.Exists(path))
-            {
-                System.IO.File.Delete(path);
-            }
-            Sheet.Cells["A:AZ"].AutoFitColumns();
-            Ep.SaveAs(path);
-            return path1;
+            return "";
+            
         }
         public static string exceldsdiem(List<Diem> dsdiem, string malop)
         {

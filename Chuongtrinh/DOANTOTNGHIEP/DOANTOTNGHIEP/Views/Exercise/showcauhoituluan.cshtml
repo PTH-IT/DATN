@@ -222,11 +222,11 @@
         @{
             foreach (var filetb in Model.FileBTTLs)
             {
-                if (@filetb.TenFile.IndexOf(".png") == @filetb.TenFile.Length - 4 || @filetb.TenFile.IndexOf(".jpg") == @filetb.TenFile.Length - 4)
+                if (@filetb.Library.Name.IndexOf(".png") == @filetb.Library.Name.Length - 4 || @filetb.Library.Name.IndexOf(".jpg") == @filetb.Library.Name.Length - 4)
                 {
                     <div class="divfilebaitap">
-                        <img class="imgfilebaitap" src="@filetb.NoiLuu" width="50" height="30">
-                        <a href=@filetb.NoiLuu download>@filetb.TenFile</a>
+                        <img class="imgfilebaitap" src="@filetb.Library.Location" width="50" height="30">
+                        <a href=@filetb.Library.Location download>@filetb.Library.Name</a>
                     </div>
 
                 }
@@ -236,7 +236,7 @@
 
                     <div class="divfilebaitap">
                         <img class="imgfilebaitap" src="~/Content/image/Icon/unnamed.png" width="40" height="30">
-                        <a href=@filetb.NoiLuu download style="margin-left:20px">@filetb.TenFile</a>
+                        <a href=@filetb.Library.Location download style="margin-left:20px">@filetb.Library.Name</a>
                     </div> }
             }
         }
@@ -261,11 +261,11 @@
             {
                 foreach (var filetb in Model.FileBTTLs)
                 {
-                    if (@filetb.TenFile.IndexOf(".png") == @filetb.TenFile.Length - 4 || @filetb.TenFile.IndexOf(".jpg") == @filetb.TenFile.Length - 4)
+                    if (@filetb.Library.Name.IndexOf(".png") == @filetb.Library.Name.Length - 4 || @filetb.Library.Name.IndexOf(".jpg") == @filetb.Library.Name.Length - 4)
                     {
                         <div class="divfilebaitap">
-                            <img class="imgfilebaitap" src="@filetb.NoiLuu" width="20" height="10">
-                            <a href=@filetb.NoiLuu download>@filetb.TenFile</a>
+                            <img class="imgfilebaitap" src="@filetb.Library.Location" width="20" height="10">
+                            <a href=@filetb.Library.Location download>@filetb.Library.Name</a>
                         </div>
 
                     }
@@ -275,7 +275,7 @@
 
                         <div class="divfilebaitap">
                             <img class="imgfilebaitap" src="~/Content/image/Icon/unnamed.png" width="20" height="10">
-                            <a href=@filetb.NoiLuu download style="margin-left:20px">@filetb.TenFile</a>
+                            <a href=@filetb.Library.Location download style="margin-left:20px">@filetb.Library.Name</a>
                         </div> }
                 }
             }

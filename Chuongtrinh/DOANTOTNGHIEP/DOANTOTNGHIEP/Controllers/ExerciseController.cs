@@ -136,6 +136,15 @@ namespace DOANTOTNGHIEP.Controllers
                 {
 
                     var tn = db.BaiTapTLs.Where(c => c.MaBaiTap.ToString().Equals(mabaitap)).ToList();
+                    var filebt = db.FileBTTLs.Where(x => x.MaBT.ToString().Equals(mabaitap)).ToList();
+                    foreach(var item in filebt)
+                    {
+                        db.Libraries.Remove(item.Library);
+                        db.SaveChanges();
+                        db.FileBTTLs.Remove(item);
+                        db.SaveChanges();
+                    }
+
                     foreach (var bai in tn)
                     {
                         string mabai = bai.MaBaiNop.ToString();
@@ -696,6 +705,10 @@ namespace DOANTOTNGHIEP.Controllers
             }
             var user = checkcookie.Item4;
             var bai = db.BaiTapTNs.SingleOrDefault(x => x.MaBaiTap.ToString().Equals(mabai) && x.NguoiNop.Equals(user.TenDangNhap));
+            if (bai == null)
+            {
+                bai = DOANTOTNGHIEP.Models.database.baitap.AddBaitapTN(Convert.ToInt64( mabai), user.TenDangNhap);
+            }
             var s = db.TTBaiTapTNs.SingleOrDefault(x => x.MaBaiNop.ToString().Equals(bai.MaBaiNop.ToString()) && x.NguoiNop.Equals(user.TenDangNhap) && x.MaCauHoi.ToString().Equals(macauhoi));
             if (s == null)
             {
@@ -883,7 +896,13 @@ namespace DOANTOTNGHIEP.Controllers
                 db.SaveChanges();
 
             }
-           
+            var filebt = baitap.FileBTTLs.Where(x => x.MaBT.ToString().Equals(id)).ToList();
+            foreach( var item in filebt)
+            {
+                db.Libraries.Remove(item.Library);
+            }
+            db.FileBTTLs.RemoveRange(filebt);
+            db.SaveChanges();
             foreach (var fil in file)
             {
                 if (fil == null)
@@ -896,9 +915,6 @@ namespace DOANTOTNGHIEP.Controllers
                 var imageSavePath = Server.MapPath("~/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/") + imageName + Extension;
                 fil.SaveAs(imageSavePath);
 
-
-                if (baitap.Library == null)
-                {
                     Library library =new Library();
 
                     library.Name = fil.FileName;
@@ -908,20 +924,10 @@ namespace DOANTOTNGHIEP.Controllers
                     library.NgayUpdate = library.NgayThem;
                     library.Noidung = DOANTOTNGHIEP.Models.exportfile.exportfile.getdatapdf(library.Location);
                     db.Libraries.Add(library);
-                    baitap.IDLibrary = library.ID;
-                }
-                else
-                {
-                    var library = baitap.Library;
-                    library.Name = fil.FileName;
-                    library.NguoiAdd = user.TenDangNhap;
-                    library.Location = "/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension;
-                    library.NgayThem = DateTime.Now;
-                    library.NgayUpdate = library.NgayThem;
-                    library.Noidung = DOANTOTNGHIEP.Models.exportfile.exportfile.getdatapdf(library.Location);
-                    
-                }
-
+                    FileBTTL fileBTTL = new FileBTTL();
+                    fileBTTL.IDLibrary = library.ID;
+                    fileBTTL.MaBT = baitap.MaBaiTap;
+                    db.FileBTTLs.Add(fileBTTL);
                 db.SaveChanges();
 
             }
@@ -1155,7 +1161,23 @@ namespace DOANTOTNGHIEP.Controllers
             string thoigianketthuc = Request.Form["thoigiankethuc"].ToString();
             DateTime dt = Convert.ToDateTime(thoigianketthuc);
             BaiTap bt = new BaiTap();
-
+            bt.Thongtin = noidung;
+            bt.ThoiGianDang = DateTime.Now;
+            bt.ThoiGianKetThuc = dt;
+            bt.NguoiTao = nguoitao;
+            bt.LoaiBaiTap = "TuLuan";
+            bt.ChuDe = chude;
+            bt.MaLop = long.Parse(malop);
+            db.BaiTaps.Add(bt);
+            db.SaveChanges();
+            ThongBao tb = new ThongBao();
+            tb.NguoiDang = nguoitao;
+            tb.NgayDang = DateTime.Now;
+            tb.MaBaiTap = bt.MaBaiTap;
+            tb.MaLop = long.Parse(malop);
+            tb.Thongtin = "Bài tập mới:" + chude;
+            db.ThongBaos.Add(tb);
+            db.SaveChanges();
             foreach (var fil in file)
             {
                 if (fil == null)
@@ -1176,28 +1198,17 @@ namespace DOANTOTNGHIEP.Controllers
                 library.NgayUpdate = library.NgayThem;
                 library.Noidung = DOANTOTNGHIEP.Models.exportfile.exportfile.getdatapdf(library.Location);
                 db.Libraries.Add(library);
-                bt.IDLibrary = library.ID;
+                FileBTTL fileBTTL = new FileBTTL();
+                fileBTTL.IDLibrary = library.ID;
+                fileBTTL.MaBT = bt.MaBaiTap;
+                db.FileBTTLs.Add(fileBTTL);
+                db.SaveChanges();
+
 
             }
 
 
-            bt.Thongtin = noidung;
-            bt.ThoiGianDang = DateTime.Now;
-            bt.ThoiGianKetThuc = dt;
-            bt.NguoiTao = nguoitao;
-            bt.LoaiBaiTap = "TuLuan";
-            bt.ChuDe = chude;
-            bt.MaLop = long.Parse(malop);
-            db.BaiTaps.Add(bt);
-            db.SaveChanges();
-            ThongBao tb = new ThongBao();
-            tb.NguoiDang = nguoitao;
-            tb.NgayDang = DateTime.Now;
-            tb.MaBaiTap = bt.MaBaiTap;
-            tb.MaLop = long.Parse(malop);
-            tb.Thongtin = "Bài tập mới:" + chude;
-            db.ThongBaos.Add(tb);
-            db.SaveChanges();
+         
 
            
 

@@ -299,14 +299,15 @@ namespace DOANTOTNGHIEP.Controllers
                 library.NgayThem = DateTime.Now;
                 library.NgayUpdate = library.NgayThem;
                 library.Noidung = DOANTOTNGHIEP.Models.exportfile.exportfile.getdatapdf(library.Location);
+                db.Libraries.Add(library);
+                db.SaveChanges();
                 documentpdf.Ten = tieude;
                 documentpdf.Nguoisohuu = user.TenDangNhap;
                 documentpdf.LuotTaiXuong = 0;
                 documentpdf.Luotxem = 0;
                 documentpdf.Image = getimagepdf(library.Location, malop, user.TenDangNhap);
                 documentpdf.MaLop = Convert.ToInt64( malop);
-                db.Libraries.Add(library);
-                db.SaveChanges();
+                documentpdf.IDLibrary = library.ID;
                 db.documents.Add(documentpdf);
                 db.SaveChanges();
               

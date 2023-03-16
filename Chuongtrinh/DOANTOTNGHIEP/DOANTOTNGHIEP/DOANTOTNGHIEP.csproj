@@ -285,16 +285,10 @@
     <Compile Include="Models\database\daovan.cs" />
     <Compile Include="Models\DB.cs" />
     <Compile Include="Models\document.cs" />
+    <Compile Include="Models\FileBTTL.cs" />
     <Compile Include="Models\FileTB.cs" />
     <Compile Include="Models\KeywordLibrary.cs" />
     <Compile Include="Models\KeywordTailieu.cs" />
-    <Compile Include="Models\kmeans\Centroid.cs" />
-    <Compile Include="Models\kmeans\DocumentVector.cs" />
-    <Compile Include="Models\kmeans\DocumnetClustering.cs" />
-    <Compile Include="Models\kmeans\SimilarityMatrics.cs" />
-    <Compile Include="Models\kmeans\start.cs" />
-    <Compile Include="Models\kmeans\StopWordsHandler.cs" />
-    <Compile Include="Models\kmeans\VectorSpaceModel.cs" />
     <Compile Include="Models\Library.cs" />
     <Compile Include="Models\Loimoi.cs" />
     <Compile Include="Models\LopHoc.cs" />

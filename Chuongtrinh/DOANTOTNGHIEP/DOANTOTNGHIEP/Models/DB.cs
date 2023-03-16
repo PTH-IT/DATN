@@ -22,6 +22,7 @@ namespace DOANTOTNGHIEP.Models
         public virtual DbSet<commentnotification> commentnotifications { get; set; }
         public virtual DbSet<DapAn> DapAns { get; set; }
         public virtual DbSet<document> documents { get; set; }
+        public virtual DbSet<FileBTTL> FileBTTLs { get; set; }
         public virtual DbSet<FileTB> FileTBs { get; set; }
         public virtual DbSet<KeywordLibrary> KeywordLibraries { get; set; }
         public virtual DbSet<KeywordTailieu> KeywordTailieux { get; set; }
@@ -51,6 +52,11 @@ namespace DOANTOTNGHIEP.Models
                 .WithRequired(e => e.BaiTap)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<BaiTap>()
+                .HasMany(e => e.FileBTTLs)
+                .WithOptional(e => e.BaiTap)
+                .HasForeignKey(e => e.MaBT);
+
             modelBuilder.Entity<Chudetailieu>()
                 .HasMany(e => e.Libraries)
                 .WithOptional(e => e.Chudetailieu)
@@ -72,12 +78,12 @@ namespace DOANTOTNGHIEP.Models
                 .HasForeignKey(e => e.MaDapAnluaChon);
 
             modelBuilder.Entity<Library>()
-                .HasMany(e => e.BaiTaps)
+                .HasMany(e => e.documents)
                 .WithOptional(e => e.Library)
                 .HasForeignKey(e => e.IDLibrary);
 
             modelBuilder.Entity<Library>()
-                .HasMany(e => e.documents)
+                .HasMany(e => e.FileBTTLs)
                 .WithOptional(e => e.Library)
                 .HasForeignKey(e => e.IDLibrary);
 
