@@ -20,6 +20,7 @@ namespace DOANTOTNGHIEP.Models.database
         }
         public static BaiTapTL AddBaitapTL(long MaBaiTap, string TenDangNhap)
         {
+
             DB db = new DB();
             BaiTapTL btl = new BaiTapTL();
             btl.MaBaiTap = MaBaiTap;
