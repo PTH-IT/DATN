@@ -5,7 +5,7 @@ import (
 
 	"fmt"
 
-	Database "cronjob-DATN/model/database"
+	Database "cronjob-DATN/database"
 	"cronjob-DATN/usecase"
 
 	"gorm.io/driver/sqlserver"
