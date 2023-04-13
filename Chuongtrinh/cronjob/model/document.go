@@ -9,4 +9,7 @@ type Document struct {
 	LuotTaiXuong int64  `gorm:"column:LuotTaiXuong"`
 	Luotxem      int64  `gorm:"column:Luotxem"`
 	IDLibrary    int64  `gorm:"column:IDLibrary"`
+	LopHoc       Lophoc
+	TaiKhoan     Taikhoan
+	Library      Library
 }

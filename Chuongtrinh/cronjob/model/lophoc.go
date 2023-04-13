@@ -7,4 +7,5 @@ type Lophoc struct {
 	NguoiTao       string `gorm:"column:NguoiTao"`
 	ThongTinLopHoc string `gorm:"column:ThongTinLopHoc"`
 	Hinhanh        string `gorm:"column:Hinhanh"`
+	Taikhoan       Taikhoan
 }

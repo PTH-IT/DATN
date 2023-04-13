@@ -7,4 +7,6 @@ type BaitapTL struct {
 	NgayNop   string `gorm:"column:NgayNop"`
 	NguoiNop  string `gorm:"column:NguoiNop"`
 	Diem      int64  `gorm:"column:Diem"`
+	BaiTap    Baitap
+	TaiKhoan  Taikhoan
 }

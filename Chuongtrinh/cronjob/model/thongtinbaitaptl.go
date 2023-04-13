@@ -7,4 +7,6 @@ type ThongTinBaiTapTL struct {
 	IDLibrary    int64  `gorm:"column:IDLibrary"`
 	Isplagiarism bool   `gorm:"column:Isplagiarism"`
 	Library      Library
+	BaiTapTuLuan BaitapTL
+	TaiKhoan     Taikhoan
 }

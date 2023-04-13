@@ -9,4 +9,5 @@ type Baitap struct {
 	MaLop           int64  `gorm:"column:MaLop"`
 	NguoiTao        string `gorm:"column:NguoiTao"`
 	Thongtin        string `gorm:"column:Thongtin"`
+	Lophoc          Lophoc
 }

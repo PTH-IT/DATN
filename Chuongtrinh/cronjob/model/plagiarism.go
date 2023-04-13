@@ -6,4 +6,5 @@ type Plagiarism struct {
 	Mafile      int64   `gorm:"column:Mafile"`
 	Loaikiemtra string  `gorm:"column:Loaikiemtra"`
 	Location    string  `gorm:"column:Location"`
+	TTBaiTapTL  ThongTinBaiTapTL
 }

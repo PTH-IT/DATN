@@ -10,6 +10,7 @@ namespace DOANTOTNGHIEP.Models
         public DB()
             : base("name=DB")
         {
+            this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
         }
 
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
