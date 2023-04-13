@@ -14,7 +14,10 @@ import (
 
 func Run() {
 
+	a, b := comparetsentence("Sinh viên ngành Công học hệ chính quy nhưng chưa hết thời gian đào tạo tối đa.", "Sinh viên ngành Công nghệ thông tin các lớp đã kết thúc khóa học hệ ")
 	// ctx := context.Background()
+	fmt.Println(a)
+	fmt.Println(b)
 	username := "admin"
 	password := "admin"
 	server := "localhost"

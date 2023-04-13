@@ -6,4 +6,5 @@ type ThongTinBaiTapTL struct {
 	NguoiNop     string `gorm:"column:NguoiNop"`
 	IDLibrary    int64  `gorm:"column:IDLibrary"`
 	Isplagiarism bool   `gorm:"column:Isplagiarism"`
+	Library      Library
 }

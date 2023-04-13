@@ -1,6 +1,7 @@
 package gormdb
 
 import (
+	"cronjob-DATN/model"
 	"cronjob-DATN/repository"
 	"fmt"
 )
@@ -12,12 +13,13 @@ func NewTaikhoan() repository.TaikhoanRepository {
 type taikhoanRepository struct {
 }
 
-func (r taikhoanRepository) GetTaikhoan() {
-	var user []map[string]interface{}
+func (r taikhoanRepository) GetTaikhoan() []*model.Taikhoan {
+	var user []*model.Taikhoan
 	DB.Table("TaiKhoan").Find(&user)
 	if len(user) == 0 {
 		fmt.Println("user null")
-		return
+		return nil
 	}
+	return user
 
 }

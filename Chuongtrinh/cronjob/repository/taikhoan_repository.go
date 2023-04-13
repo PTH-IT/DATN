@@ -1,5 +1,7 @@
 package repository
 
+import "cronjob-DATN/model"
+
 type TaikhoanRepository interface {
-	GetTaikhoan()
+	GetTaikhoan() []*model.Taikhoan
 }
