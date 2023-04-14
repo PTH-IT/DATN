@@ -1,7 +1,7 @@
 package model
 
 type Baitap struct {
-	MaBaiTap        int64  `gorm:"column:MaBaiTap"`
+	MaBaiTap        int64  `gorm:"primary_key;column:MaBaiTap"`
 	ChuDe           string `gorm:"column:ChuDe"`
 	LoaiBaiTap      string `gorm:"column:LoaiBaiTap"`
 	ThoiGianDang    string `gorm:"column:ThoiGianDang"`
@@ -9,5 +9,5 @@ type Baitap struct {
 	MaLop           int64  `gorm:"column:MaLop"`
 	NguoiTao        string `gorm:"column:NguoiTao"`
 	Thongtin        string `gorm:"column:Thongtin"`
-	Lophoc          Lophoc
+	Lophoc          Lophoc `gorm:"ForeignKey:MaLop;AssociationForeignKey:MaLop"`
 }

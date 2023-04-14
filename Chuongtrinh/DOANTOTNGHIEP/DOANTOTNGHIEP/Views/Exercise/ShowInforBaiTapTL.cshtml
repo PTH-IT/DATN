@@ -110,11 +110,11 @@
                 @{
                     foreach (var filetb in Model.BaiTaps.FileBTTLs)
                     {
-                        if (@filetb.TenFile.IndexOf(".png") == @filetb.TenFile.Length - 4 || @filetb.TenFile.IndexOf(".jpg") == @filetb.TenFile.Length - 4)
+                        if (@filetb.Library.Name.IndexOf(".png") == @filetb.Library.Name.Length - 4 || @filetb.Library.Name.IndexOf(".jpg") == @filetb.Library.Name.Length - 4)
                         {
                             <div class="divfilebaitap">
-                                <img class="imgfilebaitap" src="@filetb.NoiLuu" width="50" height="30">
-                                <a href=@filetb.NoiLuu download>@filetb.TenFile</a>
+                                <img class="imgfilebaitap" src="@filetb.Library.Location" width="50" height="30">
+                                <a href=@filetb.Library.Location download>@filetb.Library.Name</a>
                             </div>
 
                         }
@@ -124,7 +124,7 @@
 
                             <div class="divfilebaitap">
                                 <img class="imgfilebaitap" src="~/Content/image/Icon/unnamed.png" width="40" height="30">
-                                <a href=@filetb.NoiLuu download style="margin-left:20px">@filetb.TenFile</a>
+                                <a href=@filetb.Library.Location download style="margin-left:20px">@filetb.Library.Name</a>
                             </div> }
                     }
                 }
@@ -190,11 +190,11 @@
                                 {
                                     foreach (var filebt in Model.TTBaiTapTls)
                                     {
-                                        if (filebt.Tenfile.IndexOf(".png") == filebt.Tenfile.Length - 4 || filebt.Tenfile.IndexOf(".jpg") == filebt.Tenfile.Length - 4)
+                                        if (filebt.Library.Name.IndexOf(".png") == filebt.Library.Name.Length - 4 || filebt.Library.Name.IndexOf(".jpg") == filebt.Library.Name.Length - 4)
                                         {
                                             <div class="divfilebaitap" style="margin-top:10px">
-                                                <img class="imgfilebaitap-@filebt.MaBaiNop" src="@filebt.NoiLuu" width="50" height="30">
-                                                <a class="suafile-@filebt.MaBaiNop"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@filebt.Tenfile</label></a> <br class="suafile-@filebt.MaBaiNop" />
+                                                <img class="imgfilebaitap-@filebt.MaBaiNop" src="@filebt.Library.Location" width="50" height="30">
+                                                <a class="suafile-@filebt.MaBaiNop"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@filebt.Library.Name</label></a> <br class="suafile-@filebt.MaBaiNop" />
 
                                             </div>
 
@@ -205,7 +205,7 @@
 
                                             <div class="divfilebaitap" style="margin-top:10px">
                                                 <img class="imgfilebaitap-@filebt.MaBaiNop" src="~/Content/image/Icon/unnamed.png" width="40" height="30">
-                                                <a class="suafile-@filebt.MaBaiNop"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@filebt.Tenfile</label></a> <br class="suafile-@filebt.MaBaiNop" />
+                                                <a class="suafile-@filebt.MaBaiNop"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@filebt.Library.Name</label></a> <br class="suafile-@filebt.MaBaiNop" />
 
                                             </div> }
                                     }
@@ -226,11 +226,11 @@
                                 {
 
 
-                                    if (filebt.Tenfile.IndexOf(".png") == filebt.Tenfile.Length - 4 || filebt.Tenfile.IndexOf(".jpg") == filebt.Tenfile.Length - 4)
+                                    if (filebt.Library.Name.IndexOf(".png") == filebt.Library.Name.Length - 4 || filebt.Library.Name.IndexOf(".jpg") == filebt.Library.Name.Length - 4)
                                     {
                                         <div class="divfilebaitap" style="margin-top:10px">
-                                            <img class="imgfilebaitap" src="@filebt.NoiLuu" width="50" height="30">
-                                            <a href=@filebt.NoiLuu target="_blank"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@filebt.Tenfile</label></a><br />
+                                            <img class="imgfilebaitap" src="@filebt.Library.Location" width="50" height="30">
+                                            <a href=@filebt.Library.Location target="_blank"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@filebt.Library.Name</label></a><br />
 
 
                                         </div>
@@ -242,7 +242,7 @@
 
                                         <div class="divfilebaitap" style="margin-top:10px">
                                             <img class="imgfilebaitap" src="~/Content/image/Icon/unnamed.png" width="40" height="30">
-                                            <a href=@filebt.NoiLuu target="_blank"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@filebt.Tenfile</label></a><br />
+                                            <a href=@filebt.Library.Location target="_blank"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@filebt.Library.Name</label></a><br />
                                         </div>}
                                 }
                                 <br /><button class="huynop navbar-right" style=" background-image: linear-gradient(to right,#0404B4,#A901DB); padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 20px; margin-right: 2%">Hủy nộp</button>
@@ -263,11 +263,11 @@
                             foreach (var i in Model.TTBaiTapTls)
                             {
 
-                                if (i.Tenfile.IndexOf(".png") == i.Tenfile.Length - 4 || i.Tenfile.IndexOf(".jpg") == i.Tenfile.Length - 4)
+                                if (i.Library.Name.IndexOf(".png") == i.Library.Name.Length - 4 || i.Library.Name.IndexOf(".jpg") == i.Library.Name.Length - 4)
                                 {
                                     <div class="divfilebaitap" style="margin-top:10px">
-                                        <img class="imgfilebaitap" src="@i.NoiLuu" width="50" height="30">
-                                        <a href=@i.NoiLuu target="_blank"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@i.Tenfile</label></a><br />
+                                        <img class="imgfilebaitap" src="@i.Library.Location" width="50" height="30">
+                                        <a href=@i.Library.Location target="_blank"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@i.Library.Name</label></a><br />
                                     </div>
 
                                 }
@@ -277,7 +277,7 @@
 
                                     <div class="divfilebaitap" style="margin-top:10px">
                                         <img class="imgfilebaitap" src="~/Content/image/Icon/unnamed.png" width="40" height="30">
-                                        <a href=@i.NoiLuu target="_blank"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@i.Tenfile</label> </a><br />
+                                        <a href=@i.Library.Location target="_blank"><label style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;width:60%">@i.Library.Name</label> </a><br />
                                     </div>}
 
                             }

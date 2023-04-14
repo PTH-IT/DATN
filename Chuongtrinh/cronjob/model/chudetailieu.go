@@ -1,6 +1,6 @@
 package model
 
-type ChudeTaiLieu struct {
-	Machude int64  `gorm:"column:Machude"`
+type Chudetailieu struct {
+	Machude int64  `gorm:"primary_key;column:Machude"`
 	Chude   string `gorm:"column:Chude"`
 }

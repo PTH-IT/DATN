@@ -1,7 +1,7 @@
 package model
 
 type Taikhoan struct {
-	TenDangNhap string `gorm:"column:TenDangNhap"`
+	TenDangNhap string `gorm:"primary_key;column:TenDangNhap"`
 	MatKhau     string `gorm:"column:MatKhau"`
 	Email       string `gorm:"column:Email"`
 	Ho          string `gorm:"column:Ho"`

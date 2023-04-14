@@ -602,7 +602,7 @@ namespace DOANTOTNGHIEP.Controllers
                 fil.SaveAs(path);
                 var library = bai.Library;
                 library.Name = fil.FileName;
-                library.Location = "/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension;
+                library.Location = "/Content/BTTL/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension;
                 library.NgayUpdate = DateTime.Now;
                 library.NguoiAdd = user.TenDangNhap;
                 library.Noidung = DOANTOTNGHIEP.Models.exportfile.exportfile.getdatapdf(library.Location);
@@ -653,7 +653,7 @@ namespace DOANTOTNGHIEP.Controllers
                 fil.SaveAs(path);
                 Library library = new Library();
                 library.Name = fil.FileName;
-                library.Location = "/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension;
+                library.Location = "/Content/BTTL/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension;
                 library.NgayThem = DateTime.Now;
                 library.NguoiAdd = user.TenDangNhap;
                 library.NgayUpdate = library.NgayThem;
