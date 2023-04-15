@@ -17,7 +17,7 @@ namespace DOANTOTNGHIEP.Controllers
             {
                 var tendangnhap = Models.crypt.Encrypt.Decryptuser(user["TenDangNhap"].ToString());
                 var matkhau = Models.crypt.Encrypt.Decryptuser(user["Matkhau"].ToString());
-                var thanhvienlop = db.ThanhVienLops.SingleOrDefault(x => x.MaLop.ToString().Equals(malop) && x.Mathanhvien.Equals(tendangnhap));
+                var thanhvienlop = db.ThanhVienLops.SingleOrDefault(x => x.ID.ToString().Equals(malop) && x.Mathanhvien.Equals(tendangnhap));
                 var TK = db.TaiKhoans.SingleOrDefault(x => x.TenDangNhap.Equals(tendangnhap) && x.MatKhau.Equals(matkhau));
                 return (TK, thanhvienlop);
 
@@ -68,12 +68,12 @@ namespace DOANTOTNGHIEP.Controllers
             }
 
 
-            var lop = db.ThanhVienLops.SingleOrDefault(x => x.MaLop.ToString().Equals(id) && x.Mathanhvien.Equals(user.TenDangNhap));
+            var lop = db.ThanhVienLops.SingleOrDefault(x => x.ID.ToString().Equals(id) && x.Mathanhvien.Equals(user.TenDangNhap));
             if (lop == null)
             {
                 return RedirectToAction("Index", "TrangChu");
             }
-            var thanhvien = db.ThanhVienLops.Where(x => x.MaLop.ToString().Equals(id)).OrderBy(x => x.TaiKhoan.Ten).ToList();
+            var thanhvien = db.ThanhVienLops.Where(x => x.ID.ToString().Equals(id)).OrderBy(x => x.TaiKhoan.Ten).ToList();
 
             return View(thanhvien);
         }
@@ -95,7 +95,7 @@ namespace DOANTOTNGHIEP.Controllers
 
             if (tk != null)
             {
-                var thanhvienlop = db.ThanhVienLops.SingleOrDefault(x => x.Mathanhvien.Equals(tk.TenDangNhap) && x.MaLop.ToString().Equals(malop));
+                var thanhvienlop = db.ThanhVienLops.SingleOrDefault(x => x.Mathanhvien.Equals(tk.TenDangNhap) && x.ID.ToString().Equals(malop));
                 if (thanhvienlop == null)
                 {
 

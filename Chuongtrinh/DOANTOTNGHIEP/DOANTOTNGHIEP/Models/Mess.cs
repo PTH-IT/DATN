@@ -9,8 +9,7 @@ namespace DOANTOTNGHIEP.Models
     [Table("Mess")]
     public partial class Mess
     {
-        [Key]
-        public long Ma { get; set; }
+        public long ID { get; set; }
 
         [StringLength(20)]
         public string NguoiGui { get; set; }

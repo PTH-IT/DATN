@@ -18,7 +18,7 @@ namespace DOANTOTNGHIEP.Controllers
             {
                 var tendangnhap = Models.crypt.Encrypt.Decryptuser(user["TenDangNhap"].ToString());
                 var matkhau = Models.crypt.Encrypt.Decryptuser(user["Matkhau"].ToString());
-                var thanhvienlop = db.ThanhVienLops.SingleOrDefault(x => x.MaLop.ToString().Equals(malop) && x.Mathanhvien.Equals(tendangnhap));
+                var thanhvienlop = db.ThanhVienLops.SingleOrDefault(x => x.ID.ToString().Equals(malop) && x.Mathanhvien.Equals(tendangnhap));
                 var TK = db.TaiKhoans.SingleOrDefault(x => x.TenDangNhap.Equals(tendangnhap) && x.MatKhau.Equals(matkhau));
                 return (TK , thanhvienlop);
 
@@ -52,7 +52,7 @@ namespace DOANTOTNGHIEP.Controllers
         {
             ViewBag.malop = id;
             DB db = new DB();
-            ViewBag.lophoc = db.LopHocs.SingleOrDefault(x => x.MaLop.ToString().Equals(id));
+            ViewBag.lophoc = db.LopHocs.SingleOrDefault(x => x.ID.ToString().Equals(id));
             var checkcookie = checkCookie(id);
             if (checkcookie.Item1)
             {
@@ -119,7 +119,7 @@ namespace DOANTOTNGHIEP.Controllers
                 db.Libraries.Add(library);
 
                 FileTB ftb = new FileTB();
-                ftb.Mathongbao = tb.MaBaiDang;
+                ftb.Mathongbao = tb.ID;
                 ftb.IDLibrary = library.ID;
                 db.FileTBs.Add(ftb);
                 db.SaveChanges();
@@ -127,8 +127,8 @@ namespace DOANTOTNGHIEP.Controllers
                    
 
             }
-            var lophoc = db.LopHocs.SingleOrDefault(x => x.MaLop.ToString().Equals(malop));
-            var thanhvien = db.ThanhVienLops.Where(x => x.MaLop.ToString().Equals(tb.MaLop.ToString()) && !x.Mathanhvien.Equals(nguoitao)).ToList();
+            var lophoc = db.LopHocs.SingleOrDefault(x => x.ID.ToString().Equals(malop));
+            var thanhvien = db.ThanhVienLops.Where(x => x.ID.ToString().Equals(tb.MaLop.ToString()) && !x.Mathanhvien.Equals(nguoitao)).ToList();
             foreach (var tv in thanhvien)
             {
                 DOANTOTNGHIEP.Models.mail.mail.SendEmail(tv.TaiKhoan.Email, "Thông báo mới trong Lớp :" + lophoc.TenLop + "  của giáo viên " + lophoc.TaiKhoan.Ho + " " + lophoc.TaiKhoan.Ten, tb.Thongtin);
@@ -159,7 +159,7 @@ namespace DOANTOTNGHIEP.Controllers
 
             string noidung = Request.Unvalidated.Form["suanoidungthongbao"];
 
-            ThongBao tb = db.ThongBaos.SingleOrDefault(x => x.MaBaiDang.ToString().Equals(id) && x.NguoiDang.Equals(user.TenDangNhap));
+            ThongBao tb = db.ThongBaos.SingleOrDefault(x => x.ID.ToString().Equals(id) && x.NguoiDang.Equals(user.TenDangNhap));
             if (tb == null)
             {
                 return RedirectToAction("Index", "Notification", new { id = malop });
@@ -208,7 +208,7 @@ namespace DOANTOTNGHIEP.Controllers
                 db.Libraries.Add(library);
 
                 FileTB ftb = new FileTB();
-                ftb.Mathongbao = tb.MaBaiDang;
+                ftb.Mathongbao = tb.ID;
                 ftb.IDLibrary = library.ID;
                 db.FileTBs.Add(ftb);
                 db.SaveChanges();
@@ -216,7 +216,7 @@ namespace DOANTOTNGHIEP.Controllers
 
             }
             var thongbao = db.ThongBaos.Where(x => x.MaLop.ToString().Equals(malop)).OrderByDescending(y => y.NgayDang).ToList();
-            ViewData["lophoc"] = db.LopHocs.SingleOrDefault(x => x.MaLop.ToString().Equals(malop));
+            ViewData["lophoc"] = db.LopHocs.SingleOrDefault(x => x.ID.ToString().Equals(malop));
             return RedirectToAction("Index", "Notification", new { id = malop });
         }
         // xoa thong bao 
@@ -232,7 +232,7 @@ namespace DOANTOTNGHIEP.Controllers
             var user = checkcookie.Item4;
             ViewBag.user = user;
             string noidung = Request.Form["suanoidungthongbao"];
-            ThongBao tb = db.ThongBaos.SingleOrDefault(x => x.MaBaiDang.ToString().Equals(id) && x.NguoiDang.Equals(user.TenDangNhap));
+            ThongBao tb = db.ThongBaos.SingleOrDefault(x => x.ID.ToString().Equals(id) && x.NguoiDang.Equals(user.TenDangNhap));
             if (tb == null)
             {
                 return RedirectToAction("Index", "Notification", new { id = malop });
@@ -248,7 +248,7 @@ namespace DOANTOTNGHIEP.Controllers
             db.SaveChanges();
 
             var thongbao = db.ThongBaos.Where(x => x.MaLop.ToString().Equals(malop)).OrderByDescending(y => y.NgayDang).ToList();
-            ViewData["lophoc"] = db.LopHocs.SingleOrDefault(x => x.MaLop.ToString().Equals(malop));
+            ViewData["lophoc"] = db.LopHocs.SingleOrDefault(x => x.ID.ToString().Equals(malop));
             return RedirectToAction("Index", "Notification", new { id = malop });
         }
         [HttpPost]
@@ -285,7 +285,7 @@ namespace DOANTOTNGHIEP.Controllers
                 comment.Nguoidang = user.TenDangNhap;
                db.commentnotifications.Add(comment);
                 db.SaveChanges();
-                return comment.Ma.ToString();
+                return comment.ID.ToString();
 }
             else
             {

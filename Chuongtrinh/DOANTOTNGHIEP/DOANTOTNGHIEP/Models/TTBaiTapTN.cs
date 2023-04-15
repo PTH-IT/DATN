@@ -9,8 +9,7 @@ namespace DOANTOTNGHIEP.Models
     [Table("TTBaiTapTN")]
     public partial class TTBaiTapTN
     {
-        [Key]
-        public long Ma { get; set; }
+        public long ID { get; set; }
 
         public long? MaCauHoi { get; set; }
 

@@ -29,7 +29,7 @@ namespace DOANTOTNGHIEP.Controllers
             {
                 var tendangnhap = Models.crypt.Encrypt.Decryptuser(user["TenDangNhap"].ToString());
                 var matkhau = Models.crypt.Encrypt.Decryptuser(user["Matkhau"].ToString());
-                var thanhvienlop = db.ThanhVienLops.SingleOrDefault(x => x.MaLop.ToString().Equals(malop) && x.Mathanhvien.Equals(tendangnhap));
+                var thanhvienlop = db.ThanhVienLops.SingleOrDefault(x => x.ID.ToString().Equals(malop) && x.Mathanhvien.Equals(tendangnhap));
                 var TK = db.TaiKhoans.SingleOrDefault(x => x.TenDangNhap.Equals(tendangnhap) && x.MatKhau.Equals(matkhau));
                 return (TK, thanhvienlop);
 
@@ -179,7 +179,7 @@ namespace DOANTOTNGHIEP.Controllers
         {
             ViewBag.malop = id;
             DB db = new DB();
-            ViewBag.lophoc = db.LopHocs.SingleOrDefault(x => x.MaLop.ToString().Equals(id));
+            ViewBag.lophoc = db.LopHocs.SingleOrDefault(x => x.ID.ToString().Equals(id));
             var checkcookie = checkCookie(id);
             if (checkcookie.Item1)
             {
@@ -192,7 +192,7 @@ namespace DOANTOTNGHIEP.Controllers
                 return RedirectToAction("Index", "TrangChu");
 
             }
-            var thanhvienlop = db.ThanhVienLops.SingleOrDefault(x => x.MaLop.ToString().Equals(id) && x.Mathanhvien.Equals(user.TenDangNhap));
+            var thanhvienlop = db.ThanhVienLops.SingleOrDefault(x => x.ID.ToString().Equals(id) && x.Mathanhvien.Equals(user.TenDangNhap));
             ViewBag.chucvu = thanhvienlop.ChucVu;
             return View();
         }

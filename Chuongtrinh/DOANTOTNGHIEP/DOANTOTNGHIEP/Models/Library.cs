@@ -32,10 +32,10 @@ namespace DOANTOTNGHIEP.Models
 
         public string Noidung { get; set; }
 
-        public bool? Isplagiarism { get; set; }
-
         [StringLength(20)]
         public string NguoiAdd { get; set; }
+
+        public bool? Isplagiarism { get; set; }
 
         public virtual Chudetailieu Chudetailieu { get; set; }
 

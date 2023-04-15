@@ -15,8 +15,7 @@ namespace DOANTOTNGHIEP.Models
             replycomments = new HashSet<replycomment>();
         }
 
-        [Key]
-        public long Ma { get; set; }
+        public long ID { get; set; }
 
         public long? MaThongbao { get; set; }
 

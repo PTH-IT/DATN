@@ -19,7 +19,7 @@ namespace DOANTOTNGHIEP.Models.database
             lp.Hinhanh = "/Content/image/imageclass/img_backtoschool.jpg";
             db.LopHocs.Add(lp);
             db.SaveChanges();
-            DOANTOTNGHIEP.Models.foder.foder.CreateFolder(HostingEnvironment.MapPath("~/Content/document/" + Models.crypt.Encrypt.encryptfoder(lp.MaLop.ToString()).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "")));
+            DOANTOTNGHIEP.Models.foder.foder.CreateFolder(HostingEnvironment.MapPath("~/Content/document/" + Models.crypt.Encrypt.encryptfoder(lp.ID.ToString()).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "")));
 
             return lp;
         }
@@ -28,7 +28,7 @@ namespace DOANTOTNGHIEP.Models.database
         {
             DB db = new DB();
             ThanhVienLop tvl = new ThanhVienLop();
-            tvl.MaLop = Convert.ToInt32(malop);
+            tvl.ID = Convert.ToInt32(malop);
             tvl.Mathanhvien = tendangnhap;
             tvl.NgayThamGia = DateTime.Now;
             tvl.ChucVu = chucvu;

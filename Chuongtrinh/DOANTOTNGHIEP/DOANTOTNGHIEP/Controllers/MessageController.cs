@@ -18,7 +18,7 @@ namespace DOANTOTNGHIEP.Controllers
             {
                 var tendangnhap = Models.crypt.Encrypt.Decryptuser(user["TenDangNhap"].ToString());
                 var matkhau = Models.crypt.Encrypt.Decryptuser(user["Matkhau"].ToString());
-                var thanhvienlop = db.ThanhVienLops.SingleOrDefault(x => x.MaLop.ToString().Equals(malop) && x.Mathanhvien.Equals(tendangnhap));
+                var thanhvienlop = db.ThanhVienLops.SingleOrDefault(x => x.ID.ToString().Equals(malop) && x.Mathanhvien.Equals(tendangnhap));
                 var TK = db.TaiKhoans.SingleOrDefault(x => x.TenDangNhap.Equals(tendangnhap) && x.MatKhau.Equals(matkhau));
                 return (TK, thanhvienlop);
 
@@ -63,16 +63,16 @@ namespace DOANTOTNGHIEP.Controllers
             var user = checkcookie.Item4;
             ViewBag.user = user;
             if (id == null) return RedirectToAction("Index", "TrangChu");
-            var lop = db.ThanhVienLops.SingleOrDefault(x => x.MaLop.ToString().Equals(id) && x.Mathanhvien.Equals(user.TenDangNhap));
+            var lop = db.ThanhVienLops.SingleOrDefault(x => x.ID.ToString().Equals(id) && x.Mathanhvien.Equals(user.TenDangNhap));
             if (lop == null)
             {
                 return RedirectToAction("Index", "TrangChu");
             }
-            var thanhvienlop = db.ThanhVienLops.Where(x => x.MaLop.ToString().Equals(id)).OrderBy(x => x.TaiKhoan.Ten).ToList();
+            var thanhvienlop = db.ThanhVienLops.Where(x => x.ID.ToString().Equals(id)).OrderBy(x => x.TaiKhoan.Ten).ToList();
 
-            var thanhvien1 = db.ThanhVienLops.Where(x => x.MaLop.ToString().Equals(id)).OrderBy(x => x.TaiKhoan.Ten).ToList();
+            var thanhvien1 = db.ThanhVienLops.Where(x => x.ID.ToString().Equals(id)).OrderBy(x => x.TaiKhoan.Ten).ToList();
 
-            var thanhvien2 = db.ThanhVienLops.Where(x => x.MaLop.ToString().Equals(id)).OrderBy(x => x.TaiKhoan.Ten).ToList();
+            var thanhvien2 = db.ThanhVienLops.Where(x => x.ID.ToString().Equals(id)).OrderBy(x => x.TaiKhoan.Ten).ToList();
 
             List<Mess> tin11 = new List<Mess>();
             foreach (var i in thanhvienlop)
@@ -108,9 +108,9 @@ namespace DOANTOTNGHIEP.Controllers
             {
                 var s = i.NguoiGui;
                 var t = i.thoigiangui;
-                var tv1 = db.ThanhVienLops.SingleOrDefault(x => x.Mathanhvien.Equals(i.NguoiGui) && x.MaLop.ToString().Equals(id));
+                var tv1 = db.ThanhVienLops.SingleOrDefault(x => x.Mathanhvien.Equals(i.NguoiGui) && x.ID.ToString().Equals(id));
                 tv11.Add(tv1);
-                var tv2 = db.ThanhVienLops.SingleOrDefault(x => x.Mathanhvien.Equals(i.NguoiNhan) && x.MaLop.ToString().Equals(id));
+                var tv2 = db.ThanhVienLops.SingleOrDefault(x => x.Mathanhvien.Equals(i.NguoiNhan) && x.ID.ToString().Equals(id));
                 tv11.Add(tv2);
             }
             foreach (var j in tv11)

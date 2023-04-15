@@ -117,8 +117,8 @@ namespace DOANTOTNGHIEP.Models.exportfile
                     row++;
 
                 }
-                string path = HostingEnvironment.MapPath("~/Content/file/" + dsdiem[0].BaiTaps.MaLop.ToString() + "_" + dsdiem[0].BaiTaps.MaBaiTap.ToString() + ".xlsx");
-                string path1 = "/Content/file/" + dsdiem[0].BaiTaps.MaLop.ToString() + "_" + dsdiem[0].BaiTaps.MaBaiTap.ToString() + ".xlsx";
+                string path = HostingEnvironment.MapPath("~/Content/file/" + dsdiem[0].BaiTaps.MaLop.ToString() + "_" + dsdiem[0].BaiTaps.ID.ToString() + ".xlsx");
+                string path1 = "/Content/file/" + dsdiem[0].BaiTaps.MaLop.ToString() + "_" + dsdiem[0].BaiTaps.ID.ToString() + ".xlsx";
                 if (System.IO.File.Exists(path))
                 {
                     System.IO.File.Delete(path);
@@ -197,7 +197,7 @@ namespace DOANTOTNGHIEP.Models.exportfile
             {
                 DB db = new DB();
 
-                var lophoc = db.LopHocs.SingleOrDefault(x => x.MaLop.ToString().Equals(malop));
+                var lophoc = db.LopHocs.SingleOrDefault(x => x.ID.ToString().Equals(malop));
                 PdfDocument doc = new PdfDocument();
                 PdfSection sec = doc.Sections.Add();
                 sec.PageSettings.Width = PdfPageSize.A4.Width;
@@ -281,9 +281,9 @@ namespace DOANTOTNGHIEP.Models.exportfile
 
 
                 table.Draw(page, new RectangleF(0, 90, 500, 70));
-                string path = HostingEnvironment.MapPath("~/Content/file/" + dsdiem[0].BaiTaps.MaLop.ToString() + "_" + dsdiem[0].BaiTaps.MaBaiTap.ToString() + ".pdf");
+                string path = HostingEnvironment.MapPath("~/Content/file/" + dsdiem[0].BaiTaps.MaLop.ToString() + "_" + dsdiem[0].BaiTaps.ID.ToString() + ".pdf");
 
-                string path1 = "/Content/file/" + dsdiem[0].BaiTaps.MaLop.ToString() + "_" + dsdiem[0].BaiTaps.MaBaiTap.ToString() + ".pdf";
+                string path1 = "/Content/file/" + dsdiem[0].BaiTaps.MaLop.ToString() + "_" + dsdiem[0].BaiTaps.ID.ToString() + ".pdf";
                 if (System.IO.File.Exists(path))
                 {
                     System.IO.File.Delete(path);
@@ -298,7 +298,7 @@ namespace DOANTOTNGHIEP.Models.exportfile
         {
             DB db = new DB();
 
-            var lophoc = db.LopHocs.SingleOrDefault(x => x.MaLop.ToString().Equals(malop));
+            var lophoc = db.LopHocs.SingleOrDefault(x => x.ID.ToString().Equals(malop));
             PdfDocument doc = new PdfDocument();
             PdfSection sec = doc.Sections.Add();
             sec.PageSettings.Width = PdfPageSize.A4.Width;
@@ -357,8 +357,8 @@ namespace DOANTOTNGHIEP.Models.exportfile
 
             table.Draw(page, new RectangleF(0, 90, 500, 800));
 
-            string path = HostingEnvironment.MapPath("~/Content/file/" + lophoc.MaLop.ToString() + ".pdf");
-            string path1 = "/Content/file/" + lophoc.MaLop.ToString() + ".pdf";
+            string path = HostingEnvironment.MapPath("~/Content/file/" + lophoc.ID.ToString() + ".pdf");
+            string path1 = "/Content/file/" + lophoc.ID.ToString() + ".pdf";
             if (System.IO.File.Exists(path))
             {
                 System.IO.File.Delete(path);

@@ -9,8 +9,7 @@ namespace DOANTOTNGHIEP.Models
     [Table("document")]
     public partial class document
     {
-        [Key]
-        public long Ma { get; set; }
+        public long ID { get; set; }
 
         public string Ten { get; set; }
 

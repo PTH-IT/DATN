@@ -8,8 +8,7 @@ namespace DOANTOTNGHIEP.Models
 
     public partial class Plagiarism
     {
-        [Key]
-        public long Ma { get; set; }
+        public long ID { get; set; }
 
         public double? Percents { get; set; }
 

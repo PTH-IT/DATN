@@ -21,7 +21,7 @@ namespace DOANTOTNGHIEP.Models.GetData
                 {
                 foreach (var i in lp)
                 {
-                    if (i.MaLop.Equals(j.MaLop))
+                    if (i.ID.Equals(j.ID))
                     {
                         lophoc.Add(i);
 
@@ -37,7 +37,7 @@ namespace DOANTOTNGHIEP.Models.GetData
         {
             
             DB db = new DB();
-            var a = db.LopHocs.SingleOrDefault(x => x.MaLop.ToString().Equals(s)).TenLop;
+            var a = db.LopHocs.SingleOrDefault(x => x.ID.ToString().Equals(s)).TenLop;
             if (a == null)
             {
                 return "";
@@ -58,7 +58,7 @@ namespace DOANTOTNGHIEP.Models.GetData
             {
                 if (i.LoaiBaiTap.Equals("TuLuan"))
                 {
-                    var y = i.BaiTapTLs.SingleOrDefault(x => x.MaBaiTap.Equals(i.MaBaiTap) && x.NguoiNop.Equals(user));
+                    var y = i.BaiTapTLs.SingleOrDefault(x => x.MaBaiTap.Equals(i.ID) && x.NguoiNop.Equals(user));
 
                     if (y != null)
                     {
@@ -75,7 +75,7 @@ namespace DOANTOTNGHIEP.Models.GetData
                 }
                 else if (i.LoaiBaiTap.Equals("TracNghiem"))
                 {
-                    var y = i.BaiTapTNs.SingleOrDefault(x => x.MaBaiTap.Equals(i.MaBaiTap) && x.NguoiNop.Equals(user));
+                    var y = i.BaiTapTNs.SingleOrDefault(x => x.MaBaiTap.Equals(i.ID) && x.NguoiNop.Equals(user));
                     if (y != null)
                     {
                         
@@ -110,7 +110,7 @@ namespace DOANTOTNGHIEP.Models.GetData
             {
                 if (i.LoaiBaiTap.Equals("TuLuan"))
                 {
-                    var y = i.BaiTapTLs.SingleOrDefault(x => x.MaBaiTap.Equals(i.MaBaiTap) && x.NguoiNop.Equals(user));
+                    var y = i.BaiTapTLs.SingleOrDefault(x => x.MaBaiTap.Equals(i.ID) && x.NguoiNop.Equals(user));
 
 
                     
@@ -130,7 +130,7 @@ namespace DOANTOTNGHIEP.Models.GetData
                 }
                 else if (i.LoaiBaiTap.Equals("TracNghiem"))
                 {
-                    var y = i.BaiTapTNs.SingleOrDefault(x => x.MaBaiTap.Equals(i.MaBaiTap) && x.NguoiNop.Equals(user));
+                    var y = i.BaiTapTNs.SingleOrDefault(x => x.MaBaiTap.Equals(i.ID) && x.NguoiNop.Equals(user));
                     if (y != null)
                     {
 
@@ -163,7 +163,7 @@ namespace DOANTOTNGHIEP.Models.GetData
             {
                 if (i.LoaiBaiTap.Equals("TuLuan"))
                 {
-                    var y = i.BaiTapTLs.SingleOrDefault(x => x.MaBaiTap.Equals(i.MaBaiTap) && x.NguoiNop.Equals(user));
+                    var y = i.BaiTapTLs.SingleOrDefault(x => x.MaBaiTap.Equals(i.ID) && x.NguoiNop.Equals(user));
 
                     if (y != null)
                     {
@@ -182,7 +182,7 @@ namespace DOANTOTNGHIEP.Models.GetData
                 }
                 else if (i.LoaiBaiTap.Equals("TracNghiem"))
                 {
-                    var y = i.BaiTapTNs.SingleOrDefault(x => x.MaBaiTap.Equals(i.MaBaiTap) && x.NguoiNop.Equals(user));
+                    var y = i.BaiTapTNs.SingleOrDefault(x => x.MaBaiTap.Equals(i.ID) && x.NguoiNop.Equals(user));
 
                     if (y != null)
                     {

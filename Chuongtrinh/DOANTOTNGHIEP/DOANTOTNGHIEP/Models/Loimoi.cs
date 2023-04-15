@@ -9,8 +9,7 @@ namespace DOANTOTNGHIEP.Models
     [Table("Loimoi")]
     public partial class Loimoi
     {
-        [Key]
-        public long ma { get; set; }
+        public long ID { get; set; }
 
         public long MaLop { get; set; }
 

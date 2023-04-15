@@ -16,8 +16,7 @@ namespace DOANTOTNGHIEP.Models
             Libraries = new HashSet<Library>();
         }
 
-        [Key]
-        public long Machude { get; set; }
+        public long ID { get; set; }
 
         public string Chude { get; set; }
 

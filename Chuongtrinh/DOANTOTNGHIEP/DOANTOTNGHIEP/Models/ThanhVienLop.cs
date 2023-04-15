@@ -12,7 +12,7 @@ namespace DOANTOTNGHIEP.Models
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public long MaLop { get; set; }
+        public long ID { get; set; }
 
         [Key]
         [Column(Order = 1)]

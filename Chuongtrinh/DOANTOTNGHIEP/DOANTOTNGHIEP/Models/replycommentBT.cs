@@ -9,8 +9,7 @@ namespace DOANTOTNGHIEP.Models
     [Table("replycommentBT")]
     public partial class replycommentBT
     {
-        [Key]
-        public long Ma { get; set; }
+        public long ID { get; set; }
 
         public long? MaComment { get; set; }
 

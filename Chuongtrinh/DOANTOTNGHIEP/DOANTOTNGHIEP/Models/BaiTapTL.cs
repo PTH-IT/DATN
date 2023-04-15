@@ -15,8 +15,7 @@ namespace DOANTOTNGHIEP.Models
             TTBaiTapTLs = new HashSet<TTBaiTapTL>();
         }
 
-        [Key]
-        public long MaBaiNop { get; set; }
+        public long ID { get; set; }
 
         public long MaBaiTap { get; set; }
 

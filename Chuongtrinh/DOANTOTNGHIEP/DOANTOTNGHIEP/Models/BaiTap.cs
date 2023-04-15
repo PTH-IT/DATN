@@ -20,8 +20,7 @@ namespace DOANTOTNGHIEP.Models
             FileBTTLs = new HashSet<FileBTTL>();
         }
 
-        [Key]
-        public long MaBaiTap { get; set; }
+        public long ID { get; set; }
 
         [StringLength(2000)]
         public string ChuDe { get; set; }

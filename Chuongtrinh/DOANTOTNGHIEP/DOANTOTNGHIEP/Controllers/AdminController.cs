@@ -99,7 +99,7 @@ namespace DOANTOTNGHIEP.Controllers
             var user = checkcookie.Item4;
             ViewBag.user = user;
             DB db = new DB();
-            var thanhvienlop = db.LopHocs.SingleOrDefault(x => x.MaLop.ToString().Equals(id)).ThanhVienLops.ToList();
+            var thanhvienlop = db.LopHocs.SingleOrDefault(x => x.ID.ToString().Equals(id)).ThanhVienLops.ToList();
             ViewBag.malop = id;
             return View(thanhvienlop);
         }
@@ -115,7 +115,7 @@ namespace DOANTOTNGHIEP.Controllers
             var user = checkcookie.Item4;
             ViewBag.user = user;
             DB db = new DB();
-            var thanhvienlop = db.ThanhVienLops.SingleOrDefault(x => x.Mathanhvien.Equals(id) && x.MaLop.ToString().Equals(malop));
+            var thanhvienlop = db.ThanhVienLops.SingleOrDefault(x => x.Mathanhvien.Equals(id) && x.ID.ToString().Equals(malop));
             thanhvienlop.ChucVu = chucvu;
             db.SaveChanges();
             result.result = true;
@@ -158,10 +158,10 @@ namespace DOANTOTNGHIEP.Controllers
             else
             {
 
-                var TK = db.LopHocs.SingleOrDefault(x => x.MaLop.ToString().Equals(malop));
+                var TK = db.LopHocs.SingleOrDefault(x => x.ID.ToString().Equals(malop));
                 if (TK != null)
                 {
-                    if (db.ThanhVienLops.SingleOrDefault(x => x.MaLop.ToString().Equals(malop) && x.Mathanhvien.Equals(taikhoan.TenDangNhap)) != null)
+                    if (db.ThanhVienLops.SingleOrDefault(x => x.ID.ToString().Equals(malop) && x.Mathanhvien.Equals(taikhoan.TenDangNhap)) != null)
                     {
 
                         result.result = false;

@@ -16,7 +16,7 @@ namespace DOANTOTNGHIEP.Models.GetData
             var d = db.BaiTaps.Where(x => x.MaLop.ToString().Equals(malop)).ToList();
             List<ThanhVienLop> thanhvienlop = new List<ThanhVienLop>();
 
-            var checkthanhVien = db.ThanhVienLops.SingleOrDefault(x => x.MaLop.ToString().Equals(malop) && x.ChucVu.ToLower().Equals("sinhvien".ToLower()) && x.Mathanhvien.Equals(user));
+            var checkthanhVien = db.ThanhVienLops.SingleOrDefault(x => x.ID.ToString().Equals(malop) && x.ChucVu.ToLower().Equals("sinhvien".ToLower()) && x.Mathanhvien.Equals(user));
 
 
 
@@ -26,7 +26,7 @@ namespace DOANTOTNGHIEP.Models.GetData
             }
             else
             {
-                thanhvienlop = db.ThanhVienLops.Where(x => x.MaLop.ToString().Equals(malop) && x.ChucVu.ToLower().Equals("sinhvien".ToLower())).OrderBy(x => x.TaiKhoan.Ten).ToList();
+                thanhvienlop = db.ThanhVienLops.Where(x => x.ID.ToString().Equals(malop) && x.ChucVu.ToLower().Equals("sinhvien".ToLower())).OrderBy(x => x.TaiKhoan.Ten).ToList();
             }
            
 
@@ -43,7 +43,7 @@ namespace DOANTOTNGHIEP.Models.GetData
                 {
                     if (i.LoaiBaiTap.Equals("TracNghiem"))
                     {
-                        var diemtn = db.BaiTapTNs.SingleOrDefault(x => x.MaBaiTap.ToString().Equals(i.MaBaiTap.ToString()) && x.NguoiNop.Equals(j.Mathanhvien));
+                        var diemtn = db.BaiTapTNs.SingleOrDefault(x => x.MaBaiTap.ToString().Equals(i.ID.ToString()) && x.NguoiNop.Equals(j.Mathanhvien));
                       
                         if (diemtn != null && diemtn.NgayNop != null)
                         {
@@ -69,7 +69,7 @@ namespace DOANTOTNGHIEP.Models.GetData
                     else
                     {
 
-                        var diemtn = db.BaiTapTLs.SingleOrDefault(x => x.MaBaiTap.ToString().Equals(i.MaBaiTap.ToString()) && x.NguoiNop.Equals(j.Mathanhvien));
+                        var diemtn = db.BaiTapTLs.SingleOrDefault(x => x.MaBaiTap.ToString().Equals(i.ID.ToString()) && x.NguoiNop.Equals(j.Mathanhvien));
                             if (diemtn != null && diemtn.NgayNop != null)
                         {
                             if (diemtn.Diem != null)

@@ -92,7 +92,7 @@ namespace DOANTOTNGHIEP.Controllers
 
 
                 ThanhVienLop tvl = new ThanhVienLop();
-                tvl.MaLop = Convert.ToInt32(id);
+                tvl.ID = Convert.ToInt32(id);
                 tvl.Mathanhvien = user.TenDangNhap;
                 tvl.NgayThamGia = DateTime.Now;
                 tvl.ChucVu = "SinhVien";

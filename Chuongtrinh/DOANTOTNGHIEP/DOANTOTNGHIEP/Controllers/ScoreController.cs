@@ -17,7 +17,7 @@ namespace DOANTOTNGHIEP.Controllers
             {
                 var tendangnhap = Models.crypt.Encrypt.Decryptuser(user["TenDangNhap"].ToString());
                 var matkhau = Models.crypt.Encrypt.Decryptuser(user["Matkhau"].ToString());
-                var thanhvienlop = db.ThanhVienLops.SingleOrDefault(x => x.MaLop.ToString().Equals(malop) && x.Mathanhvien.Equals(tendangnhap));
+                var thanhvienlop = db.ThanhVienLops.SingleOrDefault(x => x.ID.ToString().Equals(malop) && x.Mathanhvien.Equals(tendangnhap));
                 var TK = db.TaiKhoans.SingleOrDefault(x => x.TenDangNhap.Equals(tendangnhap) && x.MatKhau.Equals(matkhau));
                 return (TK, thanhvienlop);
 
@@ -66,7 +66,7 @@ namespace DOANTOTNGHIEP.Controllers
             {
                 return RedirectToAction("Index", "TrangChu");
             }
-            var lop = db.ThanhVienLops.SingleOrDefault(x => x.MaLop.ToString().Equals(id) && x.Mathanhvien.Equals(user.TenDangNhap));
+            var lop = db.ThanhVienLops.SingleOrDefault(x => x.ID.ToString().Equals(id) && x.Mathanhvien.Equals(user.TenDangNhap));
             if (lop == null)
             {
                 return RedirectToAction("Index", "TrangChu");
@@ -84,8 +84,8 @@ namespace DOANTOTNGHIEP.Controllers
         {
             ViewBag.malop = malop;
             DB db = new DB();
-            ViewBag.lophoc = db.LopHocs.SingleOrDefault(x => x.MaLop.ToString().Equals(malop));
-            var checkcookie = checkCookie(malop);
+            ViewBag.lophoc = db.LopHocs.SingleOrDefault(x => x.ID.ToString().Equals(malop));
+            var checkcookie = checkCookie(malop);   
             if (checkcookie.Item1)
             {
                 return RedirectToAction(checkcookie.Item2, checkcookie.Item3);
@@ -106,7 +106,7 @@ namespace DOANTOTNGHIEP.Controllers
                     var baitaptracnghiem = new DOANTOTNGHIEP.Models.Modelcreate.BaiTap();
                     baitaptracnghiem.TaiKhoan = taikhoan;
                     baitaptracnghiem.BaiTaps = i;
-                    var diemtn = db.BaiTapTNs.SingleOrDefault(x => x.MaBaiTap.ToString().Equals(i.MaBaiTap.ToString()) && x.NguoiNop.Equals(tendangnhap));
+                    var diemtn = db.BaiTapTNs.SingleOrDefault(x => x.MaBaiTap.ToString().Equals(i.ID.ToString()) && x.NguoiNop.Equals(tendangnhap));
                     if (diemtn != null)
                     {
                         baitaptracnghiem.NgayNop = diemtn.NgayNop;
@@ -120,7 +120,7 @@ namespace DOANTOTNGHIEP.Controllers
                     var baitaptuluan = new DOANTOTNGHIEP.Models.Modelcreate.BaiTap();
                     baitaptuluan.TaiKhoan = taikhoan;
                     baitaptuluan.BaiTaps = i;
-                    var diemtn = db.BaiTapTLs.SingleOrDefault(x => x.MaBaiTap.ToString().Equals(i.MaBaiTap.ToString()) && x.NguoiNop.Equals(tendangnhap));
+                    var diemtn = db.BaiTapTLs.SingleOrDefault(x => x.MaBaiTap.ToString().Equals(i.ID.ToString()) && x.NguoiNop.Equals(tendangnhap));
                     if (diemtn != null)
                     {
                         baitaptuluan.NgayNop = diemtn.NgayNop;

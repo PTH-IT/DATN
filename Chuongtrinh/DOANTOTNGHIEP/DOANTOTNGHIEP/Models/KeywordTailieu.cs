@@ -9,8 +9,7 @@ namespace DOANTOTNGHIEP.Models
     [Table("KeywordTailieu")]
     public partial class KeywordTailieu
     {
-        [Key]
-        public long MaKeyword { get; set; }
+        public long ID { get; set; }
 
         public string Keyword { get; set; }
 

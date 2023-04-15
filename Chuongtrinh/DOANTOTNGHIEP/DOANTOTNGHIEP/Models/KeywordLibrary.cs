@@ -9,8 +9,7 @@ namespace DOANTOTNGHIEP.Models
     [Table("KeywordLibrary")]
     public partial class KeywordLibrary
     {
-        [Key]
-        public long Ma { get; set; }
+        public long ID { get; set; }
 
         public string Keyword { get; set; }
     }

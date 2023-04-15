@@ -60,10 +60,10 @@ namespace DOANTOTNGHIEP.Controllers
             if (ModelState.IsValid)
             {
                 DB db = new DB();
-                var TK = db.LopHocs.SingleOrDefault(x => x.MaLop.ToString().Equals(ma));
+                var TK = db.LopHocs.SingleOrDefault(x => x.ID.ToString().Equals(ma));
                 if (TK != null)
                 {
-                    if (db.ThanhVienLops.SingleOrDefault(x => x.MaLop.ToString().Equals(ma) && x.Mathanhvien.Equals(nguoitao)) != null)
+                    if (db.ThanhVienLops.SingleOrDefault(x => x.ID.ToString().Equals(ma) && x.Mathanhvien.Equals(nguoitao)) != null)
                     {
                         ModelState.AddModelError("ErrorJoinClass", "Lop đã tham gia ");
                         return View("JoinClass");
@@ -105,7 +105,7 @@ namespace DOANTOTNGHIEP.Controllers
             {
                 string chucvu = "GiaoVien";
                 var lp = DOANTOTNGHIEP.Models.database.lophoc.AddClass(name, infor,  nguoitao);
-                var tvl = DOANTOTNGHIEP.Models.database.lophoc.AddMember( Convert.ToString(lp.MaLop), nguoitao, chucvu);
+                var tvl = DOANTOTNGHIEP.Models.database.lophoc.AddMember( Convert.ToString(lp.ID), nguoitao, chucvu);
                 return RedirectToAction("Index", "TrangChu");
             }
 
@@ -130,7 +130,7 @@ namespace DOANTOTNGHIEP.Controllers
             {
                 return RedirectToAction("Index", "TrangChu");
             }
-            var lophoc = db.LopHocs.SingleOrDefault(x => x.MaLop.ToString().Equals(malop));
+            var lophoc = db.LopHocs.SingleOrDefault(x => x.ID.ToString().Equals(malop));
             return View(lophoc);
         }
         // kiem tra chinh sua thong tin lop hoc
@@ -154,16 +154,16 @@ namespace DOANTOTNGHIEP.Controllers
             }
             var thanhvien = db.ThanhVienLops.SingleOrDefault(x => x.ChucVu.ToLower().Equals("GiaoVien".ToLower()) && x.Mathanhvien.Equals(nguoitao));
            
-                var lop = db.LopHocs.SingleOrDefault(x => x.MaLop.ToString().Equals(malop) );
+                var lop = db.LopHocs.SingleOrDefault(x => x.ID.ToString().Equals(malop) );
             if (lop == null && thanhvien == null) return RedirectToAction("Index", "Notification", new { id = malop });
             lop.TenLop = s.TenLop;
             lop.ThongTinLopHoc = s.ThongTinLopHoc;
             if (file != null)
             {
 
-                string path = Server.MapPath("~/Content/image/imageclass/" + lop.MaLop + file.FileName);
+                string path = Server.MapPath("~/Content/image/imageclass/" + lop.ID + file.FileName);
 
-                lop.Hinhanh = "/Content/image/imageclass/" + lop.MaLop + file.FileName;
+                lop.Hinhanh = "/Content/image/imageclass/" + lop.ID + file.FileName;
 
                 file.SaveAs(path);
             }

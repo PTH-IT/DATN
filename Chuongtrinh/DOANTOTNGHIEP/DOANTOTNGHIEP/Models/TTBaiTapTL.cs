@@ -15,8 +15,7 @@ namespace DOANTOTNGHIEP.Models
             Plagiarism = new HashSet<Plagiarism>();
         }
 
-        [Key]
-        public long Ma { get; set; }
+        public long ID { get; set; }
 
         public long? MaBaiNop { get; set; }
 

@@ -20,8 +20,7 @@ namespace DOANTOTNGHIEP.Models
             ThongBaos = new HashSet<ThongBao>();
         }
 
-        [Key]
-        public long MaLop { get; set; }
+        public long ID { get; set; }
 
         [StringLength(2000)]
         public string TenLop { get; set; }

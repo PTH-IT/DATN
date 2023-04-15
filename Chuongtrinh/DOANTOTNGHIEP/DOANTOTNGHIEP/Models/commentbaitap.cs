@@ -15,8 +15,7 @@ namespace DOANTOTNGHIEP.Models
             replycommentBTs = new HashSet<replycommentBT>();
         }
 
-        [Key]
-        public long Ma { get; set; }
+        public long ID { get; set; }
 
         public long? MaBaiTap { get; set; }
 

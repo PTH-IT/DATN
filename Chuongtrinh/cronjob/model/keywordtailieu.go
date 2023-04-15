@@ -1,8 +1,8 @@
 package model
 
 type KeywordTailieu struct {
-	MaKeyword    int64  `gorm:"column:MaKeyword"`
-	Keyword      string `gorm:"column:Keyword"`
-	Machude      int64  `gorm:"column:Machude"`
-	Chudetailieu Chudetailieu
+	ID           int64         `gorm:"primary_key;column:ID"`
+	Keyword      string        `gorm:"column:Keyword"`
+	Machude      int64         `gorm:"column:Machude"`
+	Chudetailieu *Chudetailieu `gorm:"ForeignKey:ID;references:Machude"`
 }

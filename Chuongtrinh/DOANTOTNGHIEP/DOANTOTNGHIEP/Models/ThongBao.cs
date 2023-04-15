@@ -16,8 +16,7 @@ namespace DOANTOTNGHIEP.Models
             FileTBs = new HashSet<FileTB>();
         }
 
-        [Key]
-        public long MaBaiDang { get; set; }
+        public long ID { get; set; }
 
         [StringLength(20)]
         public string NguoiDang { get; set; }

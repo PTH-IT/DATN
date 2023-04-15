@@ -1,6 +1,8 @@
 package model
 
 type Chudetailieu struct {
-	Machude int64  `gorm:"primary_key;column:Machude"`
-	Chude   string `gorm:"column:Chude"`
+	ID             int64             `gorm:"primary_key;column:ID"`
+	Chude          string            `gorm:"column:Chude"`
+	KeywordTailieu []*KeywordTailieu `gorm:"ForeignKey:Machude;references:ID"`
+	Library        []*Library        `gorm:"ForeignKey:MaNhom;references:ID"`
 }
