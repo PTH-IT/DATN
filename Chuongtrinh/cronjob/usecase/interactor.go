@@ -2,7 +2,9 @@ package usecase
 
 import (
 	"cronjob-DATN/repository"
+	"net/http"
 
+	"github.com/labstack/echo/v4"
 	"gorm.io/gorm"
 )
 
@@ -34,4 +36,16 @@ func (i *Interactor) Gomcumdulieu() {
 	if x == nil {
 
 	}
+}
+func (i *Interactor) CronJob() {
+
+}
+func (i *Interactor) BaiTap(context echo.Context) error {
+	return context.String(http.StatusOK, "")
+}
+func (i *Interactor) LopHoc(context echo.Context) error {
+	return context.String(http.StatusOK, "")
+}
+func (i *Interactor) All(context echo.Context) error {
+	return context.String(http.StatusOK, "")
 }

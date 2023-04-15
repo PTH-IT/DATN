@@ -5,9 +5,12 @@ import (
 
 	"fmt"
 
+	"cronjob-DATN/config"
 	Database "cronjob-DATN/database"
 	"cronjob-DATN/usecase"
 
+	"github.com/labstack/echo/v4"
+	"gopkg.in/robfig/cron.v2"
 	"gorm.io/driver/sqlserver"
 	"gorm.io/gorm"
 )
@@ -18,13 +21,15 @@ func Run() {
 	// // ctx := context.Background()
 	// fmt.Println(a)
 	// fmt.Println(b)
-	username := "admin"
-	password := "admin"
-	server := "localhost"
-	host := "1433"
-	database := "DOANTOTNGHIEP"
-	dsn := fmt.Sprintf("sqlserver://%s:%s@%s:%s?database=%s", username, password, server, host, database)
-	db, err := gorm.Open(sqlserver.Open(dsn), &gorm.Config{})
+	connectString := fmt.Sprintf("sqlserver://%s:%s@%s:%s?database=%s",
+		config.Getconfig().SqlServer.User,
+		config.Getconfig().SqlServer.Pass,
+		config.Getconfig().SqlServer.Host,
+		config.Getconfig().SqlServer.Port,
+		config.Getconfig().SqlServer.Db,
+	)
+
+	db, err := gorm.Open(sqlserver.Open(connectString), &gorm.Config{})
 	if err != nil {
 		fmt.Println("Failed to connect to database:", err)
 		return
@@ -34,6 +39,17 @@ func Run() {
 	thongtinbaitaptuluanRepository := Database.NewThongTinBaiTapTL()
 	plagiarismRepository := Database.NewPlagiarism()
 	interactor := usecase.NewInteractor(db, taikhoanRepository, thongtinbaitaptuluanRepository, plagiarismRepository)
-	interactor.Gomcumdulieu()
 
+	e := echo.New()
+	private := e.Group("/api")
+	private.POST("/baitap", interactor.BaiTap)
+	private.POST("/lophoc", interactor.LopHoc)
+	private.POST("/all", interactor.All)
+
+	cronjob := cron.New()
+
+	cronjob.AddFunc("@every 0h0m0s", interactor.CronJob)
+
+	cronjob.Start()
+	e.Logger.Fatal(e.Start(":" + config.Getconfig().Port))
 }
