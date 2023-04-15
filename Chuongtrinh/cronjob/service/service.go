@@ -32,7 +32,8 @@ func Run() {
 	Database.Start(db)
 	taikhoanRepository := Database.NewTaikhoan()
 	thongtinbaitaptuluanRepository := Database.NewThongTinBaiTapTL()
-	interactor := usecase.NewInteractor(db, taikhoanRepository, thongtinbaitaptuluanRepository)
+	plagiarismRepository := Database.NewPlagiarism()
+	interactor := usecase.NewInteractor(db, taikhoanRepository, thongtinbaitaptuluanRepository, plagiarismRepository)
 	interactor.Gomcumdulieu()
 
 }

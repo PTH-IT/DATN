@@ -10,12 +10,14 @@ func NewInteractor(
 	gormDb *gorm.DB,
 	taikhoanRepository repository.TaikhoanRepository,
 	thongtinbaitaptuluanRepository repository.ThongTinBaiTapTL,
+	plagiarismRepository repository.PlagiarismRepository,
 ) Interactor {
 
 	return Interactor{
 		gormDb,
 		taikhoanRepository,
 		thongtinbaitaptuluanRepository,
+		plagiarismRepository,
 	}
 }
 
@@ -23,6 +25,7 @@ type Interactor struct {
 	gormDb                         *gorm.DB
 	taikhoanRepository             repository.TaikhoanRepository
 	thongtinbaitaptuluanRepository repository.ThongTinBaiTapTL
+	plagiarismRepository           repository.PlagiarismRepository
 }
 
 func (i *Interactor) Gomcumdulieu() {

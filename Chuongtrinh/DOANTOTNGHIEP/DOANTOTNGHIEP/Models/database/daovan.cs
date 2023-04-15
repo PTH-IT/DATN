@@ -46,6 +46,7 @@ namespace DOANTOTNGHIEP.Models.database
 
                         }
                     }
+
                     if (resultcaudaovan.Count > 0)
                     {
                         Plagiarism plagiarism1 = new Plagiarism();

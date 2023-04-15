@@ -1,7 +1,8 @@
-package service
+package usecase
 
 import (
 	"cronjob-DATN/model"
+	"cronjob-DATN/utils"
 	"strings"
 )
 
@@ -34,27 +35,8 @@ func GetCau(s string) []string {
 
 	return list
 }
-func findMax(arr []float64) (float64, int64) {
-	max := arr[0]
-	index := 0
-	for i, value := range arr {
-		if value > max {
-			max = value
-			index = i
-		}
-	}
 
-	return max, int64(index)
-}
-func SumArray(arr []float64) float64 {
-	sum := float64(0)
-	for _, value := range arr {
-		sum += value
-	}
-
-	return sum
-}
-func comparetwofilepdf(file1 model.ThongTinBaiTapTL, data2 string, link2 string) model.Daovan {
+func (i *Interactor) Comparetwofilepdf(file1 model.ThongTinBaiTapTL, data2 string, link2 string) model.Daovan {
 
 	var listdv model.Daovan
 	datafile1 := GetCau(file1.Library.Noidung)
@@ -73,7 +55,7 @@ func comparetwofilepdf(file1 model.ThongTinBaiTapTL, data2 string, link2 string)
 			}
 
 		}
-		max, indexmax := findMax(per1)
+		max, indexmax := utils.FindMax(per1)
 		listsentence := checklist[indexmax]
 		dv.Percent = max
 		dv.Locationfilecompare = link2
@@ -84,7 +66,7 @@ func comparetwofilepdf(file1 model.ThongTinBaiTapTL, data2 string, link2 string)
 		per = append(per, max)
 	}
 	listdv.File1 = file1
-	listdv.Percent = SumArray(per) / float64(len(datafile1))
+	listdv.Percent = utils.SumArray(per) / float64(len(datafile1))
 	return listdv
 }
 func Comparetsentence(s1 string, s2 string) ([]string, float64) {
