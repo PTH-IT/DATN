@@ -39,7 +39,6 @@ func Run() {
 	thongtinbaitaptuluanRepository := Database.NewThongTinBaiTapTL()
 	plagiarismRepository := Database.NewPlagiarism()
 	interactor := usecase.NewInteractor(db, taikhoanRepository, thongtinbaitaptuluanRepository, plagiarismRepository)
-
 	e := echo.New()
 	private := e.Group("/api")
 	private.POST("/upload", interactor.Upload)

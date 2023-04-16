@@ -41,16 +41,23 @@ func (i *Interactor) Gomcumdulieu() {
 func (i *Interactor) CronJob() {
 
 }
+
+type jsonUploadFile struct {
+	Location string
+	Data     string
+}
+
 func (i *Interactor) Upload(context echo.Context) error {
 	file, err := context.FormFile("file")
 	if err != nil {
 		return context.JSON(http.StatusBadRequest, err)
 	}
-	err, path := utils.SaveFile(file)
+	err, path, data := utils.SaveFile(file)
 	if err != nil {
 		return context.JSON(http.StatusBadRequest, err)
 	}
-	return context.String(http.StatusOK, path)
+
+	return context.JSON(http.StatusOK, jsonUploadFile{Data: data, Location: path})
 }
 func (i *Interactor) Download(context echo.Context) error {
 
