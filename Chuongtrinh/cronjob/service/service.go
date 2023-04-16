@@ -42,9 +42,14 @@ func Run() {
 
 	e := echo.New()
 	private := e.Group("/api")
+	private.POST("/upload", interactor.Upload)
+	private.POST("/GetFile", interactor.Upload)
 	private.POST("/baitap", interactor.BaiTap)
 	private.POST("/lophoc", interactor.LopHoc)
 	private.POST("/all", interactor.All)
+
+	public := e.Group("/public")
+	public.GET("/file", interactor.Download)
 
 	cronjob := cron.New()
 
