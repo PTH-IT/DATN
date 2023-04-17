@@ -1,7 +1,7 @@
 package model
 
 type Lophoc struct {
-	ID             int64           `gorm:"primary_key;column:ID"`
+	ID             *int64          `gorm:"primary_key;column:ID"`
 	TenLop         string          `gorm:"column:TenLop"`
 	NgayTao        string          `gorm:"column:NgayTao"`
 	NguoiTao       string          `gorm:"column:NguoiTao"`

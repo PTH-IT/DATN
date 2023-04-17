@@ -1,7 +1,7 @@
 package model
 
 type Baitap struct {
-	ID              int64       `gorm:"primary_key;column:ID"`
+	ID              *int64      `gorm:"primary_key;column:ID"`
 	ChuDe           string      `gorm:"column:ChuDe"`
 	LoaiBaiTap      string      `gorm:"column:LoaiBaiTap"`
 	ThoiGianDang    string      `gorm:"column:ThoiGianDang"`

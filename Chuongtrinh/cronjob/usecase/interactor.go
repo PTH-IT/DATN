@@ -12,8 +12,10 @@ import (
 func NewInteractor(
 	gormDb *gorm.DB,
 	taikhoanRepository repository.TaikhoanRepository,
-	thongtinbaitaptuluanRepository repository.ThongTinBaiTapTL,
+	thongtinbaitaptuluanRepository repository.ThongTinBaiTapTLRepository,
 	plagiarismRepository repository.PlagiarismRepository,
+	documentRepository repository.DocumentRepository,
+	libraryRepository repository.LibraryRepository,
 ) Interactor {
 
 	return Interactor{
@@ -21,22 +23,23 @@ func NewInteractor(
 		taikhoanRepository,
 		thongtinbaitaptuluanRepository,
 		plagiarismRepository,
+		documentRepository,
+		libraryRepository,
 	}
 }
 
 type Interactor struct {
 	gormDb                         *gorm.DB
 	taikhoanRepository             repository.TaikhoanRepository
-	thongtinbaitaptuluanRepository repository.ThongTinBaiTapTL
+	thongtinbaitaptuluanRepository repository.ThongTinBaiTapTLRepository
 	plagiarismRepository           repository.PlagiarismRepository
+	documentRepository             repository.DocumentRepository
+	libraryRepository              repository.LibraryRepository
 }
 
 func (i *Interactor) Gomcumdulieu() {
 	// i.taikhoanRepository.GetTaikhoan()
-	x := i.thongtinbaitaptuluanRepository.Getthongtinbaitaptuluan(3)
-	if x == nil {
-
-	}
+	i.KiemtradaovanALL(3)
 }
 func (i *Interactor) CronJob() {
 

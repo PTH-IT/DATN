@@ -13,5 +13,8 @@ type plagiarismRepository struct {
 }
 
 func (r plagiarismRepository) Save(plagiarism model.Plagiarism) {
-	DB.Table("Plagiarism").Create(plagiarism)
+
+	err := DB.Table("Plagiarism").Create(&plagiarism)
+	if err != nil {
+	}
 }

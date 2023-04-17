@@ -1,7 +1,7 @@
 package model
 
 type Thanhvienlop struct {
-	ID          int64     `gorm:"primary_key;column:ID"`
+	ID          *int64    `gorm:"primary_key;column:ID"`
 	Mathanhvien string    `gorm:"primary_key;column:Mathanhvien"`
 	NgayThamGia string    `gorm:"column:NgayThamGia"`
 	ChucVu      string    `gorm:"column:ChucVu"`

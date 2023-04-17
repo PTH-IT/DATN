@@ -1,7 +1,7 @@
 package model
 
 type Document struct {
-	ID           int64     `gorm:"primary_key;column:ID"`
+	ID           *int64    `gorm:"primary_key;column:ID"`
 	Ten          string    `gorm:"column:Ten"`
 	Nguoisohuu   string    `gorm:"column:Nguoisohuu"`
 	Image        string    `gorm:"column:Image"`

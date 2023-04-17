@@ -250,6 +250,7 @@ namespace DOANTOTNGHIEP.Models.database
                     }
                     if (resultcaudaovan.Count > 0)
                     {
+                        var xx = resultcaudaovan.Select(x => x.per).ToArray();
                         Plagiarism plagiarism1 = new Plagiarism();
                         plagiarism1.Mafile = thongtincankiemtra.ID;
                         plagiarism1.Percents = resultcaudaovan.Select(x => x.per).ToArray().Sum() / resultcaudaovan.Count;

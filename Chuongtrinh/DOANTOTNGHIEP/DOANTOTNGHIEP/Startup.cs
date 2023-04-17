@@ -26,12 +26,11 @@ namespace DOANTOTNGHIEP
             GlobalHost.Configuration.KeepAlive = TimeSpan.FromSeconds(10);*/
             app.MapSignalR();
             // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=316888
-            var x = DOANTOTNGHIEP.Models.database.daovan.comparetsentence("Sinh viên ngành Công học hệ chính quy nhưng chưa hết thời gian đào tạo tối đa.", "Sinh viên ngành Công nghệ thông tin các lớp đã kết thúc khóa học hệ ");
+            /*var x = DOANTOTNGHIEP.Models.database.daovan.comparetsentence("Sinh viên ngành Công học hệ chính quy nhưng chưa hết thời gian đào tạo tối đa.", "Sinh viên ngành Công nghệ thông tin các lớp đã kết thúc khóa học hệ ");
 
-                var y = x;
+                var y = x;*/
             DB db = new DB();
-            var thongtinbaitap = db.TTBaiTapTLs.Select(xxy => xxy).ToList().OrderBy(xxyy => xxyy.Library.NgayUpdate).ToList();
-            var a = thongtinbaitap;
+            var check = DOANTOTNGHIEP.Models.database.daovan.kiemtradaovanall("3");
         }
     }
 }

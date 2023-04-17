@@ -1,7 +1,7 @@
 package model
 
 type Library struct {
-	ID               int64               `gorm:"primary_key;column:ID"`
+	ID               *int64              `gorm:"primary_key;column:ID"`
 	Name             string              `gorm:"column:Name"`
 	Location         string              `gorm:"column:Location"`
 	NgayThem         string              `gorm:"column:NgayThem"`
