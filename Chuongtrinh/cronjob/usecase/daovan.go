@@ -4,28 +4,30 @@ import (
 	"cronjob-DATN/model"
 	"cronjob-DATN/utils"
 	"strings"
+	"unicode/utf8"
 )
 
 func GetCau(s string) []string {
 	var list []string
 	a := ""
-	for i := 0; i < len(s); i++ {
-		a += string(s[i])
-		if i+1 < len(s) && i-1 > 0 {
+	for i, r := range strings.ToLower(s) {
+
+		a += string(r)
+		if i+1 < utf8.RuneCountInString(s) && i-1 > 0 {
 			if s[i] == '.' && s[i+1] != '.' && s[i-1] != '.' {
-				if len(strings.ReplaceAll(strings.ReplaceAll(strings.ReplaceAll(a, "\r", ""), "\n", ""), " ", "")) > 0 {
+				if len(Clearstring(a)) > 0 {
 					list = append(list, a)
 					a = ""
 				}
 			} else if i == len(s)-1 {
-				if len(strings.ReplaceAll(strings.ReplaceAll(strings.ReplaceAll(a, "\r", ""), "\n", ""), " ", "")) > 0 {
+				if len(Clearstring(a)) > 0 {
 					list = append(list, a)
 					a = ""
 				}
 			}
 		} else {
 			if i == len(s)-1 {
-				if len(strings.ReplaceAll(strings.ReplaceAll(strings.ReplaceAll(a, "\r", ""), "\n", ""), " ", "")) > 0 {
+				if len(Clearstring(a)) > 0 {
 					list = append(list, a)
 					a = ""
 				}
@@ -35,20 +37,35 @@ func GetCau(s string) []string {
 
 	return list
 }
+func Clearstring(s string) string {
+	s = strings.ReplaceAll(strings.ReplaceAll(s, "\r", " "), "\n", " ")
+	for {
+		i := strings.Split(s, "  ")
+		if len(i) > 1 {
+			s = strings.ReplaceAll(s, "  ", " ")
+		} else {
+			break
+		}
+	}
 
+	return s
+}
+func ClearSpaceEndStart(s string) string {
+	return strings.TrimRight(strings.TrimLeft(s, " "), " ")
+}
 func (i *Interactor) Comparetwofilepdf(file1 model.ThongTinBaiTapTL, data2 string, link2 string) model.Daovan {
 
 	var listdv model.Daovan
 	datafile1 := GetCau(file1.Library.Noidung)
 	datafile2 := GetCau(data2)
 	per := []float64{}
-	for i, compare1 := range datafile1 {
+	for _, compare1 := range datafile1 {
 		var dv model.Detaildaovan
 		per1 := []float64{}
 		checklist := map[int64][]string{}
-		for _, compare2 := range datafile2 {
-			a, b := Comparetsentence(strings.TrimRight(strings.TrimLeft(compare1, " "), " "), strings.TrimRight(strings.TrimLeft(compare2, " "), " "))
-			checklist[int64(i)] = a
+		for j, compare2 := range datafile2 {
+			a, b := Comparetsentence(ClearSpaceEndStart(compare1), ClearSpaceEndStart(compare2))
+			checklist[int64(j)] = a
 			per1 = append(per1, b)
 			if b == 100 {
 				break
@@ -93,10 +110,10 @@ func comparetsentence1(keyword1 string, keyword2 string) ([]string, float64) {
 	alike := []string{}
 	indexalike := []int{}
 	percent := float64(0)
-	if strings.Index(strings.ReplaceAll(strings.ReplaceAll(strings.ReplaceAll(keyword1, "\r", " "), "\n", " "), "  ", " "), " ") > 1 {
+	if strings.Index(Clearstring(keyword1), " ") > 1 {
 		indexs1 := 0
-		for _, s1 := range strings.Split(strings.ReplaceAll(strings.ReplaceAll(strings.ReplaceAll(keyword1, "\r", " "), "\n", " "), "  ", " "), " ") {
-			for _, s2 := range strings.Split(strings.ReplaceAll(strings.ReplaceAll(strings.ReplaceAll(keyword2, "\r", " "), "\n", " "), "  ", " "), " ") {
+		for _, s1 := range strings.Split(Clearstring(keyword1), " ") {
+			for _, s2 := range strings.Split(Clearstring(keyword2), " ") {
 				if s1 == s2 {
 					alike = append(alike, s1)
 					indexalike = append(indexalike, indexs1)
@@ -107,7 +124,7 @@ func comparetsentence1(keyword1 string, keyword2 string) ([]string, float64) {
 		}
 
 		s := ""
-		for i := 0; i < len(alike); i++ {
+		for i, _ := range alike {
 			if i > 0 {
 				if indexalike[i-1]+len(alike[i-1])+1 == indexalike[i] {
 					if i == len(alike)-1 && len(strings.Split(s+" "+alike[i], " ")) >= 2 && strings.Contains(keyword2, s+" "+alike[i]) {
