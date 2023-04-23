@@ -59,7 +59,7 @@
     <div style="margin: 20px">
         @if (baitracnhgiem.Count != 0)
         {<div style="margin-bottom:30px">
-                <button onclick="buttontoview(`ShowcauhoiTracnghiem?id=@baitracnhgiem[0].BaiTaps.MaBaiTap&&malop=@malop`)" type="button" class="btn btn-primary">Xem chi tiết bài tập </button>
+                <button onclick="buttontoview(`ShowcauhoiTracnghiem?id=@baitracnhgiem[0].BaiTaps.ID&&malop=@malop`)" type="button" class="btn btn-primary">Xem chi tiết bài tập </button>
                 <a href="@ViewBag.excel" class="link-info" style="margin-left:10px;font-size:20px" download>Xuất excel </a>
                 <a href="@ViewBag.pdf" class="link-info" style="margin-left:10px;font-size:20px" download>Xuất PDF </a>
             </div>
@@ -152,7 +152,7 @@
 
                             </th>
                             <th>
-                                <a href="~/Exercise/ShowInforTN?ten=@i.TaiKhoan.TenDangNhap&&mabaitap=@i.BaiTaps.MaBaiTap&&malop=@malop" class="glyphicon glyphicon-edit"></a>
+                                <a href="~/Exercise/ShowInforTN?ten=@i.TaiKhoan.TenDangNhap&&mabaitap=@i.BaiTaps.ID&&malop=@malop" class="glyphicon glyphicon-edit"></a>
                             </th>
 
                         </tr>
@@ -165,7 +165,7 @@
             <div style="margin-bottom:30px">
 
 
-                <button onclick="buttontoview(`showcauhoituluan?id=@baituluan[0].BaiTaps.MaBaiTap&&malop=@malop`)" type="button" class="btn btn-primary">Xem chi tiết bài tập </button>
+                <button onclick="buttontoview(`showcauhoituluan?id=@baituluan[0].BaiTaps.ID&&malop=@malop`)" type="button" class="btn btn-primary">Xem chi tiết bài tập </button>
                 <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalshowKiemtradaovan" >Kiểm Tra Đạo Văn </button>
                 <a href="@ViewBag.excel" class="link-info" style="margin-left:10px;font-size:20px" download>Xuất excel </a>
                 <a href="@ViewBag.pdf" class="link-info" style="margin-left:10px;font-size:20px" download>Xuất PDF </a>
@@ -192,7 +192,7 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button onclick="checkdaovan(@baituluan[0].BaiTaps.MaBaiTap)" type="button" class="btn btn-primary" tyle=" padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 20px; ">Kiểm Tra Đạo Văn </button>
+                            <button onclick="checkdaovan(@baituluan[0].BaiTaps.ID)" type="button" class="btn btn-primary" tyle=" padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 20px; ">Kiểm Tra Đạo Văn </button>
                         </div>
 
 
@@ -302,7 +302,7 @@
                                             var dbfile = i.TTBaiTapTls.Where(x => x.MaBaiNop.Equals(i.TTBaiTapTls.ToArray()[0].MaBaiNop)).ToList();
                                             foreach (var ifile in dbfile)
                                             {
-                                                var dv = ifile.Plagiarism.Where(x => x.Mafile.Equals(ifile.Ma)).OrderBy(y => y.Percents).ToList();
+                                                var dv = ifile.Plagiarism.Where(x => x.Mafile.Equals(ifile.ID)).OrderBy(y => y.Percents).ToList();
                                                 foreach (var daovan in dv)
                                                 {
                                                     <label>@String.Format("{0:0.00}", @daovan.Percents)</label>
@@ -317,7 +317,7 @@
                                 }
                             </th>
                             <th>
-                                <a href="~/Exercise/ShowInforTL/?ten=@i.TaiKhoan.TenDangNhap&&mabaitap=@i.BaiTaps.MaBaiTap&&malop=@malop" class="glyphicon glyphicon-edit"></a>
+                                <a href="~/Exercise/ShowInforTL/?ten=@i.TaiKhoan.TenDangNhap&&mabaitap=@i.BaiTaps.ID&&malop=@malop" class="glyphicon glyphicon-edit"></a>
                             </th>
                         </tr>
                     }

@@ -108,12 +108,12 @@
 
                             </div>
                             <div class="card-link" style="margin-left:80px">
-                                @using (Ajax.BeginForm("Replycomment", "Notification", new { malop = malop, macomment = comment.Ma }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "modalreplythongtinbinhluan_" + comment.Ma }))
+                                @using (Ajax.BeginForm("Replycomment", "Notification", new { malop = malop, macomment = comment.ID }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "modalreplythongtinbinhluan_" + comment.ID }))
                                 {
 
                                     <button class="btn btn-link">Trả lời</button>
                                 }
-                                <div id="modalreplythongtinbinhluan_@comment.Ma">
+                                <div id="modalreplythongtinbinhluan_@comment.ID">
 
                                 </div>
 

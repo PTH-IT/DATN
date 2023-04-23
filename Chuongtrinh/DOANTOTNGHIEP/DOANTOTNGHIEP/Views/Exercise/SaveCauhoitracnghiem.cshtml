@@ -289,7 +289,7 @@
             string[] slda = { "A", "B", "C", "D" };
             foreach (var i in Model)
             {
-                <div id="cauhoi" class="@i.MaCauHoi">
+                <div id="cauhoi" class="@i.ID">
 
                     @{
                         slcau++;
@@ -314,9 +314,9 @@
 
                         }
                     }
-                    <button class="fa fa-trash-o navbar-right deletecauhoi" id="@i.MaCauHoi" style="margin-right:2%;margin-bottom:20px;border:0px;background-color:transparent"></button>
+                    <button class="fa fa-trash-o navbar-right deletecauhoi" id="@i.ID" style="margin-right:2%;margin-bottom:20px;border:0px;background-color:transparent"></button>
 
-                    <button class="glyphicon glyphicon-edit navbar-right editcauhoi" id="@i.MaCauHoi" style="margin-right:2%;margin-bottom:20px;border:0px;background-color:transparent"></button>
+                    <button class="glyphicon glyphicon-edit navbar-right editcauhoi" id="@i.ID" style="margin-right:2%;margin-bottom:20px;border:0px;background-color:transparent"></button>
                     <br />
                 </div>
 
@@ -389,16 +389,16 @@
         {
 
 
-            <div class="danhsachcauhoi" id="infor-@i.MaCauHoi">
+            <div class="danhsachcauhoi" id="infor-@i.ID">
 
-                @using (Html.BeginForm("editcauhoitracnghiem", "Exercise", new { malop = malop, macauhoi = i.MaCauHoi }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                @using (Html.BeginForm("editcauhoitracnghiem", "Exercise", new { malop = malop, macauhoi = i.ID }, FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     {
                         slcau++;
 
                         int z = 0;
                         <h1>câu hỏi</h1>
-                        <textarea placeholder="Nhập câu hỏi" name="cauhoi-@i.MaCauHoi" class="cauhoi" id="sua-@i.MaCauHoi">@Html.Raw(@i.NoiDung)</textarea>
+                        <textarea placeholder="Nhập câu hỏi" name="cauhoi-@i.ID" class="cauhoi" id="sua-@i.ID">@Html.Raw(@i.NoiDung)</textarea>
                         <br />
 
                         foreach (var j in i.DapAns.ToList())
@@ -409,16 +409,16 @@
 
                             if (j.LoaiDapAn.Value)
                             {
-                                <input type="radio" name="dapan-@i.MaCauHoi" value="@j.MaDapAn" id="@i.MaCauHoi" class="@j.MaDapAn" checked />
+                                <input type="radio" name="dapan-@i.ID" value="@j.ID" id="@i.ID" class="@j.ID" checked />
                                 <label style="color:red;margin-left:10px;">@slda[z] </label>
-                                <textarea placeholder="Nhập đáp án" class="@j.MaDapAn" name="dapan-@j.MaDapAn" required id="sua-@i.MaCauHoi">@Html.Raw(@j.NoiDung)</textarea><br />
+                                <textarea placeholder="Nhập đáp án" class="@j.ID" name="dapan-@j.ID" required id="sua-@i.ID">@Html.Raw(@j.NoiDung)</textarea><br />
 
                             }
                             else if (!j.LoaiDapAn.Value)
                             {
-                                <input type="radio" name="dapan-@i.MaCauHoi" value="@j.MaDapAn" id="@i.MaCauHoi" class="@j.MaDapAn" />
+                                <input type="radio" name="dapan-@i.ID" value="@j.ID" id="@i.ID" class="@j.ID" />
                                 <label style="margin-left: 10px;">@slda[z] </label>
-                                <textarea placeholder="Nhập đáp án" class="@j.MaDapAn" name="dapan-@j.MaDapAn" required id="sua-@i.MaCauHoi">@Html.Raw(@j.NoiDung)</textarea><br />
+                                <textarea placeholder="Nhập đáp án" class="@j.ID" name="dapan-@j.ID" required id="sua-@i.ID">@Html.Raw(@j.NoiDung)</textarea><br />
                             }
 
                             z++;
@@ -430,7 +430,7 @@
                     <button class="btn btn-primary save">Save</button>
 
                 }
-                <button class="huyeditcauhoi glyphicon glyphicon-menu-up" id="@i.MaCauHoi"></button>
+                <button class="huyeditcauhoi glyphicon glyphicon-menu-up" id="@i.ID"></button>
             </div>
 
         }

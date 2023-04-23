@@ -29,8 +29,8 @@ namespace DOANTOTNGHIEP
             /*var x = DOANTOTNGHIEP.Models.database.daovan.comparetsentence("Sinh viên ngành Công học hệ chính quy nhưng chưa hết thời gian đào tạo tối đa.", "Sinh viên ngành Công nghệ thông tin các lớp đã kết thúc khóa học hệ ");
 
                 var y = x;*/
-            DB db = new DB();
-            var check = DOANTOTNGHIEP.Models.database.daovan.kiemtradaovanall("3");
+            /*DB db = new DB();
+            var check = DOANTOTNGHIEP.Models.database.daovan.kiemtradaovanall("3");*/
         }
     }
 }

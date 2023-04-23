@@ -76,7 +76,7 @@
                     <label style="font-size:20px;">Chủ đề:@Model.BaiTaps.ChuDe</label><br />
                 </div>
                 <div style=" padding:20px">@Html.Raw(Model.BaiTaps.Thongtin)</div><br />
-                @using (Ajax.BeginForm("Commentbaitap", "Exercise", new { malop = malop, mabaitap = Model.BaiTaps.MaBaiTap }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "modalthongtinbinhluan" }))
+                @using (Ajax.BeginForm("Commentbaitap", "Exercise", new { malop = malop, mabaitap = Model.BaiTaps.ID }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "modalthongtinbinhluan" }))
                 {
 
                     <button class="fa fa-group" style="background-color:transparent;border:0;font-size:18px" data-toggle="modal" data-target="#modalshowupload">Thêm nhận xét bài tập</button>
@@ -172,7 +172,7 @@
                     @{
                         if (Model.NgayNop == null && Model.TaiKhoan.TenDangNhap.Equals(user.TenDangNhap))
                         {
-                            using (Html.BeginForm("nopbaitapTL", "Exercise", new { malop = malop, mabaitaptl = Model.BaiTaps.MaBaiTap }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            using (Html.BeginForm("nopbaitapTL", "Exercise", new { malop = malop, mabaitaptl = Model.BaiTaps.ID }, FormMethod.Post, new { enctype = "multipart/form-data" }))
                             {
                                 <div><label class="101-1"></label></div>
                                 <br />
@@ -210,8 +210,8 @@
                                             </div> }
                                     }
                                     <label style="display:none" class="fi"></label>
-                                    <label class="glyphicon glyphicon-paperclip " for=@Model.BaiTaps.MaBaiTap style=" border-radius: 20px; background-image: linear-gradient(to right,#FF00BF,#D8D8D8); padding: 10px">  Thêm</label>
-                                    <input type="file" id=@Model.BaiTaps.MaBaiTap class="suafile" name="file" style="display:none" required />
+                                    <label class="glyphicon glyphicon-paperclip " for=@Model.BaiTaps.ID style=" border-radius: 20px; background-image: linear-gradient(to right,#FF00BF,#D8D8D8); padding: 10px">  Thêm</label>
+                                    <input type="file" id=@Model.BaiTaps.ID class="suafile" name="file" style="display:none" required />
                                     <br />
                                     <br /><label class="huy" style=" border-radius: 20px; background-image: linear-gradient(to right,#848484,#E6E6E6); padding: 10px;padding-left: 15px; padding-right: 15px;">Hủy</label>
                                     <button class="nop navbar-right" style=" background-image: linear-gradient(to right,#0404B4,#A901DB); padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 20px; margin-right: 2%">Nộp bài</button>
@@ -282,7 +282,7 @@
 
                             }
                             <br />
-                            using (Html.BeginForm("chambaitl", "Exercise", new { malop = malop, mabaitap = Model.BaiTaps.MaBaiTap, nguoinop = nguoinop }, FormMethod.Post))
+                            using (Html.BeginForm("chambaitl", "Exercise", new { malop = malop, mabaitap = Model.BaiTaps.ID, nguoinop = nguoinop }, FormMethod.Post))
                             {
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">

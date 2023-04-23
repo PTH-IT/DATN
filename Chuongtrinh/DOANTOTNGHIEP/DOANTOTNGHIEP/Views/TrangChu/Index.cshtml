@@ -114,7 +114,7 @@
                 foreach (var i in loithamgia)
                 {
                     <div style=" width:300px;height: 200px;margin:20px;">
-                        <a href="~/Notification/Index/@i.MaLop">
+                        <a href="~/Notification/Index/@i.ID">
                             <div class="linkclass" style=" background-image:url(@i.LopHoc.Hinhanh);background-size:cover;">
                                 <label style="font-size:15px;">@i.LopHoc.TenLop</label><br />
                                 <label>@i.LopHoc.ThongTinLopHoc</label><br />
@@ -157,7 +157,7 @@
 
                 <div class="d-table" style="float:left">
                     <div class="class">
-                        <a href="~/Notification/Index/@i.MaLop">
+                        <a href="~/Notification/Index/@i.ID">
                             <div class="linkclass" style=" background-image:url(@i.Hinhanh);background-size:cover;">
                                 <label style="font-size:15px;">@i.TenLop</label><br />
                                 <label>@i.ThongTinLopHoc</label><br />
@@ -172,12 +172,12 @@
                         </a>
 
                         <div class="classcenter">
-                            @foreach (var j in @i.BaiTaps.Where(x => x.MaLop.Equals(i.MaLop) && x.ThoiGianKetThuc >= DateTime.Now).ToList())
+                            @foreach (var j in @i.BaiTaps.Where(x => x.MaLop.Equals(i.ID) && x.ThoiGianKetThuc >= DateTime.Now).ToList())
                             {
-                                if (@i.BaiTaps.Where(x => x.MaLop.Equals(i.MaLop) && x.ThoiGianKetThuc >= DateTime.Now).ToList().Count > 0)
+                                if (@i.BaiTaps.Where(x => x.MaLop.Equals(i.ID) && x.ThoiGianKetThuc >= DateTime.Now).ToList().Count > 0)
                                 {
 
-                                    <a href="~/Exercise/ShowInforBaiTap?mabaitap=@j.MaBaiTap&&malop=@j.MaLop" class="glyphicon glyphicon-briefcase">
+                                    <a href="~/Exercise/ShowInforBaiTap?mabaitap=@j.ID&&malop=@j.MaLop" class="glyphicon glyphicon-briefcase">
                                         <label>@j.ChuDe.ToString()</label>
                                     </a><br />
 
@@ -192,11 +192,11 @@
                             <ul class="nav navbar-nav">
 
                                 <li class="nav-item dropdown" style="margin:4px;margin-right:30px">
-                                    <button id="btn-@i.MaLop" class=" fa fa-bell-o navbar-btn navbar-link dropdown-toggle showthongbaomoi" style="background-color:transparent;border:0px;font-size:25px;color:white;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                    <button id="btn-@i.ID" class=" fa fa-bell-o navbar-btn navbar-link dropdown-toggle showthongbaomoi" style="background-color:transparent;border:0px;font-size:25px;color:white;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
 
                                     <div class="dropdown-menu divtb" aria-labelledby="navbarDropdown" style="border-radius:5px;">
                                         <ul class="nav navbar-nav" style="width:100%;">
-                                            <li style="width:100%;" class="tbm-@i.MaLop"></li>
+                                            <li style="width:100%;" class="tbm-@i.ID"></li>
 
 
                                             <li style="width:100%;" class="a" aria-></li>

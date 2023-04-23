@@ -231,7 +231,7 @@
 
         $("#dang").click(function () {
             if ($("#noidung").val().length > 0) {
-            thongbao.server.thongbaos("@lop.MaLop","@nguoitao");
+            thongbao.server.thongbaos("@lop.ID","@nguoitao");
             }
 
             });
@@ -243,7 +243,7 @@
         function loadClient() {
             var thongbao = $.connection.chat;
             thongbao.client.thongbao = function (malop, nguoitao) {
-                if ("@lop.MaLop" == malop && nguoitao != "@nguoitao") {
+                if ("@lop.ID" == malop && nguoitao != "@nguoitao") {
                     $(".AlertSuccess").text("Có thông báo mới")
                     $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
                         $("#success-alert").slideUp(500);
@@ -294,7 +294,7 @@
         @if (lop.ThanhVienLops.SingleOrDefault(x=>x.ChucVu.ToLower().Equals("GiaoVien".ToLower()) && x.Mathanhvien.Equals(nguoitao)) != null)  
         {<br />
             <label style="font-size:20px" class="ngaytao">Ngày Tạo:@lop.NgayTao.Value.ToString(string.Format("HH:mm:ss dd/MM/yyyy"))</label><br />
-            <label style="font-size:20px" class="malop">Mã Lớp :@DOANTOTNGHIEP.Models.crypt.Encrypt.encryptclass(@lop.MaLop.ToString())</label>
+            <label style="font-size:20px" class="malop">Mã Lớp :@DOANTOTNGHIEP.Models.crypt.Encrypt.encryptclass(@lop.ID.ToString())</label>
             <a class="glyphicon glyphicon-edit navbar-right  editclass" href="~/Class/Editclass?malop=@malop"></a>
         }
 
@@ -371,7 +371,7 @@
                     {
                         <div class="thongbao">
 
-                            <div id="@i.MaBaiDang">
+                            <div id="@i.ID">
 
                                 @if (i.NguoiDang.Equals(user.TenDangNhap))
                                 {
@@ -380,8 +380,8 @@
                                         <i class="glyphicon glyphicon-option-vertical" id="menu " data-toggle="dropdown" style="margin-right:10px" aria-haspopup="true" aria-expanded="false"></i>
                                         <div class="dropdown-menu " aria-labelledby="menu ">
                                             <ul class="nav">
-                                                <li><a class="dropdown-itemxoa" href="~/Notification/DeleteThongBao?id=@i.MaBaiDang&&malop=@malop" onclick="return conformdelete()">xoa</a></li>
-                                                <li><a class="dropdown-itemsua" id="@i.MaBaiDang">sua</a></li>
+                                                <li><a class="dropdown-itemxoa" href="~/Notification/DeleteThongBao?id=@i.ID&&malop=@malop" onclick="return conformdelete()">xoa</a></li>
+                                                <li><a class="dropdown-itemsua" id="@i.ID">sua</a></li>
 
 
                                             </ul>
@@ -433,7 +433,7 @@
                                     }
                                 }
                                 <hr />
-                                @using (Ajax.BeginForm("Comment", "Notification", new { malop = malop , mabaitongbao=i.MaBaiDang }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "modalthongtinbinhluan" }, new { @class = "thanhvien_" + i.TaiKhoan.TenDangNhap }))
+                                @using (Ajax.BeginForm("Comment", "Notification", new { malop = malop , mabaitongbao=i.ID }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "modalthongtinbinhluan" }, new { @class = "thanhvien_" + i.TaiKhoan.TenDangNhap }))
                                 {
 
                                 <button class="fa fa-group" style="background-color:transparent;border:0;font-size:18px" data-toggle="modal" data-target="#modalshowupload">Thêm nhận xét thông báo</button>
@@ -443,18 +443,18 @@
 
 
 
-                            <div class="suaThongBao-@i.MaBaiDang" style="display:none;padding:20px">
-                                @using (Html.BeginForm("EditThongBao", "Notification", new { id = i.MaBaiDang, malop = malop }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            <div class="suaThongBao-@i.ID" style="display:none;padding:20px">
+                                @using (Html.BeginForm("EditThongBao", "Notification", new { id = i.ID, malop = malop }, FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
                                     <textarea name="suanoidungthongbao">@i.Thongtin</textarea>
                                     foreach (var filetb in i.FileTBs)
                                     {
-                                        <br /><a class="suafile_@i.MaBaiDang" href=@filetb.Library.Location>@filetb.Library.Name</a>
+                                        <br /><a class="suafile_@i.ID" href=@filetb.Library.Location>@filetb.Library.Name</a>
                                     }
-                                    <div><label class=file-@i.MaBaiDang></label></div> <br />
-                                    <label class=" btn btn-info glyphicon glyphicon-paperclip themfiletb" for=file-@i.MaBaiDang>  Thêm</label>
+                                    <div><label class=file-@i.ID></label></div> <br />
+                                    <label class=" btn btn-info glyphicon glyphicon-paperclip themfiletb" for=file-@i.ID>  Thêm</label>
 
-                                    <input type="file" multiple name="file" id=file-@i.MaBaiDang class="suafileupload glyphicon glyphicon-file" style="display:none" />
+                                    <input type="file" multiple name="file" id=file-@i.ID class="suafileupload glyphicon glyphicon-file" style="display:none" />
 
 
 
@@ -463,7 +463,7 @@
 
                                 }
                                 <div class="col-md-12 text-center">
-                                    <button class=" glyphicon glyphicon-menu-up huysuaThongBao " id="@i.MaBaiDang"></button>
+                                    <button class=" glyphicon glyphicon-menu-up huysuaThongBao " id="@i.ID"></button>
                                 </div>
                             </div>
 

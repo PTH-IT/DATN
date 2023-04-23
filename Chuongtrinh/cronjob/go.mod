@@ -6,6 +6,8 @@ require (
 	github.com/google/uuid v1.3.0
 	github.com/joho/godotenv v1.5.1
 	github.com/labstack/echo/v4 v4.10.2
+	github.com/unidoc/unioffice v1.23.0
+	github.com/unidoc/unipdf/v3 v3.45.0
 	gopkg.in/robfig/cron.v2 v2.0.0-20150107220207-be2e0b0deed5
 	gorm.io/driver/sqlserver v1.4.2
 	gorm.io/gorm v1.24.6
@@ -27,8 +29,6 @@ require (
 	github.com/stretchr/testify v1.8.1 // indirect
 	github.com/unidoc/pkcs7 v0.1.0 // indirect
 	github.com/unidoc/timestamp v0.0.0-20200412005513-91597fd3793a // indirect
-	github.com/unidoc/unioffice v1.23.0 // indirect
-	github.com/unidoc/unipdf/v3 v3.45.0 // indirect
 	github.com/unidoc/unitype v0.4.0 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect

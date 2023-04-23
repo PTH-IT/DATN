@@ -244,7 +244,7 @@
         <br />
     </div>
     <div class="hideSuaBaitap" id="hideSuaBaiTap" >
-        @using (Html.BeginForm("Editbaitaptl", "Exercise", new { id = Model.MaBaiTap , malop = malop }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("Editbaitaptl", "Exercise", new { id = Model.ID , malop = malop }, FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             <input type="text" name="Chude" placeholder="Chủ đề" class="form-control" style="margin-bottom: 10px;" required value='@Model.ChuDe' />
             <textarea name="noidungbt" placeholder="Nội dung bài tập" class="form-control" required>@Model.Thongtin</textarea>

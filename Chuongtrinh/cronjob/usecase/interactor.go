@@ -39,7 +39,8 @@ type Interactor struct {
 
 func (i *Interactor) Gomcumdulieu() {
 	// i.taikhoanRepository.GetTaikhoan()
-	i.KiemtradaovanALL(3)
+	// i.KiemtradaovanALL(3)
+	utils.Highline("store/5acb582d-6bc9-4fa5-ad4e-a1e4cd64fb89.pdf")
 }
 func (i *Interactor) CronJob() {
 
@@ -48,6 +49,7 @@ func (i *Interactor) CronJob() {
 type jsonUploadFile struct {
 	Location string
 	Data     string
+	Image    string
 }
 
 func (i *Interactor) Upload(context echo.Context) error {
