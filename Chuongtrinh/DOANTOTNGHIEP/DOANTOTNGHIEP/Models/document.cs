@@ -6,7 +6,7 @@ namespace DOANTOTNGHIEP.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Document")]
+    [Table("document")]
     public partial class document
     {
         public long ID { get; set; }

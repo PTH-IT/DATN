@@ -131,5 +131,20 @@ namespace DOANTOTNGHIEP.Signalr
             Clients.All.clientonline(s);
             return base.OnConnected();
         }
+
+        public void JoinGroup(string groupName)
+        {
+            Groups.Add(Context.ConnectionId, groupName);
+        }
+
+        public void LeaveGroup(string groupName)
+        {
+            Groups.Remove(Context.ConnectionId, groupName);
+        }
+
+        public void SendMessageToGroup(string groupName, string userName, string message)
+        {
+            Clients.Group(groupName).ReceiveMessage(userName, message);
+        }
     }
 }

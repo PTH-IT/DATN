@@ -14,6 +14,7 @@ namespace DOANTOTNGHIEP.Models
         {
             BaiTaps = new HashSet<BaiTap>();
             documents = new HashSet<document>();
+            GroupChats = new HashSet<GroupChat>();
             Loimois = new HashSet<Loimoi>();
             Messes = new HashSet<Mess>();
             ThanhVienLops = new HashSet<ThanhVienLop>();
@@ -40,6 +41,9 @@ namespace DOANTOTNGHIEP.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<document> documents { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GroupChat> GroupChats { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Loimoi> Loimois { get; set; }

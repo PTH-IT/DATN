@@ -24,12 +24,15 @@ namespace DOANTOTNGHIEP.Models
         public virtual DbSet<document> documents { get; set; }
         public virtual DbSet<FileBTTL> FileBTTLs { get; set; }
         public virtual DbSet<FileTB> FileTBs { get; set; }
+        public virtual DbSet<GroupChat> GroupChats { get; set; }
         public virtual DbSet<KeywordLibrary> KeywordLibraries { get; set; }
         public virtual DbSet<KeywordTailieu> KeywordTailieux { get; set; }
         public virtual DbSet<Library> Libraries { get; set; }
         public virtual DbSet<Loimoi> Loimois { get; set; }
         public virtual DbSet<LopHoc> LopHocs { get; set; }
+        public virtual DbSet<MemberGroup> MemberGroups { get; set; }
         public virtual DbSet<Mess> Messes { get; set; }
+        public virtual DbSet<MessGroup> MessGroups { get; set; }
         public virtual DbSet<Plagiarism> Plagiarism { get; set; }
         public virtual DbSet<replycomment> replycomments { get; set; }
         public virtual DbSet<replycommentBT> replycommentBTs { get; set; }
@@ -119,6 +122,21 @@ namespace DOANTOTNGHIEP.Models
                 .WithOptional(e => e.DapAn)
                 .HasForeignKey(e => e.MaDapAnluaChon);
 
+            modelBuilder.Entity<GroupChat>()
+                .Property(e => e.Name)
+                .IsFixedLength();
+
+            modelBuilder.Entity<GroupChat>()
+                .HasMany(e => e.MemberGroups)
+                .WithRequired(e => e.GroupChat)
+                .HasForeignKey(e => e.MaGroup)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<GroupChat>()
+                .HasMany(e => e.MessGroups)
+                .WithOptional(e => e.GroupChat)
+                .HasForeignKey(e => e.MaGroup);
+
             modelBuilder.Entity<Library>()
                 .HasMany(e => e.documents)
                 .WithOptional(e => e.Library)
@@ -148,6 +166,11 @@ namespace DOANTOTNGHIEP.Models
                 .HasMany(e => e.documents)
                 .WithOptional(e => e.LopHoc)
                 .HasForeignKey(e => e.MaLop);
+
+            modelBuilder.Entity<LopHoc>()
+                .HasMany(e => e.GroupChats)
+                .WithOptional(e => e.LopHoc)
+                .HasForeignKey(e => e.Malop);
 
             modelBuilder.Entity<LopHoc>()
                 .HasMany(e => e.Loimois)
@@ -196,6 +219,11 @@ namespace DOANTOTNGHIEP.Models
                 .HasForeignKey(e => e.Nguoisohuu);
 
             modelBuilder.Entity<TaiKhoan>()
+                .HasMany(e => e.GroupChats)
+                .WithOptional(e => e.TaiKhoan)
+                .HasForeignKey(e => e.admin);
+
+            modelBuilder.Entity<TaiKhoan>()
                 .HasMany(e => e.Libraries)
                 .WithOptional(e => e.TaiKhoan)
                 .HasForeignKey(e => e.NguoiAdd);
@@ -211,12 +239,28 @@ namespace DOANTOTNGHIEP.Models
                 .HasForeignKey(e => e.NguoiTao);
 
             modelBuilder.Entity<TaiKhoan>()
+                .HasMany(e => e.MemberGroups)
+                .WithRequired(e => e.TaiKhoan)
+                .HasForeignKey(e => e.IDMember)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<TaiKhoan>()
                 .HasMany(e => e.Messes)
                 .WithOptional(e => e.TaiKhoan)
                 .HasForeignKey(e => e.NguoiGui);
 
             modelBuilder.Entity<TaiKhoan>()
                 .HasMany(e => e.Messes1)
+                .WithOptional(e => e.TaiKhoan1)
+                .HasForeignKey(e => e.NguoiNhan);
+
+            modelBuilder.Entity<TaiKhoan>()
+                .HasMany(e => e.MessGroups)
+                .WithOptional(e => e.TaiKhoan)
+                .HasForeignKey(e => e.NguoiGui);
+
+            modelBuilder.Entity<TaiKhoan>()
+                .HasMany(e => e.MessGroups1)
                 .WithOptional(e => e.TaiKhoan1)
                 .HasForeignKey(e => e.NguoiNhan);
 

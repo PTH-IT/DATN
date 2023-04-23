@@ -130,12 +130,67 @@ namespace DOANTOTNGHIEP.Controllers
             }
 
 
+            var groupchat = db.GroupChats.Where(x => x.Malop.ToString().Equals(id) && x.MemberGroups.Where(y => y.MaGroup.ToString().Equals(x.ID.ToString()) && y.IDMember.Equals(user.TenDangNhap)).ToList().Count > 0).ToList();
 
-
+            ViewBag.ListGroup = groupchat;
 
 
 
             return View(thanhvienlop);
+        }
+
+        [HttpPost]
+        public JsonResult AddGroup(string id, string name)
+        {
+            var result = new DOANTOTNGHIEP.Modelcreate.JsonResult();
+            DB db = new DB();
+            var checkcookie = checkCookie(id);
+            if (checkcookie.Item1)
+            {
+                RedirectToAction(checkcookie.Item2, checkcookie.Item3);
+                result.result = false;
+                result.value = "tai khoan khong ton tai";
+                return Json(result, JsonRequestBehavior.AllowGet);
+
+            }
+            var user = checkcookie.Item4;
+            
+            GroupChat newgroup = new GroupChat();
+            newgroup.Malop = Convert.ToInt64(id);
+            newgroup.admin = user.TenDangNhap;
+            newgroup.Name = name;
+            db.GroupChats.Add(newgroup);
+            MemberGroup member =new MemberGroup();
+            member.IDMember = user.TenDangNhap;
+            member.MaGroup = newgroup.ID;
+            db.MemberGroups.Add(member);
+            db.SaveChanges();
+            result.result = true;
+            result.value = "Tao group thanh cong";
+            return Json(result, JsonRequestBehavior.AllowGet);
+
+        }
+        [HttpPost]
+        public JsonResult AddMemberGroup(string idgroup , string username)
+        {
+            var result = new DOANTOTNGHIEP.Modelcreate.JsonResult();
+            DB db = new DB();
+            var checkuser = db.MemberGroups.Where(x => x.IDMember.ToString().Equals(username) && x.MaGroup.ToString().Equals(idgroup)).ToList();
+            if (checkuser.Count > 0)
+            {
+                result.result = false;
+                result.value = " User da ton tai trong group";
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            MemberGroup member = new MemberGroup();
+            member.IDMember = username;
+            member.MaGroup = Convert.ToInt64(idgroup);
+            db.MemberGroups.Add(member);
+            db.SaveChanges();
+            result.result = true;
+            result.value = "Them user thanh cong";
+            return Json(result, JsonRequestBehavior.AllowGet);
+
         }
         //hien tin nhan trong csdl
         [HttpPost]
@@ -160,8 +215,28 @@ namespace DOANTOTNGHIEP.Controllers
             return PartialView(taikhoan);
         }
         [HttpPost]
+        public ActionResult InforMessGroupChat(string id, string malop)
+        {
+            ViewBag.malop = malop;
+            DB db = new DB();
+            var checkcookie = checkCookie(malop);
+            if (checkcookie.Item1)
+            {
+                return RedirectToAction(checkcookie.Item2, checkcookie.Item3);
+            }
+            var user = checkcookie.Item4;
+            ViewBag.user = user;
+            if (malop == null) return RedirectToAction("Index", "TrangChu");
+            string nguoitao = user.TenDangNhap;
+
+            var groupchat = db.GroupChats.SingleOrDefault(x => x.ID.Equals(id));
+            ViewData["tinnhan"] = db.MessGroups.Where(x => x.ID.ToString().Equals(id)).OrderByDescending(y => y.thoigiangui).Take(50).OrderBy(y => y.thoigiangui).ToList();
+
+            return PartialView(groupchat);
+        }
+        [HttpPost]
         [ValidateInput(false)]
-        public  void SaveInforMess(string nguoinhan, string tinnhan, string malop)
+        public void SaveInforMess(string nguoinhan, string tinnhan, string malop)
         {
             ViewBag.malop = malop;
             DB db = new DB();
@@ -191,7 +266,7 @@ namespace DOANTOTNGHIEP.Controllers
         [HttpPost]
         public System.Web.Mvc.JsonResult UploadFile(HttpPostedFileBase uploadedFiles)
         {
-           
+
             string returnImagePath = string.Empty;
             string fileName;
             string Extension;
@@ -216,6 +291,6 @@ Extension;
         // luu tin nhan
 
     }
-      
-    
+
+
 }

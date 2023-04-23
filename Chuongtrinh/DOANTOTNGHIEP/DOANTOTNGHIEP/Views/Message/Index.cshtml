@@ -2,6 +2,7 @@
 @{
     Layout = "~/Views/Shared/Layoutclass.cshtml";
     var user = ViewBag.user as DOANTOTNGHIEP.Models.TaiKhoan;
+    var listgroup = ViewBag.ListGroup as List<DOANTOTNGHIEP.Models.GroupChat>;
     string nguoitao = user.TenDangNhap;
     var malop = ViewBag.malop;
 
@@ -84,16 +85,15 @@
 
         <div class="divthanhvien">
             <div class="nguoimoi"> </div>
-                @{
-                    int z = 0;
-                    foreach (var i in Model)
-                    {
-                        if (!i.Mathanhvien.Equals(nguoitao))
+            @{
+                int z = 0;
+                foreach (var i in listgroup)
+                {
+                    
+                        using (Ajax.BeginForm("InforMessGroupChat", "Message", new { id = i.ID, malop = malop }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "mess" }))
                         {
-                            using (Ajax.BeginForm("InforMess", "Message", new {  id = i.Mathanhvien , malop = malop } ,new AjaxOptions {  HttpMethod = "POST", UpdateTargetId = "mess"  } , new { @class = "thanhvien_"+i.TaiKhoan.TenDangNhap } ))
-                            {
 
-                            <div style="width:100%;border:0px;margin-bottom:0px;" id="thanhvien" >
+                            <div style="width:100%;border:0px;margin-bottom:0px;" id="thanhvien">
                                 <div id="trangthaionline" class="Trangthai_@i.TaiKhoan.TenDangNhap" style="border:2px solid white;width: 10px; height: 10px; border-radius: 10px; background-color: grey; position: absolute; z-index: 20; margin-top: 1px; margin-left: 5px"> </div>
                                 <button class=@z style="width: 100%; border: 0px; background-color: transparent; text-align: left">
                                     <img class="navbar-link" src=@i.TaiKhoan.HinhAnh width="30" height="30" style="border-radius:45px;" />
@@ -102,13 +102,34 @@
                                 </button>
 
                             </div>
-                                z++;
-                            }
+                            z++;
                         }
+                    
 
-                    }
                 }
-            </div>
+                foreach (var i in Model)
+                {
+                    if (!i.Mathanhvien.Equals(nguoitao))
+                    {
+                        using (Ajax.BeginForm("InforMess", "Message", new { id = i.Mathanhvien, malop = malop }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "mess" }, new { @class = "thanhvien_" + i.TaiKhoan.TenDangNhap }))
+                        {
+
+                            <div style="width:100%;border:0px;margin-bottom:0px;" id="thanhvien">
+                                <div id="trangthaionline" class="Trangthai_@i.TaiKhoan.TenDangNhap" style="border:2px solid white;width: 10px; height: 10px; border-radius: 10px; background-color: grey; position: absolute; z-index: 20; margin-top: 1px; margin-left: 5px"> </div>
+                                <button class=@z style="width: 100%; border: 0px; background-color: transparent; text-align: left">
+                                    <img class="navbar-link" src=@i.TaiKhoan.HinhAnh width="30" height="30" style="border-radius:45px;" />
+                                    @i.TaiKhoan.Ho @i.TaiKhoan.Ten
+
+                                </button>
+
+                            </div>
+                            z++;
+                        }
+                    }
+
+                }
+            }
+        </div>
 
             @*tin nhan*@
             <div class="divmess" id="mess" style="background-color:white">

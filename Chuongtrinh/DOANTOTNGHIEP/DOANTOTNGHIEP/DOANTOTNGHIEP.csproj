@@ -271,6 +271,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\api\api.cs" />
     <Compile Include="Models\BaiTap.cs" />
     <Compile Include="Models\BaiTapTL.cs" />
     <Compile Include="Models\BaiTapTN.cs" />
@@ -283,16 +284,20 @@
     <Compile Include="Models\DapAn.cs" />
     <Compile Include="Models\database\baitap.cs" />
     <Compile Include="Models\database\daovan.cs" />
+    <Compile Include="Models\database\library.cs" />
     <Compile Include="Models\DB.cs" />
     <Compile Include="Models\document.cs" />
     <Compile Include="Models\FileBTTL.cs" />
     <Compile Include="Models\FileTB.cs" />
+    <Compile Include="Models\GroupChat.cs" />
     <Compile Include="Models\KeywordLibrary.cs" />
     <Compile Include="Models\KeywordTailieu.cs" />
     <Compile Include="Models\Library.cs" />
     <Compile Include="Models\Loimoi.cs" />
     <Compile Include="Models\LopHoc.cs" />
+    <Compile Include="Models\MemberGroup.cs" />
     <Compile Include="Models\Mess.cs" />
+    <Compile Include="Models\MessGroup.cs" />
     <Compile Include="Models\Modelcreate\filedaovan.cs" />
     <Compile Include="Models\database\lophoc.cs" />
     <Compile Include="Models\database\taikhoan.cs" />
@@ -637,6 +642,7 @@
     <Content Include="Views\Exercise\ReplycommenBaitap.cshtml" />
     <Content Include="Views\Admin\danhsachchudetailieu.cshtml" />
     <Content Include="Views\Admin\chitietchudetailieulophoc.cshtml" />
+    <Content Include="Views\Message\inforgroupchat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -17,11 +17,15 @@ namespace DOANTOTNGHIEP.Models
             commentbaitaps = new HashSet<commentbaitap>();
             commentnotifications = new HashSet<commentnotification>();
             documents = new HashSet<document>();
+            GroupChats = new HashSet<GroupChat>();
             Libraries = new HashSet<Library>();
             Loimois = new HashSet<Loimoi>();
             LopHocs = new HashSet<LopHoc>();
+            MemberGroups = new HashSet<MemberGroup>();
             Messes = new HashSet<Mess>();
             Messes1 = new HashSet<Mess>();
+            MessGroups = new HashSet<MessGroup>();
+            MessGroups1 = new HashSet<MessGroup>();
             replycomments = new HashSet<replycomment>();
             replycommentBTs = new HashSet<replycommentBT>();
             ThanhVienLops = new HashSet<ThanhVienLop>();
@@ -70,6 +74,9 @@ namespace DOANTOTNGHIEP.Models
         public virtual ICollection<document> documents { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GroupChat> GroupChats { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Library> Libraries { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -79,10 +86,19 @@ namespace DOANTOTNGHIEP.Models
         public virtual ICollection<LopHoc> LopHocs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MemberGroup> MemberGroups { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mess> Messes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mess> Messes1 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MessGroup> MessGroups { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MessGroup> MessGroups1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<replycomment> replycomments { get; set; }
