@@ -140,8 +140,9 @@ namespace DOANTOTNGHIEP.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddGroup(string id, string name)
+        public JsonResult AddGroup(HttpPostedFileBase imagegroup , string id)
         {
+
             var result = new DOANTOTNGHIEP.Modelcreate.JsonResult();
             DB db = new DB();
             var checkcookie = checkCookie(id);
@@ -154,11 +155,20 @@ namespace DOANTOTNGHIEP.Controllers
 
             }
             var user = checkcookie.Item4;
-            
+           var  imagegroupLocation = "/Content/image/imageaccount/d.jpg";
+            if (imagegroup != null)
+            {
+                var path = "~/Content/image/imageaccount/" + imagegroup.FileName;
+                imagegroupLocation = path;
+                imagegroup.SaveAs(Server.MapPath(path));
+                    
+            }
+            string name = Request.Form["namegroup"];
             GroupChat newgroup = new GroupChat();
             newgroup.Malop = Convert.ToInt64(id);
             newgroup.admin = user.TenDangNhap;
             newgroup.Name = name;
+            newgroup.image = imagegroupLocation;
             db.GroupChats.Add(newgroup);
             MemberGroup member =new MemberGroup();
             member.IDMember = user.TenDangNhap;
@@ -229,10 +239,10 @@ namespace DOANTOTNGHIEP.Controllers
             if (malop == null) return RedirectToAction("Index", "TrangChu");
             string nguoitao = user.TenDangNhap;
 
-            var groupchat = db.GroupChats.SingleOrDefault(x => x.ID.Equals(id));
+            var groupchat = db.GroupChats.SingleOrDefault(x => x.ID.ToString().Equals(id));
             ViewData["tinnhan"] = db.MessGroups.Where(x => x.ID.ToString().Equals(id)).OrderByDescending(y => y.thoigiangui).Take(50).OrderBy(y => y.thoigiangui).ToList();
 
-            return PartialView(groupchat);
+            return PartialView("inforgroupchat",groupchat);
         }
         [HttpPost]
         [ValidateInput(false)]
