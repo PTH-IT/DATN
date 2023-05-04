@@ -8,7 +8,7 @@ namespace DOANTOTNGHIEP.Models
     public partial class DB : DbContext
     {
         public DB()
-            : base("name=DB")
+            : base("name=DB1")
         {
         }
 
@@ -193,6 +193,11 @@ namespace DOANTOTNGHIEP.Models
                 .WithOptional(e => e.LopHoc)
                 .HasForeignKey(e => e.MaLop);
 
+            modelBuilder.Entity<LopHoc>()
+                .HasMany(e => e.MessGroups)
+                .WithOptional(e => e.LopHoc)
+                .HasForeignKey(e => e.MaLop);
+
             modelBuilder.Entity<TaiKhoan>()
                 .HasMany(e => e.BaiTapTLs)
                 .WithOptional(e => e.TaiKhoan)
@@ -258,11 +263,6 @@ namespace DOANTOTNGHIEP.Models
                 .HasMany(e => e.MessGroups)
                 .WithOptional(e => e.TaiKhoan)
                 .HasForeignKey(e => e.NguoiGui);
-
-            modelBuilder.Entity<TaiKhoan>()
-                .HasMany(e => e.MessGroups1)
-                .WithOptional(e => e.TaiKhoan1)
-                .HasForeignKey(e => e.NguoiNhan);
 
             modelBuilder.Entity<TaiKhoan>()
                 .HasMany(e => e.replycomments)

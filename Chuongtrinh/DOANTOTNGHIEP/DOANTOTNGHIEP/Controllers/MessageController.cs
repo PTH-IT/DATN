@@ -140,7 +140,7 @@ namespace DOANTOTNGHIEP.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddGroup(HttpPostedFileBase imagegroup , string id)
+        public JsonResult AddGroup(HttpPostedFileBase fileimageupload, string id)
         {
 
             var result = new DOANTOTNGHIEP.Modelcreate.JsonResult();
@@ -156,11 +156,11 @@ namespace DOANTOTNGHIEP.Controllers
             }
             var user = checkcookie.Item4;
            var  imagegroupLocation = "/Content/image/imageaccount/d.jpg";
-            if (imagegroup != null)
+            if (fileimageupload != null)
             {
-                var path = "~/Content/image/imageaccount/" + imagegroup.FileName;
+                var path = "~/Content/image/imageaccount/" + fileimageupload.FileName;
                 imagegroupLocation = path;
-                imagegroup.SaveAs(Server.MapPath(path));
+                fileimageupload.SaveAs(Server.MapPath(path));
                     
             }
             string name = Request.Form["namegroup"];
@@ -240,7 +240,7 @@ namespace DOANTOTNGHIEP.Controllers
             string nguoitao = user.TenDangNhap;
 
             var groupchat = db.GroupChats.SingleOrDefault(x => x.ID.ToString().Equals(id));
-            ViewData["tinnhan"] = db.MessGroups.Where(x => x.ID.ToString().Equals(id)).OrderByDescending(y => y.thoigiangui).Take(50).OrderBy(y => y.thoigiangui).ToList();
+            ViewData["tinnhan"] = db.MessGroups.Where(x => x.MaGroup.ToString().Equals(id)).OrderByDescending(y => y.thoigiangui).Take(50).OrderBy(y => y.thoigiangui).ToList();
 
             return PartialView("inforgroupchat",groupchat);
         }
@@ -268,6 +268,35 @@ namespace DOANTOTNGHIEP.Controllers
                 mess.TinNhan = tinnhan;
                 mess.thoigiangui = DateTime.Now;
                 db.Messes.Add(mess);
+                db.SaveChanges();
+            }
+
+
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public void SaveInforMessGroupChat(string nguoinhan, string tinnhan, string malop)
+        {
+            ViewBag.malop = malop;
+            DB db = new DB();
+            var checkcookie = checkCookie(malop);
+            if (checkcookie.Item1)
+            {
+                RedirectToAction(checkcookie.Item2, checkcookie.Item3);
+            }
+            var user = checkcookie.Item4;
+            ViewBag.user = user;
+            string nguoitao = user.TenDangNhap;
+
+            if (!tinnhan.Equals(""))
+            {
+                DOANTOTNGHIEP.Models.MessGroup mess = new MessGroup();
+                mess.NguoiGui = nguoitao;
+                mess.MaGroup = Convert.ToInt64( nguoinhan);
+                mess.MaLop = long.Parse(malop);
+                mess.TinNhan = tinnhan;
+                mess.thoigiangui = DateTime.Now;
+                db.MessGroups.Add(mess);
                 db.SaveChanges();
             }
 

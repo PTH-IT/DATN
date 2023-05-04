@@ -142,9 +142,9 @@ namespace DOANTOTNGHIEP.Signalr
             Groups.Remove(Context.ConnectionId, groupName);
         }
 
-        public void SendMessageToGroup(string groupName, string userName, string message)
+        public void SendMessageToGroup(string userName , string groupName, string malop , string message)
         {
-            Clients.Group(groupName).ReceiveMessage(userName, message);
+            Clients.Group(groupName).ReceiveMessage(userName, malop , message);
         }
     }
 }

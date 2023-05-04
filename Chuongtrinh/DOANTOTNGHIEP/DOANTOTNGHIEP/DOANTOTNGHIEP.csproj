@@ -399,6 +399,7 @@
     <Content Include="Content\image\imageclass\img_backtoschool.jpg" />
     <Content Include="Content\image\imageclass\photo-1-16034517575521192609863.jpg" />
     <Content Include="Content\image\imagelogin\photo-1-16034517575521192609863.jpg" />
+    <Content Include="Content\sound\receive.mp3" />
     <Content Include="Content\summernote\summernote-bs4.css" />
     <Content Include="Content\summernote\summernote-lite.css" />
     <Content Include="Content\summernote\summernote.css" />

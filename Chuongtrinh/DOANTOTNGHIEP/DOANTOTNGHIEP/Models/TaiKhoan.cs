@@ -25,7 +25,6 @@ namespace DOANTOTNGHIEP.Models
             Messes = new HashSet<Mess>();
             Messes1 = new HashSet<Mess>();
             MessGroups = new HashSet<MessGroup>();
-            MessGroups1 = new HashSet<MessGroup>();
             replycomments = new HashSet<replycomment>();
             replycommentBTs = new HashSet<replycommentBT>();
             ThanhVienLops = new HashSet<ThanhVienLop>();
@@ -96,9 +95,6 @@ namespace DOANTOTNGHIEP.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MessGroup> MessGroups { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MessGroup> MessGroups1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<replycomment> replycomments { get; set; }

@@ -168,7 +168,7 @@
 
         var mess = $.connection.chat;
         mess.client.message = function (sender, receiver, malop, message) {
-            const audio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")
+            const audio = new Audio("/Content/sound/receive.mp3")
             audio.play()
             setTimeout(function () { audio.pause() }, 800)
             if (sender == "@nguoitao" && receiver == "@Model.TenDangNhap" && malop == "@malop" && message != "") {

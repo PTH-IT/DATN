@@ -19,6 +19,7 @@ namespace DOANTOTNGHIEP.Models
             Messes = new HashSet<Mess>();
             ThanhVienLops = new HashSet<ThanhVienLop>();
             ThongBaos = new HashSet<ThongBao>();
+            MessGroups = new HashSet<MessGroup>();
         }
 
         public long ID { get; set; }
@@ -58,5 +59,8 @@ namespace DOANTOTNGHIEP.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ThongBao> ThongBaos { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MessGroup> MessGroups { get; set; }
     }
 }

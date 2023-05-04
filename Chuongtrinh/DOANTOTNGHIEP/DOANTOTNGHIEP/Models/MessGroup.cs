@@ -14,8 +14,7 @@ namespace DOANTOTNGHIEP.Models
         [StringLength(20)]
         public string NguoiGui { get; set; }
 
-        [StringLength(20)]
-        public string NguoiNhan { get; set; }
+        public long? MaLop { get; set; }
 
         public long? MaGroup { get; set; }
 
@@ -25,8 +24,8 @@ namespace DOANTOTNGHIEP.Models
 
         public virtual GroupChat GroupChat { get; set; }
 
-        public virtual TaiKhoan TaiKhoan { get; set; }
+        public virtual LopHoc LopHoc { get; set; }
 
-        public virtual TaiKhoan TaiKhoan1 { get; set; }
+        public virtual TaiKhoan TaiKhoan { get; set; }
     }
 }
