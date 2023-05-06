@@ -10,7 +10,7 @@ import (
 func GetCau(s string) []string {
 	var list []string
 	a := ""
-	for i, r := range strings.ToLower(s) {
+	for i, r := range s {
 
 		a += string(r)
 		if i+1 < utf8.RuneCountInString(s) && i-1 > 0 {
@@ -91,7 +91,7 @@ func Comparetsentence(s1 string, s2 string) ([]string, float64) {
 	var percents float64
 	var sentence []string
 
-	if strings.Contains(s2, s1) {
+	if strings.Contains(strings.ToLower(s2), strings.ToLower(s1)) {
 		percents = 100.0
 		sentence = append(sentence, s1)
 	} else {
@@ -114,7 +114,7 @@ func comparetsentence1(keyword1 string, keyword2 string) ([]string, float64) {
 		indexs1 := 0
 		for _, s1 := range strings.Split(Clearstring(keyword1), " ") {
 			for _, s2 := range strings.Split(Clearstring(keyword2), " ") {
-				if s1 == s2 {
+				if strings.ToLower(s1) == strings.ToLower(s2) {
 					alike = append(alike, s1)
 					indexalike = append(indexalike, indexs1)
 					break
@@ -127,14 +127,14 @@ func comparetsentence1(keyword1 string, keyword2 string) ([]string, float64) {
 		for i, _ := range alike {
 			if i > 0 {
 				if indexalike[i-1]+len(alike[i-1])+1 == indexalike[i] {
-					if i == len(alike)-1 && len(strings.Split(s+" "+alike[i], " ")) >= 2 && strings.Contains(keyword2, s+" "+alike[i]) {
+					if i == len(alike)-1 && len(strings.Split(s+" "+alike[i], " ")) >= 2 && strings.Contains(strings.ToLower(keyword2), strings.ToLower(s+" "+alike[i])) {
 						s = s + " " + alike[i]
 						keyalike = append(keyalike, s)
 						s = ""
-					} else if len(strings.Split(s, " ")) >= 2 && strings.Contains(keyword2, s) && !strings.Contains(keyword2, s+" "+alike[i]) {
+					} else if len(strings.Split(s, " ")) >= 2 && strings.Contains(strings.ToLower(keyword2), strings.ToLower(s)) && !strings.Contains(strings.ToLower(keyword2), strings.ToLower(s+" "+alike[i])) {
 						keyalike = append(keyalike, s)
 						s = alike[i]
-					} else if strings.Contains(keyword2, s+" "+alike[i]) {
+					} else if strings.Contains(strings.ToLower(keyword2), strings.ToLower(s+" "+alike[i])) {
 						if len(s) == 0 {
 							s = alike[i]
 						} else {
@@ -144,7 +144,7 @@ func comparetsentence1(keyword1 string, keyword2 string) ([]string, float64) {
 						s = alike[i]
 					}
 				} else {
-					if len(strings.Split(s, " ")) >= 2 && strings.Contains(keyword2, s) {
+					if len(strings.Split(s, " ")) >= 2 && strings.Contains(strings.ToLower(keyword2), strings.ToLower(s)) {
 						keyalike = append(keyalike, s)
 					}
 					s = alike[i]

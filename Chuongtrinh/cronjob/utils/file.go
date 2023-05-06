@@ -1,6 +1,7 @@
 package utils
 
 import (
+	object "cronjob-DATN/model"
 	"fmt"
 	"io"
 	"log"
@@ -101,10 +102,6 @@ func SaveFile(file *multipart.FileHeader) (error, string, string) {
 func GetFile(path string) {
 
 }
-func Highline(path string) {
-	highlightWords(path, "output.pdf", "TRƯỜNG")
-
-}
 
 // getBoundingBoxes returns the bounding boxes of all instances of search`term` in the Pdf file.
 func getBoundingBoxes(page *model.PdfPage, term string) ([]*model.PdfRectangle, error) {
@@ -152,8 +149,12 @@ func indexAllSubstrings(text, term string) []int {
 	}
 	return indexes
 }
+func Clearstring(s string) string {
+	s = strings.ReplaceAll(strings.ReplaceAll(s, "\r", ""), "\n", "")
 
-func highlightWords(inputPath, outputPath, term string) error {
+	return s
+}
+func HighlightWords(inputPath, outputPath string, resultcaudaovan []object.Detaildaovan) error {
 	reader, f, err := model.NewPdfReaderFromFile(inputPath, nil)
 	if err != nil {
 		panic(err)
@@ -170,34 +171,39 @@ func highlightWords(inputPath, outputPath, term string) error {
 		if err != nil {
 			return err
 		}
-		bBoxes, err := getBoundingBoxes(page, term)
-		if err != nil {
-			return err
-		}
+		for _, value := range resultcaudaovan {
+			if value.Percent < 90 && value.Percent > 0 {
+				term := Clearstring(value.Keywor2)
+				bBoxes, err := getBoundingBoxes(page, term)
+				if err != nil {
+					return err
+				}
 
-		mediaBox, err := page.GetMediaBox()
-		if err != nil {
-			return err
-		}
-		if page.MediaBox == nil {
-			page.MediaBox = mediaBox
-		}
+				mediaBox, err := page.GetMediaBox()
+				if err != nil {
+					return err
+				}
+				if page.MediaBox == nil {
+					page.MediaBox = mediaBox
+				}
 
-		if err := cr.AddPage(page); err != nil {
-			return err
-		}
-		h := mediaBox.Ury
-		for _, bbox := range bBoxes {
-			rect := cr.NewRectangle(bbox.Llx, h-bbox.Lly, bbox.Urx-bbox.Llx, -(bbox.Ury - bbox.Lly))
-			rect.SetFillColor(creator.ColorRGBFromHex("#FFFF00"))
-			rect.SetBorderWidth(0)
-			rect.SetFillOpacity(0.5)
-			if err := cr.Draw(rect); err != nil {
-				return nil
+				if err := cr.AddPage(page); err != nil {
+					return err
+				}
+				h := mediaBox.Ury
+				for _, bbox := range bBoxes {
+					rect := cr.NewRectangle(bbox.Llx, h-bbox.Lly, bbox.Urx-bbox.Llx, -(bbox.Ury - bbox.Lly))
+					rect.SetFillColor(creator.ColorRGBFromHex("#FFFF00"))
+					rect.SetBorderWidth(0)
+					rect.SetFillOpacity(0.5)
+					if err := cr.Draw(rect); err != nil {
+						return nil
+					}
+				}
 			}
 		}
-
 	}
+
 	cr.SetOutlineTree(reader.GetOutlineTree())
 
 	if err := cr.WriteToFile(outputPath); err != nil {
