@@ -21,6 +21,7 @@ using System.Text;
 using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
 using System.Data.Entity.Migrations;
+using System.Threading.Tasks;
 
 namespace DOANTOTNGHIEP.Controllers
 {
@@ -565,7 +566,7 @@ namespace DOANTOTNGHIEP.Controllers
         //xong
         // chinh sua bai tap nop
         [HttpPost]
-        public ActionResult editnopbaitap(string malop, string mabaitaptl, HttpPostedFileBase[] file)
+        public async Task<ActionResult> editnopbaitap(string malop, string mabaitaptl, HttpPostedFileBase[] file)
         {
             
             DB db = new DB();
@@ -588,29 +589,7 @@ namespace DOANTOTNGHIEP.Controllers
                 {
                     break;
                 }
-                string fileName;
-                string Extension;
-                string imageName;
-                fileName = Path.GetFileNameWithoutExtension(fil.FileName);
-                Extension = Path.GetExtension(fil.FileName);
-                imageName = fileName + DateTime.Now.ToString("yyyyMMddHHmmss");
-                string path = Server.MapPath("~/Content/BTTL/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension);
-                if (System.IO.File.Exists(path))
-                {
-                    System.IO.File.Delete(path);
-                }
-                fil.SaveAs(path);
-                var library = bai.Library;
-                library.Name = fil.FileName;
-                library.Location = "/Content/BTTL/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension;
-                library.NgayUpdate = DateTime.Now;
-                library.NguoiAdd = user.TenDangNhap;
-                library.Noidung = DOANTOTNGHIEP.Models.exportfile.exportfile.getdatapdf(library.Location);
-                db.Libraries.AddOrUpdate(library);
-                db.SaveChanges();
-               
-               
-
+                var library = await DOANTOTNGHIEP.Models.database.library.UpdateLibrary(fil, bai.Library);
 
             }
 
@@ -621,7 +600,7 @@ namespace DOANTOTNGHIEP.Controllers
         //xong
         // nop bai tu luan
         [HttpPost]
-        public ActionResult nopbaitapTL(string malop, string mabaitaptl, HttpPostedFileBase[] file)
+        public async Task<ActionResult> nopbaitapTL(string malop, string mabaitaptl, HttpPostedFileBase[] file)
         {
            
             DB db = new DB();
@@ -639,27 +618,11 @@ namespace DOANTOTNGHIEP.Controllers
                 {
                     break;
                 }
-                string fileName;
-                string Extension;
-                string imageName;
-                fileName = Path.GetFileNameWithoutExtension(fil.FileName);
-                Extension = Path.GetExtension(fil.FileName);
-                imageName = fileName + DateTime.Now.ToString("yyyyMMddHHmmss");
-                string path = Server.MapPath("~/Content/BTTL/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension);
-                if (System.IO.File.Exists(path))
+                var library = await DOANTOTNGHIEP.Models.database.library.SaveLibrary(fil);
+                if (library == null)
                 {
-                    System.IO.File.Delete(path);
+                    break;
                 }
-                fil.SaveAs(path);
-                Library library = new Library();
-                library.Name = fil.FileName;
-                library.Location = "/Content/BTTL/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension;
-                library.NgayThem = DateTime.Now;
-                library.NguoiAdd = user.TenDangNhap;
-                library.NgayUpdate = library.NgayThem;
-                library.Noidung = DOANTOTNGHIEP.Models.exportfile.exportfile.getdatapdf(library.Location);
-                db.Libraries.Add(library);
-                db.SaveChanges();
 
                 TTBaiTapTL bttl = new TTBaiTapTL();
                 bttl.MaBaiNop =baitaptuluan.ID;
@@ -862,7 +825,7 @@ namespace DOANTOTNGHIEP.Controllers
         }
 
         // chinh sua bai tap tu luan
-        public ActionResult Editbaitaptl(string id, string malop, HttpPostedFileBase[] file)
+        public async Task<ActionResult> Editbaitaptl(string id, string malop, HttpPostedFileBase[] file)
         {
             
             DB db = new DB();
@@ -909,25 +872,17 @@ namespace DOANTOTNGHIEP.Controllers
                 {
                     break;
                 }
-                var fileName = Path.GetFileNameWithoutExtension(fil.FileName);
-                var Extension = Path.GetExtension(fil.FileName);
-                var imageName = fileName + DateTime.Now.ToString("yyyyMMddHHmmss");
-                var imageSavePath = Server.MapPath("~/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/") + imageName + Extension;
-                fil.SaveAs(imageSavePath);
+              
 
-                    Library library =new Library();
-
-                    library.Name = fil.FileName;
-                    library.Location = "/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension;
-                    library.NgayThem = DateTime.Now;
-                    library.NguoiAdd = user.TenDangNhap;
-                    library.NgayUpdate = library.NgayThem;
-                    library.Noidung = DOANTOTNGHIEP.Models.exportfile.exportfile.getdatapdf(library.Location);
-                    db.Libraries.Add(library);
-                    FileBTTL fileBTTL = new FileBTTL();
-                    fileBTTL.IDLibrary = library.ID;
-                    fileBTTL.MaBT = baitap.ID;
-                    db.FileBTTLs.Add(fileBTTL);
+                var library = await DOANTOTNGHIEP.Models.database.library.SaveLibrary(fil);
+                if (library == null)
+                {
+                    break;
+                }
+                FileBTTL fileBTTL = new FileBTTL();
+                fileBTTL.IDLibrary = library.ID;
+                fileBTTL.MaBT = baitap.ID;
+                db.FileBTTLs.Add(fileBTTL);
                 db.SaveChanges();
 
             }
@@ -1138,7 +1093,7 @@ namespace DOANTOTNGHIEP.Controllers
         }
         /*dang bai tap tu luan*/
         [HttpPost]
-        public ActionResult DangBaiTapTL(string malop, HttpPostedFileBase[] file)
+        public async Task<ActionResult> DangBaiTapTL(string malop, HttpPostedFileBase[] file)
         {
             
             DB db = new DB();
@@ -1184,20 +1139,11 @@ namespace DOANTOTNGHIEP.Controllers
                 {
                     break;
                 }
-                var fileName = Path.GetFileNameWithoutExtension(fil.FileName);
-                var Extension = Path.GetExtension(fil.FileName);
-                var imageName = fileName + DateTime.Now.ToString("yyyyMMddHHmmss");
-                var imageSavePath = Server.MapPath("~/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/") + imageName + Extension;
-                fil.SaveAs(imageSavePath);
-                Library library = new Library();
-
-                library.Name = fil.FileName;
-                library.Location = "/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension;
-                library.NgayThem = DateTime.Now;
-                library.NguoiAdd = user.TenDangNhap;
-                library.NgayUpdate = library.NgayThem;
-                library.Noidung = DOANTOTNGHIEP.Models.exportfile.exportfile.getdatapdf(library.Location);
-                db.Libraries.Add(library);
+                var library = await DOANTOTNGHIEP.Models.database.library.SaveLibrary(fil);
+                if (fil == null)
+                {
+                    break;
+                }
                 FileBTTL fileBTTL = new FileBTTL();
                 fileBTTL.IDLibrary = library.ID;
                 fileBTTL.MaBT = bt.ID;

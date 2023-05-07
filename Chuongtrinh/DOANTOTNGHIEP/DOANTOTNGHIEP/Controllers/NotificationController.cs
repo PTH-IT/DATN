@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -75,7 +76,7 @@ namespace DOANTOTNGHIEP.Controllers
         //dang thong bao
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult DangTB(string malop, HttpPostedFileBase[] file)
+        public async Task<ActionResult> DangTB(string malop, HttpPostedFileBase[] file)
         {
             ViewBag.malop = malop;
             DB db = new DB();
@@ -103,20 +104,11 @@ namespace DOANTOTNGHIEP.Controllers
                 {
                     break;
                 }
-                var fileName = Path.GetFileNameWithoutExtension(fil.FileName);
-                var Extension = Path.GetExtension(fil.FileName);
-                var imageName = fileName + DateTime.Now.ToString("yyyyMMddHHmmss");
-                var imageSavePath = Server.MapPath("~/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/") + imageName + Extension;
-                fil.SaveAs(imageSavePath);
-                Library library = new Library();
-
-                library.Name = fil.FileName;
-                library.Location = "/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension;
-                library.NgayThem = DateTime.Now;
-                library.NguoiAdd = user.TenDangNhap;
-                library.NgayUpdate = library.NgayThem;
-                library.Noidung = DOANTOTNGHIEP.Models.exportfile.exportfile.getdatapdf(library.Location);
-                db.Libraries.Add(library);
+                var library = await DOANTOTNGHIEP.Models.database.library.SaveLibrary(fil);
+                if (library == null)
+                {
+                    break;
+                }
 
                 FileTB ftb = new FileTB();
                 ftb.Mathongbao = tb.ID;
@@ -144,7 +136,7 @@ namespace DOANTOTNGHIEP.Controllers
         //chinh sua thong bao
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult EditThongBao(string id, string malop, HttpPostedFileBase[] file)
+        public async Task<ActionResult> EditThongBao(string id, string malop, HttpPostedFileBase[] file)
         {
             ViewBag.malop = malop;
             DB db = new DB();
@@ -192,20 +184,11 @@ namespace DOANTOTNGHIEP.Controllers
                     break;
                 }
 
-                var fileName = Path.GetFileNameWithoutExtension(fil.FileName);
-                var Extension = Path.GetExtension(fil.FileName);
-                var imageName = fileName + DateTime.Now.ToString("yyyyMMddHHmmss");
-                var imageSavePath = Server.MapPath("~/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/") + imageName + Extension;
-                fil.SaveAs(imageSavePath);
-                Library library = new Library();
-
-                library.Name = fil.FileName;
-                library.Location = "/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(user.TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + imageName + Extension;
-                library.NgayThem = DateTime.Now;
-                library.NguoiAdd = user.TenDangNhap;
-                library.NgayUpdate = library.NgayThem;
-                library.Noidung = DOANTOTNGHIEP.Models.exportfile.exportfile.getdatapdf(library.Location);
-                db.Libraries.Add(library);
+                var library = await DOANTOTNGHIEP.Models.database.library.SaveLibrary(fil);
+                if (library == null)
+                {
+                    break;
+                }
 
                 FileTB ftb = new FileTB();
                 ftb.Mathongbao = tb.ID;
