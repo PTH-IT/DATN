@@ -32,6 +32,8 @@ namespace DOANTOTNGHIEP.Models
 
         public string Noidung { get; set; }
 
+        public string Image { get; set; }
+
         [StringLength(20)]
         public string NguoiAdd { get; set; }
 

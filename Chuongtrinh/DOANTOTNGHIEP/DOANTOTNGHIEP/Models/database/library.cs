@@ -33,6 +33,7 @@ namespace DOANTOTNGHIEP.Models.database
             library.NgayThem = DateTime.Now;
             library.NgayUpdate = library.NgayThem;
             library.Noidung = location.Noidung;
+            library.Image = location.Image;
             db.Libraries.Add(library);
             db.SaveChanges();
             return library;
@@ -65,14 +66,13 @@ namespace DOANTOTNGHIEP.Models.database
             documentpdf.Nguoisohuu = tendangnhap;
             documentpdf.LuotTaiXuong = 0;
             documentpdf.Luotxem = 0;
-            documentpdf.Image = getimagepdf(location, malop,tendangnhap);
             documentpdf.MaLop = Convert.ToInt64(malop);
             documentpdf.IDLibrary = id;
             db.documents.Add(documentpdf);
             db.SaveChanges();
 
         }
-        public static string getimagepdf(string filepdf, string malop, string TenDangNhap)
+        public static string getimagepdf(string filepdf)
         {
 
             PdfDocument doc = new PdfDocument();
@@ -87,9 +87,9 @@ namespace DOANTOTNGHIEP.Models.database
                 g.DrawImage(emf, new Rectangle(new Point(0, 0), emf.Size), new Rectangle(new Point(0, 0), emf.Size), GraphicsUnit.Pixel);
             }
             string extension = DateTime.Now.ToString("yyyyMMddHHmmss") + ".png";
-            string path = HostingEnvironment.MapPath("~/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/") + extension;
+            string path = HostingEnvironment.MapPath("~/Content/document/" + extension);
             emf.Save(path, ImageFormat.Png);
-            return "/Content/document/" + Models.crypt.Encrypt.encryptfoder(malop).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + Models.crypt.Encrypt.encryptfoder(TenDangNhap).Replace("+", "").Replace("=", "").Replace("-", "").Replace("_", "") + "/" + extension;
+            return "/Content/document/" + extension;
 
         }
         public static async Task<upload> SaveFileLibrary(HttpPostedFileBase file)
@@ -114,7 +114,6 @@ namespace DOANTOTNGHIEP.Models.database
             // Call the API and get the response
             HttpResponseMessage response = await httpClient.PostAsync("http://localhost:1909/api/upload", content);
 
-            // Check if the call was successful
             if (response.IsSuccessStatusCode)
             {
                 // Read the response content as a string
@@ -124,6 +123,7 @@ namespace DOANTOTNGHIEP.Models.database
                 upload responseupload = new upload();
                 responseupload.Location = responseObj["Location"];
                 responseupload.Noidung = responseObj["Data"];
+                responseupload.Image = getimagepdf(responseObj["Location"]);
                 return responseupload;
             }
             else

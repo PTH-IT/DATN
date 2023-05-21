@@ -49,7 +49,6 @@ func (i *Interactor) CronJob() {
 type jsonUploadFile struct {
 	Location string
 	Data     string
-	Image    string
 }
 
 func (i *Interactor) Upload(context echo.Context) error {

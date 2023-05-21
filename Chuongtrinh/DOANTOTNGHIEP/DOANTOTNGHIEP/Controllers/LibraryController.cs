@@ -221,7 +221,7 @@ namespace DOANTOTNGHIEP.Controllers
             {
                 Tailieu tl = new Tailieu();
                 tl.ten = filedoccument.Ten;
-                tl.anh = filedoccument.Image;
+                tl.anh = filedoccument.Library.Image;
                 tl.duongdan = filedoccument.Library.Location;
                 tailieu.Add(tl);
 
@@ -258,7 +258,7 @@ namespace DOANTOTNGHIEP.Controllers
                 {
                     Tailieu tl = new Tailieu();
                     tl.ten = filedoccument.Ten;
-                    tl.anh = filedoccument.Image;
+                    tl.anh = filedoccument.Library.Image;
                     tl.duongdan = filedoccument.Library.Location;
                     tailieu.Add(tl);
 
@@ -300,7 +300,7 @@ namespace DOANTOTNGHIEP.Controllers
                     return RedirectToAction("Index", "Library", new { id = malop });
 
                 }
-                DOANTOTNGHIEP.Models.database.library.SaveDocument(tieude, user.TenDangNhap, malop, library.Location, library.ID);
+                DOANTOTNGHIEP.Models.database.library.SaveDocument(tieude, user.TenDangNhap, malop, library.Location, library.ID );
 
                 return RedirectToAction("Index", "Library", new { id = malop });
             }

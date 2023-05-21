@@ -9,5 +9,6 @@ namespace DOANTOTNGHIEP.Models.api
     {
         public string Location { get; set; }
         public string Noidung { get; set;}
+        public string Image { get; set; }
     }
 }

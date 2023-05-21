@@ -13,10 +13,11 @@ require (
 	gorm.io/gorm v1.24.6
 )
 
-require (
+require (// indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/golang-sql/civil v0.0.0-20220223132316-b832511892a9 // indirect
 	github.com/golang-sql/sqlexp v0.1.0 // indirect
+	github.com/golang/protobuf v1.2.0 // indirect
 	github.com/gorilla/i18n v0.0.0-20150820051429-8b358169da46 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
@@ -37,8 +38,10 @@ require (
 	golang.org/x/crypto v0.6.0 // indirect
 	golang.org/x/image v0.5.0 // indirect
 	golang.org/x/net v0.7.0 // indirect
+	golang.org/x/oauth2 v0.0.0-20191202225959-858c2ad4c8b6 // indirect
 	golang.org/x/sys v0.5.0 // indirect
 	golang.org/x/text v0.7.0 // indirect
 	golang.org/x/xerrors v0.0.0-20220609144429-65e65417b02f // indirect
+	google.golang.org/appengine v1.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

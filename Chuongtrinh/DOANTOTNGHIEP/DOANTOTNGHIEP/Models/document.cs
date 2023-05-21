@@ -16,7 +16,6 @@ namespace DOANTOTNGHIEP.Models
         [StringLength(20)]
         public string Nguoisohuu { get; set; }
 
-        public string Image { get; set; }
 
         public long? MaLop { get; set; }
 
