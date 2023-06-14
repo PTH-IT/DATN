@@ -1,8 +1,10 @@
 package usecase
 
 import (
+	"cronjob-DATN/model"
 	"cronjob-DATN/repository"
 	"cronjob-DATN/utils"
+	"fmt"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -39,8 +41,33 @@ type Interactor struct {
 
 func (i *Interactor) Gomcumdulieu() {
 	// i.taikhoanRepository.GetTaikhoan()
-	i.KiemtradaovanALL(3)
+	// i.KiemtradaovanALL(3)
 	// utils.Highline("store/5acb582d-6bc9-4fa5-ad4e-a1e4cd64fb89.pdf")
+	library := i.libraryRepository.GetforAll()
+	k := 3
+	if k > 1 && len(library) > 0 {
+		cumdulieu := i.kmeansForModel(library, k)
+		if cumdulieu == nil {
+			return
+		}
+		for index, v := range cumdulieu {
+			s := model.Chudetailieu{
+				Chude: fmt.Sprintf("cluster %d", index),
+			}
+			chude := i.libraryRepository.SaveCluster(s)
+
+			if chude == nil {
+				return
+			}
+			for _, tailieu := range v {
+
+				tailieu.MaNhom = *chude.ID
+				i.libraryRepository.UpdateLibrary(tailieu)
+			}
+
+		}
+	}
+
 }
 func (i *Interactor) CronJob() {
 

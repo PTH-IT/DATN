@@ -22,6 +22,7 @@
             
         });
         function actionshowviewpdf(link) {
+            link = "http://localhost:1909/public/file?location=" + link
             $(".viewshowpdfdownload").attr('href', link );
             $(".viewshowpdf").attr('src',  link + "#toolbar=0&navpanes=0&scrollbar=0");
         }

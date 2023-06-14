@@ -65,3 +65,27 @@ func (r libraryRepository) GetforLopHoc(maLop int64) []*model.Library {
 	}
 	return library
 }
+
+func (r libraryRepository) GetforAll() []*model.Library {
+	var library []*model.Library
+	db := PreloadLibrary(DB)
+
+	db.Select("Library.*").Table("Library")
+
+	db.Order("Library.NgayUpdate").Find(&library)
+
+	if len(library) == 0 {
+		fmt.Println("thongtinbaitap null")
+		return nil
+	}
+	return library
+}
+
+func (r libraryRepository) SaveCluster(chude model.Chudetailieu) *model.Chudetailieu {
+	// DB.Raw("INSERT INTO Chudetailieu (Chude) VALUES ( ? )", chude.Chude).ScanRows(&Chudetailieu)
+	DB.Table("Chudetailieu").Create(&chude)
+	return &chude
+}
+func (r libraryRepository) UpdateLibrary(tailieu model.Library) {
+	DB.Table("Library").Where("ID = ? ", tailieu.ID).UpdateColumn("MaNhom", tailieu.MaNhom)
+}

@@ -8,7 +8,7 @@ namespace DOANTOTNGHIEP.Models
     public partial class DB : DbContext
     {
         public DB()
-            : base("name=DB1")
+            : base("name=DB2")
         {
         }
 

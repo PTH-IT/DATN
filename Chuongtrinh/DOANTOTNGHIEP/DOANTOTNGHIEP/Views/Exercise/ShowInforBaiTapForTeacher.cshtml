@@ -293,7 +293,7 @@
 
                             </th>
                             <th>
-                                @if (i.TTBaiTapTls != null)
+                                @if (i.TTBaiTapTls != null && i.TTBaiTapTls.Count > 0)
                                 {
                                     <a href="~/Exercise/kiemtradaovan/?ma=@i.TTBaiTapTls.ToArray()[0].MaBaiNop&&malop=@malop">
 

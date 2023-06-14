@@ -13,11 +13,13 @@ using DOANTOTNGHIEP.Models.api;
 using System.IO;
 using System.Net.Http;
 using System.Web.Script.Serialization;
+using static System.Net.WebRequestMethods;
 
 namespace DOANTOTNGHIEP.Models.database
 {
     public class library
     {
+        static string host = "http://localhost:1909";
        public static async Task<Library> SaveLibrary( HttpPostedFileBase file)
         {
             var location = await SaveFileLibrary(file);
@@ -76,7 +78,7 @@ namespace DOANTOTNGHIEP.Models.database
         {
 
             PdfDocument doc = new PdfDocument();
-            doc.LoadFromFile(HostingEnvironment.MapPath(filepdf));
+            doc.LoadFromFile(filepdf);
             Image bmp = doc.SaveAsImage(0);
             Image emf = doc.SaveAsImage(0, Spire.Pdf.Graphics.PdfImageType.Metafile);
             Image zoomImg = new Bitmap((int)(emf.Size.Width * 2), (int)(emf.Size.Height * 2));
@@ -112,7 +114,7 @@ namespace DOANTOTNGHIEP.Models.database
             content.Add(fileContent, "file", file.FileName);
 
             // Call the API and get the response
-            HttpResponseMessage response = await httpClient.PostAsync("http://localhost:1909/api/upload", content);
+            HttpResponseMessage response = await httpClient.PostAsync(host+"/api/upload", content);
 
             if (response.IsSuccessStatusCode)
             {
@@ -123,7 +125,10 @@ namespace DOANTOTNGHIEP.Models.database
                 upload responseupload = new upload();
                 responseupload.Location = responseObj["Location"];
                 responseupload.Noidung = responseObj["Data"];
-                responseupload.Image = getimagepdf(responseObj["Location"]);
+                string extension = DateTime.Now.ToString("yyyyMMddHHmmss") + file.FileName;
+                string path = HostingEnvironment.MapPath("~/Content/document/" + extension);
+                file.SaveAs(path);
+                responseupload.Image = getimagepdf(path);
                 return responseupload;
             }
             else

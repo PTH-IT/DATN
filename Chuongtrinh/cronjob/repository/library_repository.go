@@ -5,4 +5,7 @@ import "cronjob-DATN/model"
 type LibraryRepository interface {
 	GetLibrary(idNhom int64) []*model.Library
 	GetforLopHoc(maLop int64) []*model.Library
+	GetforAll() []*model.Library
+	SaveCluster(chude model.Chudetailieu) *model.Chudetailieu
+	UpdateLibrary(tailieu model.Library)
 }

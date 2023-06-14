@@ -53,3 +53,16 @@ func (r thongtinbaitaptlRepository) Getthongtinbaitaptuluancholophoc(malop int64
 	return thongtinbaitap
 
 }
+func (r thongtinbaitaptlRepository) GetthongtinbaitaptuluanchoAll() []*model.ThongTinBaiTapTL {
+	var thongtinbaitap []*model.ThongTinBaiTapTL
+	db := PreloadTTBTTL(DB)
+
+	db.Select("TTBaiTapTL.*").Table("TTBaiTapTL").Find(&thongtinbaitap)
+
+	if len(thongtinbaitap) == 0 {
+		fmt.Println("thongtinbaitap null")
+		return nil
+	}
+	return thongtinbaitap
+
+}
