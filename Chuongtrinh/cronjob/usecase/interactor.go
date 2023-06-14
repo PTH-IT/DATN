@@ -6,6 +6,7 @@ import (
 	"cronjob-DATN/utils"
 	"fmt"
 	"net/http"
+	"strconv"
 
 	"github.com/labstack/echo/v4"
 	"gorm.io/gorm"
@@ -40,9 +41,6 @@ type Interactor struct {
 }
 
 func (i *Interactor) Gomcumdulieu() {
-	// i.taikhoanRepository.GetTaikhoan()
-	// i.KiemtradaovanALL(3)
-	// utils.Highline("store/5acb582d-6bc9-4fa5-ad4e-a1e4cd64fb89.pdf")
 	library := i.libraryRepository.GetforAll()
 	k := 3
 	if k > 1 && len(library) > 0 {
@@ -71,6 +69,7 @@ func (i *Interactor) Gomcumdulieu() {
 }
 func (i *Interactor) CronJob() {
 
+	i.Gomcumdulieu()
 }
 
 type jsonUploadFile struct {
@@ -96,11 +95,42 @@ func (i *Interactor) Download(context echo.Context) error {
 	return context.File(location)
 }
 func (i *Interactor) BaiTap(context echo.Context) error {
+	mabaitap := context.QueryParam("mabaitap")
+	malop := context.QueryParam("malop")
+	number, error := strconv.Atoi(mabaitap)
+	if error != nil {
+		return context.String(http.StatusBadRequest, "mabaitap is not a number")
+	}
+	numbermalop, error := strconv.Atoi(malop)
+	if error != nil {
+		return context.String(http.StatusBadRequest, "malop is not a number")
+	}
+	i.Kiemtradaovanbaitap(int64(number), int64(numbermalop))
+
 	return context.String(http.StatusOK, "")
 }
 func (i *Interactor) LopHoc(context echo.Context) error {
+	mabaitap := context.QueryParam("mabaitap")
+	malop := context.QueryParam("malop")
+	number, error := strconv.Atoi(mabaitap)
+	if error != nil {
+		return context.String(http.StatusBadRequest, "mabaitap is not a number")
+	}
+	numbermalop, error := strconv.Atoi(malop)
+	if error != nil {
+		return context.String(http.StatusBadRequest, "malop is not a number")
+	}
+	i.Kiemtradaovanlophoc(int64(number), int64(numbermalop))
+
 	return context.String(http.StatusOK, "")
 }
 func (i *Interactor) All(context echo.Context) error {
+	mabaitap := context.QueryParam("mabaitap")
+	number, error := strconv.Atoi(mabaitap)
+	if error != nil {
+		return context.String(http.StatusBadRequest, "mabaitap is not a number")
+	}
+	i.KiemtradaovanALL(int64(number))
+
 	return context.String(http.StatusOK, "")
 }
