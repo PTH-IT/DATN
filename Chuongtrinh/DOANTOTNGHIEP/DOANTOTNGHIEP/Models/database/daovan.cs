@@ -1,12 +1,107 @@
-﻿using System;
+﻿using DOANTOTNGHIEP.Models.api;
+using Spire.Pdf.Exporting.XPS.Schema.Mc;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
+using System.Web.Hosting;
+using System.Web.Script.Serialization;
 
 namespace DOANTOTNGHIEP.Models.database
 {
     public class daovan
     {
+
+        static string host = "http://localhost:1909";
+        public static async Task<bool> Apikiemtradaovanbaitap(string mabaitap, string malop)
+        {
+            HttpClient httpClient = new HttpClient();
+
+            // Set the base address of the API
+            httpClient.BaseAddress = new Uri("https://example.com/api/");
+
+            // Create a new multipart form data content
+            var content = new MultipartFormDataContent();
+
+            // Add the file to the form data content
+            
+
+            // Call the API and get the response
+            HttpResponseMessage response = await httpClient.PostAsync(host + "/api/baitap?mabaitap=" + mabaitap + "&malop" + malop, content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                
+                return true;
+            }
+            else
+            {
+                Console.WriteLine($"Error calling API: {response.StatusCode}");
+            }
+            return false;
+        }
+        public static async Task<bool> Apikiemtradaovanlophoc(string mabaitap, string malop)
+        {
+            HttpClient httpClient = new HttpClient();
+
+            // Set the base address of the API
+            httpClient.BaseAddress = new Uri("https://example.com/api/");
+
+            // Create a new multipart form data content
+            var content = new MultipartFormDataContent();
+
+            // Add the file to the form data content
+
+
+            // Call the API and get the response
+            HttpResponseMessage response = await httpClient.PostAsync(host + "/api/lophoc?mabaitap=" + mabaitap + "&malop" + malop, content);
+
+            Console.WriteLine(response);
+            if (response.IsSuccessStatusCode)
+            {
+
+                return true;
+            }
+            else
+            {
+                Console.WriteLine($"Error calling API: {response.StatusCode}");
+            }
+            return false;
+        }
+
+        public static async Task<bool> Apikiemtradaovanall(string mabaitap)
+        {
+            HttpClient httpClient = new HttpClient();
+
+            // Set the base address of the API
+            httpClient.BaseAddress = new Uri("https://example.com/api/");
+
+            // Create a new multipart form data content
+            var content = new MultipartFormDataContent();
+
+            // Add the file to the form data content
+
+
+            // Call the API and get the response
+            HttpResponseMessage response = await httpClient.PostAsync(host + "/api/all?mabaitap=" + mabaitap , content);
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                return true;
+            }
+            else
+            {
+                Console.WriteLine($"Error calling API: {response.StatusCode}");
+            }
+            return false;
+        }
+
+
+
         public static bool kiemtradaovanbaitap(string mabaitap, string malop)
         {
             DB db = new DB();

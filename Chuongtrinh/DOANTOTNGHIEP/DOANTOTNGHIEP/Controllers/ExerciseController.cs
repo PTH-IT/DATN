@@ -1270,7 +1270,7 @@ namespace DOANTOTNGHIEP.Controllers
 
         }
         [HttpPost]
-        public System.Web.Mvc.JsonResult checkdaovan(string mabaitap, string malop ,string option)
+        public async Task<System.Web.Mvc.JsonResult> checkdaovan(string mabaitap, string malop ,string option)
         {
            
             
@@ -1282,16 +1282,16 @@ namespace DOANTOTNGHIEP.Controllers
             var check = false;
             if (option.Equals("1")){
 
-                check = DOANTOTNGHIEP.Models.database.daovan.kiemtradaovanbaitap(mabaitap, malop);
+                check = await DOANTOTNGHIEP.Models.database.daovan.Apikiemtradaovanbaitap(mabaitap, malop);
 
             }else if (option.Equals("2")){
 
-                    check = DOANTOTNGHIEP.Models.database.daovan.kiemtradaovanlophoc(mabaitap, malop);
+                    check = await DOANTOTNGHIEP.Models.database.daovan.Apikiemtradaovanlophoc(mabaitap, malop);
                 
             }
             else if (option.Equals("3"))
             {
-                check = DOANTOTNGHIEP.Models.database.daovan.kiemtradaovanall(mabaitap);
+                check = await DOANTOTNGHIEP.Models.database.daovan.Apikiemtradaovanall(mabaitap);
 
             }
 

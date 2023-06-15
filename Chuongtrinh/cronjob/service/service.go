@@ -41,7 +41,7 @@ func Run() {
 	plagiarismRepository := Database.NewPlagiarism()
 	libraryRepository := Database.NewLibraryRepository()
 	interactor := usecase.NewInteractor(db, taikhoanRepository, thongtinbaitaptuluanRepository, plagiarismRepository, documentRepository, libraryRepository)
-	interactor.Gomcumdulieu()
+	// interactor.Gomcumdulieu()
 	e := echo.New()
 	private := e.Group("/api")
 	private.POST("/upload", interactor.Upload)

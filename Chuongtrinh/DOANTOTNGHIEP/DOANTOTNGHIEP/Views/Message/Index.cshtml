@@ -261,14 +261,18 @@
                 </div>
 
             </div>
-
+            
             <div class="nguoimoi">
                 @{
                     int z = 0;
+                    if (listgroup != null && listgroup.Count > 0)
+                    {
+                        <label>Group</label>
+                    }
                     foreach (var i in listgroup)
                     {
 
-                        using (Ajax.BeginForm("InforMessGroupChat", "Message", new {  malop = malop , id = i.ID }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "mess" }))
+                        using (Ajax.BeginForm("InforMessGroupChat", "Message", new { malop = malop, id = i.ID }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "mess" }))
                         {
 
                             <div style="width:100%;border:0px;margin-bottom:0px;" id="thanhvien">
@@ -284,6 +288,10 @@
                         }
 
 
+                    }
+                    if (Model != null && Model.Count > 0)
+                    {
+                        <label>Member</label>
                     }
                     foreach (var i in Model)
                     {

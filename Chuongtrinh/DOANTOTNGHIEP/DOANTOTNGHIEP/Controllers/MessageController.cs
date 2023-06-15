@@ -1,4 +1,5 @@
 ﻿using DOANTOTNGHIEP.Models;
+using Spire.Pdf.Exporting.XPS.Schema.Mc;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -140,7 +141,7 @@ namespace DOANTOTNGHIEP.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddGroup(HttpPostedFileBase fileimageupload, string id)
+        public ActionResult AddGroup(HttpPostedFileBase fileimageupload, string id)
         {
 
             var result = new DOANTOTNGHIEP.Modelcreate.JsonResult();
@@ -158,9 +159,9 @@ namespace DOANTOTNGHIEP.Controllers
            var  imagegroupLocation = "/Content/image/imageaccount/d.jpg";
             if (fileimageupload != null)
             {
-                var path = "~/Content/image/imageaccount/" + fileimageupload.FileName;
+                var path = "/Content/image/imageaccount/" + fileimageupload.FileName.Replace(" ","");
                 imagegroupLocation = path;
-                fileimageupload.SaveAs(Server.MapPath(path));
+                fileimageupload.SaveAs(Server.MapPath("~"+path));
                     
             }
             string name = Request.Form["namegroup"];
@@ -177,7 +178,7 @@ namespace DOANTOTNGHIEP.Controllers
             db.SaveChanges();
             result.result = true;
             result.value = "Tao group thanh cong";
-            return Json(result, JsonRequestBehavior.AllowGet);
+            return RedirectToAction("Index", "Message", new { id = id });
 
         }
         [HttpPost]

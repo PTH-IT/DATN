@@ -69,7 +69,7 @@ func (i *Interactor) Gomcumdulieu() {
 }
 func (i *Interactor) CronJob() {
 
-	i.Gomcumdulieu()
+	// i.Gomcumdulieu()
 }
 
 type jsonUploadFile struct {
