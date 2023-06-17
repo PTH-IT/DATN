@@ -1326,7 +1326,7 @@ namespace DOANTOTNGHIEP.Controllers
                 kiemtra.Add(kt);
             }
             ViewBag.user = user;
-            return View(kiemtra);
+            return View(kiemtra[0]);
         }
         /*[HttpPost]*/
         public ActionResult Commentbaitap(string malop, string mabaitap )
