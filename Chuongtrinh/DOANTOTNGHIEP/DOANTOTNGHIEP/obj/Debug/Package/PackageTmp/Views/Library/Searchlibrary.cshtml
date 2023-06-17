@@ -22,6 +22,7 @@
             
         });
         function actionshowviewpdf(link) {
+            link = "http://localhost:1909/public/file?location=" + link
             $(".viewshowpdfdownload").attr('href', link );
             $(".viewshowpdf").attr('src',  link + "#toolbar=0&navpanes=0&scrollbar=0");
         }
@@ -54,12 +55,14 @@
             {
                 foreach (var tl in tailieu)
                 {
-                    <div style="width: 250px; float: left; height: 400px; margin-top: 25px; margin-left: 15px; box-shadow: 10px 5px 5px rgb(0 0 0 / 10%); ">
-                        <div style="border-top-left-radius: 10px; background-color:white;height:85%;text-align:center;padding:10px">
-                            <div style="height:90%"><img src="@tl.anh" style="max-height:auto;width:200px" /></div>
-                            <div style="height:10%"><label style="overflow:hidden; text-overflow:ellipsis;white-space:nowrap">@Html.Raw(@tl.ten)</label></div>
+                    <div style="width: 250px; float: left; height: 370px; margin-top: 25px; margin-left: 15px; box-shadow: 10px 5px 5px rgb(0 0 0 / 10%); ">
+                        <div style="border-top-left-radius: 10px; background-color:white;height: calc(100% - 40px);text-align:center;padding:10px">
+                           <img src="@tl.anh" style="max-height:auto;width:200px" />
+                            
+                           <label style="overflow:hidden; text-overflow:ellipsis;white-space:nowrap">@Html.Raw(@tl.ten)</label>
+                            
                         </div>
-                        <div style="height:15%;margin:2px auto"> <button class="btn btn-primary btn-block" onclick="actionshowviewpdf('@tl.duongdan')" data-toggle="modal" data-target="#modalshowviewpdf">View</button></div>
+                        <div style="height:40px;margin:2px auto"> <button class="btn btn-primary btn-block" onclick="actionshowviewpdf('@tl.duongdan')" data-toggle="modal" data-target="#modalshowviewpdf">View</button></div>
                     </div>
 
                 }

@@ -1,4 +1,4 @@
-﻿@model List<DOANTOTNGHIEP.Modelcreate.Kiemtradaovan>
+﻿@model DOANTOTNGHIEP.Modelcreate.Kiemtradaovan
 @{
     Layout = "~/Views/Shared/Layoutclass.cshtml";
 }
@@ -17,31 +17,17 @@
     }
 </style>
 @{
-    if (Model.Count >= 1)
+    if (Model != null)
     {
     <div style="margin-top:20px">
 
 
         
         <div style="padding:10px">
-            <div style="float: left; max-width: 200px; min-width: 200px">
-
-                <select class="form-control selectperson">
-                    @{
-                        foreach (var i in Model)
-                        {
-                            <option data-file1="@i.daovan.Location">@String.Format("{0:0.00}", @i.daovan.Percents)</option>
-
-                        }
-                    }
-
-                </select>
-
-
-            </div>
+            
             <div style="float: right; min-width: calc(100% - 250px); max-width: calc(100% - 250px); padding: 0px ">
 
-                <iframe src="@Model.ToArray()[0].daovan.Location"
+                <iframe src=`http://localhost:1909/public/file?location=@Model.daovan.ToArray()[0].Location`
                         frameBorder="0"
                         scrolling="auto"
                         height="95%"

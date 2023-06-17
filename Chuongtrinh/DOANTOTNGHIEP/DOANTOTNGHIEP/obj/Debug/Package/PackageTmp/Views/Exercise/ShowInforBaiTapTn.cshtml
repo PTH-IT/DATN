@@ -36,7 +36,7 @@
                     <label style="font-size:20px;">Chủ đề:@Model.BaiTaps.ChuDe</label><br />
                 </div>
                 <div style=" padding:20px">@Html.Raw(Model.BaiTaps.Thongtin)</div><br />
-                @using (Ajax.BeginForm("Commentbaitap", "Exercise", new { malop = malop, mabaitap = Model.BaiTaps.MaBaiTap }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "modalthongtinbinhluan" }))
+                @using (Ajax.BeginForm("Commentbaitap", "Exercise", new { malop = malop, mabaitap = Model.BaiTaps.ID }, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "modalthongtinbinhluan" }))
                 {
 
                     <button class="fa fa-group" style="background-color:transparent;border:0;font-size:18px" data-toggle="modal" data-target="#modalshowupload">Thêm nhận xét bài tập</button>
@@ -131,7 +131,7 @@
                                     }
                                     else if (Model.NgayNop != null)
                                     {
-                                        <a href="~/Exercise/ShowBaiThiTN?mabaitap=@Model.BaiTaps.MaBaiTap&&malop=@malop&&tendangnhap=@Model.TaiKhoan.TenDangNhap">xem bai thi</a>
+                                        <a href="~/Exercise/ShowBaiThiTN?mabaitap=@Model.BaiTaps.ID&&malop=@malop&&tendangnhap=@Model.TaiKhoan.TenDangNhap">xem bai thi</a>
                                     }
 
                                 }
