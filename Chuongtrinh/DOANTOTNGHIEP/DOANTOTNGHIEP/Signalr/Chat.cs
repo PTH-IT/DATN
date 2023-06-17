@@ -1,6 +1,7 @@
 ﻿using DOANTOTNGHIEP.Models;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
+using Spire.Doc.Fields;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -88,8 +89,13 @@ namespace DOANTOTNGHIEP.Signalr
             }
             var ConnectionId = Context.ConnectionId;
             var tk = db.TaiKhoans.SingleOrDefault(x => x.TenDangNhap.Equals(username));
-            tk.token = ConnectionId;
-            db.SaveChanges();
+            if(tk != null)
+            {
+                tk.token = ConnectionId;
+                db.SaveChanges();
+
+            }
+           
 
             removeTokenWhenTimeover();
             var s = _connections.GetKeyConnections();

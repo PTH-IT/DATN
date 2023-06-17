@@ -30,7 +30,7 @@ namespace DOANTOTNGHIEP.Models.database
             
 
             // Call the API and get the response
-            HttpResponseMessage response = await httpClient.PostAsync(host + "/api/baitap?mabaitap=" + mabaitap + "&malop" + malop, content);
+            HttpResponseMessage response = await httpClient.PostAsync(host + "/api/baitap?mabaitap=" + mabaitap + "&malop=" + malop, null);
 
             if (response.IsSuccessStatusCode)
             {
@@ -57,7 +57,7 @@ namespace DOANTOTNGHIEP.Models.database
 
 
             // Call the API and get the response
-            HttpResponseMessage response = await httpClient.PostAsync(host + "/api/lophoc?mabaitap=" + mabaitap + "&malop" + malop, content);
+            HttpResponseMessage response = await httpClient.PostAsync(host + "/api/lophoc?mabaitap=" + mabaitap + "&malop=" + malop, null);
 
             Console.WriteLine(response);
             if (response.IsSuccessStatusCode)
