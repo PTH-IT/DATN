@@ -171,8 +171,8 @@ func HighlightWords(inputPath, outputPath string, resultcaudaovan []object.Detai
 		if err != nil {
 			return err
 		}
-		for _, value := range resultcaudaovan {
-			if value.Percent < 90 && value.Percent > 0 {
+		for i, value := range resultcaudaovan {
+			if value.Percent > 0 {
 				term := Clearstring(value.Keywor2)
 				bBoxes, err := getBoundingBoxes(page, term)
 				if err != nil {
@@ -199,6 +199,10 @@ func HighlightWords(inputPath, outputPath string, resultcaudaovan []object.Detai
 					if err := cr.Draw(rect); err != nil {
 						return nil
 					}
+					if i < len(resultcaudaovan)-1 {
+						resultcaudaovan = RemoveValueForObject(resultcaudaovan, i)
+
+					}
 				}
 			}
 		}
@@ -210,4 +214,10 @@ func HighlightWords(inputPath, outputPath string, resultcaudaovan []object.Detai
 		return fmt.Errorf("failed to write the output file %s", outputPath)
 	}
 	return nil
+}
+
+func RemoveValueForObject(list []object.Detaildaovan, i int) []object.Detaildaovan {
+
+	return append(list[:i], list[i+1:]...)
+
 }

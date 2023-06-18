@@ -6,7 +6,6 @@ import (
 )
 
 func Updatepdfdaovan(linkfile string, noiluu string, resultcaudaovan []model.Detaildaovan, option string) string {
-	locationSave := ""
 	utils.HighlightWords(linkfile, noiluu, resultcaudaovan)
-	return locationSave
+	return noiluu
 }
