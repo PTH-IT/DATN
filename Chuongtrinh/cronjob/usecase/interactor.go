@@ -44,7 +44,7 @@ func (i *Interactor) Gomcumdulieu() {
 	library := i.libraryRepository.GetforAll()
 	k := 3
 	if k > 1 && len(library) > 0 {
-		cumdulieu := i.kmeansForModel(library, k)
+		cumdulieu := i.KmeansForModel(library, k)
 		if cumdulieu == nil {
 			return
 		}

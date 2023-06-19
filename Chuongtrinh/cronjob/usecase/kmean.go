@@ -16,7 +16,7 @@ func processText(text string) []string {
 	return words
 }
 
-func (i *Interactor) kmeansForModel(file []*model.Library, k int) map[int][]model.Library {
+func (i *Interactor) KmeansForModel(file []*model.Library, k int) map[int][]model.Library {
 
 	// var features [][]float64
 	var d clusters.Observations
@@ -88,7 +88,7 @@ func (i *Interactor) kmeansForModel(file []*model.Library, k int) map[int][]mode
 	return result
 
 }
-func (i *Interactor) kmeansForArrayData(k int) {
+func (i *Interactor) KmeansForArrayData(k int) {
 	datas := []string{
 		"C (ngôn ngữ lập trình) – Wikipedia tiếng Việt.",
 		"C cơ bản: Giới thiệu ngôn ngữ C - DevIOT.",
@@ -99,7 +99,6 @@ func (i *Interactor) kmeansForArrayData(k int) {
 		"Python (ngôn ngữ lập trình) – Wikipedia tiếng Việt.",
 		"Python Là Gì? Các Bước Tự Học Lập Trình Python - TopDev.",
 		"Python là gì? - Giải thích về ngôn ngữ Python - Amazon AWS.",
-		"Etiam semper nisi nec justo tempus, ut pharetra nunc mattis.",
 	}
 
 	// var features [][]float64
@@ -114,7 +113,7 @@ func (i *Interactor) kmeansForArrayData(k int) {
 				value += int(y)
 			}
 			x := float64(len(word))
-			y := float64(value) / float64(len(word))
+			y := float64(value) / (float64(len(word)) * 100)
 			d = append(d, clusters.Coordinates{
 				x,
 				y,
@@ -141,7 +140,9 @@ func (i *Interactor) kmeansForArrayData(k int) {
 		fmt.Printf("Expected %d clusters, got: %d\n", k, len(clusters))
 	}
 	kmeansResult := map[string][]int{}
+	center := make(map[int]interface{})
 	for i, cluster := range clusters {
+		center[i] = map[string]float64{"x": cluster.Center[0], "y": cluster.Center[1]}
 		for _, index := range cluster.Observations {
 			for z, data := range vectordata {
 				for _, d := range data {
@@ -164,7 +165,10 @@ func (i *Interactor) kmeansForArrayData(k int) {
 	}
 	fmt.Println(kmeansResult)
 	fmt.Println(result)
-	jsonData, err := json.Marshal(result)
+	var jsonvalue = make(map[string]interface{})
+	jsonvalue["list"] = result
+	jsonvalue["point"] = center
+	jsonData, err := json.Marshal(jsonvalue)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
