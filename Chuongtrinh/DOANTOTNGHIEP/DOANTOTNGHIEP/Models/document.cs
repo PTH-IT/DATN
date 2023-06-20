@@ -26,10 +26,10 @@ namespace DOANTOTNGHIEP.Models
 
         public long? IDLibrary { get; set; }
 
+        public virtual Library Library { get; set; }
+
         public virtual LopHoc LopHoc { get; set; }
 
         public virtual TaiKhoan TaiKhoan { get; set; }
-
-        public virtual Library Library { get; set; }
     }
 }

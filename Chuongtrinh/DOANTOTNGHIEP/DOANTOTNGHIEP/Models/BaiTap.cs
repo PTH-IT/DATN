@@ -16,8 +16,8 @@ namespace DOANTOTNGHIEP.Models
             BaiTapTNs = new HashSet<BaiTapTN>();
             CauHois = new HashSet<CauHoi>();
             commentbaitaps = new HashSet<commentbaitap>();
-            ThongBaos = new HashSet<ThongBao>();
             FileBTTLs = new HashSet<FileBTTL>();
+            ThongBaos = new HashSet<ThongBao>();
         }
 
         public long ID { get; set; }
@@ -54,9 +54,9 @@ namespace DOANTOTNGHIEP.Models
         public virtual ICollection<commentbaitap> commentbaitaps { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThongBao> ThongBaos { get; set; }
+        public virtual ICollection<FileBTTL> FileBTTLs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FileBTTL> FileBTTLs { get; set; }
+        public virtual ICollection<ThongBao> ThongBaos { get; set; }
     }
 }

@@ -84,7 +84,7 @@ func (r libraryRepository) GetforAll() []*model.Library {
 func (r libraryRepository) SaveCluster(chude model.Chudetailieu, id int64) *model.Chudetailieu {
 	// DB.Raw("INSERT INTO Chudetailieu (Chude) VALUES ( ? )", chude.Chude).ScanRows(&Chudetailieu)
 	if id > 0 {
-		DB.Table("Chudetailieu").Where("ID = ? ", chude.ID).UpdateColumn("x ", chude.X).UpdateColumn("y", chude.Y)
+		DB.Table("Chudetailieu").Where("ID = ? ", chude.ID).UpdateColumns(chude)
 	} else {
 		DB.Table("Chudetailieu").Create(&chude)
 	}
@@ -96,9 +96,7 @@ func (r libraryRepository) UpdateLibrary(tailieu model.Library) {
 }
 func (r libraryRepository) GetChuDe() []*model.Chudetailieu {
 	var library []*model.Chudetailieu
-	db := PreloadLibrary(DB)
-
-	db.Select("*").Table("Chudetailieu")
+	DB.Select("*").Table("Chudetailieu").Find(&library)
 
 	if len(library) == 0 {
 		fmt.Println("thongtinbaitap null")

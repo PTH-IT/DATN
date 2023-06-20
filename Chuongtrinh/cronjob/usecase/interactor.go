@@ -78,17 +78,22 @@ func (i *Interactor) Gomcumdulieu() {
 				}
 			}
 			if indexchudeForupdate == -1 && len(chudetailieu) > 0 {
+
+				index1 := 0
+				if len(cumdulieu) != 1 {
+					index1 = index - 1
+				}
 				s = model.Chudetailieu{
-					ID:    chudetailieu[index].ID,
-					Chude: fmt.Sprintf("cluster %d", index),
-					X:     chudetailieu[index].X,
-					Y:     chudetailieu[index].Y,
+					ID:    chudetailieu[index1].ID,
+					Chude: chudetailieu[index1].Chude,
+					X:     center[index][0],
+					Y:     center[index][1],
 				}
 				id = 1
 			} else if indexchudeForupdate != -1 {
 				s = model.Chudetailieu{
 					ID:    chudetailieu[indexchudeForupdate].ID,
-					Chude: fmt.Sprintf("cluster %d", index),
+					Chude: chudetailieu[indexchudeForupdate].Chude,
 					X:     chudetailieu[indexchudeForupdate].X,
 					Y:     chudetailieu[indexchudeForupdate].Y,
 				}

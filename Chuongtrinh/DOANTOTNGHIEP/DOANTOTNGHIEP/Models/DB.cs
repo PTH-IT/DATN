@@ -8,7 +8,7 @@ namespace DOANTOTNGHIEP.Models
     public partial class DB : DbContext
     {
         public DB()
-            : base("name=DB2")
+            : base("name=DB")
         {
         }
 
@@ -26,7 +26,6 @@ namespace DOANTOTNGHIEP.Models
         public virtual DbSet<FileTB> FileTBs { get; set; }
         public virtual DbSet<GroupChat> GroupChats { get; set; }
         public virtual DbSet<KeywordLibrary> KeywordLibraries { get; set; }
-        public virtual DbSet<KeywordTailieu> KeywordTailieux { get; set; }
         public virtual DbSet<Library> Libraries { get; set; }
         public virtual DbSet<Loimoi> Loimois { get; set; }
         public virtual DbSet<LopHoc> LopHocs { get; set; }
@@ -68,14 +67,14 @@ namespace DOANTOTNGHIEP.Models
                 .HasForeignKey(e => e.MaBaiTap);
 
             modelBuilder.Entity<BaiTap>()
-                .HasMany(e => e.ThongBaos)
-                .WithOptional(e => e.BaiTap)
-                .HasForeignKey(e => e.MaBaiTap);
-
-            modelBuilder.Entity<BaiTap>()
                 .HasMany(e => e.FileBTTLs)
                 .WithOptional(e => e.BaiTap)
                 .HasForeignKey(e => e.MaBT);
+
+            modelBuilder.Entity<BaiTap>()
+                .HasMany(e => e.ThongBaos)
+                .WithOptional(e => e.BaiTap)
+                .HasForeignKey(e => e.MaBaiTap);
 
             modelBuilder.Entity<BaiTapTL>()
                 .HasMany(e => e.TTBaiTapTLs)
@@ -96,11 +95,6 @@ namespace DOANTOTNGHIEP.Models
                 .HasMany(e => e.TTBaiTapTNs)
                 .WithOptional(e => e.CauHoi)
                 .HasForeignKey(e => e.MaCauHoi);
-
-            modelBuilder.Entity<Chudetailieu>()
-                .HasMany(e => e.KeywordTailieux)
-                .WithOptional(e => e.Chudetailieu)
-                .HasForeignKey(e => e.Machude);
 
             modelBuilder.Entity<Chudetailieu>()
                 .HasMany(e => e.Libraries)
@@ -184,17 +178,17 @@ namespace DOANTOTNGHIEP.Models
                 .HasForeignKey(e => e.malop);
 
             modelBuilder.Entity<LopHoc>()
+                .HasMany(e => e.MessGroups)
+                .WithOptional(e => e.LopHoc)
+                .HasForeignKey(e => e.MaLop);
+
+            modelBuilder.Entity<LopHoc>()
                 .HasMany(e => e.ThanhVienLops)
                 .WithRequired(e => e.LopHoc)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<LopHoc>()
                 .HasMany(e => e.ThongBaos)
-                .WithOptional(e => e.LopHoc)
-                .HasForeignKey(e => e.MaLop);
-
-            modelBuilder.Entity<LopHoc>()
-                .HasMany(e => e.MessGroups)
                 .WithOptional(e => e.LopHoc)
                 .HasForeignKey(e => e.MaLop);
 

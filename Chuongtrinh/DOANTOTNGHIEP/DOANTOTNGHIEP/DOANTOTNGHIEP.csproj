@@ -291,7 +291,6 @@
     <Compile Include="Models\FileTB.cs" />
     <Compile Include="Models\GroupChat.cs" />
     <Compile Include="Models\KeywordLibrary.cs" />
-    <Compile Include="Models\KeywordTailieu.cs" />
     <Compile Include="Models\Library.cs" />
     <Compile Include="Models\Loimoi.cs" />
     <Compile Include="Models\LopHoc.cs" />
@@ -642,7 +641,7 @@
     <Content Include="Views\Exercise\Commentbaitap.cshtml" />
     <Content Include="Views\Exercise\ReplycommenBaitap.cshtml" />
     <Content Include="Views\Admin\danhsachchudetailieu.cshtml" />
-    <Content Include="Views\Admin\chitietchudetailieulophoc.cshtml" />
+    <Content Include="Views\Admin\chitietchudetailieu.cshtml" />
     <Content Include="Views\Message\inforgroupchat.cshtml" />
   </ItemGroup>
   <ItemGroup>

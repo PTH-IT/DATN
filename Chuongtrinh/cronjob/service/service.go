@@ -42,6 +42,7 @@ func Run() {
 	libraryRepository := Database.NewLibraryRepository()
 	interactor := usecase.NewInteractor(db, taikhoanRepository, thongtinbaitaptuluanRepository, plagiarismRepository, documentRepository, libraryRepository)
 	// interactor.Kiemtradaovanbaitap(2, 1)
+	interactor.Gomcumdulieu()
 	interactor.KmeansForArrayData(3)
 	e := echo.New()
 	private := e.Group("/api")

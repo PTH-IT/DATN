@@ -34,12 +34,7 @@
                 }
             });
         });
-            
-            function actionshowviewpdf(link) {
-                link = "http://localhost:1909/public/file?location=" + link
-                $(".viewshowpdfdownload").attr('href', link );
-            $(".viewshowpdf").attr('src',  link + "#toolbar=0&navpanes=0&scrollbar=0");
-            }
+           
     </script>
 </head>
 <body>
@@ -74,15 +69,15 @@
                     foreach (var i in Model)
                     {
                         <tr>
-                            <th style="padding:5px;background-color:#E6E6E6;border:3px solid white ">
+                            <td style="padding:5px;background-color:#E6E6E6;border:3px solid white ">
                                 @i.Name
-                            </th>
+                            </td>
+                            <td style="padding:5px;background-color:#E6E6E6;border:3px solid white ">
+                            <a href="http://localhost:1909/public/file?location=@i.Location"  target="_blank" rel="noopener noreferrer" >Xem tài liệu</a>
+                            </td>
                         </tr>
-                        <tr>
-                            <th style="padding:5px;background-color:#E6E6E6;border:3px solid white ">
-                                <a src="#" onclick="actionshowviewpdf('@i.Location')">Xem tài liệu</a>
-                            </th>
-                        </tr>
+                       
+                            
 
                     }
                 }

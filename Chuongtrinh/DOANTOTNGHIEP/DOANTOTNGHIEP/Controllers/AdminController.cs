@@ -338,47 +338,6 @@ namespace DOANTOTNGHIEP.Controllers
 
 
 
-        [HttpPost]
-        public JsonResult AddKeywordTailieu(string keyword , string machude)
-        {
-            var checkcookie = checkCookie();
-            if (checkcookie.Item1)
-            {
-                RedirectToAction(checkcookie.Item2, checkcookie.Item3);
-            }
-            var user = checkcookie.Item4;
-            ViewBag.user = user;
-            var result = new DOANTOTNGHIEP.Modelcreate.JsonResult();
-
-            DB db = new DB();
-            var keywordTailieu = db.KeywordTailieux.SingleOrDefault(x => x.Machude.ToString().Equals(machude) && x.Keyword.Replace(" ", "").ToLower().Equals(keyword.Replace(" ", "").ToLower()));
-
-            if (keywordTailieu != null)
-            {
-
-                result.result = false;
-                result.value = "Từ khóa đã tồn tại vui lòng thêm từ khóa khác";
-
-                return Json(result, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-
-                KeywordTailieu keywords = new KeywordTailieu();
-                keywords.Machude = long.Parse(machude);
-                keywords.Keyword = keyword;
-                db.KeywordTailieux.Add(keywords);
-                db.SaveChanges();
-
-                result.result = true;
-                result.value = "Thêm thành công ";
-
-                return Json(result, JsonRequestBehavior.AllowGet);
-
-            }
-
-        }
-
 
 
     }

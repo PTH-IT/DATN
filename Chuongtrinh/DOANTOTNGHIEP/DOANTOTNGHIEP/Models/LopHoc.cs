@@ -17,9 +17,9 @@ namespace DOANTOTNGHIEP.Models
             GroupChats = new HashSet<GroupChat>();
             Loimois = new HashSet<Loimoi>();
             Messes = new HashSet<Mess>();
+            MessGroups = new HashSet<MessGroup>();
             ThanhVienLops = new HashSet<ThanhVienLop>();
             ThongBaos = new HashSet<ThongBao>();
-            MessGroups = new HashSet<MessGroup>();
         }
 
         public long ID { get; set; }
@@ -55,12 +55,12 @@ namespace DOANTOTNGHIEP.Models
         public virtual ICollection<Mess> Messes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MessGroup> MessGroups { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ThanhVienLop> ThanhVienLops { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ThongBao> ThongBaos { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MessGroup> MessGroups { get; set; }
     }
 }

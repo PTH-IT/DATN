@@ -15,8 +15,8 @@ namespace DOANTOTNGHIEP.Models
 
         public long? IDLibrary { get; set; }
 
-        public virtual ThongBao ThongBao { get; set; }
-
         public virtual Library Library { get; set; }
+
+        public virtual ThongBao ThongBao { get; set; }
     }
 }
