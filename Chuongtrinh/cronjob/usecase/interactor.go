@@ -9,6 +9,7 @@ import (
 	"strconv"
 
 	"github.com/labstack/echo/v4"
+	"github.com/muesli/clusters"
 	"gorm.io/gorm"
 )
 
@@ -42,17 +43,60 @@ type Interactor struct {
 
 func (i *Interactor) Gomcumdulieu() {
 	library := i.libraryRepository.GetforAll()
-	k := 3
+
+	k := 2
+	chudetailieu := i.libraryRepository.GetChuDe()
+	if chudetailieu != nil {
+		k = len(chudetailieu)
+	}
 	if k > 1 && len(library) > 0 {
-		cumdulieu := i.KmeansForModel(library, k)
+		cumdulieu, center := i.KmeansForModel(library, k)
 		if cumdulieu == nil {
 			return
 		}
 		for index, v := range cumdulieu {
+			if len(v) == 0 {
+				continue
+			}
 			s := model.Chudetailieu{
 				Chude: fmt.Sprintf("cluster %d", index),
 			}
-			chude := i.libraryRepository.SaveCluster(s)
+			id := -1
+			maxValue := float64(0)
+			indexchudeForupdate := -1
+			for indexchude, vchudetailieu := range chudetailieu {
+				if vchudetailieu.X == 0 {
+					continue
+				}
+				valuecenter := clusters.Coordinates{
+					vchudetailieu.X,
+					vchudetailieu.Y,
+				}
+				if center[index].Distance(valuecenter.Coordinates()) <= maxValue {
+					maxValue = center[index].Distance(valuecenter.Coordinates())
+					indexchudeForupdate = indexchude
+				}
+			}
+			if indexchudeForupdate == -1 && len(chudetailieu) > 0 {
+				s = model.Chudetailieu{
+					ID:    chudetailieu[index].ID,
+					Chude: fmt.Sprintf("cluster %d", index),
+					X:     chudetailieu[index].X,
+					Y:     chudetailieu[index].Y,
+				}
+				id = 1
+			} else if indexchudeForupdate != -1 {
+				s = model.Chudetailieu{
+					ID:    chudetailieu[indexchudeForupdate].ID,
+					Chude: fmt.Sprintf("cluster %d", index),
+					X:     chudetailieu[indexchudeForupdate].X,
+					Y:     chudetailieu[indexchudeForupdate].Y,
+				}
+				id = 1
+
+			}
+
+			chude := i.libraryRepository.SaveCluster(s, int64(id))
 
 			if chude == nil {
 				return

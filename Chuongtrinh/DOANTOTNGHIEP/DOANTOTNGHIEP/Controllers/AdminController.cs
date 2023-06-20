@@ -281,7 +281,7 @@ namespace DOANTOTNGHIEP.Controllers
 
             return View(chudetailieu);
         }
-        public ActionResult chitietchudetailieulophoc(string id)
+        public ActionResult chitietchudetailieu(string id)
         {
             if (id == null) return RedirectToAction("Index", "Admin");
             var checkcookie = checkCookie();
@@ -292,7 +292,7 @@ namespace DOANTOTNGHIEP.Controllers
             var user = checkcookie.Item4;
             ViewBag.user = user;
             DB db = new DB();
-            var chitietchude = db.KeywordTailieux.Where(x => x.Machude.ToString().Equals(id)).ToList();
+            var chitietchude = db.Libraries.Where(x => x.MaNhom.ToString().Equals(id)).ToList();
             ViewBag.machude = id;
             return View(chitietchude);
         }

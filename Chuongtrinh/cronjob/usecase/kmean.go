@@ -16,7 +16,7 @@ func processText(text string) []string {
 	return words
 }
 
-func (i *Interactor) KmeansForModel(file []*model.Library, k int) map[int][]model.Library {
+func (i *Interactor) KmeansForModel(file []*model.Library, k int) (map[int][]model.Library, map[int]clusters.Coordinates) {
 
 	// var features [][]float64
 	var d clusters.Observations
@@ -30,7 +30,7 @@ func (i *Interactor) KmeansForModel(file []*model.Library, k int) map[int][]mode
 				value += int(y)
 			}
 			x := float64(len(word))
-			y := float64(value) / float64(len(word))
+			y := float64(value) / (float64(len(word)) * 100)
 			d = append(d, clusters.Coordinates{
 				x,
 				y,
@@ -45,18 +45,20 @@ func (i *Interactor) KmeansForModel(file []*model.Library, k int) map[int][]mode
 
 	fmt.Println(d)
 	km := kmeans.New()
-	clusters, err := km.Partition(d, k)
+	group, err := km.Partition(d, k)
 	if err != nil {
 		fmt.Printf("Unexpected error partitioning: %d\n", err)
-		return nil
+		return nil, nil
 	}
-	fmt.Println(clusters)
+	fmt.Println(group)
 
-	if len(clusters) != k {
-		fmt.Printf("Expected %d clusters, got: %d\n", k, len(clusters))
+	if len(group) != k {
+		fmt.Printf("Expected %d clusters, got: %d\n", k, len(group))
 	}
 	kmeansResult := map[string][]int{}
-	for i, cluster := range clusters {
+	center := make(map[int]clusters.Coordinates)
+	for i, cluster := range group {
+		center[i] = cluster.Center
 		for _, index := range cluster.Observations {
 			for z, data := range vectordata {
 				for _, d := range data {
@@ -82,10 +84,10 @@ func (i *Interactor) KmeansForModel(file []*model.Library, k int) map[int][]mode
 	jsonData, err := json.Marshal(result)
 	if err != nil {
 		fmt.Println("Error:", err)
-		return nil
+		return nil, nil
 	}
 	fmt.Println(string(jsonData))
-	return result
+	return result, center
 
 }
 func (i *Interactor) KmeansForArrayData(k int) {
