@@ -171,6 +171,9 @@ func HighlightWords(inputPath, outputPath string, resultcaudaovan []object.Detai
 		if err != nil {
 			return err
 		}
+		if err := cr.AddPage(page); err != nil {
+			return err
+		}
 		for i, value := range resultcaudaovan {
 			if value.Percent > 0 {
 				term := Clearstring(value.Keywor2)
@@ -187,9 +190,6 @@ func HighlightWords(inputPath, outputPath string, resultcaudaovan []object.Detai
 					page.MediaBox = mediaBox
 				}
 
-				if err := cr.AddPage(page); err != nil {
-					return err
-				}
 				h := mediaBox.Ury
 				for _, bbox := range bBoxes {
 					rect := cr.NewRectangle(bbox.Llx, h-bbox.Lly, bbox.Urx-bbox.Llx, -(bbox.Ury - bbox.Lly))
@@ -199,6 +199,9 @@ func HighlightWords(inputPath, outputPath string, resultcaudaovan []object.Detai
 					if err := cr.Draw(rect); err != nil {
 						return nil
 					}
+
+				}
+				if len(bBoxes) > 0 {
 					if i < len(resultcaudaovan)-1 {
 						resultcaudaovan = RemoveValueForObject(resultcaudaovan, i)
 

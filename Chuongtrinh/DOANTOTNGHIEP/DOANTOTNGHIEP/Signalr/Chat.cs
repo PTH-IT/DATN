@@ -77,7 +77,7 @@ namespace DOANTOTNGHIEP.Signalr
           public override Task OnConnected()
         {
             
-            DB db = new DB();
+          /*  DB db = new DB();
             var  name = Context.RequestCookies.ToList().SingleOrDefault(x => x.Key.Equals("user")) ;
             var indexsub = name.Value.Value.ToString().IndexOf("&Matkhau");
             var username = Models.crypt.Encrypt.Decryptuser(name.Value.Value.ToString().Remove(indexsub, name.Value.Value.ToString().Length - indexsub).Replace("TenDangNhap=", ""));
@@ -99,25 +99,25 @@ namespace DOANTOTNGHIEP.Signalr
 
             removeTokenWhenTimeover();
             var s = _connections.GetKeyConnections();
-            Clients.All.clientonline(s);
+            Clients.All.clientonline(s);*/
             return base.OnConnected();
         }
 
         public override Task OnDisconnected(bool stopCalled)
         {
-            var name = Context.RequestCookies.ToList().SingleOrDefault(x => x.Key.Equals("user"));
+           /* var name = Context.RequestCookies.ToList().SingleOrDefault(x => x.Key.Equals("user"));
             var indexsub = name.Value.Value.ToString().IndexOf("&Matkhau");
             var username = Models.crypt.Encrypt.Decryptuser(name.Value.Value.ToString().Remove(indexsub, name.Value.Value.ToString().Length - indexsub).Replace("TenDangNhap=", ""));
             
             removeTokenWhenTimeover();
             var s = _connections.GetKeyConnections();
-            Clients.All.clientonline(s);
+            Clients.All.clientonline(s);*/
             return base.OnDisconnected(stopCalled);
         }
 
         public override Task OnReconnected()
         {
-            DB db = new DB();
+            /*DB db = new DB();
             var name = Context.RequestCookies.ToList().SingleOrDefault(x => x.Key.Equals("user"));
             var indexsub = name.Value.Value.ToString().IndexOf("&Matkhau");
             var username = Models.crypt.Encrypt.Decryptuser(name.Value.Value.ToString().Remove(indexsub, name.Value.Value.ToString().Length - indexsub).Replace("TenDangNhap=", ""));
@@ -134,7 +134,7 @@ namespace DOANTOTNGHIEP.Signalr
 
             removeTokenWhenTimeover();
             var s = _connections.GetKeyConnections();
-            Clients.All.clientonline(s);
+            Clients.All.clientonline(s);*/
             return base.OnConnected();
         }
 

@@ -22,6 +22,7 @@ using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
 using System.Data.Entity.Migrations;
 using System.Threading.Tasks;
+using Twilio.Rest.Api.V2010.Account.Usage.Record;
 
 namespace DOANTOTNGHIEP.Controllers
 {
@@ -1318,7 +1319,7 @@ namespace DOANTOTNGHIEP.Controllers
             List<Kiemtradaovan> kiemtra = new List<Kiemtradaovan>();
             foreach (var ifile in dbfile)
             {
-                var dv = ifile.Plagiarism.Where(x => x.Mafile.Equals(ifile.ID)).ToList();
+                var dv = ifile.Plagiarism.Where(x => x.Mafile.Equals(ifile.ID)).OrderByDescending(y=>y.Percents).ToList();
 
                 Kiemtradaovan kt = new Kiemtradaovan();
                 kt.Tailieu = ifile;
@@ -1326,7 +1327,8 @@ namespace DOANTOTNGHIEP.Controllers
                 kiemtra.Add(kt);
             }
             ViewBag.user = user;
-            return View(kiemtra[0]);
+            var result = kiemtra[0].daovan.ToArray()[0];
+            return View(result);
         }
         /*[HttpPost]*/
         public ActionResult Commentbaitap(string malop, string mabaitap )
