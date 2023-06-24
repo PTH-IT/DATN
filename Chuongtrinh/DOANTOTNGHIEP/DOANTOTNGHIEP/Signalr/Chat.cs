@@ -5,6 +5,7 @@ using Spire.Doc.Fields;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 
 namespace DOANTOTNGHIEP.Signalr
@@ -73,14 +74,20 @@ namespace DOANTOTNGHIEP.Signalr
             }
             
         }
-
-          public override Task OnConnected()
+        public string GetUserName(string value)
         {
-            
-          /*  DB db = new DB();
-            var  name = Context.RequestCookies.ToList().SingleOrDefault(x => x.Key.Equals("user")) ;
-            var indexsub = name.Value.Value.ToString().IndexOf("&Matkhau");
-            var username = Models.crypt.Encrypt.Decryptuser(name.Value.Value.ToString().Remove(indexsub, name.Value.Value.ToString().Length - indexsub).Replace("TenDangNhap=", ""));
+            var username = "";
+            var indexsub = value.IndexOf("&Matkhau");
+            var v = value.Remove(indexsub, value.Length - indexsub).Replace("TenDangNhap=", "");
+             username = Models.crypt.Encrypt.Decryptuser(v.Replace(" ","+"));
+            return username;
+        }
+        public override Task OnConnected()
+        {
+
+            DB db = new DB();
+            var name = Context.Request.Cookies.ToList().SingleOrDefault(x => x.Key.Equals("user"));
+            var username = GetUserName(name.Value.Value.ToString());
 
             if (!_connections.GetConnections(username))
             {
@@ -89,38 +96,36 @@ namespace DOANTOTNGHIEP.Signalr
             }
             var ConnectionId = Context.ConnectionId;
             var tk = db.TaiKhoans.SingleOrDefault(x => x.TenDangNhap.Equals(username));
-            if(tk != null)
+            if (tk != null)
             {
                 tk.token = ConnectionId;
                 db.SaveChanges();
 
             }
-           
+
 
             removeTokenWhenTimeover();
             var s = _connections.GetKeyConnections();
-            Clients.All.clientonline(s);*/
+            Clients.All.clientonline(s);
             return base.OnConnected();
         }
 
         public override Task OnDisconnected(bool stopCalled)
         {
-           /* var name = Context.RequestCookies.ToList().SingleOrDefault(x => x.Key.Equals("user"));
-            var indexsub = name.Value.Value.ToString().IndexOf("&Matkhau");
-            var username = Models.crypt.Encrypt.Decryptuser(name.Value.Value.ToString().Remove(indexsub, name.Value.Value.ToString().Length - indexsub).Replace("TenDangNhap=", ""));
-            
+            var name = Context.RequestCookies.ToList().SingleOrDefault(x => x.Key.Equals("user"));
+            var username = GetUserName(name.Value.Value.ToString());
+
             removeTokenWhenTimeover();
             var s = _connections.GetKeyConnections();
-            Clients.All.clientonline(s);*/
+            Clients.All.clientonline(s);
             return base.OnDisconnected(stopCalled);
         }
 
         public override Task OnReconnected()
         {
-            /*DB db = new DB();
+            DB db = new DB();
             var name = Context.RequestCookies.ToList().SingleOrDefault(x => x.Key.Equals("user"));
-            var indexsub = name.Value.Value.ToString().IndexOf("&Matkhau");
-            var username = Models.crypt.Encrypt.Decryptuser(name.Value.Value.ToString().Remove(indexsub, name.Value.Value.ToString().Length - indexsub).Replace("TenDangNhap=", ""));
+            var username = GetUserName(name.Value.Value.ToString());
 
             if (!_connections.GetConnections(username))
             {
@@ -134,7 +139,7 @@ namespace DOANTOTNGHIEP.Signalr
 
             removeTokenWhenTimeover();
             var s = _connections.GetKeyConnections();
-            Clients.All.clientonline(s);*/
+            Clients.All.clientonline(s);
             return base.OnConnected();
         }
 
@@ -148,9 +153,9 @@ namespace DOANTOTNGHIEP.Signalr
             Groups.Remove(Context.ConnectionId, groupName);
         }
 
-        public void SendMessageToGroup(string userName , string groupName, string malop , string message)
+        public void SendMessageToGroup(string userName ,string image,string name, string groupName, string malop , string message)
         {
-            Clients.Group(groupName).ReceiveMessage(userName, malop , message);
+            Clients.Group(groupName).ReceiveMessage(userName, image , name, malop , message);
         }
     }
 }

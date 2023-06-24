@@ -171,6 +171,8 @@ namespace DOANTOTNGHIEP.Controllers
             newgroup.Name = name;
             newgroup.image = imagegroupLocation;
             db.GroupChats.Add(newgroup);
+            db.SaveChanges();
+
             MemberGroup member =new MemberGroup();
             member.IDMember = user.TenDangNhap;
             member.MaGroup = newgroup.ID;
@@ -182,10 +184,20 @@ namespace DOANTOTNGHIEP.Controllers
 
         }
         [HttpPost]
-        public JsonResult AddMemberGroup(string idgroup , string username)
+        public JsonResult AddMemberGroup(string idgroup ,string email)
         {
+            
             var result = new DOANTOTNGHIEP.Modelcreate.JsonResult();
             DB db = new DB();
+            var username = "";
+            var tk =db.TaiKhoans.SingleOrDefault(x=>x.Email.ToLower().Equals(email.ToLower()));
+            if (tk == null)
+            {
+                result.result = false;
+                result.value = " User không ton tai trong lớp học";
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            username = tk.TenDangNhap;
             var checkuser = db.MemberGroups.Where(x => x.IDMember.ToString().Equals(username) && x.MaGroup.ToString().Equals(idgroup)).ToList();
             if (checkuser.Count > 0)
             {

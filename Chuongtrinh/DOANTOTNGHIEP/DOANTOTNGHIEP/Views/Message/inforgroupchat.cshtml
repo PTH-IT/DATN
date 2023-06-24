@@ -57,7 +57,8 @@
         background-color: #BDBDBD;
         padding: 5px;
         word-wrap: break-word;
-        max-width: 80%
+        word-break: break-all;
+        max-width: 100
     }
 
     @*div#nhan {
@@ -152,7 +153,7 @@
 
                   });
 
-                  mess.invoke('SendMessageToGroup', "@nguoitao", '@Model.ID', "@malop", tinnhan);
+                  mess.invoke('SendMessageToGroup', "@nguoitao","@user.HinhAnh","@user.Ho "+"@user.Ten", '@Model.ID', "@malop", tinnhan);
                   @*  mess.server.classnames("@nguoitao",'@Model.ID',"@malop");*@
 
                   $('#tinnhan').val('');
@@ -175,11 +176,11 @@
              mess.invoke('JoinGroup', "@Model.ID");
         });
 
-        mess.on('ReceiveMessage', function (sender, malop, message) {
+        mess.on('ReceiveMessage', function (sender,image,name, malop, message) {
             console.log(sender)
             const audio = new Audio("/Content/sound/receive.mp3")
             audio.play()
-                
+
             setTimeout(function () { audio.pause() }, 3000)
             if (sender == "@nguoitao"  && message != "") {
                 $('#tnm').append("<div style='text-align:right'><label class='tinnhandi'>" + message + "<label style='font-size:10px;color:#848484'>@DateTime.Now.ToString(string.Format("HH:mm "))</label></label></div>");
@@ -187,7 +188,7 @@
             }
             else if (sender != "@nguoitao"  && message != "") {
 
-                $('#tnm').append("<div style='text-align:left'><label class='tinnhanden'>" + message + "<label style='font-size:10px;color:#848484'>@DateTime.Now.ToString(string.Format("HH:mm "))</label></label></div>");
+                $('#tnm').append(`<div style="text-align: left; display: flex; align-items: flex-end; "><div><img src="` + image + `" width="30" height="30" style="border-radius:45px;"></div><div style="margin-left:5px"><label style="color: rgb(89 85 85 / 60%)">` + name + `</label><br /><label class="tinnhanden">` + message + `<label style="font-size:10px;color:#848484">@DateTime.Now.ToString(string.Format("HH:mm "))</label></label></div></div>`);
                 $('#noidung').scrollTop($('#noidung')[0].scrollHeight);
             }
 
@@ -263,13 +264,62 @@
             }
         });
     }
+    function AddMember() {
+        var email = $(".emailmember").val();
+        if (email.length == 0) {
+            $(".AlertWarning").text("Vui lòng nhập email")
+            $("#warning-alert").fadeTo(2000, 500).slideUp(500, function () {
+                $("#warning-alert").slideUp(500);
+            });
+            return
+        }
+        $.ajax({
+            url: '/Message/AddMemberGroup', type: 'post',
+                data: {
+                    idgroup: "@malop" ,
+                    email: email,
+            },
+            success: function (result) {
+                console.log(result)
+                if (!result["result"]) {
+
+                    $(".AlertWarning").text(result["value"])
+                    $("#warning-alert").fadeTo(2000, 500).slideUp(500, function () {
+                        $("#warning-alert").slideUp(500);
+                    });
+                } else {
+                    $(".emailmember").val('')
+                    $(".AlertSuccess").text(result["value"])
+                    $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+                        $("#success-alert").slideUp(500);
+                    });
+                }
+            },
+            error: function (data) {
+                location.reload()
+            }
+
+                  });
+    }
 
 </script>
 <div id="mess">
 
     <div>
         <div class="messthanhvien">
-            <img src=@Model.image width="30" height="30" style="border-radius:45px;"><label class="tennguoinhan">  @Model.Name</label>
+            <div style="display:flex">
+                <div class="header-title">
+                    <img src=@Model.image width="30" height="30" style="border-radius:45px;"><label class="tennguoinhan">  @Model.Name</label>
+                </div>
+                @if (Model.admin == nguoitao)
+                {
+                    <div class="header-buttton">
+                        <button class="glyphicon glyphicon-plus" style="font-size: 20px; background-color: transparent; border: 0px; color: black; flex: 1" data-toggle="modal" data-target="#modalAddthanhvien"></button>
+
+                    </div>
+                }
+
+            </div>
             <hr style="margin:0px;padding:0px;" />
         </div>
 
@@ -294,7 +344,17 @@
                 }
                 else
                 {
-                    <div style="text-align:left"><label class="tinnhanden">@Html.Raw(@i.TinNhan)<label style="font-size:10px;color:#848484">@tinnhan[zz].thoigiangui.Value.ToString(string.Format("HH:mm "))</label></label></div>
+        <div style="text-align: left; display: flex; align-items: flex-end; ">
+            <div>
+                <img src="@i.TaiKhoan.HinhAnh" width="30" height="30" style="border-radius:45px;">
+            </div>
+            <div style="margin-left:5px">
+                <label style="color: rgb(89 85 85 / 60%)">@i.TaiKhoan.Ho @i.TaiKhoan.Ten</label>
+                <br />
+                <label class="tinnhanden">@Html.Raw(@i.TinNhan)<label style="font-size:10px;color:#848484">@tinnhan[zz].thoigiangui.Value.ToString(string.Format("HH:mm "))</label></label>
+            </div>
+        </div>
+
                 }
                 zz++;
             }
@@ -318,5 +378,30 @@
 
 
     </div>
+    <div class="container">
 
+        <div class="modal fade" id="modalAddthanhvien" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content" style="margin-top:100px">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Thêm thành viên</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" placeholder="Nhập email" style="border-radius: 5px; outline: none; min-width: 100%;" class="form-control emailmember" />
+                        <br class="result" />
+                    </div>
+                    <div class="modal-footer">
+                        <button class="join btn btn-info btn-lg" onclick="AddMember()" style=" padding: 5px; padding-left: 15px; padding-right: 15px; color: white; border-radius: 5px; margin: 2%">Thêm</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+
+    </div>
 </div>
