@@ -56,7 +56,7 @@ func Run() {
 
 	cronjob := cron.New()
 
-	cronjob.AddFunc("@every 0h0m0s", interactor.CronJob)
+	cronjob.AddFunc("0 0 */2 * * *", interactor.CronJob)
 
 	cronjob.Start()
 	e.Logger.Fatal(e.Start(":" + config.Getconfig().Port))
