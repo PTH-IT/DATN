@@ -1,14 +1,17 @@
 package utils
 
 import (
+	"cronjob-DATN/config"
 	object "cronjob-DATN/model"
 	"fmt"
 	"io"
 	"log"
+	"math/rand"
 	"mime/multipart"
 	"os"
 	"path/filepath"
 	"strings"
+	"time"
 
 	"github.com/google/uuid"
 	"github.com/unidoc/unioffice/document"
@@ -154,7 +157,18 @@ func Clearstring(s string) string {
 
 	return s
 }
+func RandomColor() string {
+	rand.Seed(time.Now().UnixNano())
 
+	// Generate random values for Red, Green, and Blue
+	red := rand.Intn(256)
+	green := rand.Intn(256)
+	blue := rand.Intn(256)
+
+	// Format the RGB values as a hexadecimal color string
+	color := fmt.Sprintf("#%02x%02x%02x", red, green, blue)
+	return color
+}
 func HighlightWords(inputPath, outputPath string, resultcaudaovan []object.Detaildaovan) error {
 	reader, f, err := model.NewPdfReaderFromFile(inputPath, nil)
 	if err != nil {
@@ -168,6 +182,8 @@ func HighlightWords(inputPath, outputPath string, resultcaudaovan []object.Detai
 	}
 	cr := creator.New()
 	color := make(map[string]string)
+	file := make(map[string]string)
+
 	for n := 1; n <= numPages; n++ {
 		page, err := reader.GetPage(n)
 		if err != nil {
@@ -176,14 +192,26 @@ func HighlightWords(inputPath, outputPath string, resultcaudaovan []object.Detai
 		if err := cr.AddPage(page); err != nil {
 			return err
 		}
-		for i, value := range resultcaudaovan {
+		for i := 0; i < len(resultcaudaovan); i++ {
+			value := resultcaudaovan[i]
 			if value.Percent > 0 {
 				if color[value.Locationfilecompare] == "" {
-					color[value.Locationfilecompare] = "#FFFF00"
+					for true {
+						colorrandom := RandomColor()
+						if file[colorrandom] == "" {
+							color[value.Locationfilecompare] = colorrandom
+							file[colorrandom] = value.Locationfilecompare
+							break
+						}
+
+					}
 				}
 				term := Clearstring(value.Keywor2)
 				checkboxes := false
-				for _, v := range strings.Split(term, "\n\n") {
+				for i, v := range strings.Split(term, "\n") {
+					if len(v) <= 1 {
+						continue
+					}
 					term = v
 					bBoxes, err := getBoundingBoxes(page, term)
 					if err != nil {
@@ -212,18 +240,56 @@ func HighlightWords(inputPath, outputPath string, resultcaudaovan []object.Detai
 					if len(bBoxes) > 0 {
 
 						checkboxes = true
+					} else if checkboxes && i > 0 {
+						checkboxes = false
+						break
 					}
 				}
 				if i < len(resultcaudaovan)-1 && checkboxes {
 					resultcaudaovan = RemoveValueForObject(resultcaudaovan, i)
-
+					i--
 				}
 			}
 		}
 	}
+	// appnewpage
 
+	if len(color) > 0 {
+		c := creator.New()
+		cr.AddPage(c.NewPage())
+		newPage := model.NewPdfPage()
+		err = c.AddPage(newPage)
+		xlocation := 70.0
+		ylocation := 100.0
+		indexcolor := 1
+		for icolor, Vcolor := range color {
+			p := c.NewStyledParagraph()
+			p.AddExternalLink(fmt.Sprintf("[%d]      Click text view file ", indexcolor), fmt.Sprintf("%s%s", config.Getconfig().UrlFile, icolor))
+			// Change to times bold font (default is helvetica).
+			// timesBold, err := model.NewStandard14Font("Times-Bold")
+			// if err != nil {
+			// 	panic(err)
+			// }
+			lx := 70.0
+			ly := ylocation
+			wx := 300.0
+			hy := 15.0
+			p.SetPos(xlocation, ylocation)
+			rect := cr.NewRectangle(lx, ly, wx, hy)
+			rect.SetFillColor(creator.ColorRGBFromHex(Vcolor))
+			rect.SetBorderWidth(0)
+			rect.SetFillOpacity(0.5)
+			if err := cr.Draw(rect); err != nil {
+				return nil
+			}
+			_ = cr.Draw(p)
+
+			indexcolor++
+			ylocation += 30.0
+		}
+
+	}
 	cr.SetOutlineTree(reader.GetOutlineTree())
-
 	if err := cr.WriteToFile(outputPath); err != nil {
 		return fmt.Errorf("failed to write the output file %s", outputPath)
 	}

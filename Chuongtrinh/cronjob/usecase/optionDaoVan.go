@@ -151,6 +151,9 @@ func (i *Interactor) KiemtradaovanALL(mabaitap int64) bool {
 		for _, thongtincankiemtra := range thongtinbaitap {
 			var checkdaovan []model.Daovan
 			for _, bailam := range library {
+				if thongtincankiemtra.Library.MaNhom != 0 && thongtincankiemtra.Library.MaNhom != bailam.MaNhom {
+					continue
+				}
 				if thongtincankiemtra.Library.NgayUpdate > bailam.NgayUpdate && thongtincankiemtra.NguoiNop != bailam.NguoiAdd {
 
 					kiemtradaovan := i.Comparetwofilepdf(*thongtincankiemtra, bailam.Noidung, bailam.Location)

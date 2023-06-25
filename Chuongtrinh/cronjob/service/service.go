@@ -41,7 +41,6 @@ func Run() {
 	plagiarismRepository := Database.NewPlagiarism()
 	libraryRepository := Database.NewLibraryRepository()
 	interactor := usecase.NewInteractor(db, taikhoanRepository, thongtinbaitaptuluanRepository, plagiarismRepository, documentRepository, libraryRepository)
-	interactor.Kiemtradaovanbaitap(2, 1)
 	// interactor.KmeansForArrayData(3)
 	// interactor.Gomcumdulieu()
 	e := echo.New()

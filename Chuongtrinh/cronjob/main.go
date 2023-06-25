@@ -9,7 +9,7 @@ import (
 	licensepdf "github.com/unidoc/unipdf/v3/common/license"
 )
 
-var licenseKey = `026f1a04b7ab0bdf29ca672f74fe0fd3f64e57acdf0c5f0fa48748d91812a9ec`
+var licenseKey = `3bc8aa0d8552b48ece6fdc75f2ba60ee4cb27750aeee19675b0f4d3b3f0adb50`
 
 func main() {
 

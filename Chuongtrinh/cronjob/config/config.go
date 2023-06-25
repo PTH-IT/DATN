@@ -11,6 +11,7 @@ type AppConfig struct {
 	Env       string          `json:"env"`
 	Port      string          `json:"port"`
 	SqlServer SqlServerConfig `json:"mysql"`
+	UrlFile   string          `json:"UrlFile"`
 }
 type SqlServerConfig struct {
 	Host string `json:"host"`
@@ -27,6 +28,9 @@ func Getconfig() AppConfig {
 	}
 	if appConfig.Port == "" {
 		appConfig.Port = os.Getenv("PORT")
+	}
+	if appConfig.UrlFile == "" {
+		appConfig.UrlFile = os.Getenv("URLGETFILE")
 	}
 	if appConfig.SqlServer.User == "" {
 		appConfig.SqlServer.User = os.Getenv("DB_USER")

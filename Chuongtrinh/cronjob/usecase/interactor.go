@@ -127,6 +127,8 @@ type jsonUploadFile struct {
 }
 
 func (i *Interactor) Upload(context echo.Context) error {
+	i.Kiemtradaovanbaitap(2, 1)
+
 	file, err := context.FormFile("file")
 	if err != nil {
 		return context.JSON(http.StatusBadRequest, err)
