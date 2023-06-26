@@ -194,7 +194,7 @@ func HighlightWords(inputPath, outputPath string, resultcaudaovan []object.Detai
 		}
 		for i := 0; i < len(resultcaudaovan); i++ {
 			value := resultcaudaovan[i]
-			if value.Percent > 0 {
+			if value.Percent > 30 {
 				if color[value.Locationfilecompare] == "" {
 					for true {
 						colorrandom := RandomColor()
@@ -206,7 +206,7 @@ func HighlightWords(inputPath, outputPath string, resultcaudaovan []object.Detai
 
 					}
 				}
-				term := Clearstring(value.Keywor2)
+				term := Clearstring(value.Keywor1)
 				checkboxes := false
 				for i, v := range strings.Split(term, "\n") {
 					if len(v) <= 1 {

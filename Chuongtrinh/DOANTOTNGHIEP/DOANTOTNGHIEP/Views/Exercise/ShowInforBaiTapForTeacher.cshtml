@@ -308,7 +308,7 @@
                                             var dbfile = i.TTBaiTapTls.Where(x => x.MaBaiNop.Equals(i.TTBaiTapTls.ToArray()[0].MaBaiNop)).ToList();
                                             foreach (var ifile in dbfile)
                                             {
-                                                var dv = ifile.Plagiarism.Where(x => x.Mafile.Equals(ifile.ID)).OrderBy(y => y.Percents).ToList();
+                                                var dv = ifile.Plagiarism.Where(x => x.Mafile.Equals(ifile.ID)).OrderByDescending(y => y.Percents).ToList();
                                                 foreach (var daovan in dv)
                                                 {
                                                     <label>@String.Format("{0:0.00}", @daovan.Percents)</label>

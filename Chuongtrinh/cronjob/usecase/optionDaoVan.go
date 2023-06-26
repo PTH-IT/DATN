@@ -63,7 +63,11 @@ func (i *Interactor) Kiemtradaovanbaitap(mabaitap int64, malop int64) bool {
 			if len(resultcaudaovan) > 0 {
 				plagiarism1 := model.Plagiarism{}
 				plagiarism1.Mafile = thongtincankiemtra.ID
-				plagiarism1.Percents = SumDetaildaovan(resultcaudaovan) / float64(len(resultcaudaovan))
+				Percents := SumDetaildaovan(resultcaudaovan) / float64(len(resultcaudaovan))
+				if Percents > 100 {
+					Percents = 100
+				}
+				plagiarism1.Percents = Percents
 				plagiarism1.Location = Updatepdfdaovan(thongtincankiemtra.Library.Location, strings.ReplaceAll(thongtincankiemtra.Library.Location, ".pdf", "-baitap.pdf"), resultcaudaovan, "bài Tập")
 				plagiarism1.Loaikiemtra = "Baitap"
 				i.plagiarismRepository.Save(plagiarism1)
@@ -121,8 +125,12 @@ func (i *Interactor) Kiemtradaovanlophoc(mabaitap int64, malop int64) bool {
 			if len(resultcaudaovan) > 0 {
 				plagiarism1 := model.Plagiarism{}
 				plagiarism1.Mafile = thongtincankiemtra.ID
-				plagiarism1.Percents = SumDetaildaovan(resultcaudaovan) / float64(len(resultcaudaovan))
-				plagiarism1.Location = Updatepdfdaovan(thongtincankiemtra.Library.Location, strings.ReplaceAll(thongtincankiemtra.Library.Location, ".pdf", "-baitap.pdf"), resultcaudaovan, "bài Tập")
+				Percents := SumDetaildaovan(resultcaudaovan) / float64(len(resultcaudaovan))
+				if Percents > 100 {
+					Percents = 100
+				}
+				plagiarism1.Percents = Percents
+				plagiarism1.Location = Updatepdfdaovan(thongtincankiemtra.Library.Location, strings.ReplaceAll(thongtincankiemtra.Library.Location, ".pdf", "-lophoc.pdf"), resultcaudaovan, "lớp học")
 				plagiarism1.Loaikiemtra = "Lophoc"
 				i.plagiarismRepository.Save(plagiarism1)
 
@@ -133,7 +141,7 @@ func (i *Interactor) Kiemtradaovanlophoc(mabaitap int64, malop int64) bool {
 				plagiarism1 := model.Plagiarism{}
 				plagiarism1.Mafile = thongtincankiemtra.ID
 				plagiarism1.Percents = 0
-				plagiarism1.Location = Updatepdfdaovan(thongtincankiemtra.Library.Location, strings.ReplaceAll(thongtincankiemtra.Library.Location, ".pdf", "-baitap.pdf"), resultcaudaovan, "bài Tập")
+				plagiarism1.Location = Updatepdfdaovan(thongtincankiemtra.Library.Location, strings.ReplaceAll(thongtincankiemtra.Library.Location, ".pdf", "-lophoc.pdf"), resultcaudaovan, "lớp học")
 				plagiarism1.Loaikiemtra = "Lophoc"
 				i.plagiarismRepository.Save(plagiarism1)
 			}
@@ -182,8 +190,12 @@ func (i *Interactor) KiemtradaovanALL(mabaitap int64) bool {
 			if len(resultcaudaovan) > 0 {
 				plagiarism1 := model.Plagiarism{}
 				plagiarism1.Mafile = thongtincankiemtra.ID
-				plagiarism1.Percents = SumDetaildaovan(resultcaudaovan) / float64(len(resultcaudaovan))
-				plagiarism1.Location = Updatepdfdaovan(thongtincankiemtra.Library.Location, strings.ReplaceAll(thongtincankiemtra.Library.Location, ".pdf", "-baitap.pdf"), resultcaudaovan, "bài Tập")
+				Percents := SumDetaildaovan(resultcaudaovan) / float64(len(resultcaudaovan))
+				if Percents > 100 {
+					Percents = 100
+				}
+				plagiarism1.Percents = Percents
+				plagiarism1.Location = Updatepdfdaovan(thongtincankiemtra.Library.Location, strings.ReplaceAll(thongtincankiemtra.Library.Location, ".pdf", "-all.pdf"), resultcaudaovan, "all")
 				plagiarism1.Loaikiemtra = "all"
 				i.plagiarismRepository.Save(plagiarism1)
 
@@ -194,7 +206,7 @@ func (i *Interactor) KiemtradaovanALL(mabaitap int64) bool {
 				plagiarism1 := model.Plagiarism{}
 				plagiarism1.Mafile = thongtincankiemtra.ID
 				plagiarism1.Percents = 0
-				plagiarism1.Location = Updatepdfdaovan(thongtincankiemtra.Library.Location, strings.ReplaceAll(thongtincankiemtra.Library.Location, ".pdf", "-baitap.pdf"), resultcaudaovan, "bài Tập")
+				plagiarism1.Location = Updatepdfdaovan(thongtincankiemtra.Library.Location, strings.ReplaceAll(thongtincankiemtra.Library.Location, ".pdf", "-all.pdf"), resultcaudaovan, "all")
 				plagiarism1.Loaikiemtra = "all"
 				i.plagiarismRepository.Save(plagiarism1)
 			}
