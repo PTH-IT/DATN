@@ -1,42 +1,76 @@
-﻿@model DOANTOTNGHIEP.Models.Plagiarism
+﻿@model List<DOANTOTNGHIEP.Models.Plagiarism>
 @{
     Layout = "~/Views/Shared/Layoutclass.cshtml";
 }
 <script>
     $(function () {
         $('.selectperson').change(function () {
-            $(".filesosanh").attr('src', $(this).find('option:selected').data('file1') + "#toolbar=0&navpanes=0&scrollbar=0");
+            link = "http://localhost:1909/public/file?location=" + $(this).find('option:selected').data('file1')
+            $(".filesosanh").attr('src', link + "#toolbar=0&navpanes=0&scrollbar=0");
+            percent = $(this).find('option:selected').data('file2')
+            $(".percent_dv").text("Phần trăm đạo văn: " + percent)
         });
     });
-        
-       
+
+
 </script>
 <style type="text/css">
     .headbaitap {
         background-color: white !important;
     }
 </style>
-@{
-    if (Model != null)
+@if (Model.Count > 0)
+{
+    <select style="margin:10px" class="form-control selectperson">
+
+        @foreach (var p in Model)
+        {
+
+            if (p.Loaikiemtra == "All")
+            {
+                <option data-file1="@p.Location"  data-file2="@p.Percents">Tất cả</option>
+            }
+            else if (p.Loaikiemtra == "Lophoc")
+            {
+                <option data-file1="@p.Location"  data-file2="@p.Percents">Lớp học</option>
+            }
+            else
+            {
+                <option data-file1="@p.Location"  data-file2="@p.Percents">Bài tập</option>
+            }
+
+
+        }
+
+    </select>
+
+}
+@if (Model.Count > 0)
+{
+    <h1 class="percent_dv">Phần trăm đạo văn: @Model.ToArray()[0].Percents</h1>
+}
+
+    @if (Model.Count > 0)
     {
-    <div style="margin-top:20px">
+
+        <div style="margin-top:20px">
 
 
-        
-        <div style="padding:10px">
-            
-            <div style=" padding: 0px ">
 
-                <iframe src='http://localhost:1909/public/file?location=@Model.Location'
-                        frameBorder="0"
-                        scrolling="auto"
-                        height="95%"
-                        width="100%" class="filesosanh"></iframe>
+            <div style="padding:10px">
+
+                <div style=" padding: 0px ">
+
+                    <iframe src='http://localhost:1909/public/file?location=@Model.ToArray()[0].Location'
+                            frameBorder="0"
+                            scrolling="auto"
+                            height="85%"
+                            width="100%" class="filesosanh"></iframe>
+
+                </div>
 
             </div>
-
         </div>
-    </div>
+
     }
-}
 

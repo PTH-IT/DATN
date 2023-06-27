@@ -1327,7 +1327,7 @@ namespace DOANTOTNGHIEP.Controllers
                 kiemtra.Add(kt);
             }
             ViewBag.user = user;
-            var result = kiemtra[0].daovan.ToArray()[0];
+            var result = kiemtra[0].daovan;
             return View(result);
         }
         /*[HttpPost]*/
