@@ -57,6 +57,7 @@ func Run() {
 	cronjob := cron.New()
 
 	cronjob.AddFunc("0 0 */2 * * *", interactor.CronJob)
+	cronjob.AddFunc("0 0 * * * *", interactor.CronJobDaoVan)
 
 	cronjob.Start()
 	e.Logger.Fatal(e.Start(":" + config.Getconfig().Port))

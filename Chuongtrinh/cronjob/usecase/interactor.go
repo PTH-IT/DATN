@@ -88,7 +88,15 @@ func (i *Interactor) Gomcumdulieu() {
 }
 func (i *Interactor) CronJob() {
 
-	// i.Gomcumdulieu()
+	i.Gomcumdulieu()
+}
+func (i *Interactor) CronJobDaoVan() {
+	baitap := i.thongtinbaitaptuluanRepository.GetthongtinbaitapForCronjob()
+	for _, j := range baitap {
+		i.Kiemtradaovanbaitap(j.BaitapTL.MaBaiTap, j.BaitapTL.BaiTap.MaLop)
+		i.Kiemtradaovanlophoc(j.BaitapTL.MaBaiTap, j.BaitapTL.BaiTap.MaLop)
+		i.KiemtradaovanALL(int64(j.BaitapTL.MaBaiTap))
+	}
 }
 
 type jsonUploadFile struct {

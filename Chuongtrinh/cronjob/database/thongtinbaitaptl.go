@@ -66,3 +66,16 @@ func (r thongtinbaitaptlRepository) GetthongtinbaitaptuluanchoAll() []*model.Tho
 	return thongtinbaitap
 
 }
+func (r thongtinbaitaptlRepository) GetthongtinbaitapForCronjob() []*model.ThongTinBaiTapTL {
+	var thongtinbaitap []*model.ThongTinBaiTapTL
+	db := PreloadTTBTTL(DB)
+
+	db.Raw("select * from TTBaiTapTL where TTBaiTapTL.MaBaiNop in (  select ID from BaiTapTL where BaiTapTL.MaBaiTap in ( SELECT BaiTap.ID from BaiTap where ThoiGianKetThuc <= CURRENT_TIMESTAMP  and LoaiBaiTap = 'TuLuan' ) )").Find(&thongtinbaitap)
+
+	if len(thongtinbaitap) == 0 {
+		fmt.Println("thongtinbaitap null")
+		return nil
+	}
+	return thongtinbaitap
+
+}
