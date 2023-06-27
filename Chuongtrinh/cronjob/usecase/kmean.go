@@ -6,36 +6,71 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+	"unicode"
 
-	"github.com/muesli/clusters"
+	cls "github.com/muesli/clusters"
 	"github.com/muesli/kmeans"
+	"golang.org/x/text/runes"
+	"golang.org/x/text/transform"
+	"golang.org/x/text/unicode/norm"
 )
 
 func processText(text string) []string {
 	words := strings.Fields(text)
 	return words
 }
+func removeVietnameseDiacritics(input string) string {
+	// Chuẩn hóa chuỗi Unicode NFC
+	t := transform.Chain(norm.NFD, runes.Remove(runes.In(unicode.Mn)), norm.NFC)
+	result, _, _ := transform.String(t, input)
+	return result
+}
 
-func (i *Interactor) KmeansForModel(file []*model.Library, k int) (map[int][]model.Library, map[int]clusters.Coordinates) {
+func (i *Interactor) KmeansForModel(file []*model.Library, k int) (map[int][]model.Library, map[int]cls.Coordinates) {
 
 	// var features [][]float64
-	var d clusters.Observations
-	vectordata := make(map[string]clusters.Observations, len(file))
+	var d cls.Observations
+	vectordata := make(map[string]cls.Observations, len(file))
 	for i, text := range file {
-		words := processText(text.Noidung)
+		sentence := strings.Split(Clearstring(text.Noidung), ". ")
+		var words []string
+		for _, vsentence := range sentence {
+			if len(vsentence) == 0 {
+				continue
+			}
+			words = append(words, processText(vsentence)...)
+			if vsentence[len(vsentence)-1] != '.' {
+				words = append(words, ".")
+			}
+		}
+
 		for _, word := range words {
 
 			value := 0
+			word := removeVietnameseDiacritics(word)
 			for _, y := range []byte(strings.ToLower(word)) {
 				value += int(y)
 			}
-			x := float64(len(word))
-			y := float64(value) / (float64(len(word)) * 100)
-			d = append(d, clusters.Coordinates{
+			var x float64
+			var y float64
+			if word == "." {
+				x = 0.0
+				y = 0.0
+				vectordata[strconv.Itoa(i)] = append(vectordata[strconv.Itoa(i)], cls.Coordinates{
+					x,
+					y,
+				})
+				continue
+			} else {
+				x = float64(len(word))
+				y = float64(value) / (float64(len(word)) * 100)
+			}
+
+			d = append(d, cls.Coordinates{
 				x,
 				y,
 			})
-			vectordata[strconv.Itoa(i)] = append(vectordata[strconv.Itoa(i)], clusters.Coordinates{
+			vectordata[strconv.Itoa(i)] = append(vectordata[strconv.Itoa(i)], cls.Coordinates{
 				x,
 				y,
 			})
@@ -56,18 +91,23 @@ func (i *Interactor) KmeansForModel(file []*model.Library, k int) (map[int][]mod
 		fmt.Printf("Expected %d clusters, got: %d\n", k, len(group))
 	}
 	kmeansResult := map[string][]int{}
-	center := make(map[int]clusters.Coordinates)
-	for i, cluster := range group {
-		center[i] = cluster.Center
-		for _, index := range cluster.Observations {
-			for z, data := range vectordata {
-				for _, d := range data {
-					if index.Distance(d.Coordinates()) == 0 {
-						kmeansResult[z] = append(kmeansResult[z], i+1)
-					}
-				}
-
+	center := make(map[int]cls.Coordinates)
+	for z, data := range vectordata {
+		for _, d := range data {
+			if d.Distance(cls.Coordinates{
+				0.0,
+				0.0,
+			}) == 0 {
+				kmeansResult[z] = append(kmeansResult[z], 0)
+				continue
 			}
+			var cls []float64
+			for i, cluster := range group {
+				cls = append(cls, cluster.Center.Distance(d.Coordinates()))
+				center[i+1] = cluster.Center
+			}
+			kmeansResult[z] = append(kmeansResult[z], findMaxIndex(cls)+1)
+
 		}
 
 	}
@@ -90,6 +130,23 @@ func (i *Interactor) KmeansForModel(file []*model.Library, k int) (map[int][]mod
 	return result, center
 
 }
+func findMaxIndex(slice []float64) int {
+	if len(slice) == 0 {
+		return -1 // Trường hợp slice rỗng
+	}
+
+	maxIndex := 0
+	maxValue := slice[0]
+
+	for i, value := range slice {
+		if value > maxValue {
+			maxIndex = i
+			maxValue = value
+		}
+	}
+
+	return maxIndex
+}
 func (i *Interactor) KmeansForArrayData(k int) {
 	datas := []string{
 		"C (ngôn ngữ lập trình) – Wikipedia tiếng Việt.",
@@ -104,8 +161,8 @@ func (i *Interactor) KmeansForArrayData(k int) {
 	}
 
 	// var features [][]float64
-	var d clusters.Observations
-	vectordata := make(map[string]clusters.Observations, len(datas))
+	var d cls.Observations
+	vectordata := make(map[string]cls.Observations, len(datas))
 	for i, text := range datas {
 		words := processText(text)
 		for _, word := range words {
@@ -116,11 +173,11 @@ func (i *Interactor) KmeansForArrayData(k int) {
 			}
 			x := float64(len(word))
 			y := float64(value) / (float64(len(word)) * 100)
-			d = append(d, clusters.Coordinates{
+			d = append(d, cls.Coordinates{
 				x,
 				y,
 			})
-			vectordata[strconv.Itoa(i)] = append(vectordata[strconv.Itoa(i)], clusters.Coordinates{
+			vectordata[strconv.Itoa(i)] = append(vectordata[strconv.Itoa(i)], cls.Coordinates{
 				x,
 				y,
 			})
@@ -143,17 +200,23 @@ func (i *Interactor) KmeansForArrayData(k int) {
 	}
 	kmeansResult := map[string][]int{}
 	center := make(map[int]interface{})
-	for i, cluster := range clusters {
-		center[i] = map[string]float64{"x": cluster.Center[0], "y": cluster.Center[1]}
-		for _, index := range cluster.Observations {
-			for z, data := range vectordata {
-				for _, d := range data {
-					if index.Distance(d.Coordinates()) == 0 {
-						kmeansResult[z] = append(kmeansResult[z], i+1)
-					}
-				}
 
+	for z, data := range vectordata {
+		for _, d := range data {
+			if d.Distance(cls.Coordinates{
+				0.0,
+				0.0,
+			}) == 0 {
+				kmeansResult[z] = append(kmeansResult[z], 0)
+				continue
 			}
+			var cls []float64
+			for i, cluster := range clusters {
+				center[i] = map[string]float64{"x": cluster.Center[0], "y": cluster.Center[1]}
+				cls = append(cls, cluster.Center.Distance(d.Coordinates()))
+			}
+			kmeansResult[z] = append(kmeansResult[z], findMaxIndex(cls)+1)
+
 		}
 
 	}
@@ -182,24 +245,38 @@ func findMostFrequentNumber(numbers map[string][]int) map[int]int {
 
 	// Tìm số xuất hiện nhiều nhất cho từng key
 	for key, nums := range numbers {
+		frequencys := make(map[int]int)
 		frequency := make(map[int]int)
-
 		for _, num := range nums {
 			frequency[num]++
+			if num <= 0 {
+				maxCount := 0
+				mostFrequentNumber := 0
+
+				for num, count := range frequency {
+					if count > maxCount {
+						maxCount = count
+						mostFrequentNumber = num
+					}
+				}
+				frequencys[mostFrequentNumber]++
+				frequency = make(map[int]int)
+			}
+
 		}
 
 		maxCount := 0
-		mostFrequentNumber := 0
+		mostFrequentsNumber := 0
 
-		for num, count := range frequency {
+		for num, count := range frequencys {
 			if count > maxCount {
 				maxCount = count
-				mostFrequentNumber = num
+				mostFrequentsNumber = num
 			}
 		}
 
 		keyNumer, _ := strconv.Atoi(key)
-		mostFrequent[keyNumer] = mostFrequentNumber
+		mostFrequent[keyNumer] = mostFrequentsNumber
 	}
 
 	return mostFrequent

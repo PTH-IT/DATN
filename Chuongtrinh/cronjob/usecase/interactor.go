@@ -9,7 +9,6 @@ import (
 	"strconv"
 
 	"github.com/labstack/echo/v4"
-	"github.com/muesli/clusters"
 	"gorm.io/gorm"
 )
 
@@ -54,51 +53,22 @@ func (i *Interactor) Gomcumdulieu() {
 		if cumdulieu == nil {
 			return
 		}
+		numbercluter := 0
 		for index, v := range cumdulieu {
+			numbercluter++
 			if len(v) == 0 {
 				continue
 			}
 			s := model.Chudetailieu{
-				Chude: fmt.Sprintf("cluster %d", index),
+				Chude: fmt.Sprintf("cụm %d", numbercluter),
+				X:     center[index][0],
+				Y:     center[index][1],
 			}
 			id := -1
-			maxValue := float64(0)
-			indexchudeForupdate := -1
-			for indexchude, vchudetailieu := range chudetailieu {
-				if vchudetailieu.X == 0 {
-					continue
-				}
-				valuecenter := clusters.Coordinates{
-					vchudetailieu.X,
-					vchudetailieu.Y,
-				}
-				if center[index].Distance(valuecenter.Coordinates()) <= maxValue {
-					maxValue = center[index].Distance(valuecenter.Coordinates())
-					indexchudeForupdate = indexchude
-				}
-			}
-			if indexchudeForupdate == -1 && len(chudetailieu) > 0 {
 
-				index1 := 0
-				if len(cumdulieu) != 1 {
-					index1 = index - 1
-				}
-				s = model.Chudetailieu{
-					ID:    chudetailieu[index1].ID,
-					Chude: chudetailieu[index1].Chude,
-					X:     center[index][0],
-					Y:     center[index][1],
-				}
+			if len(chudetailieu) > 0 {
+				s.ID = chudetailieu[numbercluter-1].ID
 				id = 1
-			} else if indexchudeForupdate != -1 {
-				s = model.Chudetailieu{
-					ID:    chudetailieu[indexchudeForupdate].ID,
-					Chude: chudetailieu[indexchudeForupdate].Chude,
-					X:     chudetailieu[indexchudeForupdate].X,
-					Y:     chudetailieu[indexchudeForupdate].Y,
-				}
-				id = 1
-
 			}
 
 			chude := i.libraryRepository.SaveCluster(s, int64(id))

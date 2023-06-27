@@ -42,7 +42,7 @@ func Run() {
 	libraryRepository := Database.NewLibraryRepository()
 	interactor := usecase.NewInteractor(db, taikhoanRepository, thongtinbaitaptuluanRepository, plagiarismRepository, documentRepository, libraryRepository)
 	// interactor.KmeansForArrayData(3)
-	// interactor.Gomcumdulieu()
+	interactor.Gomcumdulieu()
 	e := echo.New()
 	private := e.Group("/api")
 	private.POST("/upload", interactor.Upload)
